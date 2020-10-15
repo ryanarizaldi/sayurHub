@@ -1,0 +1,36 @@
+.Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 67.37px;
+}
+
+.Logo img {
+    width: 163.21px;
+    height: 78.87px;
+}
+
+.Row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 34.48px;
+}
+
+.Image {
+    /* margin-left: 92px; */
+    margin-right: 168.36px;
+}
+.Image img {
+    width: 570.64px;
+    height: 570.64px;
+}
+
+.FormLogin {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    width: 469px;
+    height: 662.54px;
+}
+

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from './pages/Login';
+import Login from './pages/LoginPage';
 import Register from './pages/Register';
 import Footer from "./components/footer/footer";
 import "./App.css";
@@ -16,6 +16,7 @@ function App() {
           <Register />
         </Route>
       </Switch>
+      {/* <Footer /> */}
     </Router>
   );
 }
