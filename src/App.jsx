@@ -4,9 +4,12 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Footer from "./components/footer/footer";
 import "./App.css";
+import Nav from "./components/navbar/Navbar";
+
 
 function App() {
   return (
+    <div>
     <Router>
       <Switch>
         <Route path="/login">
@@ -17,6 +20,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+    </div>
   );
 }
 

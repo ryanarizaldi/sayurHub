@@ -1,0 +1,24 @@
+.Nav {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.Form {
+    width: 40%;
+}
+
+.Button {
+    
+    margin-left:20%;
+    margin-right: 5%;
+    width:20%;
+    border-color: #367874;
+    background-color: #367874;
+}
+
+.Login {
+    
+    width: 20%;
+    color: #367874;
+}
