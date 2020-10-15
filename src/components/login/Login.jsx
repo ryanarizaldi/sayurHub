@@ -11,24 +11,43 @@ export default function Login() {
                 <img src={logo}></img>
             </div>
 
-            <div  className={styles.Row}>
+            <div className={styles.Row}>
+                
                 <div className={styles.Image}>
                     <img src={shoping}></img>
                 </div>
 
                 <div className={styles.FormLogin}>
-                    <h3>Sign Up</h3>
-                    
-                            <label>Email</label>
-                            <input></input>
-                            <label>Password</label>
-                            <input></input>
-                            <button>SIGN IN</button>
-                   
-                        <p>Don't have an Account? <a>Sign Up</a></p>
+                    <h4>Signup</h4>
+                    <form>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="enter your email"></input>
+                        <label for="Password">Password</label>
+                        <input type="Password" name="Password" placeholder="enter your Password"></input>
+                        <button type="submit">Sign In</button>
+                        <p>Dont have an account? <a href="#">Sign Up</a></p>
+                    </form>
+                </div>
+            </div>
+
+            {/* <div  className={styles.Row}>
+                <div className={styles.Image}>
+                    <img src={shoping}></img>
                 </div>
 
-            </div>
+                <div className={styles.FormLogin}>
+                    <h4>Sign Up</h4>
+                    <form >
+                        <label for="email">Email</label>
+                        <input type="email" name="email"></input>
+                        <label for="email">Password</label>
+                        <input type="password" name="password"></input>
+                        <button type="submit">SIGN IN</button>
+                   </form> 
+                    <p>Don't have an Account? <a>Sign Up</a></p>
+                </div>
+
+            </div> */}
         </div>
     )
 }
