@@ -1,0 +1,189 @@
+.Container {
+    background: white;
+    margin: 136px 102px 0 103px;
+    padding: 38px;
+    border-radius: 8px 8px 0 0;
+}
+
+.CardDetail {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    background: white;
+}
+
+.Content {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    margin-left: 24px;
+}
+
+/* .Contenet button {
+    padding-top: 42px;
+    background: #000;
+} */
+
+.Content h3 {
+    background: white;
+    font-size: 34px;
+    line-height: 41px;  
+    letter-spacing: 0.25px;
+    font-weight: 700;
+}
+
+.Rate div{
+    background: white;
+    padding-bottom: 30px;
+}
+
+.Rate span {
+    background: white;
+    margin-right: 12px;
+}
+
+.Price {
+    width: 667px;
+    height: 106px;
+    background: #EDEDED;
+    border-radius: 8px;
+    padding: 16px 30px;
+    margin-bottom: 25px;
+}
+
+.Price span {
+    background: #EDEDED;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    text-decoration-line: line-through;
+    color: #A2A2A2;
+}
+
+.Price h5 {
+    font-size: 34px;
+    line-height: 41px;
+    letter-spacing: 0.25px;
+    color: #DE884A;
+    background: #EDEDED;
+}
+
+.Quantity {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    margin-bottom: 35px;
+}
+
+.Quantity p {
+    background: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.44px;
+    color: #000000;
+    margin-right: 21px;
+}
+
+.Quantity span {
+    background: #FFFFFF;
+    border: 1px solid #878787;
+    box-sizing: border-box;
+    padding: 0 28px;
+    font-size: 16px;
+}
+
+.Quantity button {
+    padding: 0 14px;
+    background: white;
+    border: 1px solid #878787;
+    outline: none;
+    cursor: pointer;
+}
+
+.Quantity p + button {
+   border-radius: 8px 0 0 8px;
+}
+
+.Quantity button:nth-child(4) {
+    border-radius: 0 8px 8px 0;
+}
+
+.Seller {
+    display: flex;
+    flex-direction: row;
+    background: white;
+}
+
+.Seller img {
+    background: white;
+    padding-right: 20px;
+}
+
+.SellerInfo {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    
+}
+
+.SellerInfo p {
+    background: white;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    color: #000000;
+    margin-bottom: 16px;
+}
+
+.SellerInfo button {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: #DE884A;
+    border: 1px solid #DE884A;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 6px 11px;
+    cursor: pointer;
+}
+
+.SellerInfo button:hover {
+    color: white;
+    background: #DE884A;
+}
+
+.AddToCart {
+    margin-top: 42px;
+    background: white;
+}
+
+.AddToCart button {
+    width: 297.91px;
+    height: 51px;
+    border: none;
+    background: #BBE4D8;
+    border-radius: 5px;
+    outline: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: #367874;
+    cursor: pointer;
+}
+
+.AddToCart button:nth-child(1) {
+    margin-right: 73.09px;
+}
+
+.AddToCart button:hover {
+    background: #367874;
+    color: white;
+}
