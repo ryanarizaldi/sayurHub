@@ -1,8 +1,10 @@
+
+
 .Logo {
     display: flex;
     /* align-items: center; */
     justify-content: center;
-    margin-top: 67.37px;
+    padding-top: 67.37px;
 }
 
 .Logo img {

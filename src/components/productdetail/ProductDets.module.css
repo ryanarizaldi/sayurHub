@@ -1,22 +1,22 @@
 .Container {
     background: white;
-    margin: 136px 102px 0 103px;
+    margin: 0 102px 0 103px;
     padding: 38px;
     border-radius: 8px 8px 0 0;
-}
+}   
 
 .CardDetail {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: row;
-    background: white;
+    /* background: white; */
 }
 
 .Content {
     display: flex;
     flex-direction: column;
-    background: white;
+    /* background: white; */
     margin-left: 24px;
 }
 
@@ -26,7 +26,7 @@
 } */
 
 .Content h3 {
-    background: white;
+    /* background: white; */
     font-size: 34px;
     line-height: 41px;  
     letter-spacing: 0.25px;
@@ -34,12 +34,12 @@
 }
 
 .Rate div{
-    background: white;
+    /* background: white; */
     padding-bottom: 30px;
 }
 
 .Rate span {
-    background: white;
+    /* background: white; */
     margin-right: 12px;
 }
 
@@ -73,12 +73,12 @@
 .Quantity {
     display: flex;
     flex-direction: row;
-    background: white;
+    /* background: white; */
     margin-bottom: 35px;
 }
 
 .Quantity p {
-    background: white;
+    /* background: white; */
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -97,7 +97,7 @@
 
 .Quantity button {
     padding: 0 14px;
-    background: white;
+    /* background: white; */
     border: 1px solid #878787;
     outline: none;
     cursor: pointer;
@@ -114,23 +114,23 @@
 .Seller {
     display: flex;
     flex-direction: row;
-    background: white;
+    /* background: white; */
 }
 
 .Seller img {
-    background: white;
+    /* background: white; */
     padding-right: 20px;
 }
 
 .SellerInfo {
     display: flex;
     flex-direction: column;
-    background: white;
+    /* background: white; */
     
 }
 
 .SellerInfo p {
-    background: white;
+    /* background: white; */
     font-weight: 500;
     font-size: 20px;
     line-height: 28px;
@@ -160,7 +160,7 @@
 
 .AddToCart {
     margin-top: 42px;
-    background: white;
+    /* background: white; */
 }
 
 .AddToCart button {

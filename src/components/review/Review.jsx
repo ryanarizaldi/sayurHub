@@ -16,7 +16,7 @@ export default function Review() {
                         <ReactStars value={5} edit={false} size={36}/>
                     </div>
                     <div className={styles.Comment}>
-                        I have never taste something so delicious like this before!
+                        <p>I have never taste something so delicious like this before!</p>
                     </div>
                 </div>
             </div>

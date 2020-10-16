@@ -1,9 +1,10 @@
 .Review {
     border-top: 1px solid #C5C5C5;
-    background: white;
+    background: #F7F6ED; 
     margin: 0 102px 68px 103px;
     padding: 38px;
     border-radius: 0 0 8px 8px;
+    background: white;
 }
 
 .Review h4 {
@@ -27,6 +28,8 @@
 .UserReview img {
     padding-right: 26px;
     background: white;
+    width: 74px;
+    height: 74px;
 }
 
 /* .UserReview p {
@@ -66,12 +69,16 @@
 
 .Comment {
     width: 1061px;
-    height: 63px;
-    background-color: #EDEDED;
+    /* height: 63px; */
+    background: #EDEDED !important;
     border-radius: 8px;
     padding: 20px 27px;
-    border: 1px solid blacks;
+    /* border: 1px solid black; */
 }
+
+/* .Comment p {
+    background: #EDEDED;
+} */
 
 
 
