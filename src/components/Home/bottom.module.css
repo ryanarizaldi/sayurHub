@@ -1,0 +1,81 @@
+.Container{
+	background: #F7F6ED;
+	height: 350px;
+	padding-top: 24px;
+}
+
+.Background{
+	border-radius: 8px;
+	background: radial-gradient(#E4902E, #C76B3B);
+	width: 1251px;
+	height: 208.5px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.Background img{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+.Background h1{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 48px;
+	line-height: 118.3%;
+	letter-spacing: -0.025em;
+	color: #FFFFFF;
+	margin: 0 0 22px 0;
+}
+
+.Background button{
+	box-sizing: border-box;
+	padding: 10px 20px;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.75px;
+	text-transform: uppercase;
+	color: #C86C3C;
+	background: #EEC99D;
+	border-radius: 8px;
+	border: 0px solid black;
+	transition: all 0.4s ease 0s;
+}
+
+.Background button:hover{
+	padding: 10px 30px;
+	letter-spacing: 1px;	
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+	color:  #EEC99D;
+	background: #C86C3C;
+	border: 1px solid  #EEC99D;
+}
+
+@media only screen and (max-width: 700px){
+	.Container{
+		height: 250px;
+	}
+	.Background{
+		width: 90%;
+	}
+	.Background img{
+		width: 250px;
+	}
+	.Background h1{
+		font-size: 24px;
+	}
+	
+	.Background button{
+		position: relative;
+		z-index: 1;
+	}
+}
