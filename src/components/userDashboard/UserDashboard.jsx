@@ -27,8 +27,12 @@ export default function UserDashboard() {
                 <Route path="/dashboard/products">
                     <Products />
                 </Route>
-                <Route path="/dashboard/history" component={<History />}/>
-                <Route path="/dashboard/notification" component={<Notification />}/>
+                <Route path="/dashboard/history">
+                    <History />
+                </Route>
+                <Route path="/dashboard/notification">
+                    <Notification />
+                </ Route>
 
                 
             </div>
