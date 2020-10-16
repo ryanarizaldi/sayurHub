@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactStars from 'react-stars';
 import styles from './Review.module.css';
-import robert from '../../assets/img/robert.png'
-import karen from '../../assets/img/karen.png'
+import robert from '../../assets/img/robert.png';
+import karen from '../../assets/img/karen.png';
 
 export default function Review() {
     return (
