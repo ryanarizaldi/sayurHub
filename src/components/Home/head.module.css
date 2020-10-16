@@ -1,5 +1,6 @@
 .Background{
 	background: #F7F6ED;
+	font-family: Inter;
 }
 
 .Container{
@@ -13,7 +14,7 @@
 }
 
 .Container h1{
-	width: 50%;
+	width: 60%;
 	position: absolute;
 	top: 70.08px;
 	left: 37.4px;
@@ -130,10 +131,12 @@
 	letter-spacing: 1.5px;
 	text-transform: uppercase;
 	color: #99B0A7;
+	margin-bottom: 20px;
 }
 .Description h1{
 	font-style: normal;
 	font-weight: normal;
+	margin-bottom: 30px;
 	font-size: 24px;
 	line-height: 29px;
 	color: #000000;
@@ -143,6 +146,7 @@
 	font-style: normal;
 	font-weight: normal;
 	font-size: 16px;
+	margin-bottom: 20px;
 	line-height: 24px;
 	width: 220px;
 	letter-spacing: 0.44px;
@@ -155,6 +159,7 @@
 	font-size: 24px;
 	line-height: 29px;
 	color: #DE884A;
+	margin-bottom: 20px;
 }
 .Description button img{
 	width: 14.91px;
@@ -172,6 +177,7 @@
 	text-transform: uppercase;
 	color: #367874;
 	transition: all 0.4s ease 0s;
+	font-size: 15px;
 }
 
 .Description button:hover{
@@ -277,35 +283,43 @@
 	}
 	
 	.Banana{
-		width: 65%;
+		width: 60%;
 	}
 	
 	.Banana img{
 		width: 200px;
 		top: 30%;
-		right: 15%;
+		right: 10%;
 	}
 	
 	.Description{
-		width: 35%;
+		width: 40%;
+		padding: 50px 0 0 20px;
+	}
+	
+	.Description caption{
+		margin-bottom: 10px;
 	}
 	
 	.Description h1{
-		font-size: 16px;
+		font-size: 14px;
 		width: 85%;
+		margin-bottom: 10px;
 	}
 	.Description p{
 		font-size: 14px;
 		width: 80%;
 	}
 	.Description h2{
-		font-size: 20px;
-		margin-top: 30px;
+		font-size: 16px;
+		margin-top: 10px;
 	}
 	.Description button{
 		padding: 5px 10px;
 		position: relative;
 		z-index: 1;
+		font-size: 14px;
+		width: 85%;
 	}
 	
 	.Tomato{

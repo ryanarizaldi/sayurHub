@@ -1,5 +1,6 @@
 .Container{
 	background: #F7F6ED;
+	font-family: Inter;
 }
 
 .Button{
@@ -70,6 +71,7 @@
 	font-style: normal;
 	font-weight: normal;
 	font-size: 24px;
+	margin-bottom: 40px;
 	line-height: 29px;
 	text-align: center;
 	color: #000000;
@@ -81,7 +83,8 @@
 	font-size: 18px;
 	text-align: center;
 	line-height: 118.3%;
-	color: #DE884A
+	color: #DE884A;
+	margin-bottom: 20px;
 }
 
 .Card button img{
@@ -115,12 +118,21 @@
 
 @media only screen and (max-width: 700px) {
 	.Button{
-		width: 90%;
+		max-width: 80%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+	}
+	.Button button:nth-child(2n){
+		margin-right:0;
+	}
+	
+	.Button button{
+		margin: 24px 16px 0 0;
 	}
 	
 	.ContainerProduct{
 		width: 90%;
-		grid-template-columns: repeat(auto-fit, minmax(290.5px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(90%, 1fr));
 	}
 	
 	.ContainerProduct .Card:nth-child(4n){
@@ -129,5 +141,6 @@
 	
 	.Card{
 		margin: 24px auto;
+		width: 90%;
 	}
 }
