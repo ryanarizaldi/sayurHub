@@ -1,0 +1,73 @@
+.History {
+    margin-top: 31px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 364px;
+}
+
+.ProductHistory {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 20px 8px 8px;
+    border: 1px solid #C4C4C4;
+    border-radius: 8px;
+    align-items: center;
+    margin-bottom: 24px;
+
+}
+
+.ProductHistory img {
+    width: 103px;
+    height: 89px;
+    margin-right: 17px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* .Text {
+    justify-content: center;
+    align-items: baseline;
+    padding-top: 10px;
+} */
+
+.Text p:nth-child(1) {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.44px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.Text p:nth-child(2) {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: #DE884A;
+}
+
+.Text p:nth-child(3) {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #000000;
+}
+
+.ProductHistory span {
+    /* margin-left: 452px; */
+    margin-left: auto;
+    padding-right: 16px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: right;
+    letter-spacing: 0.44px;
+    color: #367874;
+}
+
+.ProductHistory span.Process {
+    color: #DE884A;
+}
+
+.ProductHistory span.Canceled {
+    color: #D65445;
+}
