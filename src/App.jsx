@@ -4,6 +4,7 @@ import Login from './pages/LoginPage';
 import Register from './pages/RegisterPage';
 import Homepage from './pages/Homepage';
 import "./App.css";
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route path="/register">
           <Register />
+        </Route>
+		<Route path="/cart">
+          <Cart />
         </Route>
       </Switch>
     </Router>
