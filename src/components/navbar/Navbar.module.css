@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .Nav {
     margin-top: 2%;
     margin-left: 5%;
@@ -21,4 +22,90 @@
     
     width: 20%;
     color: #367874;
+=======
+.Background {
+    background: #F7F6ED;
+    
+}
+
+.Container {
+    background-color: #ffffff;
+    height: 88px;
+    width: 1251px;
+    position: relative;
+    margin: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    
+
+}
+
+.Logo img {
+    height: 38px;
+    width: 81px;
+    position: relative;
+    top: 24px;
+    left: 37px;
+}
+
+.Box {
+    background-color: #dfdfdf;
+    width: 474px;
+    height: 39px;
+    position: absolute;
+    left: 196px;
+    bottom: 22px;
+    border-radius: 8px;
+}
+ 
+.Box img {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 6px;
+    left: 17px;
+}
+
+.Searchbox input {
+    background-color: #dfdfdf;
+    height: 36px;
+    width: 410px;
+    position: absolute;
+    left: 254px;
+    bottom: 22px;
+    border: none;
+    outline: none;
+}
+
+.Signup button {
+    background-color: #367874;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    position: absolute;
+    padding: 10px 32px;
+    border-radius: 8px;
+    left: 950px;
+    bottom: 25px;
+    border: none;
+    outline: none;
+}
+
+.Signup button:hover {
+    background-color: #265552;
+}
+    
+.Login {
+    color: #367874;
+    font-weight: 600;
+    font-size: 16px;
+    position: absolute;
+    left: 1130px;
+    bottom: 34px;
+    text-decoration: none;
+}
+
+.Login:hover {
+    color: #265552;
+>>>>>>> Stashed changes
 }
