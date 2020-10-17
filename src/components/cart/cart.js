@@ -1,8 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './cart.module.css';
 import Order from './order';
+import CartModal from './cartModal';
 
-function cart () {
+function Cart () {
+	
+	const [modal, setModal] = useState(false);
+	
+	const onChange = (value) => {
+		setModal(value);
+		console.log(modal)
+	}
+	
+	let modale = "";
+	
+	if(modal){
+		modale = <CartModal
+					 open={modal}
+           			 onChange={onChange}
+            		 onClose={() => onChange(false)} />
+	}
 	
 	return(
 		<div className={styles.Container}>
@@ -20,10 +37,11 @@ function cart () {
 			<div className={styles.Checkout}>
 				<h2>Sub Total:</h2>
 				<p>Rp.12.000,-</p>
-				<button>CHECKOUT</button>
+				<button onClick={() => onChange(true)}>CHECKOUT</button>
 			</div>
+			{modale}
 		</div>		
 	)
 }
 
-export default cart;
+export default Cart;
