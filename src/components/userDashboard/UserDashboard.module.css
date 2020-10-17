@@ -55,9 +55,18 @@
     background: #FFFFFF;
     border-radius: 8px;
     padding: 28px 24px;
+    margin-bottom: 64px;
+    /* display: flex; */
+    /* flex-flow: row; */
+}
+
+.DashboardCard a.Active{
+    color: #DE884A;
+    border-bottom: 1px solid #DE884A;
 }
 
 .DashboardCard a {
+    padding-bottom: 10px;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
@@ -72,7 +81,10 @@
 }
 
 .DashboardCard>button {
-    margin-left: 139px;
+    margin-left: 165px;
+    /* margin-left: auto; */
+    /* align-items: flex-end; */
+    /* justify-content: center; */
     background: #367874;
     border-radius: 5px;
     padding: 10px 20px;

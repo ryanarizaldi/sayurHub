@@ -19,9 +19,9 @@ export default function UserDashboard() {
             </div>
 
             <div className={styles.DashboardCard}>
-                <NavLink to="/dashboard/products">Products</NavLink>
-                <NavLink to="/dashboard/history">Transaction History</NavLink>
-                <NavLink to="/dashboard/notification">Notification</NavLink>
+                <NavLink to="/dashboard/products" activeClassName={styles.Active}>Products</NavLink>
+                <NavLink to="/dashboard/history" activeClassName={styles.Active}>Transaction History</NavLink>
+                <NavLink to="/dashboard/notification" activeClassName={styles.Active}>Notification</NavLink>
                 <button>Create Product</button>
 
                 <Route path="/dashboard/products">

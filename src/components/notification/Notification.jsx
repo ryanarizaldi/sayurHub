@@ -3,7 +3,7 @@ import styles from './Notification.module.css';
 import banana from '../../assets/img/banana.png';
 import grape from '../../assets/img/prod_grapes.png';
 import lemon from '../../assets/img/prod_lemon.png';
-import cabbage from '../../assets/img/prod_cabbage.png';
+// import cabbage from '../../assets/img/prod_cabbage.png';
 
 
 export default function UserHistory() {

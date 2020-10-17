@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding-bottom: 364px;
+
 }
 
 .ProductHistory {
@@ -52,7 +54,12 @@
 }
 
 .ProductHistory span {
-    margin-left: 452px;
+    /* margin-left: 452px; */
+    margin-left: auto;
+    padding-right: 16px;
+    /* align-items: flex-end;
+    justify-self: self-end;
+    justify-content: flex-end; */
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
