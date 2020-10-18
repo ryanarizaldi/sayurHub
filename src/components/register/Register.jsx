@@ -21,7 +21,7 @@ export default function Register() {
                     <h4>Sign Up</h4>
                     <form>
                         <label for="Fullname">Fullname</label>
-                        <input type="Fullname" name="Fullname" placeholder="Enter Your Fullname"></input>
+                        <input type="text" name="Fullname" placeholder="Enter Your Fullname"></input>
                         <label for="email">Email</label>
                         <input type="email" name="email" placeholder="Enter Your email"></input>
                         <label for="Password">Password</label>
