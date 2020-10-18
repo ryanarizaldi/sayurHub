@@ -7,7 +7,10 @@ import cabbage from '../../assets/img/prod_cabbage.png';
 import tomato from '../../assets/img/prod_tomato.png';
 
 
-export default function SellerProduct() {
+export default function SellerProduct(props) {
+	
+	const {onChange} = props;
+	
     return (
         <div className={styles.Products}>
             <div className={styles.CardProduct}>
@@ -15,7 +18,7 @@ export default function SellerProduct() {
                 <p>Banana</p>
                 <span>Rp 12.000,-</span>
                 <div className={styles.CardButton}>
-                    <button>Edit</button>
+                    <button onClick={onChange}>Edit</button>
                     <button>Delete</button>
                 </div>
             </div>
@@ -24,7 +27,7 @@ export default function SellerProduct() {
                 <p>Banana Qu</p>
                 <span>Rp 1.000,-</span>
                 <div className={styles.CardButton}>
-                    <button>Edit</button>
+                    <button onClick={onChange}>Edit</button>
                     <button>Delete</button>
                 </div>
             </div>
