@@ -8,16 +8,18 @@ import History from '../history/UserHistory';
 import CreateProductModal from '../createProductModal/CreateProductModal';
 import EditProductModal from '../editProductModal/EditProductModal';
 import {NavLink, Route} from 'react-router-dom';
+import ModalEdit from './ModalEditUser';
 
 
 export default function UserDashboard() {
-	
-	const [modal, setModal] = useState({
-			  createProduct: false,
-			  editProduct: false,
-			  deleteProduct: false
-		  })
-	
+
+    const [modal, setModal] = useState({
+        createProduct: false,
+        editProduct: false,
+        deleteProduct: false,
+        editProfile:false,
+    })
+
 	const onChange = ( name, value ) => {
     	setModal({ 
 			[name] : value
@@ -25,7 +27,7 @@ export default function UserDashboard() {
 		console.log("modal is" + modal);
   	}
 	
-	const {createProduct, editProduct, deleteProduct} = modal;
+	const {createProduct, editProduct, deleteProduct, editProfile} = modal;
 	
 	let modale = "";
 	
@@ -50,7 +52,8 @@ export default function UserDashboard() {
                 <img src={robert} alt="user profile"/>
                 <p>Robert E.O Speedwagon</p>
                 <ReactStars value={5} edit={false} size={20}/>
-                <button>Edit Profile</button>
+                <button onClick={() => onChange("editProfile", true)}>Edit Profile</button>
+                {modal && <ModalEdit open={editProfile} onClose={() => onChange("editProfile", false)} />}
 				<button 
 					className={styles.CreateButton}
 					onClick={() => onChange("createProduct", true)}>Create Product</button>

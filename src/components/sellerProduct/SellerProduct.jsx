@@ -5,11 +5,32 @@ import grape from '../../assets/img/prod_grapes.png';
 import lemon from '../../assets/img/prod_lemon.png';
 import cabbage from '../../assets/img/prod_cabbage.png';
 import tomato from '../../assets/img/prod_tomato.png';
+import Swal from 'sweetalert2';
 
 
 export default function SellerProduct(props) {
 	
-	const {onChange} = props;
+    const {onChange} = props;
+    
+    const removeProduct = (item) => {
+        Swal.fire({
+            title: `Delete ${item}?`,
+            text: "This action cannot be undone",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                `${item} has been deleted.`,
+                'success'
+              )
+            }
+          })
+    }
 	
     return (
         <div className={styles.Products}>
@@ -19,7 +40,7 @@ export default function SellerProduct(props) {
                 <span>Rp 12.000,-</span>
                 <div className={styles.CardButton}>
                     <button onClick={onChange}>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={() => removeProduct('Banana')}>Delete</button>
                 </div>
             </div>
             <div className={styles.CardProduct}>
@@ -28,7 +49,7 @@ export default function SellerProduct(props) {
                 <span>Rp 1.000,-</span>
                 <div className={styles.CardButton}>
                     <button onClick={onChange}>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={() => removeProduct('Banana')}>Delete</button>
                 </div>
             </div>
             <div className={styles.CardProduct}>
@@ -37,7 +58,7 @@ export default function SellerProduct(props) {
                 <span>Rp 99.000,-</span>
                 <div className={styles.CardButton}>
                     <button>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={() => removeProduct('Banana')}>Delete</button>
                 </div>
             </div>
             <div className={styles.CardProduct}>
@@ -46,7 +67,7 @@ export default function SellerProduct(props) {
                 <span>Rp 12.000,-</span>
                 <div className={styles.CardButton}>
                     <button>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={() => removeProduct('Banana')}>Delete</button>
                 </div>
             </div>
             <div className={styles.CardProduct}>
@@ -55,7 +76,7 @@ export default function SellerProduct(props) {
                 <span>Rp 12.000,-</span>
                 <div className={styles.CardButton}>
                     <button>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={() => removeProduct('Banana')}>Delete</button>
                 </div>
             </div>
             <div className={styles.CardProduct}>
@@ -64,7 +85,7 @@ export default function SellerProduct(props) {
                 <span>Rp 75.000,-</span>
                 <div className={styles.CardButton}>
                     <button>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={() => removeProduct('Banana')}>Delete</button>
                 </div>
             </div>
             <div className={styles.CardProduct}>
@@ -73,7 +94,7 @@ export default function SellerProduct(props) {
                 <span>Rp 12.000,-</span>
                 <div className={styles.CardButton}>
                     <button>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={() => removeProduct('Banana')}>Delete</button>
                 </div>
             </div>
         </div>
