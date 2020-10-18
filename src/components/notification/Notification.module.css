@@ -71,3 +71,26 @@
 .ProductHistory span.Canceled {
     color: #D65445;
 }
+
+@media only screen and (max-width: 700px) {
+    .History {
+        margin: auto;
+        padding-top: 24px;
+    }
+
+    .ProductHistory {
+        margin: auto;
+        width: 320px;
+        margin-bottom: 16px;
+    }
+
+    /* .ProductHistory .Text {
+        display: inline;
+        flex-direction: row;
+    } */
+
+    .ProductHistory span {
+        font-size: 80%;
+        justify-self: self-end;
+    }
+}
