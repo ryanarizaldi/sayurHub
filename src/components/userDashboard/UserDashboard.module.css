@@ -33,9 +33,9 @@
     color: #000000;
 }
 
-.UserCard button {
+.UserCard button:nth-child(4) {
     margin-top: 36px;
-    margin-bottom: 53px;
+    margin-bottom: 10px;
     border: 1px solid #DE884A;
     box-sizing: border-box;
     border-radius: 5px;
@@ -51,12 +51,17 @@
     outline: none;
 }
 
+.UserCard .CreateButton{
+	display: none;
+}
+
 .DashboardCard {
     width: 802px;
     background: #FFFFFF;
     border-radius: 8px;
     padding: 28px 24px;
     margin-bottom: 64px;
+	position: relative;
     /* display: flex; */
     /* flex-flow: row; */
 }
@@ -81,8 +86,7 @@
     margin-left: 20px;
 }
 
-.DashboardCard>button {
-    margin-left: 165px;
+.CreateButton {
     /* margin-left: auto; */
     /* align-items: flex-end; */
     /* justify-content: center; */
@@ -97,12 +101,19 @@
     color: #FFFFFF;
     outline: none;
     border: none;
+	float: right;
+	margin: 0;
 }
 
 @media only screen and (max-width: 700px) {
     .Wrapper {
         margin: auto;
     }
+	
+	.UserCard{
+		margin: 20px auto;
+		width: 90%;
+	}
 
     .DashboardCard {
         display: flex;
@@ -114,12 +125,14 @@
         margin: auto;
     }
 
-    .DashboardCard>button {
-        position: absolute;
-        margin: -70px 0 0 90px;
-        /* margin-top: -50px; */
+    .DashboardCard .CreateButton {
+		display: none;
 
     }
+	
+	.UserCard .CreateButton{
+		display:block
+	}
 }
 
 

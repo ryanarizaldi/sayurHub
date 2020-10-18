@@ -44,13 +44,18 @@ export default function UserDashboard() {
                 <p>Robert E.O Speedwagon</p>
                 <ReactStars value={5} edit={false} size={20}/>
                 <button>Edit Profile</button>
+				<button 
+					className={styles.CreateButton}
+					onClick={() => onChange("createProduct", true)}>Create Product</button>
             </div>
 
             <div className={styles.DashboardCard}>
                 <NavLink to="/dashboard/products" activeClassName={styles.Active}>Products</NavLink>
                 <NavLink to="/dashboard/history" activeClassName={styles.Active}>Transaction History</NavLink>
                 <NavLink to="/dashboard/notification" activeClassName={styles.Active}>Notification</NavLink>
-                <button onClick={() => onChange("createProduct", true)}>Create Product</button>
+                <button 
+					className={styles.CreateButton}
+					onClick={() => onChange("createProduct", true)}>Create Product</button>
 
                 <Route path="/dashboard/products">
                     <Products />
