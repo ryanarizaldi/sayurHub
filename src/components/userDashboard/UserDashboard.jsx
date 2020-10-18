@@ -6,6 +6,7 @@ import Products from '../sellerProduct/SellerProduct';
 import Notification from '../notification/Notification';
 import History from '../history/UserHistory';
 import CreateProductModal from '../createProductModal/CreateProductModal';
+import EditProductModal from '../editProductModal/EditProductModal';
 import {NavLink, Route} from 'react-router-dom';
 import ModalEdit from './ModalEditUser';
 
@@ -36,7 +37,13 @@ export default function UserDashboard() {
             onChange={onChange}
             onClose={() => onChange("createProduct", false)}
           />
-	 } 
+	 } else if(editProduct){
+		 modale = <EditProductModal
+			open={editProduct}
+            onChange={onChange}
+            onClose={() => onChange("createProduct", false)}
+		  />
+	 }
 	
 	
     return (
@@ -61,7 +68,7 @@ export default function UserDashboard() {
 					onClick={() => onChange("createProduct", true)}>Create Product</button>
 
                 <Route path="/dashboard/products">
-                    <Products />
+                    <Products onChange={() => onChange("editProduct", true)}/>
                 </Route>
                 <Route path="/dashboard/history">
                     <History />
