@@ -2,6 +2,7 @@
     /* margin-top: 24px; */
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin: 0 103px 0 103px;
     padding-top: 24px;
 }
@@ -96,6 +97,29 @@
     color: #FFFFFF;
     outline: none;
     border: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .Wrapper {
+        margin: auto;
+    }
+
+    .DashboardCard {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .DashboardCard a {
+        margin: auto;
+    }
+
+    .DashboardCard>button {
+        position: absolute;
+        margin: -70px 0 0 90px;
+        /* margin-top: -50px; */
+
+    }
 }
 
 
