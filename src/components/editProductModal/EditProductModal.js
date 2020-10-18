@@ -1,9 +1,10 @@
 import React from 'react';
-import styles from './CreateProductModal.module.css';
+import styles from './EditProductModal.module.css';
 import { Modal } from "@material-ui/core";
 import { useFormik } from "formik";
+import cartImage from '../../assets/img/cart.png';
 
-function CreateProductModal (props) {
+function EditProductModal (props) {
 	
 	const { open, onClose } = props;
 	
@@ -11,27 +12,32 @@ function CreateProductModal (props) {
 		<div>
 			<Modal open={open} onClose={onClose} className={styles.Modal}>
 				<div className={styles.ContainerModal}>
-					<h1>Create Product</h1>
-					<h2 onClick={onClose}></h2>
+					<h1>Edit Product</h1>
+					<h2 onClick={onClose}>x</h2>
 					<form className={styles.Form}>
-						<label className={styles.UploadImage}>
-    						<input type="file"/>
-    						UPLOAD IMAGE
-						</label>
+						<div className={styles.Container}>
+							<img src={cartImage} alt="grapes"></img>
+							<label className={styles.UploadImage}>
+								<input type="file"/>
+								UPLOAD IMAGE
+							</label>
+						</div>
 						<label className={styles.Label} htmlFor="productName">Product Name</label>
 						<input 
 							type="text" 
 							id="productName"
 							name="productName" 
-							placeholder=""></input>
+							placeholder=""
+							value="apa hayo cuk"></input>
 						<label htmlFor="description" className={styles.Label}>Description</label>
 						<input 
 							type="text" 
 							id="description"
-							name="description" 
+							name="description"
+							value="apa hayooo jangan kepo"
 							placeholder=""></input>
 						<label className={styles.Label} htmlFor="category">Category</label>
-						<select name="category">
+						<select name="category" value="fruits">
 							<option value=""></option>
 							<option value="fruits">Fruits</option>
 							<option value="vegetables">Vegetables</option>
@@ -42,13 +48,15 @@ function CreateProductModal (props) {
 							type="number"
 							name="price"
 							id="price"
+							value="10000"
 							></input>
 						<label htmlFor="stock" className={styles.Label}>Stock</label>
 						<input 
 							type="text"
 							name="stock"
-							id="stock"></input>
-						<button type="submit">CREATE</button>
+							id="stock"
+							value="15"></input>
+						<button type="submit">Edit</button>
 					</form>
 				</div>
 			</Modal>
@@ -56,4 +64,4 @@ function CreateProductModal (props) {
 	)
 }
 
-export default CreateProductModal;
+export default EditProductModal;
