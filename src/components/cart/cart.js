@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import styles from './cart.module.css';
 import Order from './order';
 import CartModal from './cartModal';
