@@ -44,13 +44,13 @@
     color: #D65445;
 }
 
-form {
+.Form {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-form img {
+.Form img {
     margin: auto;
     width: 120px;
     height: 120px;
@@ -80,7 +80,7 @@ input[type="file"] {
     color: white;
 }
 
-form label {
+.Form label {
     margin-top: 24px;
     font-size: 16px;
     line-height: 24px;
@@ -88,7 +88,7 @@ form label {
     color: #000000;
 }
 
-form input {
+.Form input {
     background: #FCFCFC;
     border: 1px solid #C4C4C4;
     box-sizing: border-box;

@@ -13,7 +13,7 @@ function ModalEditUser(props) {
                     <h1>Edit User</h1>
                     <button onClick={onClose}>X</button>
                 </div>
-                <form>
+                <form className={styles.Form}>
                     <img src={robert} alt=""/>
                     <label for="profile_picture" className={styles.CustomUpload}>
                         Upload Image

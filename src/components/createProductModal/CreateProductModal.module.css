@@ -48,6 +48,8 @@ input[type=number] {
 	border-radius: 8px;
 	position: relative;
 	margin: 50px auto 0 auto;
+	outline: none;
+
 }
 
 .ContainerModal h1{
@@ -81,6 +83,8 @@ input[type=number] {
 	width: 522px;
 	padding: 10px 10px;
 	margin: 0 0 24px 0;
+	outline: none;
+
 }
 
 .Label{
@@ -102,6 +106,8 @@ input[type=number] {
 	width: 522px;
 	margin: 0 0 24px 0;
 	cursor: pointer;
+	outline: none;
+
 }
 
 .ContainerModal button{
@@ -117,6 +123,8 @@ input[type=number] {
 	text-transform: uppercase;
 	color: #FFFFFF;
 	width: 522px;
+	outline: none;
+
 	cursor: pointer;
 }
 
