@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 
 export default function Login() {
     
-    const  [dataLogin, setData] = useState([]);
+    // const  [dataLogin, setData] = useState([]);
     const inputEmail = useRef();
     const inputPassword = useRef();
 
