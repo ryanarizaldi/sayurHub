@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import styles from './Login.module.css';
 import logo from '../../assets/img/logo.svg';
@@ -6,22 +6,43 @@ import shoping from '../../assets/img/shoping.svg';
 import axios from 'axios';
 import qs from 'qs';
 import Swal from 'sweetalert2';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import {Redirect} from 'react-router-dom';
+
 
 
 export default function Login() {
-    
-    // const  [dataLogin, setData] = useState([]);
-    const inputEmail = useRef();
-    const inputPassword = useRef();
 
-    const login = async(e) => {
-        e.preventDefault();
-        console.log("emailnya; ", inputEmail.current.value);
-        console.log("passwordnya; ", inputPassword.current.value);
+    const [isSuccess, setSuccess] = useState(false);
+
+    const schema = Yup.object().shape({
+        email: Yup.string()
+          .email("Invalid email address format")
+          .required("Email is required"),
+        password: Yup.string()
+          .min(8, "Password must be 8 characters at minimum")
+          .required("Password is required")
+      });
+
+      const formik = useFormik({
+        initialValues: {
+          email: '',
+          password: '',
+        },
+        validationSchema: schema,
+        onSubmit: values => {
+          login(values)
+        },
+      });
+    
+    const login = async(values) => {
+        const {email, password} = values;
+        
         try {
             const dataLogin = qs.stringify({
-                email: inputEmail.current.value,
-                password: inputPassword.current.value
+                email: email,
+                password: password
               });
             const post = await axios({
                 method: "post",
@@ -38,7 +59,11 @@ export default function Login() {
                 title: `Login Success, Welcome`,
                 showConfirmButton: false,
                 timer: 1500
-              })
+              });
+              
+              localStorage.setItem('token', post.data.token);
+            setSuccess(true);
+
         } catch (error) {
             console.log("error", error.response);
             Swal.fire({
@@ -52,6 +77,7 @@ export default function Login() {
 
     return (
         <div>
+        {isSuccess && <Redirect push to="/" />}
             <div className={styles.Logo}>
                 <img src={logo} alt="logo"></img>
             </div>
@@ -64,11 +90,13 @@ export default function Login() {
  
                 <div className={styles.FormLogin}>
                     <h4>Sign In</h4>
-                    <form onSubmit={login}>
+                    <form onSubmit={formik.handleSubmit} noValidate>
                         <label for="email">Email</label>
-                        <input type="email" name="email" placeholder="enter your email" ref={inputEmail}></input>
-                        <label for="Password">Password</label>
-                        <input type="Password" name="Password" placeholder="enter your Password " ref={inputPassword}></input>
+                        <input type="email" id="email" name="email" placeholder="enter your email" onChange={formik.handleChange}></input>
+                        {formik.touched.email && formik.errors.email ? (<div className={styles.ErrorMsg}>{formik.errors.email}</div>) : null}
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="enter your Password " onChange={formik.handleChange}></input>
+                        {formik.touched.password && formik.errors.password ? (<div className={styles.ErrorMsg}>{formik.errors.password}</div>) : null}
                         <button type="submit">Sign In</button>
                         <p>Dont have an account? <Link to="/register">Sign Up</Link></p>
                     </form>

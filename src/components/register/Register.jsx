@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import styles from './Register.module.css';
 import logo from '../../assets/img/logo.svg';
@@ -6,21 +6,50 @@ import shoping from '../../assets/img/shoping.svg';
 import axios from 'axios';
 import qs from 'qs';
 import Swal from 'sweetalert2';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import {Redirect} from 'react-router-dom';
 
 export default function Register() {
 
-    const fullnameVal = useRef(),
-          emailVal = useRef(),
-          passVal = useRef();
+    const [isSuccess, setSuccess] = useState(false);
 
-    const registering = async (e) => {
-        e.preventDefault();
-        console.log(fullnameVal.current.value, emailVal.current.value, passVal.current.value);
-        
+    const schema = Yup.object().shape({
+        fullname: Yup.string()
+            .required("Name is required"),
+        username: Yup.string()
+            .required("Username is required"),
+        email: Yup.string()
+            .email("Invalid email address format")
+            .required("Email is required"),
+        password: Yup.string()
+            .min(8, "Password must be 8 characters at minimum")
+            .required("Password is required"),
+        confirmpass: Yup.string()
+            .oneOf([Yup.ref("password"), null], "Passwords must match")
+            .required("You forgot to type this field"),
+    });
+
+    const formik = useFormik({
+    initialValues: {
+        email: '',
+        password: '',
+        confirmpass: '',
+        fullname: '',
+    },
+    // validationSchema: schema,
+    onSubmit: values => {
+        registering(values);
+    },
+    });
+
+    const registering = async (values) => {
+        console.log('hello');
+        const { email, password, fullname} = values;        
         const body = qs.stringify({
-            full_name: fullnameVal.current.value,
-            email: emailVal.current.value,
-            password: passVal.current.value
+            full_name: fullname,
+            email: email,
+            password: password
         })
         try {
             const reg = await axios({
@@ -39,9 +68,14 @@ export default function Register() {
                 showConfirmButton: false,
                 timer: 1500
               });
+
+              setSuccess(true);
+            
+            
+            
         } catch (error) {
             Swal.fire({
-                title: "register Failed",
+                title: "Register Failed",
                 text: error.response.data.message,
                 icon: "error",
               });
@@ -50,27 +84,32 @@ export default function Register() {
 
     return (
         <div>
+        {isSuccess && <Redirect push to="/login" />}
             <div className={styles.Logo}>
-                <img src={logo}></img>
+                <img src={logo} alt="logo"></img>
             </div>
 
             <div className={styles.Row}>
                 
                 <div className={styles.Image}>
-                    <img src={shoping}></img>
+                    <img src={shoping} alt="logo"></img>
                 </div>
 
                 <div className={styles.FormLogin}>
                     <h4>Sign Up</h4>
-                    <form onSubmit={registering}>
-                        <label for="Fullname">Fullname</label>
-                        <input type="text" name="Fullname" placeholder="Enter Your Fullname" ref={fullnameVal}></input>
+                    <form onSubmit={formik.handleSubmit} noValidate>
+                        <label for="fullname">Fullname</label>
+                        <input type="text" name="fullname" id="fullname" placeholder="Enter Your Fullname" onChange={formik.handleChange}></input>
+                        {formik.touched.fullname && formik.errors.fullname ? (<div className={styles.ErrorMsg}>{formik.errors.fullname}</div>) : null}
                         <label for="email">Email</label>
-                        <input type="email" name="email" placeholder="Enter Your email" ref={emailVal}></input>
-                        <label for="Password">Password</label>
-                        <input type="Password" name="Password" placeholder="Enter Your Password" ref={passVal}></input>
+                        <input type="email" name="email" id="email" placeholder="Enter Your email" onChange={formik.handleChange}></input>
+                        {formik.touched.email && formik.errors.email ? (<div className={styles.ErrorMsg}>{formik.errors.email}</div>) : null}
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Enter Your Password" onChange={formik.handleChange}></input>
+                        {formik.touched.password && formik.errors.password ? (<div className={styles.ErrorMsg}>{formik.errors.password}</div>) : null}
                         <label for="confirmpass">Confirm Password</label>
-                        <input type="Password" name="confirmpass" placeholder="Type Your Password Again"></input>
+                        <input type="Password" name="confirmpass" id="confirmpass" placeholder="Type Your Password Again" onChange={formik.handleChange}></input>
+                        {formik.touched.confirmpass && formik.errors.confirmpass ? (<div className={styles.ErrorMsg}>{formik.errors.confirmpass}</div>) : null}
                         <button type="submit">Sign In</button>
                         <p>Already have an account? <Link to="/login">Sign In</Link></p>
                     </form>

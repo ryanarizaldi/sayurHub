@@ -120,3 +120,8 @@
     color: #367874;
 }
 
+.ErrorMsg {
+    color: #D65445;
+    margin: -12px 35px 16px 35px;
+    font-size: 14px;
+}
