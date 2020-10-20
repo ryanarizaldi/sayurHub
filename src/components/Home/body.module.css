@@ -68,6 +68,14 @@
 .ContainerProduct .Card:nth-child(4n){
 	margin-right: 0;
 }
+
+.Card img {
+	margin: 8px 0;
+	width: 232.73px;
+	height: 160.95px;
+	object-fit: cover;
+}
+
 .Card h1{
 	font-style: normal;
 	font-weight: normal;
