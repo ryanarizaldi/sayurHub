@@ -6,12 +6,13 @@ import Homepage from './pages/Homepage';
 import "./App.css";
 import Cart from './pages/Cart';
 import User from './pages/DashboardPage';
-
+import Navbar from './components/navbar/Navbar';
 function App() {
   return (
     <Router>
       <Switch>
 		<Route exact path="/">
+          <Navbar />
           <Homepage />
         </Route>
         <Route path="/login">
