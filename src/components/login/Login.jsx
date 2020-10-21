@@ -92,10 +92,10 @@ export default function Login() {
                     <h4>Sign In</h4>
                     <form onSubmit={formik.handleSubmit} noValidate>
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="enter your email" onChange={formik.handleChange}></input>
+                        <input className={formik.touched.email && formik.errors.email ? styles.ErrorInput : null} type="email" id="email" name="email" placeholder="enter your email" onChange={formik.handleChange} onBlur={formik.handleBlur}></input>
                         {formik.touched.email && formik.errors.email ? (<div className={styles.ErrorMsg}>{formik.errors.email}</div>) : null}
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="enter your Password " onChange={formik.handleChange}></input>
+                        <input className={formik.touched.password && formik.errors.password ? styles.ErrorInput : null} type="password" id="password" name="password" placeholder="enter your Password " onChange={formik.handleChange} onBlur={formik.handleBlur}></input>
                         {formik.touched.password && formik.errors.password ? (<div className={styles.ErrorMsg}>{formik.errors.password}</div>) : null}
                         <button type="submit">Sign In</button>
                         <p>Dont have an account? <Link to="/register">Sign Up</Link></p>

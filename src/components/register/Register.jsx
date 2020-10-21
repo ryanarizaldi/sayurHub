@@ -17,8 +17,6 @@ export default function Register() {
     const schema = Yup.object().shape({
         fullname: Yup.string()
             .required("Name is required"),
-        username: Yup.string()
-            .required("Username is required"),
         email: Yup.string()
             .email("Invalid email address format")
             .required("Email is required"),
@@ -37,7 +35,7 @@ export default function Register() {
         confirmpass: '',
         fullname: '',
     },
-    // validationSchema: schema,
+    validationSchema: schema,
     onSubmit: values => {
         registering(values);
     },
@@ -99,17 +97,21 @@ export default function Register() {
                     <h4>Sign Up</h4>
                     <form onSubmit={formik.handleSubmit} noValidate>
                         <label for="fullname">Fullname</label>
-                        <input type="text" name="fullname" id="fullname" placeholder="Enter Your Fullname" onChange={formik.handleChange}></input>
+                        <input className={formik.touched.fullname && formik.errors.fullname ? styles.ErrorInput : ""} type="text" name="fullname" id="fullname" placeholder="Enter Your Fullname" onChange={formik.handleChange} onBlur={formik.handleBlur}></input>
                         {formik.touched.fullname && formik.errors.fullname ? (<div className={styles.ErrorMsg}>{formik.errors.fullname}</div>) : null}
+
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Enter Your email" onChange={formik.handleChange}></input>
+                        <input className={formik.touched.email && formik.errors.email ? styles.ErrorInput : ""}type="email" name="email" id="email" placeholder="Enter Your email" onChange={formik.handleChange} onBlur={formik.handleBlur}></input>
                         {formik.touched.email && formik.errors.email ? (<div className={styles.ErrorMsg}>{formik.errors.email}</div>) : null}
+
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Enter Your Password" onChange={formik.handleChange}></input>
+                        <input className={formik.touched.password && formik.errors.password ? styles.ErrorInput : ""} type="password" name="password" id="password" placeholder="Enter Your Password" onChange={formik.handleChange} onBlur={formik.handleBlur}></input>
                         {formik.touched.password && formik.errors.password ? (<div className={styles.ErrorMsg}>{formik.errors.password}</div>) : null}
+
                         <label for="confirmpass">Confirm Password</label>
-                        <input type="Password" name="confirmpass" id="confirmpass" placeholder="Type Your Password Again" onChange={formik.handleChange}></input>
+                        <input className={formik.touched.confirmpass && formik.errors.confirmpass ? styles.ErrorInput : ""} type="Password" name="confirmpass" id="confirmpass" placeholder="Type Your Password Again" onChange={formik.handleChange} onBlur={formik.handleBlur}></input>
                         {formik.touched.confirmpass && formik.errors.confirmpass ? (<div className={styles.ErrorMsg}>{formik.errors.confirmpass}</div>) : null}
+
                         <button type="submit">Sign In</button>
                         <p>Already have an account? <Link to="/login">Sign In</Link></p>
                     </form>
