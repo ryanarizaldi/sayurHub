@@ -1,0 +1,147 @@
+
+.Container{
+	background: #F7F6ED;
+	font-family: Inter;
+}
+
+.Button{
+	width:1251px;
+	background: #F7F6ED;
+	position: relative;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.Button button{
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 10px 20px;
+	margin: 24px 16px 24.16px 0;
+	border: 0px solid black;
+	border-radius: 8px;
+	background: #EBEBEB;
+	color: #AEA9A5;
+	transition: all 0.4s ease 0s;
+}
+
+.Button button:hover{
+	transition: all 0.4s ease 0s;
+	color: #DE884A;
+	background: #EEC99D;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+}
+
+.Active{
+	color: #DE884A!important;
+	background: #EEC99D!important;
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 10px 20px;
+	margin: 24px 16px 24.16px 0;
+	border: 0px solid black;
+	border-radius: 8px;
+	transition: all 0.4s ease 0s;
+}
+
+.ContainerProduct{
+	width: 1271px;
+	margin: 0 auto;
+	display: grid;
+  	grid-template-columns: repeat(auto-fit, minmax(290.5px, 1fr));
+}
+
+.Card{
+	width: 290.5px;
+	margin: 10px;
+	height:350px;
+	background: white;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.ContainerProduct .Card:nth-child(4n){
+	margin-right: 0;
+}
+.Card h1{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	margin-bottom: 40px;
+	line-height: 29px;
+	text-align: center;
+	color: #000000;
+}
+
+.Card p{
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	text-align: center;
+	line-height: 118.3%;
+	color: #DE884A;
+	margin-bottom: 20px;
+}
+
+.Card button img{
+	width: 14.91px;
+	height: 14.91px;
+	margin: auto 8px auto 0;
+}
+
+.Card button{
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 10px 20px;
+	border: 0px;
+	background: #BBE4D8;
+	border-radius: 5px;
+	text-transform: uppercase;
+	color: #367874;
+	transition: all 0.4s ease 0s;
+}
+
+.Card button:hover{
+	transition: all 0.4s ease 0s;
+	background: #367874;
+	color: #BBE4D8;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	border: 1px solid #BBE4D8;
+}
+
+
+@media only screen and (max-width: 700px) {
+	.Button{
+		max-width: 80%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+	}
+	.Button button:nth-child(2n){
+		margin-right:0;
+	}
+	
+	.Button button{
+		margin: 24px 16px 0 0;
+	}
+	
+	.ContainerProduct{
+		width: 90%;
+		grid-template-columns: repeat(auto-fit, minmax(90%, 1fr));
+	}
+	
+	.ContainerProduct .Card:nth-child(4n){
+		margin-right: auto;
+}
+	
+	.Card{
+		margin: 24px auto;
+		width: 90%;
+	}
+}
