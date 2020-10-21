@@ -1,4 +1,17 @@
-.Container {
-    border: 1px black;
-    background: salmon;
+.BackgroundFooter {
+  background-color: #f7f7f3;
+  padding-bottom: 50px;
+}
+
+.LineSayur {
+  width: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-top: 1px solid #c4c4c4;
+}
+
+.FooterSayur {
+  padding-left: 100px;
+  padding-top: 20px;
+  color: #367874;
 }

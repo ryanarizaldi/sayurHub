@@ -5,6 +5,7 @@ import Register from './pages/RegisterPage';
 import ProductDets from './pages/ProductDetailPage';
 import Homepage from './pages/Homepage';
 import "./App.css";
+import Footer from './components/footer/footer';
 // import Product from "./components/Home/product";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+          <Footer />
         </Route>
         <Route path="/register">
           <Register />
