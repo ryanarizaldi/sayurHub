@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+
 import { Link } from "react-router-dom";
 import styles from './Login.module.css';
 import logo from '../../assets/img/logo.svg';
 import shoping from '../../assets/img/shoping.svg';
-import axios from 'axios';
-import qs from 'qs';
-import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {Redirect} from 'react-router-dom';
+import * as actionTypes from '../../redux/action/Action';
 
 
 
-export default function Login() {
-
-    const [isSuccess, setSuccess] = useState(false);
+function Login(props) {
+	
+	const { loginUser, isSuccess } = props;
 
     const schema = Yup.object().shape({
         email: Yup.string()
@@ -32,47 +32,47 @@ export default function Login() {
         },
         validationSchema: schema,
         onSubmit: values => {
-          login(values)
+          loginUser(values)
         },
       });
     
-    const login = async(values) => {
-        const {email, password} = values;
+    // const login = async(values) => {
+    //     const {email, password} = values;
         
-        try {
-            const dataLogin = qs.stringify({
-                email: email,
-                password: password
-              });
-            const post = await axios({
-                method: "post",
-                url: "https://pacific-oasis-23064.herokuapp.com/user/login",
-                data: dataLogin,
-                headers: {
-                "content-Type": "application/x-www-form-urlencoded",
-                },
-            })
-            console.log(post.data);
-            Swal.fire({
-                position: 'top-mid',
-                icon: 'success',
-                title: `Login Success, Welcome`,
-                showConfirmButton: false,
-                timer: 1500
-              });
+    //     try {
+    //         const dataLogin = qs.stringify({
+    //             email: email,
+    //             password: password
+    //           });
+    //         const post = await axios({
+    //             method: "post",
+    //             url: "https://pacific-oasis-23064.herokuapp.com/user/login",
+    //             data: dataLogin,
+    //             headers: {
+    //             "content-Type": "application/x-www-form-urlencoded",
+    //             },
+    //         })
+    //         console.log(post.data);
+    //         Swal.fire({
+    //             position: 'top-mid',
+    //             icon: 'success',
+    //             title: `Login Success, Welcome`,
+    //             showConfirmButton: false,
+    //             timer: 1500
+    //           });
               
-              localStorage.setItem('token', post.data.token);
-            setSuccess(true);
+    //           localStorage.setItem('token', post.data.token);
+    //         setSuccess(true);
 
-        } catch (error) {
-            console.log("error", error.response);
-            Swal.fire({
-                title: "Login Failed",
-                text: error.response.data.message,
-                icon: "error",
-              });
-        }
-    }
+    //     } catch (error) {
+    //         console.log("error", error.response);
+    //         Swal.fire({
+    //             title: "Login Failed",
+    //             text: error.response.data.message,
+    //             icon: "error",
+    //           });
+    //     }
+    // }
 
 
     return (
@@ -124,3 +124,18 @@ export default function Login() {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+	return {
+		isSuccess: state.isSuccess
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return{
+		loginUser: (values) => dispatch(actionTypes.loginUser(values))
+	}
+}
+
+
+export default connect(mapStateToProps , mapDispatchToProps)(Login);
