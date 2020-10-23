@@ -20,21 +20,21 @@ export const loginUser = (values) => {
               		"content-Type": "application/x-www-form-urlencoded",
                 	}
             	})
-            	console.log(post.data);
-            	Swal.fire({
-                	position: 'top-mid',
-                	icon: 'success',
-                	title: `Login Success, Welcome`,
-                	showConfirmButton: false,
-                	timer: 1500
-              	});
-				
-				dispatch({
-					type: actionTypes.LOGIN_USER,
-					payload: {
-						token: post.data.token,
-						success: true
-					}
+            console.log(post.data);
+            Swal.fire({
+                position: 'top-mid',
+                icon: 'success',
+                title: `Login Success, Welcome`,
+                showConfirmButton: false,
+                timer: 1500
+            });
+			localStorage.setItem('token', post.data.token);
+			dispatch({
+				type: actionTypes.LOGIN_USER,
+				payload: {
+					token: post.data.token,
+					success: true
+				}
 			})
 			} catch (error){
 				console.log("error", error.response);
@@ -46,3 +46,47 @@ export const loginUser = (values) => {
 			}
 		}
 	};
+
+export const getUser = () => {
+	return async dispatch => {
+		try{
+			const token = localStorage.getItem('token');
+			const submit = await axios({
+				method: "GET",
+				url: "https://pacific-oasis-23064.herokuapp.com/user/id",
+				headers: {
+					token: token
+				}
+			})
+			console.log(submit);
+			localStorage.setItem('user', submit.data.data);
+			dispatch({
+				type: actionTypes.GET_USER,
+				payload: {
+					user: submit.data.data
+				}
+			})
+		} catch (error) {
+			console.log(error);
+		}
+	}
+}
+
+export const logout = () => {
+	return dispatch => {
+		localStorage.clear();
+		Swal.fire({
+                	position: 'top-mid',
+                	icon: 'success',
+                	title: `Logout Success`,
+                	showConfirmButton: false,
+                	timer: 1500
+              	});
+		dispatch({
+			type: actionTypes.USER_LOGOUT,
+			payload: {
+				user: []
+			}
+		})
+	}
+}

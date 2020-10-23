@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { connect } from 'react-redux'
+
 import styles from './UserDashboard.module.css';
 import robert from '../../assets/img/robert.png';
 import ReactStars from 'react-stars';
@@ -8,18 +10,18 @@ import History from '../history/UserHistory';
 import CreateProductModal from '../createProductModal/CreateProductModal';
 import EditProductModal from '../editProductModal/EditProductModal';
 import {NavLink, Route} from 'react-router-dom';
-import ModalEdit from './ModalEditUser';
 
 
-export default function UserDashboard() {
+function UserDashboard(props) {
 
-    const [modal, setModal] = useState({
-        createProduct: false,
-        editProduct: false,
-        deleteProduct: false,
-        editProfile:false,
-    })
-
+	const { userData } = props;
+	
+	const [modal, setModal] = useState({
+			  createProduct: false,
+			  editProduct: false,
+			  deleteProduct: false
+		  })
+	
 	const onChange = ( name, value ) => {
     	setModal({ 
 			[name] : value
@@ -27,7 +29,7 @@ export default function UserDashboard() {
 		console.log("modal is" + modal);
   	}
 	
-	const {createProduct, editProduct, deleteProduct, editProfile} = modal;
+	const {createProduct, editProduct, deleteProduct} = modal;
 	
 	let modale = "";
 	
@@ -49,11 +51,10 @@ export default function UserDashboard() {
     return (
         <div className={styles.Wrapper}>
             <div className={styles.UserCard}>
-                <img src={robert} alt="user profile"/>
-                <p>Robert E.O Speedwagon</p>
+                <img src={userData.profile_image} alt="user profile"/>
+                <p>{userData.full_name}</p>
                 <ReactStars value={5} edit={false} size={20}/>
-                <button onClick={() => onChange("editProfile", true)}>Edit Profile</button>
-                {modal && <ModalEdit open={editProfile} onClose={() => onChange("editProfile", false)} />}
+                <button>Edit Profile</button>
 				<button 
 					className={styles.CreateButton}
 					onClick={() => onChange("createProduct", true)}>Create Product</button>
@@ -77,9 +78,17 @@ export default function UserDashboard() {
                     <Notification />
                 </ Route>
 
-                
             </div>
 			{modale}
         </div>
     )
 }
+
+const mapStateToProps = state => {
+	return{
+		userData: state.userData
+	}
+}
+
+
+export default connect(mapStateToProps, null)(UserDashboard);
