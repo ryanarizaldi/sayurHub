@@ -69,6 +69,10 @@
 	margin-right: 0;
 }
 
+.Card a{
+	text-decoration: none;
+}
+
 .Card img {
 	margin: 8px 0;
 	width: 232.73px;
@@ -112,6 +116,8 @@
 	text-transform: uppercase;
 	color: #367874;
 	transition: all 0.4s ease 0s;
+	width: 172px;
+	margin: 0 auto;
 }
 
 .Card button:hover{

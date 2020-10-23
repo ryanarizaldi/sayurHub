@@ -1,3 +1,6 @@
+.Wrapper {
+    padding-top: 24px;
+}
 .Container {
     background: white;
     margin: 0 102px 0 103px;
@@ -11,6 +14,13 @@
     justify-content: center;
     flex-direction: row;
     /* background: white; */
+}
+
+.CardDetail img {
+    width: 469px;
+    height: 499px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .Content {
@@ -120,6 +130,8 @@
 .Seller img {
     /* background: white; */
     padding-right: 20px;
+    width: 75px;
+    height: 75px;
 }
 
 .SellerInfo {
