@@ -1,5 +1,6 @@
 .Products {
     margin-top: 32px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

@@ -49,56 +49,72 @@ export default function UserDashboard() {
 
   return (
     <div className={styles.Container}>
-      <div className={styles.Wrapper}>
-        <div className={styles.UserCard}>
-          <img src={robert} alt="user profile" />
-          <p>Robert E.O Speedwagon</p>
-          <ReactStars value={5} edit={false} size={20} />
-          <button onClick={() => onChange("editProfile", true)}>
-            Edit Profile
-          </button>
-          {modal && (
-            <ModalEdit
-              open={editProfile}
-              onClose={() => onChange("editProfile", false)}
-            />
-          )}
-          <button
-            className={styles.CreateButton}
-            onClick={() => onChange("createProduct", true)}
-          >
-            Create Product
-          </button>
-        </div>
+      <div className={styles.Row}>
+        <div className={styles.Wrapper}>
+          <div className={styles.ColUser}>
+            <div className={styles.UserCard}>
+              <img src={robert} alt="user profile" />
+              <p>Robert E.O Speedwagon</p>
+              <ReactStars value={5} edit={false} size={20} />
+              <button onClick={() => onChange("editProfile", true)}>
+                Edit Profile
+              </button>
+              {modal && (
+                <ModalEdit
+                  open={editProfile}
+                  onClose={() => onChange("editProfile", false)}
+                />
+              )}
+              <button
+                className={styles.CreateButton}
+                onClick={() => onChange("createProduct", true)}
+              >
+                Create Product
+              </button>
+            </div>
+          </div>
+          <div className={styles.ColDasboard}>
+            <div className={styles.DashboardCard}>
+              <div className={styles.Navigation}>
+                <NavLink
+                  to="/dashboard/products"
+                  activeClassName={styles.Active}
+                >
+                  Products
+                </NavLink>
+                <NavLink
+                  to="/dashboard/history"
+                  activeClassName={styles.Active}
+                >
+                  Transaction History
+                </NavLink>
+                <NavLink
+                  to="/dashboard/notification"
+                  activeClassName={styles.Active}
+                >
+                  Notification
+                </NavLink>
+                <button
+                  className={styles.CreateButton}
+                  onClick={() => onChange("createProduct", true)}
+                >
+                  Create Product
+                </button>
+              </div>
 
-        <div className={styles.DashboardCard}>
-          <NavLink to="/dashboard/products" activeClassName={styles.Active}>
-            Products
-          </NavLink>
-          <NavLink to="/dashboard/history" activeClassName={styles.Active}>
-            Transaction History
-          </NavLink>
-          <NavLink to="/dashboard/notification" activeClassName={styles.Active}>
-            Notification
-          </NavLink>
-          <button
-            className={styles.CreateButton}
-            onClick={() => onChange("createProduct", true)}
-          >
-            Create Product
-          </button>
-
-          <Route path="/dashboard/products">
-            <Products onChange={() => onChange("editProduct", true)} />
-          </Route>
-          <Route path="/dashboard/history">
-            <History />
-          </Route>
-          <Route path="/dashboard/notification">
-            <Notification />
-          </Route>
+              <Route path="/dashboard/products">
+                <Products onChange={() => onChange("editProduct", true)} />
+              </Route>
+              <Route path="/dashboard/history">
+                <History />
+              </Route>
+              <Route path="/dashboard/notification">
+                <Notification />
+              </Route>
+            </div>
+          </div>
+          {modale}
         </div>
-        {modale}
       </div>
     </div>
   );

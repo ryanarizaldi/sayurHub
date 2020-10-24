@@ -64,6 +64,7 @@
     bottom: 25px;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 .Signup button:hover {

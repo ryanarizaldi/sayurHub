@@ -1,5 +1,6 @@
 .History {
     margin-top: 31px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -95,3 +96,31 @@
     } */
     
 }
+
+@media only screen and (max-width: 400px) {
+    .History {
+        margin: auto;
+        padding-top: 24px;
+    }
+
+    .ProductHistory {
+        margin: auto;
+        width: 100%;
+        margin-bottom: 16px;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        padding: 8px;
+    }
+
+    .ProductHistory img {
+        margin: auto;
+    }
+
+    .ProductHistory span {
+        margin: 16px auto 0;
+        text-align: center;
+        padding: 0;
+
+    }
+ }
