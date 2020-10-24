@@ -89,7 +89,7 @@ function CreateProductModal(props) {
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
-          "token": loginGa,
+          token: loginGa,
         },
       });
       onClose();
@@ -113,7 +113,7 @@ function CreateProductModal(props) {
           <h1>Create Product</h1>
           <h2 onClick={onClose}></h2>
           <form className={styles.Form} onSubmit={formik.handleSubmit}>
-            {image && (
+            {image.url && (
               <div className={styles.PreviewUpload}>
                 <img src={image.url} alt="Preview" />
               </div>
@@ -182,13 +182,19 @@ function CreateProductModal(props) {
             <label className={styles.Label} htmlFor="category">
               Category
             </label>
-            <select name="category" id="category" value={formik.values.category} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+            <select
+              name="category"
+              id="category"
+              value={formik.values.category}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
               <option disabled></option>
               <option value="Fruit">Fruits</option>
               <option value="Vegetables">Vegetables</option>
               <option value="Diet">Diet</option>
             </select>
-            <label htmlFor="price" className={styles.Label} >
+            <label htmlFor="price" className={styles.Label}>
               Price
             </label>
             <input

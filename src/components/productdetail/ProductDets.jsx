@@ -43,10 +43,12 @@ export default function ProductDets() {
     return rupiah;
   };
   return (
-    <div className={styles.Wrapper}>
-      <div className={styles.Container}>
+    <div className={styles.Container}>
+      <div className={styles.Wrapper}>
         <div className={styles.CardDetail}>
-          <img src={product.product_image} alt="product photo" />
+          <div className={styles.ImageProd}>
+            <img src={product.product_image} alt="product photo" />
+          </div>
           <div className={styles.Content}>
             <h3>{product.product_name}</h3>
             <div className={styles.Rate}>
@@ -56,14 +58,20 @@ export default function ProductDets() {
               <span>Rp 90.000 ,-</span>
               <h5>Rp {priceForm(product.price)},-</h5>
             </div>
-            <div className={styles.Quantity}>
-              <p>Quantity: </p>
-              <button>-</button>
-              <span>1</span>
-              <button>+</button>
+            <div className={styles.QuantyAndStock}>
+              <div className={styles.Quantity}>
+                <p>Quantity: </p>
+                <button>-</button>
+                <span>1</span>
+                <button>+</button>
+              </div>
+              <div className={styles.Stock}>
+                <p>Stock: 100</p>
+              </div>
             </div>
+
             <div className={styles.Seller}>
-              <img src={seller} alt="seller photo" />
+              <img src={product.product_image} alt="seller photo" />
               <div className={styles.SellerInfo}>
                 <p>Banana Lovers</p>
                 <button>Seller Details</button>
