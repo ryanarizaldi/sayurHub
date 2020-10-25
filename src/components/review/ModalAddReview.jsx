@@ -91,6 +91,7 @@ export default function ModalAddReview(props) {
           />
           {/* {formik.errors.rate ? (
             <div className={styles.ErrorMsg}>{formik.errors.rate}</div>
+            asd
           ) : null} */}
           <label for="review">Add your Comment</label>
           <input
