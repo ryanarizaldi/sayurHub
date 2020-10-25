@@ -1,9 +1,35 @@
+.Container {
+    max-width: 100%;
+    padding: 0 16px;
+    margin: auto;
+}
+
+@media (min-width: 1440px) {
+    .Container {
+        max-width: 1240px;
+    }
+}
+
+.Row {
+    display: flex;
+    margin: 0px -12px;
+}
+
+.ColUser {
+    padding: 0px 12px;
+    width: 30%;
+}
+
+.ColDasboard {
+    padding: 0px 12px;
+    width: 30%;
+}
+
 .Wrapper {
     /* margin-top: 24px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 103px 0 103px;
     padding-top: 24px;
 }
 
