@@ -59,7 +59,7 @@ export default function UserDashboard() {
               <button onClick={() => onChange("editProfile", true)}>
                 Edit Profile
               </button>
-              {modal && (
+              {editProfile && (
                 <ModalEdit
                   open={editProfile}
                   onClose={() => onChange("editProfile", false)}
