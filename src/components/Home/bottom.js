@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './bottom.module.css';
+import {Link} from 'react-router-dom';
 import Fruit from '../../assets/img/Fruit.png';
 
 function Bottom () {
@@ -8,7 +9,9 @@ function Bottom () {
 		<div className={styles.Container}>
 			<div className={styles.Background}>
 				<h1>Want to sell your products?</h1>
-				<button>SIGN UP NOW</button>
+				<Link to="/register">
+					<button>SIGN UP NOW</button>
+				</Link>
 				<img src={Fruit} alt="fruit"></img>
 			</div>
 		</div>
