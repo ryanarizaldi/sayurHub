@@ -134,5 +134,5 @@ input:focus {
 }
 
 .HideMe{
-    display: none;
+    /* display: none; */
 }

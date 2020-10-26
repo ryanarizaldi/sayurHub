@@ -35,7 +35,9 @@ function Navbar(props) {
     <div className={styles.Background}>
       <div className={styles.Container}>
         <div className={styles.Logo}>
-          <img src={logo} alt="logo"></img>
+          <NavLink to="/">
+            <img src={logo} alt="logo"></img>
+          </NavLink>
         </div>
         <div className={styles.Box}>
           <img src={searchicon} alt="search ico"></img>

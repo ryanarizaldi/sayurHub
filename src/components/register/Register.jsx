@@ -79,7 +79,9 @@ export default function Register() {
     <div>
       {isSuccess && <Redirect push to="/login" />}
       <div className={styles.Logo}>
-        <img src={logo} alt="logo"></img>
+        <Link to="/">
+          <img src={logo} alt="logo"></img>
+        </Link>
       </div>
 
       <div className={styles.Row}>

@@ -5,11 +5,18 @@ const initialState = {
   token: "",
   userData: [],
   isSuccess: false,
+  review: [],
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case actionTypes.LOGIN_USER:
+      return {
+        ...state,
+        token: action.payload.token,
+        isSuccess: action.payload.success,
+      };
+    case actionTypes.GET_REVIEW:
       return {
         ...state,
         token: action.payload.token,

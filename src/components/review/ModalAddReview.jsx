@@ -10,7 +10,7 @@ import ReactStars from "react-stars";
 
 export default function ModalAddReview(props) {
   const { open, onClose, prod } = props;
-  const [inputRate, setRate] = useState(1);
+  const [inputRate, setRate] = useState(0);
   const schema = Yup.object().shape({
     review: Yup.string().required("This collom is required"),
     // rate: Yup.number().moreThan(0, "Fill the star to rate!"),
@@ -85,14 +85,14 @@ export default function ModalAddReview(props) {
           <input
             className={styles.HideMe}
             value={inputRate}
-            // onChange={formik.handleChange}
+            onChange={changeRate}
             type="number"
-            // name="rate"
+            name="rate"
           />
-          {/* {formik.errors.rate ? (
-            <div className={styles.ErrorMsg}>{formik.errors.rate}</div>
-            asd
-          ) : null} */}
+
+          {inputRate < 1 ? (
+            <div className={styles.ErrorMsg}>Fill the star!</div>
+          ) : null}
           <label for="review">Add your Comment</label>
           <input
             className={

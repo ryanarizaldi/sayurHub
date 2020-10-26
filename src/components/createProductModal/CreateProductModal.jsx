@@ -80,6 +80,7 @@ function CreateProductModal(props) {
       formData.append("price", price);
       formData.append("stock", stock);
       formData.append("weight", weight);
+      formData.append("actualPrice", 0);
       formData.append("product_image", image.file);
 
       console.log(formData);

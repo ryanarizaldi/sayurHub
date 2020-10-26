@@ -19,7 +19,7 @@ export default function Review() {
 
   useEffect(() => {
     getReview();
-  }, [reviews]);
+  }, []);
 
   const getCurrent = async () => {
     try {
@@ -119,18 +119,6 @@ export default function Review() {
               </div>
             ))
           : "No review yet, Be the first to review!"}
-        {/* <div className={styles.UserReview}>
-          <div className={styles.UserPicture}>
-            <img src={karen} alt="user profile" />
-          </div>
-          <div className={styles.Column}>
-            <div className={styles.NameRate}>
-              <p>Karen</p>
-              <ReactStars value={4} edit={false} size={36} />
-            </div>
-            <div className={styles.Comment}>Superb!</div>
-          </div>
-        </div> */}
       </div>
     </div>
   );

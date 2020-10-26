@@ -51,7 +51,8 @@ function Product() {
                   alt="product"
                 ></img>
                 <h1>{item.product_name}</h1>
-                <p>Rp. {priceForm(item.price)}</p>
+                <p>Rp. {item.actualPrice}</p>
+                {/* <p>Rp. {priceForm(item.price)}</p> */}
                 <button>
                   <img src={ShoppingCart} alt="Shopping Cart"></img>
                   Add to Cart
