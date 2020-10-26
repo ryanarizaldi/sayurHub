@@ -9,15 +9,27 @@ import * as actionTypes from "../../redux/action/Action";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 
 function Navbar(props) {
-  const { userData, getUser, logout } = props;
+  const { userData, getUser, logout, token } = props;
 
-  const [token] = useState(localStorage.getItem("token"));
+  const [currentToken] = token;
 
   useEffect(() => {
-    // if (token) {
-    getUser();
-    // }
-  }, [token, getUser]);
+    if (token) {
+      getUser();
+    }
+  }, [currentToken, getUser]);
+  //   const [token, setToken] = useState();
+  //   //   const token = localStorage.getItem("token");
+
+  //   useEffect(() => {
+  //     setToken(localStorage.getItem("token"));
+  //   }, []);
+
+  //   useEffect(() => {
+  //     if (token) {
+  //       getUser();
+  //     }
+  //   }, [token, getUser]);
 
   return (
     <div className={styles.Background}>
@@ -53,7 +65,7 @@ function Navbar(props) {
               <button>SELL PRODUCT</button>
             </NavLink>
             <div className={styles.Dropdown}>
-              <img src={userData.profile_image}></img>
+              <img src={userData.profile_image} alt="profile"></img>
               <div className={styles.DropdownContent}>
                 <NavLink to="/dashboard">User Dashboard</NavLink>
                 <NavLink to="/" onClick={logout}>
@@ -69,6 +81,7 @@ function Navbar(props) {
 }
 const mapStateToProps = (state) => {
   return {
+    token: state.token,
     userData: state.userData,
   };
 };

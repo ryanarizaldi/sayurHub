@@ -84,6 +84,7 @@ export const logout = () => {
     dispatch({
       type: actionTypes.USER_LOGOUT,
       payload: {
+        token: "",
         user: [],
       },
     });
