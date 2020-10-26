@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./body.module.css";
 import ShoppingCart from "../../assets/img/shopping-cart.png";
 import axios from "axios";
+import noimg from "../../assets/img/noimg.png";
 import { Link } from "react-router-dom";
 
 function Product() {
@@ -45,7 +46,10 @@ function Product() {
         ? products.map((item) => (
             <div className={styles.Card} key={item._id}>
               <Link to={`/product/${item._id}`}>
-                <img src={item.product_image} alt="product"></img>
+                <img
+                  src={item.product_image ? item.product_image : noimg}
+                  alt="product"
+                ></img>
                 <h1>{item.product_name}</h1>
                 <p>Rp. {priceForm(item.price)}</p>
                 <button>

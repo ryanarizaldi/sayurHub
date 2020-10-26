@@ -4,23 +4,49 @@ import ReactStars from "react-stars";
 import axios from "axios";
 import styles from "./ProductDets.module.css";
 import seller from "../../assets/img/seller_photo.png";
+import noimg from "../../assets/img/noimg.png";
+import AddReview from "../review/ModalAddReview";
 
 export default function ProductDets() {
   const [product, setProduct] = useState({});
+  const [seller, setSellers] = useState({});
+  const [rating, setRating] = useState(0);
+  const [modal, setModal] = useState({
+    addReview: false,
+  });
+  const { id } = useParams();
+
+  const getRating = async () => {
+    // console.log("fet rating ni");
+    try {
+      const rates = await axios.get(
+        `https://pacific-oasis-23064.herokuapp.com/reviews/rating/${id}`
+      );
+      setRating(rates.data.average_rating);
+    } catch (error) {}
+  };
+  const onChange = (name, value) => {
+    setModal({
+      [name]: value,
+    });
+  };
 
   useEffect(() => {
     getProduct();
+    getRating();
   }, []);
 
-  const { id } = useParams();
+  useEffect(() => {
+    getRating();
+  }, [rating]);
+
   const getProduct = async () => {
-    console.log("object");
     try {
-      console.log(id);
       const callmebabe = await axios.get(
         `https://pacific-oasis-23064.herokuapp.com/products/${id}`
       );
       setProduct(callmebabe.data.products);
+      setSellers(callmebabe.data.products.user);
     } catch (error) {
       console.log("errorgan", error);
     }
@@ -47,12 +73,20 @@ export default function ProductDets() {
       <div className={styles.Wrapper}>
         <div className={styles.CardDetail}>
           <div className={styles.ImageProd}>
-            <img src={product.product_image} alt="product photo" />
+            <img
+              src={product.product_image ? product.product_image : noimg}
+              alt="product"
+            />
           </div>
           <div className={styles.Content}>
             <h3>{product.product_name}</h3>
             <div className={styles.Rate}>
-              <ReactStars value={5} size={24} color2={"#ffd700"} edit={false} />
+              <ReactStars
+                value={rating ? rating : 0}
+                size={48}
+                color2={"#ffd700"}
+                edit={false}
+              />
             </div>
             <div className={styles.Price}>
               <span>Rp 90.000 ,-</span>
@@ -66,20 +100,29 @@ export default function ProductDets() {
                 <button>+</button>
               </div>
               <div className={styles.Stock}>
-                <p>Stock: 100</p>
+                <p>Stock: {product.stock}</p>
               </div>
             </div>
 
             <div className={styles.Seller}>
-              <img src={product.product_image} alt="seller photo" />
+              <img src={seller ? seller.profile_image : noimg} alt="seller" />
               <div className={styles.SellerInfo}>
-                <p>Banana Lovers</p>
-                <button>Seller Details</button>
+                <p>{seller ? seller.full_name : "seller not found"}</p>
+                {seller && <button>Seller Details</button>}
               </div>
             </div>
             <div className={styles.AddToCart}>
               <button>Add to Cart</button>
-              <button>Add Review</button>
+              <button onClick={() => onChange("addReview", true)}>
+                Add Review
+              </button>
+              {modal.addReview && (
+                <AddReview
+                  open={modal.addReview}
+                  onClose={() => onChange("addReview", false)}
+                  prod={id}
+                />
+              )}
             </div>
           </div>
         </div>

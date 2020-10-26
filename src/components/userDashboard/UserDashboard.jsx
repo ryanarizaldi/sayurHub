@@ -72,7 +72,7 @@ function UserDashboard(props) {
               <button onClick={() => onChange("editProfile", true)}>
                 Edit Profile
               </button>
-              {modal && (
+              {editProfile && (
                 <ModalEdit
 				  userData={userData}
                   open={editProfile}
