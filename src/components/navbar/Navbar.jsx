@@ -1,19 +1,18 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
-import { NavLink } from 'react-router-dom';
-import styles from './Navbar.module.css';
-import logo from '../../assets/img/logo.svg';
-import searchicon from '../../assets/img/searchicon.png';
-import * as actionTypes from '../../redux/action/Action';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-
+import { NavLink } from "react-router-dom";
+import styles from "./Navbar.module.css";
+import logo from "../../assets/img/logo.svg";
+import searchicon from "../../assets/img/searchicon.png";
+import * as actionTypes from "../../redux/action/Action";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 
 function Navbar(props) {
 	
 	const { userData, getUser, logout, token } = props;
 	
-	const currentToken = token
+	const currentToken = localStorage.getItem('token')
 	
 	useEffect(() => {
 			getUser();
@@ -59,23 +58,23 @@ function Navbar(props) {
 				}
                
             </div>
-        </div>
-        
-       
-    )
+      </div>
+  );
 }
-	const mapStateToProps = state => {
-		return{
-			userData: state.userData,
-			token: state.token
-		}
-	}
 
-	const mapDispatchToProps = dispatch => {
-		return{
-			getUser: () => dispatch(actionTypes.getUser()),
-			logout: () => dispatch(actionTypes.logout())
-		}
-	}
+const mapStateToProps = (state) => {
+  return {
+    token: state.token,
+    userData: state.userData,
+  };
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getUser: () => dispatch(actionTypes.getUser()),
+    logout: () => dispatch(actionTypes.logout()),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -93,6 +93,49 @@
     background: #EDEDED !important;
     border-radius: 8px;
     padding: 20px 27px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.UserReview .ButtonGroup {
+    display: flex;
+    width: 15%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ButtonGroup button{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+    background: white;
+    border-radius: 5px;
+}
+
+.ButtonGroup .EditButton button {
+    color: #DE884A;
+    border: 1px solid #DE884A;
+}
+
+.ButtonGroup .EditButton button:hover {
+    color: white;
+    background:  #DE884A;
+}
+
+.ButtonGroup .DeleteButton button:hover {
+    color: white;
+    background:  #D65445;
+}
+
+.ButtonGroup .DeleteButton button {
+    color: #D65445;
+    border: 1px solid #D65445;
 }
 
 @media only screen and (max-width: 450px) {

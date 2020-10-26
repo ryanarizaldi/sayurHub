@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./head.module.css";
 import HeadPic from "../../assets/img/Homepic1.png";
 import PicTop from "../../assets/img/Homepic2.png";
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import PicBottom from "../../assets/img/Homepic3.png";
 import Banana from "../../assets/img/banana.png";
 import ShoppingCart from "../../assets/img/shopping-cart.png";
@@ -12,7 +13,9 @@ function Head() {
       <div className={styles.Container}>
         <h1>Fresh Fruits and Vegetables, at Your Doorstep.</h1>
         <img src={HeadPic} alt="Vegetables"></img>
-        <button>Browse Product</button>
+		<a href="#button">
+        	<button>Browse Product</button>
+		</a>
       </div>
       <div className={styles.Ads}>
         <div className={styles.ContainerBanana}>
@@ -27,7 +30,7 @@ function Head() {
             <p>Rp. 90.000,-</p>
             <h2>Rp. 45.000,-</h2>
             <button>
-              <img src={ShoppingCart} alt="shopping cart"></img>
+			  <ShoppingCartOutlinedIcon />
               Add to Cart
             </button>
           </div>

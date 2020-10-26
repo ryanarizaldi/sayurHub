@@ -1,4 +1,4 @@
-import * as actionTypes from '../constant/actionTypes';
+import * as actionTypes from "../constant/actionTypes";
 
 const initialState = {
 	loading: false,
@@ -33,6 +33,7 @@ function rootReducer(state = initialState, action){
 			}
 			default: return state;
 	}
+
 }
 
 export default rootReducer;

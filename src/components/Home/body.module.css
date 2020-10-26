@@ -63,6 +63,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
 .ContainerProduct .Card:nth-child(4n){
@@ -71,11 +72,17 @@
 
 .Card a{
 	text-decoration: none;
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .Card img {
-	margin: 8px 0;
-	width: 232.73px;
+	margin: 0 auto 10px auto;
+	width: 80%;
+	border-radius: 75%;
 	height: 160.95px;
 	object-fit: cover;
 }
@@ -83,8 +90,8 @@
 .Card h1{
 	font-style: normal;
 	font-weight: normal;
-	font-size: 24px;
-	margin-bottom: 40px;
+	font-size: 20px;
+	margin-bottom: 20px;
 	line-height: 29px;
 	text-align: center;
 	color: #000000;
@@ -107,6 +114,8 @@
 }
 
 .Card button{
+	display: flex;
+	align-items: center;
 	cursor: pointer;
 	box-sizing: border-box;
 	padding: 10px 20px;
@@ -117,7 +126,7 @@
 	text-transform: uppercase;
 	color: #367874;
 	transition: all 0.4s ease 0s;
-	width: 192px;
+	width: 80%;
 	text-align: center;
 	margin: auto;
 }
