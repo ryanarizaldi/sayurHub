@@ -47,7 +47,7 @@ export default function ModalAddReview(props) {
       Swal.fire({
         position: "top-mid",
         icon: "success",
-        title: `Success Add Review!`,
+        title: `${post.data.message}`,
         showConfirmButton: false,
         timer: 1500,
       });

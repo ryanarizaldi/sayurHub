@@ -17,6 +17,7 @@ export default function ProductDets() {
   const { id } = useParams();
 
   const getRating = async () => {
+    // console.log("fet rating ni");
     try {
       const rates = await axios.get(
         `https://pacific-oasis-23064.herokuapp.com/reviews/rating/${id}`
@@ -34,6 +35,10 @@ export default function ProductDets() {
     getProduct();
     getRating();
   }, []);
+
+  useEffect(() => {
+    getRating();
+  }, [rating]);
 
   const getProduct = async () => {
     try {

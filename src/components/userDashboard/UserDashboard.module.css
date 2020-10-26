@@ -51,6 +51,7 @@
     margin: 0 auto 24px auto;
     width: 150px;
     height: 150px;
+	border-radius: 75%;
 }
 
 .UserCard p {
