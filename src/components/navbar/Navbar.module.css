@@ -102,6 +102,7 @@
     border: none;
     outline: none;
 	transition: all 0.2s ease 0s;
+    cursor: pointer;
 }
 
 .Signup button:hover {
@@ -140,9 +141,10 @@
 .Dropdown img{
 	position: absolute;
 	left: 30px;
-	top: -20px;
+	top: -19px;
 	width: 40px;
 	height: 40px;
+	border-radius: 75%;
 }
 
 .DropdownContent {

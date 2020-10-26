@@ -49,7 +49,7 @@ export const loginUser = (values) => {
 
 export const getUser = () => {
 	return async dispatch => {
-		try{
+		try {
 			const token = localStorage.getItem('token');
 			const submit = await axios({
 				method: "GET",
@@ -88,5 +88,52 @@ export const logout = () => {
 				user: []
 			}
 		})
+	}
+}
+
+
+export const editUser = (values, id, state, onClose) => {
+	return async (dispatch) => {
+		const {full_name, description, email} = values;
+		try{
+			const token = localStorage.getItem('token');
+			const fd = new FormData();
+			fd.append('full_name', full_name);
+			fd.append('description', description);
+			fd.append('email', email);
+			fd.append('profile_image', state);
+			const submit = await axios({
+						method: 'PUT',
+						url: "https://pacific-oasis-23064.herokuapp.com/user/edit/" + id,
+						data: fd,
+						headers: {
+								"Content-Type": "multipart/form-data",
+								token : token
+						},
+					  });
+			console.log(submit);
+			dispatch({
+				type: actionTypes.EDIT_USER,
+				payload: {
+					data: submit.data.data,
+				}
+			})
+			onClose();
+			Swal.fire({
+                position: 'top-mid',
+                icon: 'success',
+                title: `Edit User Success`,
+                showConfirmButton: false,
+                timer: 1500
+            });
+		} catch(error){
+			console.log("error", error.response);
+			onClose();
+			Swal.fire({
+					title: "Edit Failed",
+					text: error.response.data.message,
+					icon: "error",
+              });
+		}	
 	}
 }

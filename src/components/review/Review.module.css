@@ -1,8 +1,23 @@
+.Container {
+    padding: 0 16px ;
+    max-width: 100%;
+    margin: auto;
+
+}
+
+@media (min-width: 1440px) {
+    .Container {
+        max-width: 1277px;
+    }
+}
+
 .Review {
     border-top: 1px solid #C5C5C5;
     background: #F7F6ED; 
-    margin: 0 102px 68px 103px;
-    padding: 38px;
+    margin: auto;
+    /* margin: 0 102px 68px 103px; */
+    padding: 64px 38px;
+    width: 100%;
     border-radius: 0 0 8px 8px;
     background: white;
 }
@@ -14,20 +29,23 @@
     letter-spacing: 0.75px;
     text-transform: uppercase;
     color: #000000;
-    background: white;
     margin-bottom: 24px;
 }
 
 .UserReview {
     display: flex;
     flex-direction: row;
-    background: white;
     margin-bottom: 32px;
+    width: 100%;
+}
+
+.UserReview .UserPicture {
+    width: 5%;
+    margin: auto;
 }
 
 .UserReview img {
-    padding-right: 26px;
-    background: white;
+    margin: auto;
     width: 74px;
     height: 74px;
 }
@@ -42,11 +60,12 @@
     background: white;
 } */
 
-.UserReview div, span {
+/* .UserReview div, span {
     background: white;
-}
+} */
 
 .Column {
+    width: 90%;
     display: flex;
     flex-direction: column;
 }
@@ -54,6 +73,8 @@
 .NameRate {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    
 }
 
 .NameRate p{
@@ -63,22 +84,72 @@
     line-height: 28px;
     letter-spacing: 0.15px;
     color: #000000;
-    padding-right: 18px;
+    padding-right: 16px;
     background: white;  
 }
 
 .Comment {
-    width: 1061px;
-    /* height: 63px; */
+    width: 100%;
     background: #EDEDED !important;
     border-radius: 8px;
     padding: 20px 27px;
-    /* border: 1px solid black; */
 }
 
-/* .Comment p {
-    background: #EDEDED;
-} */
+@media only screen and (max-width: 450px) {
+    .Container {
+        margin: auto;
+    }
 
+    .Review {
+        padding: 16px;
+        border: none;
+        border-radius: 5px;
+        height: 500px;
+    }
+
+    .Review h4 {
+        margin-bottom: 16px;
+    }
+
+    .UserReview {
+        margin: auto;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .UserReview .UserPicture {
+        width: 10%;
+        margin: 0;
+        margin-right: 16px;
+    }
+    .UserPicture img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .UserReview .Column {
+        width: 80%;
+    }
+
+    .Column .NameRate p {
+        font-size: 16px;
+        line-height: 21px;
+        letter-spacing: -0.32px;
+    }
+
+    .Column .Comment {
+        width: 100%;
+        padding: 16px;
+        font-size: 13px;
+        line-height: 18px;
+        letter-spacing: -0.08px;
+    }
+
+
+
+}
 
 

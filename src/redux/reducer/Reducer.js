@@ -5,7 +5,6 @@ const initialState = {
 	token: [],
 	userData: [],
 	isSuccess: false,
-	user: [] ? localStorage.getItem('user') : []
 }
 
 function rootReducer(state = initialState, action){
@@ -20,6 +19,11 @@ function rootReducer(state = initialState, action){
 			return{
 				...state,
 				userData: action.payload.user
+			}
+		case actionTypes.EDIT_USER:
+			return{
+				...state,
+				userData: action.payload.data,
 			}
 		case actionTypes.USER_LOGOUT:
 			return{

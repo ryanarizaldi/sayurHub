@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { NavLink } from 'react-router-dom';
@@ -13,10 +13,12 @@ function Navbar(props) {
 	
 	const { userData, getUser, logout } = props;
 	
-	const token = localStorage.getItem('token');
+	const [token] = useState(localStorage.getItem('token'))
 	
 	useEffect(() => {
-		getUser();
+		if(token){
+			getUser();
+		}
 	}, [token, getUser])
 	
 	
