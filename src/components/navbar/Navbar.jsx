@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { NavLink } from 'react-router-dom';
@@ -11,15 +11,13 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 function Navbar(props) {
 	
-	const { userData, getUser, logout } = props;
+	const { userData, getUser, logout, token } = props;
 	
-	const [token] = useState(localStorage.getItem('token'))
+	const currentToken = token
 	
 	useEffect(() => {
-		if(token){
 			getUser();
-		}
-	}, [token, getUser])
+	}, [currentToken, getUser])
 	
 	
     return (
@@ -68,7 +66,8 @@ function Navbar(props) {
 }
 	const mapStateToProps = state => {
 		return{
-			userData: state.userData
+			userData: state.userData,
+			token: state.token
 		}
 	}
 

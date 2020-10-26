@@ -2,7 +2,7 @@ import * as actionTypes from '../constant/actionTypes';
 
 const initialState = {
 	loading: false,
-	token: [],
+	token: "",
 	userData: [],
 	isSuccess: false,
 }
@@ -28,7 +28,8 @@ function rootReducer(state = initialState, action){
 		case actionTypes.USER_LOGOUT:
 			return{
 				...state,
-				userData: action.payload.user
+				userData: action.payload.user,
+				token: action.payload.token
 			}
 			default: return state;
 	}
