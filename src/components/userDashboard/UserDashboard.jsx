@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 import styles from './UserDashboard.module.css';
-import robert from '../../assets/img/robert.png';
 import ReactStars from 'react-stars';
 import Products from '../sellerProduct/SellerProduct';
 import Notification from '../notification/Notification';
 import History from '../history/UserHistory';
 import CreateProductModal from '../createProductModal/CreateProductModal';
-import EditProductModal from '../editProductModal/EditProductModal';
 import {NavLink, Route} from 'react-router-dom';
 import ModalEdit from './ModalEditUser';
 import * as actionTypes from '../../redux/action/Action';
@@ -16,32 +14,26 @@ import * as actionTypes from '../../redux/action/Action';
 
 function UserDashboard(props) {
 
-	const { userData,getUser } = props;
+	const { userData, getUser } = props;
 	
 	const [modal, setModal] = useState({
 			  createProduct: false,
-			  editProduct: false,
-			  deleteProduct: false,
 		      editProfile:false,
 		  }),
-		  [token, setToken] = useState(localStorage.getItem('token'));
+		  [token] = useState(localStorage.getItem('token'));
 	
 	useEffect(() => {
-		if(token){
 			getUser()
-		}
-		
 	}, [getUser, token])
 	
 	const onChange = ( name, value ) => {
-		setToken(localStorage.getItem('token'));
     	setModal({ 
 			[name] : value
 		})
 		console.log("modal is" + modal);
   	}
 	
-	const {createProduct, editProduct, deleteProduct, editProfile} = modal;
+	const {createProduct, editProfile} = modal;
 	
 	let modale = "";
 	
@@ -51,12 +43,12 @@ function UserDashboard(props) {
             onChange={onChange}
             onClose={() => onChange("createProduct", false)}
           />
-	 } else if(editProduct){
-		 modale = <EditProductModal
-			open={editProduct}
-            onChange={onChange}
-            onClose={() => onChange("createProduct", false)}
-		  />
+	 } else if(editProfile){
+		 modale = <ModalEdit
+                  	open={editProfile}
+					userData={userData}
+                  	onClose={() => onChange("editProfile", false)}
+                />
 	 }
 	
 	
@@ -72,13 +64,6 @@ function UserDashboard(props) {
               <button onClick={() => onChange("editProfile", true)}>
                 Edit Profile
               </button>
-              {editProfile && (
-                <ModalEdit
-				  userData={userData}
-                  open={editProfile}
-                  onClose={() => onChange("editProfile", false)}
-                />
-              )}
               <button
                 className={styles.CreateButton}
                 onClick={() => onChange("createProduct", true)}
@@ -117,7 +102,7 @@ function UserDashboard(props) {
               </div>
 
               <Route path="/dashboard/products">
-                <Products onChange={() => onChange("editProduct", true)} />
+                <Products />
               </Route>
               <Route path="/dashboard/history">
                 <History />

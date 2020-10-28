@@ -32,7 +32,7 @@ export const loginUser = (values) => {
 			dispatch({
 				type: actionTypes.LOGIN_USER,
 				payload: {
-					token: post.data.token,
+					token: localStorage.getItem('token'),
 					success: true
 				}
 			})
@@ -124,6 +124,90 @@ export const editUser = (values, id, state, onClose) => {
                 position: 'top-mid',
                 icon: 'success',
                 title: `Edit User Success`,
+                showConfirmButton: false,
+                timer: 1500
+            });
+		} catch(error){
+			console.log("error", error.response);
+			onClose();
+			Swal.fire({
+					title: "Edit Failed",
+					text: error.response.data.message,
+					icon: "error",
+              });
+		}	
+	}
+}
+
+
+export const getProductById = (userId) => {
+	return async dispatch => {
+		try {
+			const token = localStorage.getItem('token');
+			const submit = await axios({
+				method: "GET",
+				url: "https://pacific-oasis-23064.herokuapp.com/products/user",
+				headers: {
+					token: token
+				}
+			})
+			console.log(submit);
+			dispatch({
+				type: actionTypes.GET_PRODUCT_USER,
+				payload: {
+					product: submit.data.userProducts
+				}
+			})
+		} catch (error) {
+			console.log(error);
+		}
+	}
+}
+			
+export const setTrigger = () => {
+	return{
+		type: actionTypes.SET_TRIGGER,
+		payload: true
+	}
+}
+
+
+export const editProduct = (values, id, state, onClose) => {
+	return async (dispatch) => {
+		console.log('clicked')
+		const {product_name, description, category, discount, price, stock, weight } = values;
+		try{
+			const token = localStorage.getItem('token');
+			const fd = new FormData();
+			fd.append('product_name', product_name);
+			fd.append('description', description);
+			fd.append('category', category);
+			fd.append('discount', discount);
+			fd.append('price', price);
+			fd.append('stock', stock);
+			fd.append('weight', weight);
+			fd.append('product_image', state);
+			const submit = await axios({
+						method: 'PUT',
+						url: "https://pacific-oasis-23064.herokuapp.com/products/update/" + id ,
+						data: fd,
+						headers: {
+								"Content-Type": "multipart/form-data",
+								token : token
+						},
+					  });
+			console.log(submit);
+			dispatch({
+				type: actionTypes.EDIT_PRODUCT,
+				payload: {
+					data: submit.data.data,
+				}
+			})
+			onClose();
+			Swal.fire({
+                position: 'top-mid',
+                icon: 'success',
+                title: `Edit Product Success`,
                 showConfirmButton: false,
                 timer: 1500
             });
