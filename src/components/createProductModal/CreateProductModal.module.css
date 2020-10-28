@@ -1,0 +1,156 @@
+input[type="file"] {
+    display: none;
+}
+
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.Modal{
+	max-height: calc(100vh - 50px);
+	overflow-y: auto;
+	position: relative;
+	z-index: 3;
+}
+
+.UploadImage{
+	margin: 0 0 34px 0;
+	border: 1px solid #367874;
+	box-sizing: border-box;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.75px;
+	text-transform: uppercase;
+	color: #367874;
+	transition: all 0.4s ease 0s;
+	cursor: pointer;
+}
+
+.UploadImage:hover{
+	background: #367874;	
+	color: white;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+.ContainerModal{
+	width: 600px;
+	height: 800px;
+	background: #FFFFFF;
+	border-radius: 8px;
+	position: relative;
+	margin: 50px auto 0 auto;
+	outline: none;
+
+}
+
+.ContainerModal h1{
+	text-align: left;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 29px;
+	margin:0 0 65px 35px;
+	padding-top: 35px;
+}
+
+.ContainerModal h2{
+	position: absolute;
+	top: 5px;
+	cursor: pointer;
+	right: 10px;
+}
+
+.Form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.ContainerModal input{
+	background: #FCFCFC;
+	border: 1px solid #C4C4C4;
+	box-sizing: border-box;
+	border-radius: 8px;
+	width: 522px;
+	padding: 10px 10px;
+	margin: 0 0 24px 0;
+	outline: none;
+
+}
+
+.Label{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.44px;
+	width: 522px;
+	text-align: left;
+}
+
+.ContainerModal select{
+	background: #FCFCFC;
+	border: 1px solid #C4C4C4;
+	box-sizing: border-box;
+	padding: 10px 10px;
+	border-radius: 8px;
+	width: 522px;
+	margin: 0 0 24px 0;
+	cursor: pointer;
+	outline: none;
+
+}
+
+.ContainerModal button{
+	background: #367874;
+	border-radius: 5px;
+	box-sizing: border-box;
+	padding: 16px 0;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.75px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	width: 522px;
+	outline: none;
+
+	cursor: pointer;
+}
+
+
+@media only screen and (max-width: 700px){
+	
+	.ContainerModal h1{
+		margin:0 0 65px 5%;
+	}
+	
+	.ContainerModal{
+		width: 90%;
+	}
+	
+	.ContainerModal input{
+		width: 90%; 
+	}
+	
+	.ContainerModal select{
+		width: 90%;
+	}
+	.Label{
+		width: 90%;
+	}
+	
+	.ContainerModal button{
+		width: 90%;
+	}
+}

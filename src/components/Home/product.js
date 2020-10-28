@@ -1,21 +1,60 @@
-import React from 'react';
-import styles from './body.module.css';
-import Grapes from '../../assets/img/Grapes.png';
-import ShoppingCart from '../../assets/img/shopping-cart.png';
+import React, { useState, useEffect } from "react";
+import styles from "./body.module.css";
+import ShoppingCart from "../../assets/img/shopping-cart.png";
+import axios from "axios";
 
-function Product () {
-	
-	return(
-		<div className={styles.Card}>
-			<img src={Grapes} alt="grapes"></img>
-			<h1>Smol Tomato</h1>
-			<p>Rp. 12.000</p>
-			<button>
-				<img src={ShoppingCart} alt="Shopping Cart"></img>
-				Add to Cart
-			</button>
-		</div>
-	)
+function Product() {
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    try {
+      const prods = await axios.get(
+        `https://pacific-oasis-23064.herokuapp.com/products`
+      );
+      setProducts(prods.data.products);
+    } catch (error) {
+      console.log("ini error: ", error);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  //https://codepen.io/malasngoding/pen/EedMvv
+  const priceForm = (num) => {
+    let str = num.toString(),
+      split = str.split(","),
+      sisa = split[0].length % 3,
+      rupiah = split[0].substr(0, sisa),
+      ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if (ribuan) {
+      let separator = sisa ? "." : "";
+      rupiah += separator + ribuan.join(".");
+    }
+    rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
+    return rupiah;
+  };
+
+  return (
+    <>
+      {products.length
+        ? products.map((item) => (
+            <div className={styles.Card}>
+              <img src={item.product_image} alt="product"></img>
+              <h1>{item.product_name}</h1>
+              <p>Rp. {priceForm(item.price)}</p>
+              <button>
+                <img src={ShoppingCart} alt="Shopping Cart"></img>
+                Add to Cart
+              </button>
+            </div>
+          ))
+        : "No products that can be displayed"}
+    </>
+  );
 }
 
 export default Product;
