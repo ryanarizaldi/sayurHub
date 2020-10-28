@@ -14,12 +14,28 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.ErrorMsg {
+    color: #D65445;
+    margin: -12px 0 16px 0;
+    font-size: 14px;
+	width: 522px;
+}
+
+.ErrorInput {
+    box-shadow: 0 0 5px rgb(236, 42, 42);
+}
+
+
 .Container{
 	display: flex;
 	flex-direction: column;
 }
 .Container img{
 	margin-bottom: 20px;
+    width: 241px;
+    height: 175px;
+	border-radius: 8px;
+    object-fit: cover;
 }
 
 .Modal{
@@ -30,6 +46,8 @@ input[type=number] {
 }
 
 .UploadImage{
+	display:flex;
+	justify-content: center;
 	margin: 0 0 34px 0;
 	border: 1px solid #367874;
 	box-sizing: border-box;
@@ -57,7 +75,7 @@ input[type=number] {
 
 .ContainerModal{
 	width: 600px;
-	height: 900px;
+	padding-bottom: 60px;
 	background: #FFFFFF;
 	border-radius: 8px;
 	position: relative;
@@ -154,6 +172,9 @@ input[type=number] {
 	}
 	
 	.ContainerModal input{
+		width: 90%;
+	}
+	.ErrorMsg{
 		width: 90%;
 	}
 	

@@ -3,9 +3,7 @@ import {connect} from 'react-redux';
 
 import { Modal } from "@material-ui/core";
 import styles from './ModalEditUser.module.css';
-import robert from '../../assets/img/robert.png';
 import { useFormik } from "formik";
-import {Redirect} from 'react-router-dom';
 import * as actionTypes from '../../redux/action/Action';
 import * as Yup from "yup";
 
@@ -26,11 +24,11 @@ const schemaEdit = Yup.object().shape({
 
 function ModalEditUser(props) {
 
-    const {open, onClose, userData, editUser, isSuccess} = props;
+    const {open, onClose, userData, editUser} = props;
 	
 	const [profile_image, setProfile_image] = useState({
 				file: {},
-				url: ""
+				url: userData.profile_image
 	})
 	
 	const changePic = (e) => {
@@ -54,15 +52,15 @@ function ModalEditUser(props) {
 	})
 	
     return (
-        <Modal open={open} onClose={onClose}>
+        <Modal open={open} onClose={onClose} className={styles.Modal}>
             <div className={styles.EditUser}>
                 <div className={styles.Header}>
                     <h1>Edit User</h1>
                     <button onClick={onClose}>X</button>
                 </div>
                 <form className={styles.Form} onSubmit={formik.handleSubmit}>
-                    <img src={userData.profile_image} alt={userData.full_name}/>
-                    <label for="profile_image" className={styles.CustomUpload}>
+                    <img src={profile_image.url} alt={userData.full_name}/>
+                    <label htmlFor="profile_image" className={styles.CustomUpload}>
                         Upload Image
                     </label>
                     <input 
@@ -71,7 +69,7 @@ function ModalEditUser(props) {
 						name="profile_image" 
 						id="profile_image"
 						onChange={(e) => changePic(e)}></input>
-                    <label for="full_name">Full Name</label>
+                    <label jtmlFor="full_name">Full Name</label>
                     <input 
 						type="text"
 						value={formik.values.full_name}
@@ -79,23 +77,45 @@ function ModalEditUser(props) {
 						name="full_name" 
 						onBlur={formik.handleBlur} 
 						onChange={formik.handleChange}
+						className={
+								formik.touched.full_name && formik.errors.full_name
+								  ? styles.ErrorInput
+								  : null }
 						></input>
-                    <label for="email">Email</label>
+						{formik.touched.full_name && formik.errors.full_name ? (
+							  <div className={styles.ErrorMsg}>{formik.errors.full_name}</div>
+							) : null}
+                    <label htmlFor="email">Email</label>
                     <input 
 						id="email"
 						name="email" 
 						value={formik.values.email}
 						type="email" 
 						onBlur={formik.handleBlur} 
-						onChange={formik.handleChange} ></input>
-                    <label for="description">Description</label>
+						onChange={formik.handleChange} 
+						className={
+								formik.touched.email && formik.errors.email
+								  ? styles.ErrorInput
+								  : null }></input>
+						{formik.touched.email && formik.errors.email ? (
+							  <div className={styles.ErrorMsg}>{formik.errors.email}</div>
+							) : null}
+                    <label htmlFor="description">Description</label>
                     <input 
 						type="text" 
 						name="description"
 						id="description"
 						value={formik.values.description}
 						onBlur={formik.handleBlur} 
-						onChange={formik.handleChange}></input>
+						onChange={formik.handleChange}
+						className={
+								formik.touched.description && formik.errors.description
+								  ? styles.ErrorInput
+								  : null }>
+					</input>
+						{formik.touched.description && formik.errors.description ? (
+							  <div className={styles.ErrorMsg}>{formik.errors.description}</div>
+							) : null}
                     <div className={styles.ButtonGroup}>
                         <button className={styles.Cancel}>Cancel</button>
                         <button className={styles.Submit} type="submit">Save Changes</button>
@@ -106,11 +126,6 @@ function ModalEditUser(props) {
     )
 }
 
-const mapStateToProps = state => {
-	return{
-		isSuccess: state.isSuccess
-	}
-}
 
 const mapDispatchToProps = dispatch => {
 	return{
@@ -118,4 +133,4 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalEditUser);
+export default connect(null, mapDispatchToProps)(ModalEditUser);

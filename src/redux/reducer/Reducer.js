@@ -2,10 +2,11 @@ import * as actionTypes from "../constant/actionTypes";
 
 const initialState = {
   loading: false,
-  token: "",
+  token: localStorage.getItem("token"),
   userData: [],
   isSuccess: false,
-  review: [],
+  productData: [],
+  trigger: false,
 };
 
 function rootReducer(state = initialState, action) {
@@ -15,11 +16,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         token: action.payload.token,
         isSuccess: action.payload.success,
-      };
-    case actionTypes.GET_REVIEW:
-      return {
-        ...state,
-        review: action.payload.review,
       };
     case actionTypes.GET_USER:
       return {
@@ -34,8 +30,28 @@ function rootReducer(state = initialState, action) {
     case actionTypes.USER_LOGOUT:
       return {
         ...state,
-        token: action.payload.token,
         userData: action.payload.user,
+        token: action.payload.token,
+      };
+    case actionTypes.GET_PRODUCT_USER:
+      return {
+        ...state,
+        productData: action.payload.product,
+      };
+    case actionTypes.SET_TRIGGER:
+      return {
+        ...state,
+        trigger: !state.trigger,
+      };
+    case actionTypes.EDIT_PRODUCT:
+      return {
+        ...state,
+        productData: action.payload.data,
+      };
+    case actionTypes.GET_REVIEW:
+      return {
+        ...state,
+        review: action.payload.review,
       };
     default:
       return state;

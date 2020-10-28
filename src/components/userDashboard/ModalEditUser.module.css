@@ -1,3 +1,20 @@
+.ErrorMsg {
+    color: #D65445;
+    margin: 10px 0 0 0;
+    font-size: 14px;
+	width: 522px;
+}
+
+.ErrorInput {
+    box-shadow: 0 0 5px rgb(236, 42, 42);
+}
+
+.Modal{
+	max-height: calc(100vh - 50px);
+	overflow-y: auto;
+	position: relative;
+}
+
 .EditUser {
     width: 596px;
 	background: #FFFFFF;
@@ -9,9 +26,7 @@
     align-items: flex-start;
     border: none;
     outline: none;
-    padding: 37px;
-    max-height: calc(80vh - 50px);
-	overflow-y: scroll;
+    padding: 37px 37px 60px 37px;
 }
 .EditUser::-webkit-scrollbar {
     display: none;
@@ -84,7 +99,6 @@ input[type="file"] {
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.44px;
-    color: #000000;
 }
 
 .Form input {
@@ -154,5 +168,9 @@ input:focus {
         padding: 20px;
         margin-top: 30px;
     }
+	.ErrorMsg{
+		width: 90%;
+	}
+	
 
 }

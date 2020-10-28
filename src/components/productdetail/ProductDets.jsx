@@ -83,8 +83,16 @@ export default function ProductDets() {
               />
             </div>
             <div className={styles.Price}>
-              <span>Rp {priceForm(product.price)} ,-</span>
-              <h5>Rp {priceForm(product.actualPrice)},-</h5>
+              {product.discount !== 0 && (
+                <span>Rp {priceForm(product.price)} ,-</span>
+              )}
+              <h5>
+                Rp{" "}
+                {product.actualPrice
+                  ? priceForm(product.actualPrice)
+                  : priceForm(product.price)}
+                ,-
+              </h5>
             </div>
             <div className={styles.QuantyAndStock}>
               <div className={styles.Quantity}>

@@ -112,7 +112,7 @@ function CreateProductModal(props) {
       <Modal open={open} onClose={onClose} className={styles.Modal}>
         <div className={styles.ContainerModal}>
           <h1>Create Product</h1>
-          <h2 onClick={onClose}></h2>
+          <h2 onClick={onClose}>x</h2>
           <form className={styles.Form} onSubmit={formik.handleSubmit}>
             {image.url && (
               <div className={styles.PreviewUpload}>

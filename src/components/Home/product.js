@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./body.module.css";
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import axios from "axios";
 import noimg from "../../assets/img/noimg.png";
 import { Link } from "react-router-dom";
@@ -51,11 +51,16 @@ function Product() {
                   alt="product"
                 ></img>
                 <h1>{item.product_name}</h1>
-                <p>Rp. {item.actualPrice}</p>
-                {/* <p>Rp. {priceForm(item.price)}</p> */}
+                <p>
+                  Rp.{" "}
+                  {item.actualPrice
+                    ? priceForm(item.actualPrice)
+                    : priceForm(item.price)}
+                  ,-
+                </p>
                 <button>
-					<ShoppingCartOutlinedIcon ></ShoppingCartOutlinedIcon>
-					Add to Cart
+                  <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
+                  Add to Cart
                 </button>
               </Link>
             </div>

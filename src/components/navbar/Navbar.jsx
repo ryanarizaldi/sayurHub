@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/img/logo.svg";
@@ -10,17 +11,17 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 function Navbar(props) {
   const { userData, getUser, logout, token } = props;
 
-  const currentToken = localStorage.getItem("token");
-
   useEffect(() => {
     getUser();
-  }, [currentToken, getUser]);
+  }, [token, getUser]);
 
   return (
     <div className={styles.Background}>
       <div className={styles.Container}>
         <div className={styles.Logo}>
-          <img src={logo}></img>
+          <NavLink to="/">
+            <img src={logo}></img>
+          </NavLink>
         </div>
         <div className={styles.Box}>
           <img src={searchicon}></img>

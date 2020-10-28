@@ -11,19 +11,14 @@ import ModalEdit from "./ModalEditReview";
 function Review(props) {
   const { review, getReview, logout, token } = props;
 
-  const [reviews, setReview] = useState([]);
+  // const [reviews, setReview] = useState([]);
   const [logged, setLogged] = useState({});
   const [modal, setModal] = useState(false);
   const { id } = useParams();
-  // const isMaker = localStorage.getItem(t)
   useEffect(() => {
     getReview(id);
     getCurrent();
-  }, []);
-
-  // useEffect(() => {
-  //   getReview();
-  // }, []);
+  }, [id, getReview]);
 
   const getCurrent = async () => {
     try {
@@ -67,6 +62,7 @@ function Review(props) {
           token: localStorage.getItem("token"),
         },
       });
+      getReview(id);
       Swal.fire("Deleted!", `${deleting.data.message}`, "success");
     } catch (error) {}
   };
@@ -75,7 +71,8 @@ function Review(props) {
     <div className={styles.Container}>
       <div className={styles.Review}>
         <h4>Reviews</h4>
-        {review.length
+        {/* {console.log("reviewnya", review[0])} */}
+        {review && review.length
           ? review.map((rev) => (
               <div className={styles.UserReview} key={rev._id}>
                 <div className={styles.UserPicture}>

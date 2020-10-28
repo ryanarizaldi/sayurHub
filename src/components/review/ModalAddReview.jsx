@@ -7,9 +7,11 @@ import Axios from "axios";
 import qs from "qs";
 import Swal from "sweetalert2";
 import ReactStars from "react-stars";
+import { connect } from "react-redux";
+import * as actionTypes from "../../redux/action/Action";
 
-export default function ModalAddReview(props) {
-  const { open, onClose, prod } = props;
+function ModalAddReview(props) {
+  const { open, onClose, prod, getReview } = props;
   const [inputRate, setRate] = useState(0);
   const schema = Yup.object().shape({
     review: Yup.string().required("This collom is required"),
@@ -28,34 +30,43 @@ export default function ModalAddReview(props) {
   });
 
   const postReview = async (values) => {
-    try {
-      const { review } = values;
-      const body = qs.stringify({
-        review: review,
-        rating: inputRate,
-      });
-      const post = await Axios({
-        method: "post",
-        url: `https://pacific-oasis-23064.herokuapp.com/reviews/create/${prod}`,
-        data: body,
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          token: localStorage.getItem("token"),
-        },
-      });
-      onClose();
+    if (inputRate >= 1) {
+      try {
+        const { review } = values;
+        const body = qs.stringify({
+          review: review,
+          rating: inputRate,
+        });
+        const post = await Axios({
+          method: "post",
+          url: `https://pacific-oasis-23064.herokuapp.com/reviews/create/${prod}`,
+          data: body,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            token: localStorage.getItem("token"),
+          },
+        });
+        onClose();
+        Swal.fire({
+          position: "top-mid",
+          icon: "success",
+          title: `${post.data.message}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        getReview(prod);
+      } catch (error) {
+        onClose();
+        Swal.fire({
+          title: "Add Review Failed",
+          text: error.response.data.message,
+          icon: "error",
+        });
+      }
+    } else {
       Swal.fire({
-        position: "top-mid",
-        icon: "success",
-        title: `${post.data.message}`,
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    } catch (error) {
-      onClose();
-      Swal.fire({
-        title: "Add Review Failed",
-        text: error.response.data.message,
+        title: "Fill the rate!",
+        text: `it's required`,
         icon: "error",
       });
     }
@@ -114,7 +125,9 @@ export default function ModalAddReview(props) {
               Cancel
             </button>
             <button className={styles.Submit} type="submit">
-              {formik.isSubmitting ? "submitting..." : "Add Review"}
+              {inputRate >= 1 && formik.isSubmitting
+                ? "submitting..."
+                : "Add Review"}
             </button>
           </div>
         </form>
@@ -122,3 +135,10 @@ export default function ModalAddReview(props) {
     </Modal>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getReview: (id) => dispatch(actionTypes.getReview(id)),
+  };
+};
+export default connect(null, mapDispatchToProps)(ModalAddReview);
