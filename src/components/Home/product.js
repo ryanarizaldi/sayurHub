@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./body.module.css";
-import ShoppingCart from "../../assets/img/shopping-cart.png";
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import axios from "axios";
+import noimg from "../../assets/img/noimg.png";
+import { Link } from "react-router-dom";
 
 function Product() {
   const [products, setProducts] = useState([]);
@@ -42,14 +44,19 @@ function Product() {
     <>
       {products.length
         ? products.map((item) => (
-            <div className={styles.Card}>
-              <img src={item.product_image} alt="product"></img>
-              <h1>{item.product_name}</h1>
-              <p>Rp. {priceForm(item.price)}</p>
-              <button>
-                <img src={ShoppingCart} alt="Shopping Cart"></img>
-                Add to Cart
-              </button>
+            <div className={styles.Card} key={item._id}>
+              <Link to={`/product/${item._id}`}>
+                <img
+                  src={item.product_image ? item.product_image : noimg}
+                  alt="product"
+                ></img>
+                <h1>{item.product_name}</h1>
+                <p>Rp. {priceForm(item.price)}</p>
+                <button>
+					<ShoppingCartOutlinedIcon ></ShoppingCartOutlinedIcon>
+					Add to Cart
+                </button>
+              </Link>
             </div>
           ))
         : "No products that can be displayed"}

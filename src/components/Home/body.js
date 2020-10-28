@@ -6,7 +6,7 @@ function Body() {
   return (
     <div className={styles.Container}>
       <div className={styles.Button}>
-        <button className={styles.Active}>All</button>
+        <button className={styles.Active} id="button">All</button>
         <button>Fruits</button>
         <button>Vegetables</button>
         <button>Diet</button>

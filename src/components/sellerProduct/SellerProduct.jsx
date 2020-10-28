@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { connect } from 'react-redux';
+
 import styles from './SellerProduct.module.css';
-import banana from '../../assets/img/banana.png';
-import grape from '../../assets/img/prod_grapes.png';
-import lemon from '../../assets/img/prod_lemon.png';
-import cabbage from '../../assets/img/prod_cabbage.png';
-import tomato from '../../assets/img/prod_tomato.png';
+import Product from './Product';
 import Swal from 'sweetalert2';
+import * as actionTypes from '../../redux/action/Action';
 
 
-export default function SellerProduct(props) {
+function SellerProduct(props) {
 	
-    const {onChange} = props;
+    const { getProductById, productData, trigger } = props;
+	
+	useEffect(() => {
+		getProductById()
+	}, [getProductById, trigger])
     
     const removeProduct = (item) => {
         Swal.fire({
@@ -34,69 +37,32 @@ export default function SellerProduct(props) {
 	
     return (
         <div className={styles.Products}>
-            <div className={styles.CardProduct}>
-                <img src={banana} alt="seller product"/>
-                <p>Banana</p>
-                <span>Rp 12.000,-</span>
-                <div className={styles.CardButton}>
-                    <button onClick={onChange}>Edit</button>
-                    <button onClick={() => removeProduct('Banana')}>Delete</button>
-                </div>
-            </div>
-            <div className={styles.CardProduct}>
-                <img src={banana} alt="seller product"/>
-                <p>Banana Qu</p>
-                <span>Rp 1.000,-</span>
-                <div className={styles.CardButton}>
-                    <button onClick={onChange}>Edit</button>
-                    <button onClick={() => removeProduct('Banana')}>Delete</button>
-                </div>
-            </div>
-            <div className={styles.CardProduct}>
-                <img src={banana} alt="seller product"/>
-                <p>Banana KW</p>
-                <span>Rp 99.000,-</span>
-                <div className={styles.CardButton}>
-                    <button>Edit</button>
-                    <button onClick={() => removeProduct('Banana')}>Delete</button>
-                </div>
-            </div>
-            <div className={styles.CardProduct}>
-                <img src={tomato} alt="seller product"/>
-                <p>Cute Tomato</p>
-                <span>Rp 12.000,-</span>
-                <div className={styles.CardButton}>
-                    <button>Edit</button>
-                    <button onClick={() => removeProduct('Banana')}>Delete</button>
-                </div>
-            </div>
-            <div className={styles.CardProduct}>
-                <img src={cabbage} alt="seller product"/>
-                <p>Kol Kayaknya</p>
-                <span>Rp 12.000,-</span>
-                <div className={styles.CardButton}>
-                    <button>Edit</button>
-                    <button onClick={() => removeProduct('Banana')}>Delete</button>
-                </div>
-            </div>
-            <div className={styles.CardProduct}>
-                <img src={grape} alt="seller product"/>
-                <p>Amer</p>
-                <span>Rp 75.000,-</span>
-                <div className={styles.CardButton}>
-                    <button>Edit</button>
-                    <button onClick={() => removeProduct('Banana')}>Delete</button>
-                </div>
-            </div>
-            <div className={styles.CardProduct}>
-                <img src={lemon} alt="seller product"/>
-                <p>Nutrisari</p>
-                <span>Rp 12.000,-</span>
-                <div className={styles.CardButton}>
-                    <button>Edit</button>
-                    <button onClick={() => removeProduct('Banana')}>Delete</button>
-                </div>
-            </div>
+			{productData?.length > 0
+			 ? productData.map((list) => {
+				return (
+				<Product 
+					key={list._id}
+					list={list}
+					removeProduct={removeProduct}/>
+			)
+			})
+			: "Product is not available"}
         </div>
     )
 }
+
+
+const mapStateToProps = state => {
+	return{
+		productData: state.productData,
+		trigger: state.trigger
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return{
+		getProductById: () => dispatch(actionTypes.getProductById())
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SellerProduct);
