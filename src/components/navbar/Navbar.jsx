@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { NavLink } from "react-router-dom";
@@ -20,11 +20,11 @@ function Navbar(props) {
       <div className={styles.Container}>
         <div className={styles.Logo}>
           <NavLink to="/">
-            <img src={logo}></img>
+            <img src={logo} alt="logo"></img>
           </NavLink>
         </div>
         <div className={styles.Box}>
-          <img src={searchicon}></img>
+          <img src={searchicon} alt="search"></img>
         </div>
         <div className={styles.Searchbox}>
           <input
@@ -51,7 +51,7 @@ function Navbar(props) {
               <button>SELL PRODUCT</button>
             </NavLink>
             <div className={styles.Dropdown}>
-              <img src={userData.profile_image}></img>
+              <img src={userData.profile_image} alt="profile"></img>
               <div className={styles.DropdownContent}>
                 <NavLink to="/dashboard">User Dashboard</NavLink>
                 <NavLink to="/" onClick={logout}>

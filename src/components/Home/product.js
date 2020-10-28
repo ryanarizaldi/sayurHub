@@ -1,27 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./body.module.css";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import axios from "axios";
 import noimg from "../../assets/img/noimg.png";
 import { Link } from "react-router-dom";
 
-function Product() {
+function Product(props) {
+  const { category } = props;
   const [products, setProducts] = useState([]);
 
-  const getProducts = async () => {
+  const getProducts = useCallback(async (cat) => {
     try {
       const prods = await axios.get(
-        `https://pacific-oasis-23064.herokuapp.com/products`
+        cat === "all"
+          ? `https://pacific-oasis-23064.herokuapp.com/products`
+          : `https://pacific-oasis-23064.herokuapp.com/products/filter/${cat}`
       );
-      setProducts(prods.data.products);
+
+      category === "fruits"
+        ? setProducts(prods.data.fruits)
+        : category === "vegetables"
+        ? setProducts(prods.data.vegetable)
+        : category === "diets"
+        ? setProducts(prods.data.diet)
+        : setProducts(prods.data.products);
     } catch (error) {
       console.log("ini error: ", error);
     }
-  };
+  });
 
   useEffect(() => {
-    getProducts();
-  }, []);
+    getProducts(category);
+  }, [category]);
 
   //https://codepen.io/malasngoding/pen/EedMvv
   const priceForm = (num) => {
