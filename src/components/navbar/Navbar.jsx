@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/img/logo.svg";
@@ -11,36 +10,20 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 function Navbar(props) {
   const { userData, getUser, logout, token } = props;
 
-  const [currentToken] = token;
+  const currentToken = localStorage.getItem("token");
 
   useEffect(() => {
-    if (token) {
-      getUser();
-    }
+    getUser();
   }, [currentToken, getUser]);
-  //   const [token, setToken] = useState();
-  //   //   const token = localStorage.getItem("token");
-
-  //   useEffect(() => {
-  //     setToken(localStorage.getItem("token"));
-  //   }, []);
-
-  //   useEffect(() => {
-  //     if (token) {
-  //       getUser();
-  //     }
-  //   }, [token, getUser]);
 
   return (
     <div className={styles.Background}>
       <div className={styles.Container}>
         <div className={styles.Logo}>
-          <NavLink to="/">
-            <img src={logo} alt="logo"></img>
-          </NavLink>
+          <img src={logo}></img>
         </div>
         <div className={styles.Box}>
-          <img src={searchicon} alt="search ico"></img>
+          <img src={searchicon}></img>
         </div>
         <div className={styles.Searchbox}>
           <input
@@ -67,7 +50,7 @@ function Navbar(props) {
               <button>SELL PRODUCT</button>
             </NavLink>
             <div className={styles.Dropdown}>
-              <img src={userData.profile_image} alt="profile"></img>
+              <img src={userData.profile_image}></img>
               <div className={styles.DropdownContent}>
                 <NavLink to="/dashboard">User Dashboard</NavLink>
                 <NavLink to="/" onClick={logout}>
@@ -81,6 +64,7 @@ function Navbar(props) {
     </div>
   );
 }
+
 const mapStateToProps = (state) => {
   return {
     token: state.token,

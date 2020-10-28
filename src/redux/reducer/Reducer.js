@@ -19,8 +19,7 @@ function rootReducer(state = initialState, action) {
     case actionTypes.GET_REVIEW:
       return {
         ...state,
-        token: action.payload.token,
-        isSuccess: action.payload.success,
+        review: action.payload.review,
       };
     case actionTypes.GET_USER:
       return {

@@ -58,7 +58,7 @@ export const getUser = () => {
         },
       });
       console.log(submit);
-      //   localStorage.setItem("user", submit.data.data);
+      localStorage.setItem("user", submit.data.data);
       dispatch({
         type: actionTypes.GET_USER,
         payload: {
@@ -67,6 +67,26 @@ export const getUser = () => {
       });
     } catch (error) {
       console.log(error);
+    }
+  };
+};
+
+export const getReview = (id) => {
+  return async (dispatch) => {
+    console.log("ini idnya ", id);
+    try {
+      const review = await axios.get(
+        `https://pacific-oasis-23064.herokuapp.com/reviews/product/${id}`
+      );
+      console.log("isi review", review.data);
+      dispatch({
+        type: actionTypes.GET_REVIEW,
+        payload: {
+          review: review.data.data,
+        },
+      });
+    } catch (error) {
+      console.log("error nih gan", error);
     }
   };
 };
@@ -84,8 +104,8 @@ export const logout = () => {
     dispatch({
       type: actionTypes.USER_LOGOUT,
       payload: {
-        token: "",
         user: [],
+        token: "",
       },
     });
   };
