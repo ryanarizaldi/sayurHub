@@ -12,11 +12,10 @@ function Navbar(props) {
 	
 	const { userData, getUser, logout, token } = props;
 	
-	const currentToken = localStorage.getItem('token')
 	
 	useEffect(() => {
 			getUser();
-	}, [currentToken, getUser])
+	}, [token, getUser])
 	
 	
     return (
