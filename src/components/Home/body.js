@@ -3,7 +3,7 @@ import styles from "./body.module.css";
 import Product from "./product";
 
 function Body() {
-  const [category, setCat] = useState("diets");
+  const [category, setCat] = useState("all");
   return (
     <div className={styles.Container}>
       <div className={styles.Button}>
