@@ -80,6 +80,7 @@ function CreateProductModal(props) {
       formData.append("price", price);
       formData.append("stock", stock);
       formData.append("weight", weight);
+      formData.append("actualPrice", 0);
       formData.append("product_image", image.file);
 
       console.log(formData);
@@ -111,7 +112,7 @@ function CreateProductModal(props) {
       <Modal open={open} onClose={onClose} className={styles.Modal}>
         <div className={styles.ContainerModal}>
           <h1>Create Product</h1>
-          <h2 onClick={onClose}></h2>
+          <h2 onClick={onClose}>x</h2>
           <form className={styles.Form} onSubmit={formik.handleSubmit}>
             {image.url && (
               <div className={styles.PreviewUpload}>

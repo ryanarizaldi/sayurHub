@@ -3,8 +3,8 @@ export const GET_USER = "GET_USER";
 export const USER_LOGOUT = "USER_LOGOUT";
 export const EDIT_USER = "EDIT_USER";
 
-
-
+// review
+export const GET_REVIEW = "GET_REVIEW";
 
 // actionTypes Product
 

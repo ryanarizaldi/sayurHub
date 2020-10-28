@@ -7,14 +7,15 @@ import "./App.css";
 import Cart from "./pages/Cart";
 import User from "./pages/DashboardPage";
 import Detail from "./pages/ProductDetailPage";
+import Search from "./pages/SearchPage";
 import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <Switch>
         <Route exact path="/">
+          <Navbar />
           <Homepage />
         </Route>
         <Route path="/login">
@@ -24,13 +25,20 @@ function App() {
           <Register />
         </Route>
         <Route path="/cart">
+          <Navbar />
           <Cart />
         </Route>
         <Route path="/product/:id?">
+          <Navbar />
           <Detail />
         </Route>
         <Route path="/dashboard">
+          <Navbar />
           <User />
+        </Route>
+        <Route path="/search/:keyword?">
+          <Navbar />
+          <Search />
         </Route>
       </Switch>
     </Router>
