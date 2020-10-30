@@ -4,6 +4,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import axios from "axios";
 import noimg from "../../assets/img/noimg.png";
 import { Link } from "react-router-dom";
+import SkeletonProduct from "../skeletons/SkeletonProduct";
 
 function Product() {
   const [products, setProducts] = useState([]);
@@ -42,7 +43,7 @@ function Product() {
 
   return (
     <>
-      {products.length
+      {products?.length > 0
         ? products.map((item) => (
             <div className={styles.Card} key={item._id}>
               <Link to={`/product/${item._id}`}>
@@ -59,7 +60,7 @@ function Product() {
               </Link>
             </div>
           ))
-        : "No products that can be displayed"}
+        : [1, 2, 3, 4, 5, 6, 7, 8].map((n) => <SkeletonProduct key={n}/> )}
     </>
   );
 }

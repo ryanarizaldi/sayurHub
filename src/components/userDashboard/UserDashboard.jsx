@@ -10,11 +10,12 @@ import CreateProductModal from '../createProductModal/CreateProductModal';
 import {NavLink, Route} from 'react-router-dom';
 import ModalEdit from './ModalEditUser';
 import * as actionTypes from '../../redux/action/Action';
+import SkeletonProfile from '../skeletons/SkeletonProfile';
 
 
 function UserDashboard(props) {
 
-	const { userData, getUser } = props;
+	const { userData, getUser, loading } = props;
 	
 	const [modal, setModal] = useState({
 			  createProduct: false,
@@ -57,20 +58,21 @@ function UserDashboard(props) {
       <div className={styles.Row}>
         <div className={styles.Wrapper}>
           <div className={styles.ColUser}>
-            <div className={styles.UserCard}>
-              <img src={userData.profile_image} alt="user profile" />
-              <p>{userData.full_name}</p>
-              <ReactStars value={5} edit={false} size={20} />
-              <button onClick={() => onChange("editProfile", true)}>
-                Edit Profile
-              </button>
-              <button
-                className={styles.CreateButton}
-                onClick={() => onChange("createProduct", true)}
-              >
-                Create Product
-              </button>
-            </div>
+			{!loading ? (
+				<div className={styles.UserCard}>
+              		<img src={userData.profile_image} alt="user profile" />
+              		<p>{userData.full_name}</p>
+              		<ReactStars value={5} edit={false} size={20} />
+              		<button onClick={() => onChange("editProfile", true)}>
+                	Edit Profile
+              		</button>
+              		<button
+               			className={styles.CreateButton}
+                		onClick={() => onChange("createProduct", true)}>
+		                Create Product
+        		    </button>
+            	</div>
+			): <SkeletonProfile />}
           </div>
           <div className={styles.ColDasboard}>
             <div className={styles.DashboardCard}>
@@ -121,7 +123,8 @@ function UserDashboard(props) {
 
 const mapStateToProps = state => {
 	return{
-		userData: state.userData
+		userData: state.userData,
+		loading: state.loading
 	}
 }
 

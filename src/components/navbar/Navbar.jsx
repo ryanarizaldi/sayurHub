@@ -7,10 +7,11 @@ import logo from "../../assets/img/logo.svg";
 import searchicon from "../../assets/img/searchicon.png";
 import * as actionTypes from "../../redux/action/Action";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import Skeleton from '../skeletons/Skeletons';
 
 function Navbar(props) {
 	
-	const { userData, getUser, logout, token } = props;
+	const { userData, getUser, logout, token, loading } = props;
 	
 	
 	useEffect(() => {
@@ -45,13 +46,16 @@ function Navbar(props) {
 						<NavLink to="/dashboard" className={styles.Sell}>
 							<button>SELL PRODUCT</button>
 						</NavLink>
+						{!loading ? (
 						<div className={styles.Dropdown}>
 							<img src={userData.profile_image}></img>	
 							<div className={styles.DropdownContent}>
 								<NavLink to="/dashboard">User Dashboard</NavLink>
 								<NavLink to="/" onClick={logout}>Logout</NavLink>
 							</div>
-						</div>
+						</div>	
+						): <Skeleton type="navbar" />}
+						
 					</div>
 				)
 				}
@@ -65,6 +69,7 @@ const mapStateToProps = (state) => {
   return {
     token: state.token,
     userData: state.userData,
+	loading: state.loading
   };
 };
 

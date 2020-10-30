@@ -6,6 +6,7 @@ import styles from "./ProductDets.module.css";
 import seller from "../../assets/img/seller_photo.png";
 import noimg from "../../assets/img/noimg.png";
 import AddReview from "../review/ModalAddReview";
+import SkeletonDetail from "../skeletons/SkeletonDetail";
 
 export default function ProductDets() {
   const [product, setProduct] = useState({});
@@ -13,7 +14,8 @@ export default function ProductDets() {
   const [rating, setRating] = useState(0);
   const [modal, setModal] = useState({
     addReview: false,
-  });
+  }),
+		[loading, setLoading] = useState(false)
   const { id } = useParams();
 
   const getRating = async () => {
@@ -41,12 +43,15 @@ export default function ProductDets() {
   }, [rating]);
 
   const getProduct = async () => {
+	setLoading(true);
     try {
+	
       const callmebabe = await axios.get(
         `https://pacific-oasis-23064.herokuapp.com/products/${id}`
       );
       setProduct(callmebabe.data.products);
       setSellers(callmebabe.data.products.user);
+	  setLoading(false);
     } catch (error) {
       console.log("errorgan", error);
     }
@@ -69,7 +74,8 @@ export default function ProductDets() {
     return rupiah;
   };
   return (
-    <div className={styles.Container}>
+	 <div className={styles.Container}>
+	  {!loading ? (
       <div className={styles.Wrapper}>
         <div className={styles.CardDetail}>
           <div className={styles.ImageProd}>
@@ -127,6 +133,7 @@ export default function ProductDets() {
           </div>
         </div>
       </div>
+	 ) :  <SkeletonDetail />}
     </div>
   );
 }

@@ -17,10 +17,16 @@ function rootReducer(state = initialState, action){
 				token: action.payload.token,
 				isSuccess: action.payload.success
 			}
+		case actionTypes.SET_LOADING:
+			return{
+				...state,
+				loading: action.payload.loading
+			}
 		case actionTypes.GET_USER:
 			return{
 				...state,
-				userData: action.payload.user
+				userData: action.payload.user,
+				loading: action.payload.loading
 			}
 		case actionTypes.EDIT_USER:
 			return{

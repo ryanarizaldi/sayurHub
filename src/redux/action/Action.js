@@ -49,6 +49,12 @@ export const loginUser = (values) => {
 
 export const getUser = () => {
 	return async dispatch => {
+		dispatch({
+			type: actionTypes.SET_LOADING,
+			payload: {
+				loading: true
+			}
+		})
 		try {
 			const token = localStorage.getItem('token');
 			const submit = await axios({
@@ -63,7 +69,8 @@ export const getUser = () => {
 			dispatch({
 				type: actionTypes.GET_USER,
 				payload: {
-					user: submit.data.data
+					user: submit.data.data,
+					loading: false
 				}
 			})
 		} catch (error) {
