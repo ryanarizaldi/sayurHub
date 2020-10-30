@@ -1,59 +1,59 @@
-import React, {useState, useEffect} from 'react';
-import { connect } from 'react-redux';
-
-import styles from './UserDashboard.module.css';
-import ReactStars from 'react-stars';
-import Products from '../sellerProduct/SellerProduct';
-import Notification from '../notification/Notification';
-import History from '../history/UserHistory';
-import CreateProductModal from '../createProductModal/CreateProductModal';
-import {NavLink, Route} from 'react-router-dom';
-import ModalEdit from './ModalEditUser';
-import * as actionTypes from '../../redux/action/Action';
-
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import styles from "./UserDashboard.module.css";
+import ReactStars from "react-stars";
+import Products from "../sellerProduct/SellerProduct";
+import Notification from "../notification/Notification";
+import History from "../history/UserHistory";
+import CreateProductModal from "../createProductModal/CreateProductModal";
+import { NavLink, Route } from "react-router-dom";
+import ModalEdit from "./ModalEditUser";
+import * as actionTypes from "../../redux/action/Action";
 
 function UserDashboard(props) {
+  const { userData, getUser } = props;
 
-	const { userData, getUser } = props;
-	
-	const [modal, setModal] = useState({
-			  createProduct: false,
-		      editProfile:false,
-		  }),
-		  [token] = useState(localStorage.getItem('token'));
-	
-	useEffect(() => {
-			getUser()
-	}, [getUser, token])
-	
-	const onChange = ( name, value ) => {
-    	setModal({ 
-			[name] : value
-		})
-		console.log("modal is" + modal);
-  	}
-	
-	const {createProduct, editProfile} = modal;
-	
-	let modale = "";
-	
-	if(createProduct){
-		 modale = <CreateProductModal
-            open={createProduct}
-            onChange={onChange}
-            onClose={() => onChange("createProduct", false)}
-          />
-	 } else if(editProfile){
-		 modale = <ModalEdit
-                  	open={editProfile}
-					userData={userData}
-                  	onClose={() => onChange("editProfile", false)}
-                />
-	 }
-	
-	
-    return (
-       <div className={styles.Container}>
+  const [modal, setModal] = useState({
+      createProduct: false,
+      editProfile: false,
+    }),
+    [token] = useState(localStorage.getItem("token"));
+
+  useEffect(() => {
+    getUser();
+  }, [getUser, token]);
+
+  const onChange = (name, value) => {
+    setModal({
+      [name]: value,
+    });
+    console.log("modal is" + modal);
+  };
+
+  const { createProduct, editProfile } = modal;
+
+  let modale = "";
+
+  if (createProduct) {
+    modale = (
+      <CreateProductModal
+        open={createProduct}
+        onChange={onChange}
+        onClose={() => onChange("createProduct", false)}
+      />
+    );
+  } else if (editProfile) {
+    modale = (
+      <ModalEdit
+        open={editProfile}
+        userData={userData}
+        onClose={() => onChange("editProfile", false)}
+      />
+    );
+  }
+
+  return (
+    <div className={styles.Container}>
       <div className={styles.Row}>
         <div className={styles.Wrapper}>
           <div className={styles.ColUser}>
@@ -119,17 +119,16 @@ function UserDashboard(props) {
   );
 }
 
-const mapStateToProps = state => {
-	return{
-		userData: state.userData
-	}
-}
+const mapStateToProps = (state) => {
+  return {
+    userData: state.userData,
+  };
+};
 
-const mapDispatchToProps = dispatch => {
-	return{
-		getUser: () => dispatch(actionTypes.getUser())
-	}
-}
-
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getUser: () => dispatch(actionTypes.getUser()),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserDashboard);

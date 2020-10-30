@@ -1,0 +1,188 @@
+.Container {
+    padding: 0 16px;
+    max-width: 100%;
+    margin: auto;
+
+}
+
+@media (min-width: 1440px) {
+    .Container {
+        max-width: 1277px;
+    }
+}
+.Wrapper {
+    background: white;
+    margin: auto;
+    padding: 38px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    height: 80vh;
+}  
+
+.Row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.Col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.Header h1 {
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 41px;
+    letter-spacing: 0.25px;
+    color: #000000;
+}
+
+.Keyword {
+    margin: 8px 0 24px;
+}
+
+.Keyword h4 {
+    letter-spacing: 0.25px;
+    color: #000000;
+}
+
+.SearchedProducts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.SearchedProducts a{
+    text-decoration: none;
+}
+
+.Card{
+	width: 30%;
+	height:350px;
+    border-radius: 8px;
+    border: 2px solid #EAEAEA;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/* .ContainerProduct .Card:nth-child(4n){
+	margin-right: 0;
+} */
+
+.Card a{
+	text-decoration: none;
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.Card img {
+	margin: 0 auto 10px;
+	width: 80%;
+	border-radius: 10px;
+	height: 160.95px;
+	object-fit: cover;
+}
+
+.Card h1{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	margin-bottom: 20px;
+	line-height: 29px;
+	text-align: center;
+	color: #000000;
+}
+
+.Card p{
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	text-align: center;
+	line-height: 118.3%;
+	color: #DE884A;
+	margin-bottom: 20px;
+}
+
+.Card button{
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 10px 20px;
+	border: 0px;
+	font-size: 14px;
+	background: #BBE4D8;
+	border-radius: 5px;
+	text-transform: uppercase;
+	color: #367874;
+	transition: all 0.4s ease 0s;
+	width: 70%;
+	text-align: center;
+	margin: 8px auto;
+}
+
+.Card button svg{
+	width: 16px;
+	height: 16px;
+	margin: 0 8px;
+}
+
+.Card button:hover{
+	transition: all 0.4s ease 0s;
+	background: #367874;
+	color: #BBE4D8;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	border: 1px solid #BBE4D8;
+}
+
+@media only screen and (max-width: 700px) {
+    .Container{
+        margin: 0 auto 16px;
+        padding: 0 16px;
+    }
+    .Wrapper {
+        padding: 16px;
+    }
+
+    .Header h1{
+        font-size: 24px;
+    }
+
+    .Keyword h4 {
+        font-size: 14px;
+    }
+
+    .SearchedProducts {
+        flex-direction: column;
+    }
+
+    .Card {
+        width: 100%;
+    }
+
+    .Card img {
+        width: 70%;
+        margin-bottom: 8px;
+    }
+
+    .Card h1 {
+        font-size: 18px;
+    }
+
+    .Card p {
+        font-size: 16px;
+    }
+}

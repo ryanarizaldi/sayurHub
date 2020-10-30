@@ -5,6 +5,7 @@ import axios from "axios";
 import styles from "./ProductDets.module.css";
 import noimg from "../../assets/img/noimg.png";
 import AddReview from "../review/ModalAddReview";
+import Nav from "./NavReviewDiscussion";
 
 export default function ProductDets() {
   const [product, setProduct] = useState({});
@@ -128,6 +129,7 @@ export default function ProductDets() {
             </div>
           </div>
         </div>
+        <Nav id={id} />
       </div>
     </div>
   );
