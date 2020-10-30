@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { NavLink } from "react-router-dom";
@@ -57,11 +57,9 @@ function Navbar(props) {
 						): <Skeleton type="navbar" />}
 						
 					</div>
-				)
-				}
-               
-            </div>
+				)}
       </div>
+    </div>
   );
 }
 
@@ -72,7 +70,6 @@ const mapStateToProps = (state) => {
 	loading: state.loading
   };
 };
-
 
 const mapDispatchToProps = (dispatch) => {
   return {

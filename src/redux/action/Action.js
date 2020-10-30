@@ -229,3 +229,30 @@ export const editProduct = (values, id, state, onClose) => {
 		}	
 	}
 }
+
+
+export const getReview = (id) => {
+  return async (dispatch) => {
+	dispatch({
+		type: actionTypes.SET_LOADING,
+		payload: {
+			loading: true
+		}
+	})
+    console.log("ini idnya ", id);
+    try {
+      const review = await axios.get(
+        `https://pacific-oasis-23064.herokuapp.com/reviews/product/${id}`
+      );
+      dispatch({
+        type: actionTypes.GET_REVIEW,
+        payload: {
+          review: review.data.data,
+		  loading: false
+        },
+      });
+    } catch (error) {
+      console.log("error nih gan", error);
+    }
+  };
+};

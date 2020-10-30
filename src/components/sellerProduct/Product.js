@@ -87,10 +87,11 @@ function Product (props) {
 	)
 }
 
-const mapDispatchToProps = dispatch => {
-	return{
-		setTrigger: () => dispatch(actionTypes.setTrigger())
-	}
-}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setTrigger: () => dispatch(actionTypes.setTrigger()),
+  };
+};
 
 export default connect(null, mapDispatchToProps)(Product);

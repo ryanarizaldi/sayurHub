@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import ReactStars from "react-stars";
 import axios from "axios";
 import styles from "./ProductDets.module.css";
-import seller from "../../assets/img/seller_photo.png";
 import noimg from "../../assets/img/noimg.png";
 import AddReview from "../review/ModalAddReview";
 import SkeletonDetail from "../skeletons/SkeletonDetail";
@@ -19,7 +18,6 @@ export default function ProductDets() {
   const { id } = useParams();
 
   const getRating = async () => {
-    // console.log("fet rating ni");
     try {
       const rates = await axios.get(
         `https://pacific-oasis-23064.herokuapp.com/reviews/rating/${id}`
@@ -37,10 +35,6 @@ export default function ProductDets() {
     getProduct();
     getRating();
   }, []);
-
-  useEffect(() => {
-    getRating();
-  }, [rating]);
 
   const getProduct = async () => {
 	setLoading(true);
@@ -95,8 +89,16 @@ export default function ProductDets() {
               />
             </div>
             <div className={styles.Price}>
-              <span>Rp 90.000 ,-</span>
-              <h5>Rp {priceForm(product.price)},-</h5>
+              {product.discount !== 0 && (
+                <span>Rp {priceForm(product.price)} ,-</span>
+              )}
+              <h5>
+                Rp{" "}
+                {product.actualPrice
+                  ? priceForm(product.actualPrice)
+                  : priceForm(product.price)}
+                ,-
+              </h5>
             </div>
             <div className={styles.QuantyAndStock}>
               <div className={styles.Quantity}>

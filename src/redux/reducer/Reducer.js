@@ -6,7 +6,8 @@ const initialState = {
 	userData: [],
 	isSuccess: false,
 	productData: [],
-	trigger: false
+	trigger: false,
+	review: []
 }
 
 function rootReducer(state = initialState, action){
@@ -54,9 +55,14 @@ function rootReducer(state = initialState, action){
 				...state,
 				productData: action.payload.data
 			}
+		case actionTypes.GET_REVIEW:
+      		return {
+        		...state,
+        		review: action.payload.review,
+				loading: action.payload.loading
+      };
 			default: return state;
 	}
-
 }
 
 export default rootReducer;
