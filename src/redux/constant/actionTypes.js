@@ -3,6 +3,10 @@ export const GET_USER = "GET_USER";
 export const USER_LOGOUT = "USER_LOGOUT";
 export const EDIT_USER = "EDIT_USER";
 
+//Admin
+export const LOGIN_ADMIN = "LOGIN_ADMIN";
+export const GET_ADMIN = "GET_ADMIN";
+
 // review
 export const GET_REVIEW = "GET_REVIEW";
 

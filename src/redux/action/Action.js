@@ -28,6 +28,7 @@ export const loginUser = (values) => {
         timer: 1500,
       });
       localStorage.setItem("token", post.data.token);
+      getUser();
       dispatch({
         type: actionTypes.LOGIN_USER,
         payload: {
@@ -46,6 +47,74 @@ export const loginUser = (values) => {
   };
 };
 
+export const loginAdmin = (values) => {
+  return async (dispatch) => {
+    const { email, password } = values;
+    try {
+      const dataLogin = qs.stringify({
+        email: email,
+        password: password,
+      });
+      const post = await axios({
+        method: "post",
+        url: "https://pacific-oasis-23064.herokuapp.com/admin/login",
+        data: dataLogin,
+        headers: {
+          "content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+      console.log(post.data);
+      Swal.fire({
+        position: "top-mid",
+        icon: "success",
+        title: `Login Success, Welcome`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      localStorage.setItem("token", post.data.token);
+      getAdmin();
+      dispatch({
+        type: actionTypes.LOGIN_ADMIN,
+        payload: {
+          token: localStorage.getItem("token"),
+          success: true,
+          isAdmin: true,
+        },
+      });
+    } catch (error) {
+      console.log("error", error.response);
+      Swal.fire({
+        title: "Login Failed",
+        text: error.response.data.message,
+        icon: "error",
+      });
+    }
+  };
+};
+
+export const getAdmin = () => {
+  return async (dispatch) => {
+    try {
+      const token = localStorage.getItem("token");
+      const submit = await axios({
+        method: "GET",
+        url: "https://pacific-oasis-23064.herokuapp.com/admin",
+        headers: {
+          token: token,
+        },
+      });
+      localStorage.setItem("user", submit.data.data);
+      dispatch({
+        type: actionTypes.GET_ADMIN,
+        payload: {
+          user: submit.data.data,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 export const getUser = () => {
   return async (dispatch) => {
     try {
@@ -104,6 +173,7 @@ export const logout = () => {
       payload: {
         user: [],
         token: "",
+        isSuccess: false,
       },
     });
   };
@@ -161,7 +231,7 @@ export const getProductById = (userId) => {
       const token = localStorage.getItem("token");
       const submit = await axios({
         method: "GET",
-        url: "https://pacific-oasis-23064.herokuapp.com/products/user",
+        url: "https://pacific-oasis-23064.herokuapp.com/products/",
         headers: {
           token: token,
         },
@@ -170,7 +240,7 @@ export const getProductById = (userId) => {
       dispatch({
         type: actionTypes.GET_PRODUCT_USER,
         payload: {
-          product: submit.data.userProducts,
+          product: submit.data.products,
         },
       });
     } catch (error) {
@@ -197,6 +267,8 @@ export const editProduct = (values, id, state, onClose) => {
       price,
       stock,
       weight,
+      nutrition,
+      suplier,
     } = values;
     try {
       const token = localStorage.getItem("token");
@@ -208,17 +280,19 @@ export const editProduct = (values, id, state, onClose) => {
       fd.append("price", price);
       fd.append("stock", stock);
       fd.append("weight", weight);
+      fd.append("nutrition", nutrition);
+      fd.append("farmer_supllier", suplier);
       fd.append("product_image", state);
       const submit = await axios({
         method: "PUT",
-        url: "https://pacific-oasis-23064.herokuapp.com/products/update/" + id,
+        url: `https://pacific-oasis-23064.herokuapp.com/admin/product/${id}`,
         data: fd,
         headers: {
           "Content-Type": "multipart/form-data",
           token: token,
         },
       });
-      console.log(submit);
+      console.log("hasil edit", submit);
       dispatch({
         type: actionTypes.EDIT_PRODUCT,
         payload: {

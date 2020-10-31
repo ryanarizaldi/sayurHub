@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import { NavLink } from "react-router-dom";
@@ -7,13 +7,16 @@ import logo from "../../assets/img/logo.svg";
 import searchicon from "../../assets/img/searchicon.png";
 import * as actionTypes from "../../redux/action/Action";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import AdminIco from "../../assets/img/admin.jpg";
+
+import noimg from "../../assets/img/noimg.png";
 
 function Navbar(props) {
-  const { userData, getUser, logout, token } = props;
+  const { userData, logout, token, isAdmin } = props;
 
-  useEffect(() => {
-    getUser();
-  }, [token, getUser]);
+  // useEffect(() => {
+  //   getUser();
+  // }, [token, getUser]);
 
   return (
     <div className={styles.Background}>
@@ -44,21 +47,40 @@ function Navbar(props) {
           </div>
         ) : (
           <div className={styles.DivNav}>
-            <NavLink to="/cart" className={styles.Cart}>
-              <ShoppingCartOutlinedIcon style={{ fill: "#367874" }} />
-            </NavLink>
-            <NavLink to="/dashboard" className={styles.Sell}>
-              <button>SELL PRODUCT</button>
-            </NavLink>
-            <div className={styles.Dropdown}>
-              <img src={userData.profile_image} alt="profile"></img>
-              <div className={styles.DropdownContent}>
-                <NavLink to="/dashboard">User Dashboard</NavLink>
-                <NavLink to="/" onClick={logout}>
-                  Logout
+            {isAdmin ? (
+              <>
+                <NavLink to="/dashboard/admin/products" className={styles.Sell}>
+                  <button>SELL PRODUCT</button>
                 </NavLink>
-              </div>
-            </div>
+                <div className={styles.Dropdown}>
+                  <img src={AdminIco} alt="profile" />
+                  <div className={styles.DropdownContent}>
+                    <NavLink to="/dashboard">Dashboard</NavLink>
+                    <NavLink to="/" onClick={logout}>
+                      Logout
+                    </NavLink>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <NavLink to="/cart" className={styles.Cart}>
+                  <ShoppingCartOutlinedIcon style={{ fill: "#367874" }} />
+                </NavLink>
+                <div className={styles.Dropdown}>
+                  <img
+                    src={userData?.profile_image && userData.profile_image}
+                    alt="profile"
+                  />
+                  <div className={styles.DropdownContent}>
+                    <NavLink to="/dashboard">Dashboard</NavLink>
+                    <NavLink to="/" onClick={logout}>
+                      Logout
+                    </NavLink>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         )}
       </div>
@@ -70,12 +92,14 @@ const mapStateToProps = (state) => {
   return {
     token: state.token,
     userData: state.userData,
+    isAdmin: state.isAdmin,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getUser: () => dispatch(actionTypes.getUser()),
+    getAdmin: () => dispatch(actionTypes.getAdmin()),
     logout: () => dispatch(actionTypes.logout()),
   };
 };

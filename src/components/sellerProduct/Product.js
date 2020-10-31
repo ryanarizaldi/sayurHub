@@ -44,9 +44,7 @@ function Product(props) {
         <span>Rp.{list.price}</span>
         <div className={styles.CardButton}>
           <button onClick={() => onChange("editProduct", true)}>Edit</button>
-          <button onClick={() => removeProduct(list.product_name)}>
-            Delete
-          </button>
+          <button onClick={() => removeProduct(list._id)}>Delete</button>
         </div>
       </div>
       {modale}

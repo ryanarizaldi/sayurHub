@@ -7,6 +7,7 @@ const initialState = {
   isSuccess: false,
   productData: [],
   trigger: false,
+  isAdmin: false,
 };
 
 function rootReducer(state = initialState, action) {
@@ -32,6 +33,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         userData: action.payload.user,
         token: action.payload.token,
+        isSuccess: action.payload.isSuccess,
       };
     case actionTypes.GET_PRODUCT_USER:
       return {
@@ -52,6 +54,18 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         review: action.payload.review,
+      };
+    case actionTypes.LOGIN_ADMIN:
+      return {
+        ...state,
+        token: action.payload.token,
+        isSuccess: action.payload.success,
+        isAdmin: action.payload.isAdmin,
+      };
+    case actionTypes.GET_ADMIN:
+      return {
+        ...state,
+        userData: action.payload.user,
       };
     default:
       return state;

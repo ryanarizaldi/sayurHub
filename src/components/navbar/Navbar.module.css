@@ -54,10 +54,14 @@
 
 .Cart{
 	position: absolute;
-	left: 880px;
+	left: 1100px;
     bottom: 28px;
 	text-decoration: none;
 	color: black;
+}
+
+.Cart:hover {
+    font-size: 300%;
 }
 
 .Sell button{
@@ -126,6 +130,13 @@
 .Login:hover {
 	transition: all 0.4s ease 0s;
     color: #265552;
+    border: 1px solid #265552;
+    padding: 10px 20px;
+    left: 1108px;
+    border-radius: 8px;
+    bottom: 24px;
+
+
 }
 
 
