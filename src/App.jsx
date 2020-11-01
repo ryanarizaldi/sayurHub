@@ -9,6 +9,8 @@ import User from "./pages/DashboardPage";
 import Detail from "./pages/ProductDetailPage";
 import Search from "./pages/SearchPage";
 import Navbar from "./components/navbar/Navbar";
+import UserBuyer from './pages/BuyerDashboard';
+
 
 function App() {
   return (
@@ -40,6 +42,10 @@ function App() {
           <Navbar />
           <Search />
         </Route>
+		<Route path="/user">
+		  <Navbar />
+		  <UserBuyer />  
+		</Route>
       </Switch>
     </Router>
   );
