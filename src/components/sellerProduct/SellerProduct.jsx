@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import styles from './SellerProduct.module.css';
 import Product from './Product';
-import Swal from 'sweetalert2';
 import * as actionTypes from '../../redux/action/Action';
+import SkeletonSell from '../skeletons/SkeletonSell';
 
 
 function SellerProduct(props) {
@@ -14,26 +14,6 @@ function SellerProduct(props) {
 	useEffect(() => {
 		getProductById()
 	}, [getProductById, trigger])
-    
-    const removeProduct = (item) => {
-        Swal.fire({
-            title: `Delete ${item}?`,
-            text: "This action cannot be undone",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              Swal.fire(
-                'Deleted!',
-                `${item} has been deleted.`,
-                'success'
-              )
-            }
-          })
-    }
 	
     return (
         <div className={styles.Products}>
@@ -42,11 +22,10 @@ function SellerProduct(props) {
 				return (
 				<Product 
 					key={list._id}
-					list={list}
-					removeProduct={removeProduct}/>
+					list={list}/>
 			)
 			})
-			: "Product is not available"}
+			: [1,2,3,4,5,6].map((n) => <SkeletonSell key={n}/> )}
         </div>
     )
 }

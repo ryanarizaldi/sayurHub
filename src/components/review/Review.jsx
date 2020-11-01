@@ -7,10 +7,11 @@ import styles from "./Review.module.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 import ModalEdit from "./ModalEditReview";
+import SkeletonReview from "../skeletons/SkeletonReview";
 import robert from "../../assets/img/robert.png";
 
 function Review(props) {
-  const { review, getReview, logout, token } = props;
+  const { review, getReview, logout, token, loading } = props;
 
   // const [reviews, setReview] = useState([]);
   const [logged, setLogged] = useState({});
@@ -70,14 +71,13 @@ function Review(props) {
 
   return (
     // <div className={styles.Container}>
-    <div className={styles.Review}>
-      {/* <h4>Reviews</h4> */}
-      {review && review.length
-        ? review.map((rev) => (
-            <div className={styles.UserReview} key={rev._id}>
-              <div className={styles.UserPicture}>
-                <img src={rev.user.profile_image} alt="user profile" />
-              </div>
+      <div className={styles.Review}>
+        {review.length || !loading
+          ? review.map((rev) => (
+              <div className={styles.UserReview} key={rev._id}>
+                <div className={styles.UserPicture}>
+                  <img src={rev.user.profile_image} alt="user profile" />
+                </div>
               <div className={styles.Column}>
                 <div className={styles.NameRate}>
                   <p>{rev.user.full_name}</p>
@@ -107,8 +107,8 @@ function Review(props) {
                 </div>
               </div>
             </div>
-          ))
-        : "No review yet, Be the first to review!"}
+           ))
+          : <SkeletonReview />}
 
       <div className={styles.UserReview}>
         <div className={styles.UserPicture}>
@@ -121,34 +121,18 @@ function Review(props) {
           </div>
           <div className={styles.Comment}>
             <p>ini review</p>
-            {/* {rev.user._id === logged._id ? (
-              <div className={styles.ButtonGroup}>
-                <div className={styles.EditButton}>
-                  <button onClick={() => setModal(true)}>Edit</button>
-                  {modal && (
-                    <ModalEdit
-                      open={modal}
-                      onClose={() => setModal(false)}
-                      review={rev}
-                    />
-                  )}
-                </div>
-                <div className={styles.DeleteButton}>
-                  <button onClick={() => alertRemove(rev._id)}>Delete</button>
-                </div>
-              </div>
-            ) : null} */}
-          </div>
-        </div>
       </div>
     </div>
-    // </div>
+  </div>
+ </div>
+		  
   );
 }
 
 const mapStateToProps = (state) => {
   return {
     review: state.review,
+	loading: state.loading
   };
 };
 
@@ -157,4 +141,5 @@ const mapDispatchToProps = (dispatch) => {
     getReview: (id) => dispatch(actionTypes.getReview(id)),
   };
 };
+		  
 export default connect(mapStateToProps, mapDispatchToProps)(Review);
