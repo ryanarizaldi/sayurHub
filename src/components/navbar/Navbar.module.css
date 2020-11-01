@@ -11,7 +11,6 @@
     margin: auto;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-   
     
 
 }
@@ -22,7 +21,6 @@
     position: relative;
     top: 24px;
     left: 37px;
-    
 }
 
 .Box {
@@ -54,29 +52,16 @@
     outline: none;
 }
 
-.Hamburger {
-    background-color: transparent;
-    border: 0; 
-    font-size: 26px;
-    line-height: 70px;
-    display: none;
-    
-}
-
-.Hamburger:focus {
-    outline: none;
-}
-
-.Toggle {
-    display: none;
-}
-
 .Cart{
 	position: absolute;
-	left: 880px;
+	left: 1100px;
     bottom: 28px;
 	text-decoration: none;
 	color: black;
+}
+
+.Cart:hover {
+    font-size: 300%;
 }
 
 .Sell button{
@@ -145,6 +130,13 @@
 .Login:hover {
 	transition: all 0.4s ease 0s;
     color: #265552;
+    border: 1px solid #265552;
+    padding: 10px 20px;
+    left: 1108px;
+    border-radius: 8px;
+    bottom: 24px;
+
+
 }
 
 
@@ -192,46 +184,4 @@
 
 .DropdownContent a:hover {
   background-color: #ddd;
-}
-
-@media only screen and (max-width: 700px) {
-
-    .Background {
-        max-width: 100%;
-    }
-
-    .Container {
-        max-width: 90%;
-    }
-
-    .Box {
-        max-width: 50%;
-        left: 150px;
-    }
-
-    .Searchbox input {
-        max-width: 35%;
-        left: 210px;
-    }
-
-    .Hamburger {
-        display: block;
-        position: relative;
-        left: 85%;
-        bottom: 30px;
-        cursor: pointer;
-    }
-
-   .DivNav {
-       text-align: center;
-       display: none;
-   }
-
-   .Toggle {
-       display: block;
-   }
-   
-   .Toggle:checked + .DivNav {
-       display: block;
-   }
 }

@@ -46,20 +46,64 @@ export const loginUser = (values) => {
   };
 };
 
-export const getUser = () => {
+export const loginAdmin = (values) => {
+  return async (dispatch) => {
+    const { email, password } = values;
+    try {
+      const dataLogin = qs.stringify({
+        email: email,
+        password: password,
+      });
+      const post = await axios({
+        method: "post",
+        url: "https://pacific-oasis-23064.herokuapp.com/admin/login",
+        data: dataLogin,
+        headers: {
+          "content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+      console.log(post.data);
+      Swal.fire({
+        position: "top-mid",
+        icon: "success",
+        title: `Login Success, Welcome`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      localStorage.setItem("tokenAdmin", post.data.token);
+      getAdmin();
+      dispatch({
+        type: actionTypes.LOGIN_ADMIN,
+        payload: {
+          tokenAdmin: localStorage.getItem("tokenAdmin"),
+          success: true,
+        },
+      });
+    } catch (error) {
+      console.log("error", error.response);
+      Swal.fire({
+        title: "Login Failed",
+        text: error.response.data.message,
+        icon: "error",
+      });
+    }
+  };
+};
+
+export const getAdmin = () => {
   return async (dispatch) => {
     try {
       const token = localStorage.getItem("token");
       const submit = await axios({
         method: "GET",
-        url: "https://pacific-oasis-23064.herokuapp.com/user/id",
+        url: "https://pacific-oasis-23064.herokuapp.com/admin",
         headers: {
           token: token,
         },
       });
       localStorage.setItem("user", submit.data.data);
       dispatch({
-        type: actionTypes.GET_USER,
+        type: actionTypes.GET_ADMIN,
         payload: {
           user: submit.data.data,
         },
@@ -69,22 +113,34 @@ export const getUser = () => {
     }
   };
 };
-
-export const getReview = (id) => {
+export const getUser = () => {
   return async (dispatch) => {
-    console.log("ini idnya ", id);
+    dispatch({
+      type: actionTypes.SET_LOADING,
+      payload: {
+        loading: true,
+      },
+    });
     try {
-      const review = await axios.get(
-        `https://pacific-oasis-23064.herokuapp.com/reviews/product/${id}`
-      );
+      const token = localStorage.getItem("token");
+      const submit = await axios({
+        method: "GET",
+        url: "https://pacific-oasis-23064.herokuapp.com/user/id",
+        headers: {
+          token: token,
+        },
+      });
+      console.log(submit);
+      localStorage.setItem("user", submit.data.data);
       dispatch({
-        type: actionTypes.GET_REVIEW,
+        type: actionTypes.GET_USER,
         payload: {
-          review: review.data.data,
+          user: submit.data.data,
+          loading: false,
         },
       });
     } catch (error) {
-      console.log("error nih gan", error);
+      console.log(error);
     }
   };
 };
@@ -104,6 +160,8 @@ export const logout = () => {
       payload: {
         user: [],
         token: "",
+        tokenAdmin: "",
+        isSuccess: false,
       },
     });
   };
@@ -158,19 +216,19 @@ export const editUser = (values, id, state, onClose) => {
 export const getProductById = (userId) => {
   return async (dispatch) => {
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("tokenAdmin");
       const submit = await axios({
         method: "GET",
-        url: "https://pacific-oasis-23064.herokuapp.com/products/user",
+        url: "https://pacific-oasis-23064.herokuapp.com/products/",
         headers: {
           token: token,
         },
       });
-      console.log(submit);
+      // console.log(submit);
       dispatch({
         type: actionTypes.GET_PRODUCT_USER,
         payload: {
-          product: submit.data.userProducts,
+          product: submit.data.products,
         },
       });
     } catch (error) {
@@ -197,9 +255,11 @@ export const editProduct = (values, id, state, onClose) => {
       price,
       stock,
       weight,
+      nutrition,
+      suplier,
     } = values;
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("tokenAdmin");
       const fd = new FormData();
       fd.append("product_name", product_name);
       fd.append("description", description);
@@ -208,17 +268,19 @@ export const editProduct = (values, id, state, onClose) => {
       fd.append("price", price);
       fd.append("stock", stock);
       fd.append("weight", weight);
+      fd.append("nutrition", nutrition);
+      fd.append("farmer_supllier", suplier);
       fd.append("product_image", state);
       const submit = await axios({
         method: "PUT",
-        url: "https://pacific-oasis-23064.herokuapp.com/products/update/" + id,
+        url: `https://pacific-oasis-23064.herokuapp.com/admin/product/${id}`,
         data: fd,
         headers: {
           "Content-Type": "multipart/form-data",
           token: token,
         },
       });
-      console.log(submit);
+      console.log("hasil edit", submit);
       dispatch({
         type: actionTypes.EDIT_PRODUCT,
         payload: {
@@ -241,6 +303,32 @@ export const editProduct = (values, id, state, onClose) => {
         text: error.response.data.message,
         icon: "error",
       });
+    }
+  };
+};
+
+export const getReview = (id) => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.SET_LOADING,
+      payload: {
+        loading: true,
+      },
+    });
+    console.log("ini idnya ", id);
+    try {
+      const review = await axios.get(
+        `https://pacific-oasis-23064.herokuapp.com/reviews/product/${id}`
+      );
+      dispatch({
+        type: actionTypes.GET_REVIEW,
+        payload: {
+          review: review.data.data,
+          loading: false,
+        },
+      });
+    } catch (error) {
+      console.log("error nih gan", error);
     }
   };
 };

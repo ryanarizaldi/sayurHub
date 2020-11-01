@@ -10,17 +10,14 @@ function CreateProductModal(props) {
   const { open, onClose } = props;
 
   const [image, setImage] = useState({});
-  const [loginGa, setToken] = useState(localStorage.getItem("token"));
+  const [loginGa] = useState(localStorage.getItem("tokenAdmin"));
 
   const schema = Yup.object().shape({
     productName: Yup.string().required("Product Name is required"),
     description: Yup.string().required("Description is required"),
     discount: Yup.number()
-      .integer("Description must be a round number")
-      //   .max(1, "kebanyakan")
-      //   .moreThan(0, "must be bigger than 0!")
+      .integer("Discount must be a round number")
       .lessThan(100, "You must be drunkif its true!"),
-    //   .required("Description is required"),
     category: Yup.string().required("Choose one!"),
     price: Yup.number()
       .integer("Price must be a round number!")
@@ -34,6 +31,7 @@ function CreateProductModal(props) {
       .moreThan(0, "minimum weight is 1")
       .integer("Weight must be a round number!")
       .required("Type the price!"),
+    suplier: Yup.string().required("You need to fill this field too"),
   });
 
   const formik = useFormik({
@@ -41,6 +39,8 @@ function CreateProductModal(props) {
       productName: "",
       description: "",
       category: "",
+      nutrition: "",
+      suplier: "",
       discount: 0,
       price: 0,
       stock: 0,
@@ -71,6 +71,8 @@ function CreateProductModal(props) {
         price,
         stock,
         weight,
+        nutrition,
+        suplier,
       } = values;
       const formData = new FormData();
       formData.append("product_name", productName);
@@ -81,12 +83,14 @@ function CreateProductModal(props) {
       formData.append("stock", stock);
       formData.append("weight", weight);
       formData.append("actualPrice", 0);
+      formData.append("nutrition", nutrition);
+      formData.append("farmer_supllier", suplier);
       formData.append("product_image", image.file);
 
       console.log(formData);
       const makeProd = await axios({
         method: "post",
-        url: `https://pacific-oasis-23064.herokuapp.com/products/create`,
+        url: `https://pacific-oasis-23064.herokuapp.com/admin/product/create`,
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -132,7 +136,7 @@ function CreateProductModal(props) {
               type="text"
               id="productName"
               name="productName"
-              placeholder=""
+              placeholder="Product name..."
               className={
                 formik.touched.productName && formik.errors.productName
                   ? styles.ErrorInput
@@ -151,7 +155,7 @@ function CreateProductModal(props) {
               type="text"
               id="description"
               name="description"
-              placeholder=""
+              placeholder="Description about this product"
               className={
                 formik.touched.description && formik.errors.description
                   ? styles.ErrorInput
@@ -162,7 +166,7 @@ function CreateProductModal(props) {
               <div className={styles.ErrorMsg}>{formik.errors.description}</div>
             ) : null}
             <label htmlFor="discount" className={styles.Label}>
-              Discount
+              Discount*<span>if any</span>
             </label>
             <input
               onChange={formik.handleChange}
@@ -170,7 +174,7 @@ function CreateProductModal(props) {
               type="number"
               id="discount"
               name="discount"
-              placeholder=""
+              placeholder="0"
               className={
                 formik.touched.discount && formik.errors.discount
                   ? styles.ErrorInput
@@ -249,7 +253,45 @@ function CreateProductModal(props) {
             {formik.touched.weight && formik.errors.weight ? (
               <div className={styles.ErrorMsg}>{formik.errors.weight}</div>
             ) : null}
-            <button type="submit">CREATE</button>
+            <label htmlFor="nutrition" className={styles.Label}>
+              Nutrition
+            </label>
+            <input
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              type="text"
+              name="nutrition"
+              id="nutrition"
+              className={
+                formik.touched.nutrition && formik.errors.nutrition
+                  ? styles.ErrorInput
+                  : null
+              }
+            ></input>
+            {formik.touched.nutrition && formik.errors.nutrition ? (
+              <div className={styles.ErrorMsg}>{formik.errors.nutrition}</div>
+            ) : null}
+            <label htmlFor="suplier" className={styles.Label}>
+              Supplier's Name
+            </label>
+            <input
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              type="text"
+              name="suplier"
+              id="suplier"
+              className={
+                formik.touched.suplier && formik.errors.suplier
+                  ? styles.ErrorInput
+                  : null
+              }
+            ></input>
+            {formik.touched.suplier && formik.errors.suplier ? (
+              <div className={styles.ErrorMsg}>{formik.errors.suplier}</div>
+            ) : null}
+            <button type="submit">
+              {formik.isSubmitting ? "submitting..." : "CREATE"}
+            </button>
           </form>
         </div>
       </Modal>

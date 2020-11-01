@@ -1,0 +1,70 @@
+.Skeleton {
+	background: #ddd;
+	margin : 10px 0;
+	border-radius: 4px;
+}
+
+.Skeleton.navbar{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	position: relative;
+    left: 1160px;
+    bottom: 0px;
+	top: -27px;
+}
+
+.Skeleton.text{
+	width: 100px;
+	height: 12px;
+}
+
+.Skeleton.full{
+	width: 100%;
+	height: 15px;
+}
+
+.Skeleton.title{
+	width: 50%;
+	height: 20px;
+	margin-bottom: 15px;
+}
+.Skeleton.avatarDetail{
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+}
+
+.Skeleton.avatar{
+	width: 160px;
+	height: 160px;
+	border-radius: 50%;
+}
+
+.Skeleton.round{
+	width: 200px;
+	height: 165px;
+	border-radius: 6px;
+}
+
+.Skeleton.bigRound{
+	width: 408.5px;
+	height: 469px;
+	border-radius: 6px;
+}
+
+.Skeleton.bigText{
+	width: 100%;
+	padding: 106px;
+	border-radius: 6px;
+}
+.Skeleton.textReview{
+	width: 100%;
+	height: 100px;
+	border-radius: 6px;
+}
+
+.Skeleton.thubmnail{
+	width: 100px;
+	height: 100px;
+}

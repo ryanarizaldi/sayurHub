@@ -1,20 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/img/logo.svg";
 import searchicon from "../../assets/img/searchicon.png";
 import * as actionTypes from "../../redux/action/Action";
-import MenuIcon from '@material-ui/icons/Menu';
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import Skeleton from "../skeletons/Skeletons";
+import AdminIco from "../../assets/img/admin.jpg";
+import noimg from "../../assets/img/noimg.png";
 
 function Navbar(props) {
-  const { userData, getUser, logout, token } = props;
+  const {
+    userData,
+    logout,
+    token,
+    tokenAdmin,
+    getUser,
+    getAdmin,
+    loading,
+  } = props;
 
   useEffect(() => {
     getUser();
-  }, [token, getUser]);
+  }, [token, getUser, tokenAdmin]);
 
   return (
     <div className={styles.Background}>
@@ -34,15 +43,7 @@ function Navbar(props) {
             name="search"
           ></input>
         </div>
-        <div>
-          <label className={styles.Hamburger} for="toggle">&#9776;</label>
-          <input className={styles.Toggle} type="checkbox" id="toggle"/>
-        </div>
-<<<<<<< Updated upstream
-        {!token ? (
-=======
         {!token && !tokenAdmin ? (
->>>>>>> Stashed changes
           <div className={styles.DivNav}>
             <NavLink to="/register" className={styles.Signup}>
               <button>Sign Up</button>
@@ -53,21 +54,41 @@ function Navbar(props) {
           </div>
         ) : (
           <div className={styles.DivNav}>
-            <NavLink to="/cart" className={styles.Cart}>
-              <ShoppingCartOutlinedIcon style={{ fill: "#367874" }} />
-            </NavLink>
-            <NavLink to="/dashboard" className={styles.Sell}>
-              <button>SELL PRODUCT</button>
-            </NavLink>
-            <div className={styles.Dropdown}>
-              <img src={userData.profile_image} alt="profile"></img>
-              <div className={styles.DropdownContent}>
-                <NavLink to="/dashboard">User Dashboard</NavLink>
-                <NavLink to="/" onClick={logout}>
-                  Logout
+            {tokenAdmin ? (
+              <>
+                <NavLink to="/dashboard/admin/products" className={styles.Sell}>
+                  <button>SELL PRODUCT</button>
                 </NavLink>
-              </div>
-            </div>
+                <div className={styles.Dropdown}>
+                  <img src={AdminIco} alt="profile" />
+                  <div className={styles.DropdownContent}>
+                    <NavLink to="/dashboard/admin/products">Dashboard</NavLink>
+                    <NavLink to="/" onClick={logout}>
+                      Logout
+                    </NavLink>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <NavLink to="/cart" className={styles.Cart}>
+                  <ShoppingCartOutlinedIcon style={{ fill: "#367874" }} />
+                </NavLink>
+                {!loading ? (
+                  <div className={styles.Dropdown}>
+                    <img src={userData.profile_image} alt="user"></img>
+                    <div className={styles.DropdownContent}>
+                      <NavLink to="/dashboard">User Dashboard</NavLink>
+                      <NavLink to="/" onClick={logout}>
+                        Logout
+                      </NavLink>
+                    </div>
+                  </div>
+                ) : (
+                  <Skeleton type="navbar" />
+                )}
+              </>
+            )}
           </div>
         )}
       </div>
@@ -75,19 +96,19 @@ function Navbar(props) {
   );
 }
 
-
-
-
 const mapStateToProps = (state) => {
   return {
     token: state.token,
     userData: state.userData,
+    tokenAdmin: state.tokenAdmin,
+    loading: state.loading,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getUser: () => dispatch(actionTypes.getUser()),
+    getAdmin: () => dispatch(actionTypes.getAdmin()),
     logout: () => dispatch(actionTypes.logout()),
   };
 };
