@@ -1,17 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from './pages/LoginPage';
-import Register from './pages/RegisterPage';
-import Homepage from './pages/Homepage';
+import Login from "./pages/LoginPage";
+import Register from "./pages/RegisterPage";
+import Homepage from "./pages/Homepage";
 import "./App.css";
-import Cart from './pages/Cart';
-import User from './pages/DashboardPage';
-import Navbar from './components/navbar/Navbar';
+import Cart from "./pages/Cart";
+import User from "./pages/DashboardPage";
+import Detail from "./pages/ProductDetailPage";
+import Search from "./pages/SearchPage";
+import Navbar from "./components/navbar/Navbar";
+
 function App() {
   return (
     <Router>
       <Switch>
-		<Route exact path="/">
+        <Route exact path="/">
           <Navbar />
           <Homepage />
         </Route>
@@ -21,12 +24,22 @@ function App() {
         <Route path="/register">
           <Register />
         </Route>
-		<Route path="/cart">
+        <Route path="/cart">
+          <Navbar />
           <Cart />
         </Route>
-		<Route path="/dashboard">
-			<User />  
-		</Route>
+        <Route path="/product/:id?">
+          <Navbar />
+          <Detail />
+        </Route>
+        <Route path="/dashboard">
+          <Navbar />
+          <User />
+        </Route>
+        <Route path="/search/:keyword?">
+          <Navbar />
+          <Search />
+        </Route>
       </Switch>
     </Router>
   );

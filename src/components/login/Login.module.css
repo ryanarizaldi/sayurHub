@@ -122,3 +122,25 @@
     color: #367874;
 }
 
+.ErrorMsg {
+    color: #D65445;
+    margin: -12px 35px 16px 35px;
+    font-size: 14px;
+}
+
+.ErrorInput {
+    box-shadow: 0 0 5px rgb(236, 42, 42);
+}
+
+
+@media only screen and (max-width: 700px) {
+
+    .Image {
+    position: relative;
+    left: 50px;
+    }
+
+    .FormLogin {
+        position: absolute;
+    }
+}

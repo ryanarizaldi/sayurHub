@@ -161,13 +161,15 @@
 	color: #DE884A;
 	margin-bottom: 20px;
 }
-.Description button img{
-	width: 14.91px;
-	height: 14.91px;
+.Description button svg{
+	width: 16px;
+	height: 16px;
 	margin: auto 8px auto 0;
 }
 
 .Description button{
+	display: flex;
+	align-items: center;
 	cursor: pointer;
 	box-sizing: border-box;
 	padding: 10px 20px;
