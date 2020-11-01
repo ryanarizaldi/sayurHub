@@ -38,6 +38,7 @@ function SellerProduct(props) {
     }).then((result) => {
       if (result.isConfirmed) {
         actualRemove(id);
+        getProductById();
         Swal.fire("Deleted!", `this product has been deleted.`, "success");
       }
     });

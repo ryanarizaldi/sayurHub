@@ -71,14 +71,13 @@ export const loginAdmin = (values) => {
         showConfirmButton: false,
         timer: 1500,
       });
-      localStorage.setItem("token", post.data.token);
+      localStorage.setItem("tokenAdmin", post.data.token);
       getAdmin();
       dispatch({
         type: actionTypes.LOGIN_ADMIN,
         payload: {
-          token: localStorage.getItem("token"),
+          tokenAdmin: localStorage.getItem("tokenAdmin"),
           success: true,
-          isAdmin: true,
         },
       });
     } catch (error) {
@@ -173,6 +172,7 @@ export const logout = () => {
       payload: {
         user: [],
         token: "",
+        tokenAdmin: "",
         isSuccess: false,
       },
     });

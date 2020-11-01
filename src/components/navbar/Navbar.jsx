@@ -12,11 +12,12 @@ import AdminIco from "../../assets/img/admin.jpg";
 import noimg from "../../assets/img/noimg.png";
 
 function Navbar(props) {
-  const { userData, logout, token, isAdmin } = props;
+  const { userData, logout, token, tokenAdmin, getUser, getAdmin } = props;
 
-  // useEffect(() => {
-  //   getUser();
-  // }, [token, getUser]);
+  useEffect(() => {
+    token && getUser();
+    tokenAdmin && getAdmin();
+  }, [token, getUser, tokenAdmin, getAdmin]);
 
   return (
     <div className={styles.Background}>
@@ -36,7 +37,7 @@ function Navbar(props) {
             name="search"
           ></input>
         </div>
-        {!token ? (
+        {!token && !tokenAdmin ? (
           <div className={styles.DivNav}>
             <NavLink to="/register" className={styles.Signup}>
               <button>Sign Up</button>
@@ -47,7 +48,7 @@ function Navbar(props) {
           </div>
         ) : (
           <div className={styles.DivNav}>
-            {isAdmin ? (
+            {tokenAdmin ? (
               <>
                 <NavLink to="/dashboard/admin/products" className={styles.Sell}>
                   <button>SELL PRODUCT</button>
@@ -55,7 +56,7 @@ function Navbar(props) {
                 <div className={styles.Dropdown}>
                   <img src={AdminIco} alt="profile" />
                   <div className={styles.DropdownContent}>
-                    <NavLink to="/dashboard">Dashboard</NavLink>
+                    <NavLink to="/dashboard/admin/products">Dashboard</NavLink>
                     <NavLink to="/" onClick={logout}>
                       Logout
                     </NavLink>
@@ -92,7 +93,7 @@ const mapStateToProps = (state) => {
   return {
     token: state.token,
     userData: state.userData,
-    isAdmin: state.isAdmin,
+    tokenAdmin: state.tokenAdmin,
   };
 };
 

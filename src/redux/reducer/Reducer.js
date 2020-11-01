@@ -3,11 +3,11 @@ import * as actionTypes from "../constant/actionTypes";
 const initialState = {
   loading: false,
   token: localStorage.getItem("token"),
+  tokenAdmin: localStorage.getItem("tokenAdmin"),
   userData: [],
   isSuccess: false,
   productData: [],
   trigger: false,
-  isAdmin: false,
 };
 
 function rootReducer(state = initialState, action) {
@@ -33,6 +33,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         userData: action.payload.user,
         token: action.payload.token,
+        tokenAdmin: action.payload.tokenAdmin,
         isSuccess: action.payload.isSuccess,
       };
     case actionTypes.GET_PRODUCT_USER:
@@ -58,9 +59,8 @@ function rootReducer(state = initialState, action) {
     case actionTypes.LOGIN_ADMIN:
       return {
         ...state,
-        token: action.payload.token,
+        tokenAdmin: action.payload.tokenAdmin,
         isSuccess: action.payload.success,
-        isAdmin: action.payload.isAdmin,
       };
     case actionTypes.GET_ADMIN:
       return {
