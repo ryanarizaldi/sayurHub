@@ -57,22 +57,6 @@ function AdminDashboard(props) {
     <div className={styles.Container}>
       <div className={styles.Row}>
         <div className={styles.Wrapper}>
-          <div className={styles.ColUser}>
-            <div className={styles.UserCard}>
-              <img src={admin} alt="user profile" />
-              <p>ADMIN</p>
-              {/* <ReactStars value={5} edit={false} size={20} /> */}
-              {/* <button onClick={() => onChange("editProfile", true)}>
-                Edit Profile
-              </button> */}
-              <button
-                className={styles.CreateButton}
-                onClick={() => onChange("createProduct", true)}
-              >
-                Create Product
-              </button>
-            </div>
-          </div>
           <div className={styles.ColDasboard}>
             <div className={styles.DashboardCard}>
               <div className={styles.Navigation}>
@@ -93,6 +77,12 @@ function AdminDashboard(props) {
                   activeClassName={styles.Active}
                 >
                   Notification
+                </NavLink>
+                <NavLink
+                  to="/dashboard/admin/users"
+                  activeClassName={styles.Active}
+                >
+                  Users
                 </NavLink>
                 <button
                   className={styles.CreateButton}

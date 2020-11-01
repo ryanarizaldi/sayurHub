@@ -10,7 +10,7 @@
 .CardProduct {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 23%;
     /* height: 350px; */
     align-items: center;
     justify-content: center;
