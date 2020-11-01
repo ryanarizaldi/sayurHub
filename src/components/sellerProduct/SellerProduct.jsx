@@ -5,6 +5,7 @@ import Product from "./Product";
 import Swal from "sweetalert2";
 import * as actionTypes from "../../redux/action/Action";
 import Axios from "axios";
+import SkeletonSell from "../skeletons/SkeletonSell";
 
 function SellerProduct(props) {
   const { getProductById, productData, trigger } = props;
@@ -56,7 +57,7 @@ function SellerProduct(props) {
               />
             );
           })
-        : "Product is not available"}
+        : [1, 2, 3, 4, 5, 6].map((n) => <SkeletonSell key={n} />)}
     </div>
   );
 }

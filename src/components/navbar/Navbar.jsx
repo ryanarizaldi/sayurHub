@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/img/logo.svg";
 import searchicon from "../../assets/img/searchicon.png";
 import * as actionTypes from "../../redux/action/Action";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import Skeleton from "../skeletons/Skeletons";
 import AdminIco from "../../assets/img/admin.jpg";
-
 import noimg from "../../assets/img/noimg.png";
 
 function Navbar(props) {
-  const { userData, logout, token, tokenAdmin, getUser, getAdmin } = props;
+  const {
+    userData,
+    logout,
+    token,
+    tokenAdmin,
+    getUser,
+    getAdmin,
+    loading,
+  } = props;
 
   useEffect(() => {
     getUser();
@@ -67,18 +74,19 @@ function Navbar(props) {
                 <NavLink to="/cart" className={styles.Cart}>
                   <ShoppingCartOutlinedIcon style={{ fill: "#367874" }} />
                 </NavLink>
-                <div className={styles.Dropdown}>
-                  <img
-                    src={userData?.profile_image && userData.profile_image}
-                    alt="profile"
-                  />
-                  <div className={styles.DropdownContent}>
-                    <NavLink to="/dashboard">Dashboard</NavLink>
-                    <NavLink to="/" onClick={logout}>
-                      Logout
-                    </NavLink>
+                {!loading ? (
+                  <div className={styles.Dropdown}>
+                    <img src={userData.profile_image} alt="user"></img>
+                    <div className={styles.DropdownContent}>
+                      <NavLink to="/dashboard">User Dashboard</NavLink>
+                      <NavLink to="/" onClick={logout}>
+                        Logout
+                      </NavLink>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <Skeleton type="navbar" />
+                )}
               </>
             )}
           </div>
@@ -93,6 +101,7 @@ const mapStateToProps = (state) => {
     token: state.token,
     userData: state.userData,
     tokenAdmin: state.tokenAdmin,
+    loading: state.loading,
   };
 };
 

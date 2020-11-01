@@ -4,12 +4,15 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import axios from "axios";
 import noimg from "../../assets/img/noimg.png";
 import { Link } from "react-router-dom";
+import SkeletonProduct from "../skeletons/SkeletonProduct";
 
 function Product(props) {
   const { category } = props;
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]),
+		[loading, setLoading] = useState(false)
 
   const getProducts = useCallback(async (cat) => {
+	setLoading(true);
     try {
       const prods = await axios.get(
         cat === "all"
@@ -24,6 +27,7 @@ function Product(props) {
         : category === "diets"
         ? setProducts(prods.data.diet)
         : setProducts(prods.data.products);
+	  setLoading(false);
     } catch (error) {
       console.log("ini error: ", error);
     }
@@ -49,12 +53,13 @@ function Product(props) {
     rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
     return rupiah;
   };
+	
 
   return (
     <>
-      {products.length
-        ? products.map((item) => (
-            <div className={styles.Card} key={item._id}>
+      {products.length || !loading ?
+        products.map((item) => (
+	   		<div className={styles.Card} key={item._id}>
               <Link to={`/product/${item._id}`}>
                 <img
                   src={item.product_image ? item.product_image : noimg}
@@ -74,10 +79,10 @@ function Product(props) {
                 </button>
               </Link>
             </div>
-          ))
-        : "No products that can be displayed"}
+          )) : [1,2,3,4,5,6,7,8].map((n) => <SkeletonProduct key={n} />)}
+		{!products.length && "There isn't any product in this category"}
     </>
-  );
+  )
 }
 
 export default Product;

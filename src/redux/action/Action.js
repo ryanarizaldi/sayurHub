@@ -28,7 +28,6 @@ export const loginUser = (values) => {
         timer: 1500,
       });
       localStorage.setItem("token", post.data.token);
-      getUser();
       dispatch({
         type: actionTypes.LOGIN_USER,
         payload: {
@@ -116,6 +115,12 @@ export const getAdmin = () => {
 };
 export const getUser = () => {
   return async (dispatch) => {
+    dispatch({
+      type: actionTypes.SET_LOADING,
+      payload: {
+        loading: true,
+      },
+    });
     try {
       const token = localStorage.getItem("token");
       const submit = await axios({
@@ -125,34 +130,17 @@ export const getUser = () => {
           token: token,
         },
       });
+      console.log(submit);
       localStorage.setItem("user", submit.data.data);
       dispatch({
         type: actionTypes.GET_USER,
         payload: {
           user: submit.data.data,
+          loading: false,
         },
       });
     } catch (error) {
       console.log(error);
-    }
-  };
-};
-
-export const getReview = (id) => {
-  return async (dispatch) => {
-    console.log("ini idnya ", id);
-    try {
-      const review = await axios.get(
-        `https://pacific-oasis-23064.herokuapp.com/reviews/product/${id}`
-      );
-      dispatch({
-        type: actionTypes.GET_REVIEW,
-        payload: {
-          review: review.data.data,
-        },
-      });
-    } catch (error) {
-      console.log("error nih gan", error);
     }
   };
 };
@@ -315,6 +303,32 @@ export const editProduct = (values, id, state, onClose) => {
         text: error.response.data.message,
         icon: "error",
       });
+    }
+  };
+};
+
+export const getReview = (id) => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.SET_LOADING,
+      payload: {
+        loading: true,
+      },
+    });
+    console.log("ini idnya ", id);
+    try {
+      const review = await axios.get(
+        `https://pacific-oasis-23064.herokuapp.com/reviews/product/${id}`
+      );
+      dispatch({
+        type: actionTypes.GET_REVIEW,
+        payload: {
+          review: review.data.data,
+          loading: false,
+        },
+      });
+    } catch (error) {
+      console.log("error nih gan", error);
     }
   };
 };

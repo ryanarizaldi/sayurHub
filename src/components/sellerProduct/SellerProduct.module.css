@@ -72,6 +72,7 @@
     border: none; 
     border-radius: 5px;
     cursor: pointer;
+	transition: all 0.4s ease 0s;
 }
 
 .CardButton button:nth-child(1) {
@@ -85,9 +86,24 @@
     border: 1px solid #D65445;
 }
 
-.CardButton button:nth-child(2):hover {
-    background: #D65445;
-    color: white;
+.CardButton button:nth-child(1):hover{
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+	color:  white;
+	background: #DE884A;
+	border: none;
+}
+
+.CardButton button:nth-child(2):hover{
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+	color:  white;
+	background: #D65445;
+	border: none;
 }
 
 @media only screen and (max-width: 700px) {
