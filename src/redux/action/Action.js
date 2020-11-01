@@ -228,7 +228,7 @@ export const editUser = (values, id, state, onClose) => {
 export const getProductById = (userId) => {
   return async (dispatch) => {
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("tokenAdmin");
       const submit = await axios({
         method: "GET",
         url: "https://pacific-oasis-23064.herokuapp.com/products/",
@@ -236,7 +236,7 @@ export const getProductById = (userId) => {
           token: token,
         },
       });
-      console.log(submit);
+      // console.log(submit);
       dispatch({
         type: actionTypes.GET_PRODUCT_USER,
         payload: {
@@ -271,7 +271,7 @@ export const editProduct = (values, id, state, onClose) => {
       suplier,
     } = values;
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("tokenAdmin");
       const fd = new FormData();
       fd.append("product_name", product_name);
       fd.append("description", description);

@@ -10,7 +10,7 @@ function CreateProductModal(props) {
   const { open, onClose } = props;
 
   const [image, setImage] = useState({});
-  const [loginGa] = useState(localStorage.getItem("token"));
+  const [loginGa] = useState(localStorage.getItem("tokenAdmin"));
 
   const schema = Yup.object().shape({
     productName: Yup.string().required("Product Name is required"),

@@ -19,7 +19,7 @@ function SellerProduct(props) {
         method: "delete",
         url: `https://pacific-oasis-23064.herokuapp.com/admin/product/delete/${id}`,
         headers: {
-          token: localStorage.getItem("token"),
+          token: localStorage.getItem("tokenAdmin"),
         },
       });
       console.log("remove response", remove);

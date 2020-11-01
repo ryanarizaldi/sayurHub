@@ -15,9 +15,8 @@ function Navbar(props) {
   const { userData, logout, token, tokenAdmin, getUser, getAdmin } = props;
 
   useEffect(() => {
-    token && getUser();
-    tokenAdmin && getAdmin();
-  }, [token, getUser, tokenAdmin, getAdmin]);
+    getUser();
+  }, [token, getUser, tokenAdmin]);
 
   return (
     <div className={styles.Background}>
