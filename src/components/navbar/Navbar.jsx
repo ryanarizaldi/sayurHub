@@ -38,7 +38,11 @@ function Navbar(props) {
           <label className={styles.Hamburger} for="toggle">&#9776;</label>
           <input className={styles.Toggle} type="checkbox" id="toggle"/>
         </div>
+<<<<<<< Updated upstream
         {!token ? (
+=======
+        {!token && !tokenAdmin ? (
+>>>>>>> Stashed changes
           <div className={styles.DivNav}>
             <NavLink to="/register" className={styles.Signup}>
               <button>Sign Up</button>

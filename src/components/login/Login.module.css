@@ -132,7 +132,10 @@
     box-shadow: 0 0 5px rgb(236, 42, 42);
 }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 @media only screen and (max-width: 700px) {
 
     .Image {
@@ -143,4 +146,8 @@
     .FormLogin {
         position: absolute;
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
