@@ -6,6 +6,8 @@ import styles from "./ProductDets.module.css";
 import noimg from "../../assets/img/noimg.png";
 import AddReview from "../review/ModalAddReview";
 import SkeletonDetail from "../skeletons/SkeletonDetail";
+import Nav from "./NavReviewDiscussion";
+
 
 export default function ProductDets() {
   const [product, setProduct] = useState({});
@@ -31,11 +33,6 @@ export default function ProductDets() {
     });
   };
 
-  useEffect(() => {
-    getProduct();
-    getRating();
-  }, []);
-
   const getProduct = async () => {
 	setLoading(true);
     try {
@@ -50,6 +47,14 @@ export default function ProductDets() {
       console.log("errorgan", error);
     }
   };
+	
+	
+  useEffect(() => {
+    getProduct();
+    getRating();
+  }, []);
+
+ 
 
   //https://codepen.io/malasngoding/pen/EedMvv
   const priceForm = (num) => {
@@ -134,6 +139,7 @@ export default function ProductDets() {
             </div>
           </div>
         </div>
+        <Nav id={id} />
       </div>
 	 ) :  <SkeletonDetail />}
     </div>
