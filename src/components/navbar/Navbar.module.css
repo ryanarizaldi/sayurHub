@@ -53,7 +53,7 @@
 .Cart{
 	position: absolute;
 	left: 1100px;
-    bottom: 28px;
+    bottom: 31px;
 	text-decoration: none;
 	color: black;
 	font-size: 16px;
@@ -61,6 +61,7 @@
 }
 
 .Cart:hover {
+	bottom: 40px;
 	font-size: 32px;
     transform: translatey(10px);
 	transition: all 0.4s ease 0s;
