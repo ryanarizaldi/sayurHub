@@ -40,6 +40,11 @@
 	height: 160px;
 	border-radius: 50%;
 }
+.Skeleton.roundAvatar{
+	width: 160px;
+	height: 160px;
+	border-radius: 6px;
+}
 
 .Skeleton.round{
 	width: 200px;
@@ -55,7 +60,7 @@
 
 .Skeleton.bigText{
 	width: 100%;
-	padding: 106px;
+	height: 212px;
 	border-radius: 6px;
 }
 .Skeleton.textReview{
@@ -67,4 +72,15 @@
 .Skeleton.thubmnail{
 	width: 100px;
 	height: 100px;
+}
+
+
+@media only screen and (max-width: 700px){
+	.Skeleton.bigRound{
+		width: 100%;
+		height: 260px;
+	}
+	.Skeleton.bigText{
+		height: 74px;
+	}
 }

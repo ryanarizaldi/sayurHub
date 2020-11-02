@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+
+import SkeletonHistory from '../skeletons/SkeletonHistory';
 import styles from './UserHistory.module.css';
 import banana from '../../assets/img/banana.png';
 import grape from '../../assets/img/prod_grapes.png';
@@ -7,9 +9,21 @@ import cabbage from '../../assets/img/prod_cabbage.png';
 
 
 export default function UserHistory() {
+	
+	const [loading, setLoading] = useState(false);
+	
+	useEffect(() => {
+		setLoading(true);
+		setTimeout(() => {
+			setLoading(false);
+		}, 5000)
+	}, [])
+	
     return (
         <div className={styles.History}>
-            <div className={styles.ProductHistory}>
+            {!loading ?
+			<>
+			<div className={styles.ProductHistory}>
                 <img src={lemon} alt="productpic"/>
                 <div className={styles.Text}>
                     <p>Lemon</p>
@@ -44,7 +58,9 @@ export default function UserHistory() {
                     <p>50 qty</p>
                 </div>
                 <span className={styles.Canceled}>Haram</span>
-            </div>
+            </div>	
+			</>
+			: [1,2,3,4].map(list => <SkeletonHistory key={list}/> )}		
         </div>
     )
 }
