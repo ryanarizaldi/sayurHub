@@ -43,6 +43,10 @@ function Navbar(props) {
             name="search"
           ></input>
         </div>
+        <div>
+          <label className={styles.Hamburger} for="toggle">&#9776;</label>
+          <input className={styles.Toggle} type="checkbox" id="toggle"/>
+        </div>
         {!token && !tokenAdmin ? (
           <div className={styles.DivNav}>
             <NavLink to="/register" className={styles.Signup}>

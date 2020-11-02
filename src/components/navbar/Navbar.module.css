@@ -50,6 +50,23 @@
     outline: none;
 }
 
+.Hamburger {
+    background-color: transparent;
+    border: 0; 
+    font-size: 26px;
+    line-height: 70px;
+    display: none;
+    
+}
+
+.Hamburger:focus {
+    outline: none;
+}
+
+.Toggle {
+    display: none;
+}
+
 .Cart{
 	position: absolute;
 	left: 1100px;
