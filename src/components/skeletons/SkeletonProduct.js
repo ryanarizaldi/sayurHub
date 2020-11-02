@@ -8,7 +8,7 @@ const SkeletonProduct = () => {
 	return(
 		<div className={styles.Wrapper}>
 			<div className={styles.SkeletonProduct}>
-				<Skeleton type="avatar" />
+				<Skeleton type="roundAvatar" />
 				<Skeleton type="text" />
 				<Skeleton type="text" />
 				<Skeleton type="title" />

@@ -78,7 +78,7 @@ function Navbar(props) {
                   <div className={styles.Dropdown}>
                     <img src={userData.profile_image} alt="user"></img>
                     <div className={styles.DropdownContent}>
-                      <NavLink to="/dashboard">User Dashboard</NavLink>
+                      <NavLink to="/dashboard/history">User Dashboard</NavLink>
                       <NavLink to="/" onClick={logout}>
                         Logout
                       </NavLink>

@@ -12,6 +12,7 @@ import Detail from "./pages/ProductDetailPage";
 import Search from "./pages/SearchPage";
 import Navbar from "./components/navbar/Navbar";
 
+
 function App() {
   return (
     <Router>

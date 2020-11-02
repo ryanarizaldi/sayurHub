@@ -24,7 +24,7 @@ const schemaEdit = Yup.object().shape({
 
 function ModalEditUser(props) {
 
-    const {open, onClose, userData, editUser} = props;
+    const {open, onClose, userData, editUser, loading} = props;
 	
 	const [profile_image, setProfile_image] = useState({
 				file: {},
@@ -118,12 +118,20 @@ function ModalEditUser(props) {
 							) : null}
                     <div className={styles.ButtonGroup}>
                         <button className={styles.Cancel}>Cancel</button>
-                        <button className={styles.Submit} type="submit">Save Changes</button>
+						{!loading ?  <button className={styles.Submit} type="submit">Save Changes</button>
+							:  <button className={styles.Submit} type="submit">...Please wait</button>	}    
                     </div>
                 </form>
             </div>
 		</Modal>
     )
+}
+
+
+const mapStateToProps = state => {
+	return{
+		loading: state.loading
+	}
 }
 
 
@@ -133,4 +141,4 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-export default connect(null, mapDispatchToProps)(ModalEditUser);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalEditUser);
