@@ -1,0 +1,20 @@
+.WrapperHomeHead{
+	width: 1251px;
+	height: 402px;
+	border-radius: 5px;
+	background: #f2f2f2;
+	margin: 0 auto 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+.Head .WrapperHomeHead:nth-child(1){
+	margin: 0 auto 20px auto;
+}
+
+
+@media only screen and (max-width: 700px){
+	.WrapperHomeHead{
+		width: 90%;
+	}
+}

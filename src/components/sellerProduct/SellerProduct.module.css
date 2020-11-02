@@ -8,7 +8,7 @@
 }
 
 .CardProduct {
-    display: flex;
+     display: flex;
     flex-direction: column;
     width: 23%;
     /* height: 350px; */
@@ -29,7 +29,7 @@
 }
 
 .CardProduct p {
-    margin: 8px auto;
+    margin: 8px auto 0px auto;
     font-size: 20px;
     text-align: center;
     line-height: 29px;
@@ -40,7 +40,7 @@
     text-overflow: ellipsis;
     word-wrap: break-word;
     line-height: 1.1em;
-    max-height: 2.8em;
+	height: 87px;
 }
 
 
@@ -50,7 +50,7 @@
     line-height: 28px;
     letter-spacing: 0.15px;
     color: #DE884A;
-    margin-bottom: 44px;
+    margin-bottom: 20px;
 }
 
 .CardButton {
@@ -71,7 +71,6 @@
     outline: none;
     border: none; 
     border-radius: 5px;
-    cursor: pointer;
 	transition: all 0.4s ease 0s;
 }
 
@@ -92,7 +91,7 @@
 	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
 	transition: all 0.4s ease 0s;
 	color:  white;
-	background: #DE884A;
+	background: #D65445;
 	border: none;
 }
 

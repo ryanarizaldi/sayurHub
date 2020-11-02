@@ -5,6 +5,12 @@ import Swal from "sweetalert2";
 
 export const loginUser = (values) => {
   return async (dispatch) => {
+	dispatch({
+		type: actionTypes.SET_LOADING,
+		payload: {
+			loading: true
+		}
+	})
     const { email, password } = values;
     try {
       const dataLogin = qs.stringify({
@@ -33,6 +39,7 @@ export const loginUser = (values) => {
         payload: {
           token: localStorage.getItem("token"),
           success: true,
+		  loading: false
         },
       });
     } catch (error) {
@@ -170,6 +177,12 @@ export const logout = () => {
 export const editUser = (values, id, state, onClose) => {
   return async (dispatch) => {
     const { full_name, description, email } = values;
+	dispatch({
+		type: actionTypes.SET_LOADING,
+		payload: {
+			loading: true
+		}
+	})
     try {
       const token = localStorage.getItem("token");
       const fd = new FormData();
@@ -191,9 +204,9 @@ export const editUser = (values, id, state, onClose) => {
         type: actionTypes.EDIT_USER,
         payload: {
           data: submit.data.data,
+		  loading:false
         },
       });
-      onClose();
       Swal.fire({
         position: "top-mid",
         icon: "success",
@@ -201,6 +214,7 @@ export const editUser = (values, id, state, onClose) => {
         showConfirmButton: false,
         timer: 1500,
       });
+	  onClose();
     } catch (error) {
       console.log("error", error.response);
       onClose();

@@ -10,7 +10,7 @@ import { Redirect } from "react-router-dom";
 import * as actionTypes from "../../redux/action/Action";
 
 function Login(props) {
-  const { loginUser, isSuccess } = props;
+  const { loginUser, isSuccess, loading } = props;
 
   const schema = Yup.object().shape({
     email: Yup.string()
@@ -83,7 +83,7 @@ function Login(props) {
             {formik.touched.password && formik.errors.password ? (
               <div className={styles.ErrorMsg}>{formik.errors.password}</div>
             ) : null}
-            <button type="submit">Sign In</button>
+			{!loading ? <button type="submit">Sign In</button> : <button type="submit">...Please wait</button>}
             <p>
               Dont have an account? <Link to="/register">Sign Up</Link>
             </p>
@@ -97,6 +97,7 @@ function Login(props) {
 const mapStateToProps = (state) => {
   return {
     isSuccess: state.isSuccess,
+	loading: state.loading
   };
 };
 

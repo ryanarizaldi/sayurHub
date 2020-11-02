@@ -1,6 +1,6 @@
 import React from 'react';
 import Skeleton from './Skeletons';
-import styles from './SkeletonProduct.module.css';
+import styles from './Shimmer.module.css';
 
 const Shimmer = () => {
 	

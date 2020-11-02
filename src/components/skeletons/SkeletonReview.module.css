@@ -1,0 +1,26 @@
+/* SkeletonReview here */
+
+.WrapperReview{
+	width: 100%;
+	height: 320px;
+	border-radius: 5px;
+	background:white;
+	position: relative;
+	overflow: hidden;
+}
+
+.SkeletonReview{
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.SkeletonReview div:nth-child(2){
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 20px;
+	width: 100%;
+}
