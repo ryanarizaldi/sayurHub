@@ -18,6 +18,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         token: action.payload.token,
         isSuccess: action.payload.success,
+		loading: action.payload.loading
       };
     case actionTypes.SET_LOADING:
       return {
@@ -34,6 +35,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         userData: action.payload.data,
+		loading: action.payload.loading
       };
     case actionTypes.USER_LOGOUT:
       return {

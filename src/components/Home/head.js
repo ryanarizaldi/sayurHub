@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./head.module.css";
 import HeadPic from "../../assets/img/Homepic1.png";
 import PicTop from "../../assets/img/Homepic2.png";
@@ -6,18 +6,33 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import PicBottom from "../../assets/img/Homepic3.png";
 import Banana from "../../assets/img/banana.png";
 import ShoppingCart from "../../assets/img/shopping-cart.png";
+import SkeletonHomeHead from "../skeletons/SkeletonHomeHead";
 
 function Head() {
+	
+  const [loading, setLoading] = useState(false)
+	
+	useEffect(() => {
+		setLoading(true);
+		setTimeout(() => {
+			setLoading(false);
+		}, 3000)
+	}, [])
+	
   return (
     <div className={styles.Background}>
-      <div className={styles.Container}>
+	  {loading ? <SkeletonHomeHead />
+	:
+	  <>
+	  <div className={styles.Container}>
         <h1>Fresh Fruits and Vegetables, at Your Doorstep.</h1>
         <img src={HeadPic} alt="Vegetables"></img>
 		<a href="#button">
         	<button>Browse Product</button>
 		</a>
       </div>
-      <div className={styles.Ads}>
+      
+	  <div className={styles.Ads}>
         <div className={styles.ContainerBanana}>
           <div className={styles.Banana}>
             <img src={Banana} alt="Banana"></img>
@@ -42,6 +57,8 @@ function Head() {
           <button>SEE ALL OFFERS</button>
         </div>
       </div>
+	  </> 
+		}
     </div>
   );
 }

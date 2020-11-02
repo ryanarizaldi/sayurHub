@@ -1,0 +1,59 @@
+/*  SkeletonDetail here */
+
+.WrapperDetail{
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	background: #f2f2f2;
+	position: relative;
+	overflow: hidden;
+}
+
+.SkeletonDetail{
+	display:flex;
+	padding: 38px;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.Images{
+	width: 40%;
+	margin-right: 20px;
+}
+
+.Column{
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	justify-content: center;
+}
+
+.Avatar{
+	display: flex;
+	flex-direction: row;
+}
+
+.Avatar div:nth-child(2){
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-left: 20px;
+}
+
+@media only screen and (max-width: 700px){
+	.SkeletonDetail{
+		flex-direction: column;
+	}
+	.Images{
+		width: 100%;
+	}
+	.Column{
+		width: 100%;
+	}
+	.Avatar{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
