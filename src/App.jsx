@@ -12,7 +12,6 @@ import Detail from "./pages/ProductDetailPage";
 import Search from "./pages/SearchPage";
 import Navbar from "./components/navbar/Navbar";
 
-
 function App() {
   return (
     <Router>
@@ -34,7 +33,7 @@ function App() {
           <Navbar />
           <Cart />
         </Route>
-        <Route path="/product/:id?">
+        <Route path="/product/:id?/review">
           <Navbar />
           <Detail />
         </Route>
