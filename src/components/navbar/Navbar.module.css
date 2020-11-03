@@ -1,13 +1,14 @@
 .Background {
     background: #F7F6ED;
-    
+    display: flex;
 }
 
 .Container {
     background-color: #ffffff;
     height: 88px;
     width: 1251px;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
     margin: auto;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -16,53 +17,76 @@
 .Logo img {
     height: 38px;
     width: 81px;
-    position: relative;
-    top: 24px;
-    left: 37px;
+    margin: 20px;
 }
 
 .Box {
+    display: flex;
+    justify-content: space-between;
     background-color: #dfdfdf;
     width: 474px;
     height: 39px;
-    position: absolute;
-    left: 196px;
-    bottom: 22px;
     border-radius: 8px;
+    margin-top: 20px
 }
  
 .Box img {
     width: 24px;
     height: 24px;
-    position: absolute;
-    top: 6px;
-    left: 17px;
+    margin-left: 8px;
+    margin-top: 8px;
 }
 
-.Searchbox input {
+.Box input {
     background-color: #dfdfdf;
     height: 36px;
-    width: 410px;
-    position: absolute;
-    left: 254px;
-    bottom: 22px;
+    width: 400px;
+    border: none;
+    outline: none;
+    margin-left: 8px;
+}
+
+.Box input:focus {
     border: none;
     outline: none;
 }
 
+.Hamburger {
+    background-color: transparent;
+    border: 0; 
+    font-size: 26px;
+    line-height: 70px;
+    display: none;
+    
+}
+
+.Hamburger:focus {
+    outline: none;
+}
+
+.Toggle {
+    display: none;
+}
+
+.DivNav {
+    display: flex;
+    justify-content: space-between;
+}
+
 .Cart{
-	position: absolute;
-	left: 1100px;
-    bottom: 31px;
+    display: flex;
 	text-decoration: none;
 	color: black;
 	font-size: 16px;
-	transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    margin-top: 28px;
+    margin-right: 40px;
+    
 }
 
 .Cart:hover {
-	bottom: 40px;
-	font-size: 32px;
+    font-size: 32px;
+    margin-top: 18px;
     transform: translatey(10px);
 	transition: all 0.4s ease 0s;
 }
@@ -101,11 +125,10 @@
     color: #ffffff;
     font-weight: 600;
     font-size: 16px;
-    position: absolute;
     padding: 10px 32px;
     border-radius: 8px;
-    left: 950px;
-    bottom: 25px;
+    margin: 20px;
+    margin-right: 40px;
     border: none;
     outline: none;
 	transition: all 0.2s ease 0s;
@@ -118,42 +141,40 @@
 }
     
 .Login {
+    display: flex;
 	transition: all 0.4s ease 0s;
     color: #367874;
     font-weight: 600;
     font-size: 16px;
-    position: absolute;
-    left: 1130px;
-    bottom: 34px;
+    margin-top: 20px;
+    margin-bottom: 28px;
+    margin-right: 50px;
+    padding-top: 10px;
     text-decoration: none;
+    
+    
+    
+   
 }
-
-
 
 .Login:hover {
 	transition: all 0.4s ease 0s;
     color: #265552;
     border: 1px solid #265552;
     padding: 10px 20px;
-    left: 1108px;
     border-radius: 8px;
-    bottom: 24px;
-
+    
 
 }
 
-
-
 .Dropdown{
-	transition: all 0.4s ease 0s;
-    position: relative;
-    left: 1130px;
-    bottom: 0px;
+    transition: all 0.4s ease 0s;
+    margin: 20px;
+    margin-right: 40px;
 	z-index: 2;
 }
 
 .Dropdown img{
-	position: absolute;
 	left: 30px;
 	top: -19px;
 	width: 40px;
@@ -163,7 +184,6 @@
 
 .DropdownContent {
     display: none;
-    position: absolute;
 	top: 15px;
 	left: 50px;
     background-color: #f9f9f9;
@@ -191,4 +211,31 @@
 .DropdownContent a:hover {
   background-color: #ddd;
   transition: all 0.4s ease 0s;
+}
+
+@media only screen and (max-width: 700px) {
+    .Container {
+        max-width: 90%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .Box {
+        width: 50%;
+    }
+
+    .Box input {
+        width: 70%;
+    }
+
+    .Hamburger {
+        display: block;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-right: 20px;
+    }
+
+    .DivNav {
+        display: none;
+    }
 }

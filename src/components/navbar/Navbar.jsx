@@ -51,13 +51,15 @@ function Navbar(props) {
         </div>
         <div className={styles.Box}>
           <img src={searchicon} alt="search"></img>
-        </div>
-        <div className={styles.Searchbox}>
           <input
             type="text"
             placeholder="Search Porduct..."
             name="search"
           ></input>
+        </div>
+        <div>
+          <label className={styles.Hamburger} for="toggle">&#9776;</label>
+          <input className={styles.Toggle} type="checkbox" id="toggle"/>
         </div>
         {!token && !tokenAdmin ? (
           <div className={styles.DivNav}>
