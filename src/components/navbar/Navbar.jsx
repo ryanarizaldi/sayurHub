@@ -40,13 +40,6 @@ function Navbar(props) {
 	
   const { sideDrawer } = modal;	
 	
-  let modale = "";
-  
-  if(sideDrawer){
-	  modale = <MiniCart 
-				   open={sideDrawer}
-				   onClose={() => onChange('sideDrawer', false)}/>
-  }
 
   return (
     <div className={styles.Background}>
@@ -115,7 +108,9 @@ function Navbar(props) {
             )}
           </div>
         )}
-		{modale}
+		<MiniCart 
+				   open={sideDrawer}
+				   onClose={() => onChange('sideDrawer', false)}/>
       </div>
     </div>
   );

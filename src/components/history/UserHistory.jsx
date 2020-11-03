@@ -10,13 +10,12 @@ import cabbage from '../../assets/img/prod_cabbage.png';
 
 export default function UserHistory() {
 	
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 	
 	useEffect(() => {
-		setLoading(true);
 		setTimeout(() => {
 			setLoading(false);
-		}, 5000)
+		}, 2000)
 	}, [])
 	
     return (
