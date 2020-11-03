@@ -1,0 +1,171 @@
+.Container{
+	width:600px;
+	background: white;
+	transition: all 0.4s ease 0;
+	position: relative;
+}
+
+.CloseIcon {
+	position: absolute;
+	top: 40px;
+	right: 10%;
+	cursor: pointer;
+	transition: all 0.4s ease 0;
+}
+
+.CloseIcon:hover{
+	transition: all 0.4s ease 0;
+	fill: salmon;
+}
+
+.Title{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 41px;
+	margin: 100px 0 0 50px;
+	letter-spacing: 0.25px;
+}
+
+.Cart{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 50px 0 0 0;
+}
+
+.Cart div:nth-child(2){
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 0 0 30px;
+}
+
+.Cart img{
+	width: 100px;
+}
+
+.Cart h1{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 22px;
+	line-height: 41px;
+	letter-spacing: 0.25px;
+}
+
+.Cart div:nth-child(3){
+	padding: 20px 0 0 0;
+	margin: 0 0 0 30px;
+}
+
+.IconDelete{
+	cursor: pointer;
+	transition: all 0.4s ease 0;
+}
+
+.IconDelete:hover{
+	fill: salmon;
+	transition: all 0.4s ease 0;
+}
+
+.Subtotal{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 50px;
+}
+.Subtotal p{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 41px;
+	letter-spacing: 0.25px;
+}
+
+.Button{
+	margin: 200px 50px 50px 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.Button button{
+	box-sizing: border-box;
+	padding: 20px 150px;
+	border: 0;
+	background: #2F2E4E;
+	color: white;
+	cursor: pointer;
+	transition: all 0.4s ease 0;
+	margin-bottom: 30px;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 17px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.Button button:hover{	
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+	background:  #367874;
+}
+
+
+@media only screen and (max-width: 700px){
+	.Container{
+		width: 100%;
+	}
+	.Cart{
+		margin: 50px auto 0 auto;
+		width: 80%;	
+	}
+	
+	.Cart img{
+		width: 60px;
+	}
+	.Cart h1, .Cart p{
+		font-size: 16px;
+		
+	}
+	.Button button{
+		padding: 20px 100px;
+	}
+}
+
+@media only screen and (max-width: 500px){
+	.Container{
+		width: 330px;
+	}
+	.Title{
+		font-size: 20px;
+	}
+	.Cart{
+		width: 80%;
+	}
+	
+	.Cart div:nth-child(2){
+		margin: 0 0 0 10px;
+	}
+	
+	.Cart div:nth-child(3){
+		margin: 0 0 0 10px;
+	} 
+	
+	.Subtotal p{
+		font-size: 16px;
+	}
+	
+	.Button{
+		margin: 100px 50px 50px 50px;
+	}
+	
+	.Button button{
+		font-size: 16px;
+		padding: 20px 50px;
+	}
+}

@@ -9,6 +9,8 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import Skeleton from "../skeletons/Skeletons";
 import AdminIco from "../../assets/img/admin.jpg";
 import noimg from "../../assets/img/noimg.png";
+import MiniCart from "../miniCart/miniCart";
+
 
 function Navbar(props) {
   const {
@@ -21,9 +23,23 @@ function Navbar(props) {
     loading,
   } = props;
 
+  const [modal, setModal] = useState({
+	  sideDrawer: false
+  })
+	
+  const onChange = ( name, value ) => {
+      setModal({ 
+		  [name] : value
+	  })
+	  console.log("modal is" + modal);
+  }
+
   useEffect(() => {
     getUser();
   }, [token, getUser, tokenAdmin]);
+	
+  const { sideDrawer } = modal;	
+	
 
   return (
     <div className={styles.Background}>
@@ -71,9 +87,10 @@ function Navbar(props) {
               </>
             ) : (
               <>
-                <NavLink to="/cart" className={styles.Cart}>
-                  <ShoppingCartOutlinedIcon style={{ fill: "#367874" }} />
-                </NavLink>
+                  <ShoppingCartOutlinedIcon
+					  className={styles.Cart}
+					  style={{ fill: "#367874" }}
+					  onClick={() => onChange('sideDrawer', true)}/>
                 {!loading ? (
                   <div className={styles.Dropdown}>
                     <img src={userData.profile_image} alt="user"></img>
@@ -91,6 +108,9 @@ function Navbar(props) {
             )}
           </div>
         )}
+		<MiniCart 
+				   open={sideDrawer}
+				   onClose={() => onChange('sideDrawer', false)}/>
       </div>
     </div>
   );

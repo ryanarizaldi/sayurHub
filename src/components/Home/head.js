@@ -10,13 +10,12 @@ import SkeletonHomeHead from "../skeletons/SkeletonHomeHead";
 
 function Head() {
 	
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 	
 	useEffect(() => {
-		setLoading(true);
 		setTimeout(() => {
 			setLoading(false);
-		}, 3000)
+		}, 2000)
 	}, [])
 	
   return (
