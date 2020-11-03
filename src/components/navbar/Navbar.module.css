@@ -50,24 +50,6 @@
     outline: none;
 }
 
-
-.Hamburger {
-    background-color: transparent;
-    border: 0; 
-    font-size: 26px;
-    line-height: 70px;
-    display: none;
-    
-}
-
-.Hamburger:focus {
-    outline: none;
-}
-
-.Toggle {
-    display: none;
-}
-
 .Cart{
 	position: absolute;
 	left: 1100px;
@@ -209,46 +191,4 @@
 .DropdownContent a:hover {
   background-color: #ddd;
   transition: all 0.4s ease 0s;
-}
-
-@media only screen and (max-width: 700px) {
-
-    .Background {
-        max-width: 100%;
-    }
-
-    .Container {
-        max-width: 90%;
-    }
-
-    .Box {
-        max-width: 50%;
-        left: 150px;
-    }
-
-    .Searchbox input {
-        max-width: 35%;
-        left: 210px;
-    }
-
-    .Hamburger {
-        display: block;
-        position: relative;
-        left: 85%;
-        bottom: 30px;
-        cursor: pointer;
-    }
-
-   .DivNav {
-       text-align: center;
-       display: none;
-   }
-
-   .Toggle {
-       display: block;
-   }
-   
-   .Toggle:checked + .DivNav {
-       display: block;
-   }
 }
