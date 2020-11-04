@@ -3,6 +3,8 @@
 	background: white;
 	transition: all 0.4s ease 0;
 	position: relative;
+	padding: 5%;
+	overflow: hidden;
 }
 
 .CloseIcon {
@@ -18,12 +20,26 @@
 	fill: salmon;
 }
 
+.Overflow{
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+    position: relative;
+	-ms-overflow-style: none;  /* IE and Edge */
+ 	scrollbar-width: none;  /* Firefox */
+}
+
+.Overflow::-webkit-scrollbar {
+    display: none;
+}
+
+
 .Title{
 	font-style: normal;
 	font-weight: normal;
 	font-size: 30px;
 	line-height: 41px;
-	margin: 100px 0 0 50px;
+	margin: 100px 0 30px 50px;
 	letter-spacing: 0.25px;
 }
 
