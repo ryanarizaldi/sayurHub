@@ -9,10 +9,10 @@ import SkeletonProduct from "../skeletons/SkeletonProduct";
 function Product(props) {
   const { category } = props;
   const [products, setProducts] = useState([]),
-		[loading, setLoading] = useState(false)
+    [loading, setLoading] = useState(false);
 
   const getProducts = useCallback(async (cat) => {
-	setLoading(true);
+    setLoading(true);
     try {
       const prods = await axios.get(
         cat === "all"
@@ -27,7 +27,7 @@ function Product(props) {
         : category === "diets"
         ? setProducts(prods.data.diet)
         : setProducts(prods.data.products);
-	  setLoading(false);
+      setLoading(false);
     } catch (error) {
       console.log("ini error: ", error);
     }
@@ -53,14 +53,13 @@ function Product(props) {
     rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
     return rupiah;
   };
-	
 
   return (
     <>
-      {products.length || !loading ?
-        products.map((item) => (
-	   		<div className={styles.Card} key={item._id}>
-              <Link to={`/product/${item._id}`}>
+      {products.length || !loading
+        ? products.map((item) => (
+            <div className={styles.Card} key={item._id}>
+              <Link to={`/product/${item._id}/review`}>
                 <img
                   src={item.product_image ? item.product_image : noimg}
                   alt="product"
@@ -79,10 +78,11 @@ function Product(props) {
                 </button>
               </Link>
             </div>
-          )) : [1,2,3,4,5,6,7,8].map((n) => <SkeletonProduct key={n} />)}
-		{!products.length && "There isn't any product in this category"}
+          ))
+        : [1, 2, 3, 4, 5, 6, 7, 8].map((n) => <SkeletonProduct key={n} />)}
+      {!products.length && "There isn't any product in this category"}
     </>
-  )
+  );
 }
 
 export default Product;

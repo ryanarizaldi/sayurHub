@@ -11,7 +11,6 @@ import AdminIco from "../../assets/img/admin.jpg";
 import noimg from "../../assets/img/noimg.png";
 import MiniCart from "../miniCart/miniCart";
 
-
 function Navbar(props) {
   const {
     userData,
@@ -24,22 +23,21 @@ function Navbar(props) {
   } = props;
 
   const [modal, setModal] = useState({
-	  sideDrawer: false
-  })
-	
-  const onChange = ( name, value ) => {
-      setModal({ 
-		  [name] : value
-	  })
-	  console.log("modal is" + modal);
-  }
+    sideDrawer: false,
+  });
+
+  const onChange = (name, value) => {
+    setModal({
+      [name]: value,
+    });
+    console.log("modal is" + modal);
+  };
 
   useEffect(() => {
     getUser();
   }, [token, getUser, tokenAdmin]);
-	
-  const { sideDrawer } = modal;	
-	
+
+  const { sideDrawer } = modal;
 
   return (
     <div className={styles.Background}>
@@ -87,10 +85,11 @@ function Navbar(props) {
               </>
             ) : (
               <>
-                  <ShoppingCartOutlinedIcon
-					  className={styles.Cart}
-					  style={{ fill: "#367874" }}
-					  onClick={() => onChange('sideDrawer', true)}/>
+                <ShoppingCartOutlinedIcon
+                  className={styles.Cart}
+                  style={{ fill: "#367874" }}
+                  onClick={() => onChange("sideDrawer", true)}
+                />
                 {!loading ? (
                   <div className={styles.Dropdown}>
                     <img src={userData.profile_image} alt="user"></img>
@@ -108,9 +107,10 @@ function Navbar(props) {
             )}
           </div>
         )}
-		<MiniCart 
-				   open={sideDrawer}
-				   onClose={() => onChange('sideDrawer', false)}/>
+        <MiniCart
+          open={sideDrawer}
+          onClose={() => onChange("sideDrawer", false)}
+        />
       </div>
     </div>
   );

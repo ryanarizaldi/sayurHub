@@ -83,7 +83,8 @@
     bottom: 25px;
 	color: #367874;
 	transition: all 0.4s ease 0s;
-	cursor: pointer;
+    cursor: pointer;
+    background: none;
 }
 
 .Sell button:hover{
@@ -191,4 +192,46 @@
 .DropdownContent a:hover {
   background-color: #ddd;
   transition: all 0.4s ease 0s;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .Background {
+        max-width: 100%;
+    }
+
+    .Container {
+        max-width: 90%;
+    }
+
+    .Box {
+        max-width: 50%;
+        left: 150px;
+    }
+
+    .Searchbox input {
+        max-width: 35%;
+        left: 210px;
+    }
+
+    .Hamburger {
+        display: block;
+        position: relative;
+        left: 85%;
+        bottom: 30px;
+        cursor: pointer;
+    }
+
+   .DivNav {
+       text-align: center;
+       display: none;
+   }
+
+   .Toggle {
+       display: block;
+   }
+   
+   .Toggle:checked + .DivNav {
+       display: block;
+   }
 }
