@@ -25,8 +25,8 @@ function Product(props) {
         : category === "vegetables"
         ? setProducts(prods.data.vegetable)
         : category === "diets"
-        ? setProducts(prods.data.diet)
-        : setProducts(prods.data.products);
+        ? setProducts(prods.data.diets)
+        : setProducts(prods.data.posts);
       setLoading(false);
     } catch (error) {
       console.log("ini error: ", error);
