@@ -8,38 +8,7 @@ import SkeletonProduct from "../skeletons/SkeletonProduct";
 import InfiniteScroll from "react-infinite-scroller";
 
 function Product(props) {
-  const { category } = props,
-    [products, setProducts] = useState([]),
-    [loading, setLoading] = useState(false),
-    [page, setPage] = useState(1),
-    [totalPage, setTotal] = useState(0);
-
-  const getProducts = useCallback(async (cat) => {
-    setLoading(true);
-    try {
-      const prods = await axios.get(
-        cat === "all"
-          ? `https://pacific-oasis-23064.herokuapp.com/products`
-          : `https://pacific-oasis-23064.herokuapp.com/products/filter/${cat}`
-      );
-
-      category === "fruits"
-        ? setProducts(prods.data.fruits)
-        : category === "vegetables"
-        ? setProducts(prods.data.vegetable)
-        : category === "diets"
-        ? setProducts(prods.data.diets)
-        : setProducts(prods.data.posts);
-      setTotal(prods.data.totalPages);
-      setLoading(false);
-    } catch (error) {
-      console.log("ini error: ", error);
-    }
-  });
-
-  useEffect(() => {
-    getProducts(category);
-  }, [category]);
+  const { category, loading, products, page, totalPage, getMore } = props;
 
   //https://codepen.io/malasngoding/pen/EedMvv
   const priceForm = (num) => {
@@ -56,36 +25,6 @@ function Product(props) {
     }
     rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
     return rupiah;
-  };
-
-  const getMore = async (cat) => {
-    const newPage = page + 1;
-    console.log("ini newpage", newPage);
-    setPage(newPage);
-
-    console.log("masuk ", cat);
-    setLoading(true);
-    try {
-      const prods = await axios.get(
-        cat === "all"
-          ? `https://pacific-oasis-23064.herokuapp.com/products?page=${newPage}`
-          : `https://pacific-oasis-23064.herokuapp.com/products/filter/${cat}?page=${newPage}`
-      );
-
-      console.log("ini page: ", newPage);
-
-      category === "fruits"
-        ? setProducts(prods.data.fruits)
-        : category === "vegetables"
-        ? setProducts(prods.data.vegetable)
-        : category === "diets"
-        ? setProducts(prods.data.diets)
-        : setProducts([...products, ...prods.data.posts]);
-      console.log(products, prods);
-      setLoading(false);
-    } catch (error) {
-      console.log("ini error: ", error.response);
-    }
   };
 
   return (
