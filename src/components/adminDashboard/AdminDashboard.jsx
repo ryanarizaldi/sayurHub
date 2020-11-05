@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import styles from "./AdminDashboard.module.css";
-import ReactStars from "react-stars";
 import Products from "../sellerProduct/SellerProduct";
 import Notification from "../notification/Notification";
+import UserList from "../userList/UserList";
 import History from "../history/UserHistory";
 import CreateProductModal from "../createProductModal/CreateProductModal";
 import { NavLink, Route } from "react-router-dom";
 import ModalEdit from "./ModalEditUser";
 import * as actionTypes from "../../redux/action/Action";
-import admin from "../../assets/img/admin.jpg";
 
 function AdminDashboard(props) {
   const { userData, getAdmin } = props;
@@ -100,6 +99,9 @@ function AdminDashboard(props) {
               </Route>
               <Route path="/dashboard/admin/notification">
                 <Notification />
+              </Route>
+              <Route path="/dashboard/admin/users">
+                <UserList />
               </Route>
             </div>
           </div>
