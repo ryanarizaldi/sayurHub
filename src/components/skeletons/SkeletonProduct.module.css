@@ -1,11 +1,11 @@
 /* SkeletonProduct here */
 
 .Wrapper{
-	width: 290px;
-	height: 350px;
+	width: 100%;
+	height: 417px;
 	border-radius: 5px;
 	background: #f2f2f2;
-	margin: 10px;
+	margin: 15px 0;
 	position: relative;
 	overflow: hidden;
 }
@@ -13,10 +13,12 @@
 
 .SkeletonProduct{
 	display: flex;
-	padding: 10px;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+}
+
+.Wrapper .SkeletonProduct:nth-child(2){
+	margin-top: 50px;
 }
 
 

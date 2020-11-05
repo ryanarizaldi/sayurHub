@@ -242,7 +242,7 @@ export const getProductById = (userId) => {
       dispatch({
         type: actionTypes.GET_PRODUCT_USER,
         payload: {
-          product: submit.data.products,
+          product: submit.data.posts,
         },
       });
     } catch (error) {

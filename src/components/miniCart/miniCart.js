@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import styles from './miniCart.module.css';
 import CloseIcon from '@material-ui/icons/Close';
@@ -8,10 +9,8 @@ import {Link} from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 
-function MiniCart (props) {
-	
-	const {open, onClose} = props;
-	
+function MiniCart(props) {
+  const { open, onClose } = props;
 	
 	return(
 		<>

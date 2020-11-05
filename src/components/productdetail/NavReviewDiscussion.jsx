@@ -10,7 +10,7 @@ export default function NavReviewDiscussion(props) {
     <div className={styles.Wrapper}>
       <div className={styles.Navigation}>
         <NavLink to={`/product/${id}/review/`} activeClassName={styles.Active}>
-          Review Ini beda ya
+          Review
         </NavLink>
         <NavLink
           to={`/product/${id}/discussion/`}

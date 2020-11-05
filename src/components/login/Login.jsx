@@ -83,7 +83,9 @@ function Login(props) {
             {formik.touched.password && formik.errors.password ? (
               <div className={styles.ErrorMsg}>{formik.errors.password}</div>
             ) : null}
-			{!loading ? <button type="submit">Sign In</button> : <button type="submit">...Please wait</button>}
+            <button type="submit">
+              {formik.isSubmitting ? "PLEASE WAIT..." : "SUBMIT"}
+            </button>
             <p>
               Dont have an account? <Link to="/register">Sign Up</Link>
             </p>
@@ -97,7 +99,7 @@ function Login(props) {
 const mapStateToProps = (state) => {
   return {
     isSuccess: state.isSuccess,
-	loading: state.loading
+    loading: state.loading,
   };
 };
 
