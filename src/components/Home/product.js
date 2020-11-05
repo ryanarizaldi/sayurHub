@@ -5,18 +5,21 @@ import axios from "axios";
 import noimg from "../../assets/img/noimg.png";
 import { Link } from "react-router-dom";
 import SkeletonProduct from "../skeletons/SkeletonProduct";
+import InfiniteScroll from "react-infinite-scroller";
 
 function Product(props) {
-  const { category } = props;
-  const [products, setProducts] = useState([]),
-    [loading, setLoading] = useState(false);
+  const { category } = props,
+    [products, setProducts] = useState([]),
+    [loading, setLoading] = useState(false),
+    [page, setPage] = useState(1),
+    [totalPage, setTotal] = useState(0);
 
   const getProducts = useCallback(async (cat) => {
     setLoading(true);
     try {
       const prods = await axios.get(
         cat === "all"
-          ? `https://pacific-oasis-23064.herokuapp.com/products`
+          ? `https://pacific-oasis-23064.herokuapp.com/products?page=${page}`
           : `https://pacific-oasis-23064.herokuapp.com/products/filter/${cat}`
       );
 
@@ -25,8 +28,9 @@ function Product(props) {
         : category === "vegetables"
         ? setProducts(prods.data.vegetable)
         : category === "diets"
-        ? setProducts(prods.data.diet)
-        : setProducts(prods.data.products);
+        ? setProducts(prods.data.diets)
+        : setProducts(prods.data.posts);
+      setTotal(prods.data.totalPages);
       setLoading(false);
     } catch (error) {
       console.log("ini error: ", error);
@@ -54,8 +58,43 @@ function Product(props) {
     return rupiah;
   };
 
+  const getMore = async (cat) => {
+    const newPage = page + 1;
+    console.log("ini newpage", newPage);
+    setPage(newPage);
+
+    console.log("masuk ", cat);
+    setLoading(true);
+    try {
+      const prods = await axios.get(
+        cat === "all"
+          ? `https://pacific-oasis-23064.herokuapp.com/products?page=${newPage}`
+          : `https://pacific-oasis-23064.herokuapp.com/products/filter/${cat}`
+      );
+
+      console.log("ini page: ", newPage);
+
+      category === "fruits"
+        ? setProducts(prods.data.fruits)
+        : category === "vegetables"
+        ? setProducts(prods.data.vegetable)
+        : category === "diets"
+        ? setProducts(prods.data.diets)
+        : setProducts([...products, ...prods.data.posts]);
+      console.log(products, prods);
+      setLoading(false);
+    } catch (error) {
+      console.log("ini error: ", error.response);
+    }
+  };
+
   return (
-    <>
+    <InfiniteScroll
+      initialLoad={false}
+      loadMore={() => getMore(category)}
+      hasMore={page < totalPage}
+      loader={<SkeletonProduct />}
+    >
       {products.length || !loading
         ? products.map((item) => (
             <div className={styles.Card} key={item._id}>
@@ -81,7 +120,7 @@ function Product(props) {
           ))
         : [1, 2, 3, 4, 5, 6, 7, 8].map((n) => <SkeletonProduct key={n} />)}
       {!products.length && "There isn't any product in this category"}
-    </>
+    </InfiniteScroll>
   );
 }
 

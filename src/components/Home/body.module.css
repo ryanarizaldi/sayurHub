@@ -52,7 +52,11 @@
 	width: 1271px;
 	margin: 0 auto;
 	display: grid;
-  	grid-template-columns: repeat(auto-fit, minmax(290.5px, 1fr));
+}
+
+.ContainerProduct div {
+	grid-template-columns: repeat(auto-fit, minmax(290.5px, 1fr));
+	width: 100%;	
 }
 
 .Card{

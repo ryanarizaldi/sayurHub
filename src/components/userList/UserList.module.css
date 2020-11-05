@@ -1,0 +1,16 @@
+.UserList {
+    margin-top: 48px;
+}
+
+.DeleteButton {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s ease 0s;
+
+}
+
+.DeleteButton:hover svg {
+    color: #D65445;
+}
