@@ -19,7 +19,7 @@ function Product(props) {
     try {
       const prods = await axios.get(
         cat === "all"
-          ? `https://pacific-oasis-23064.herokuapp.com/products?page=${page}`
+          ? `https://pacific-oasis-23064.herokuapp.com/products`
           : `https://pacific-oasis-23064.herokuapp.com/products/filter/${cat}`
       );
 
@@ -69,7 +69,7 @@ function Product(props) {
       const prods = await axios.get(
         cat === "all"
           ? `https://pacific-oasis-23064.herokuapp.com/products?page=${newPage}`
-          : `https://pacific-oasis-23064.herokuapp.com/products/filter/${cat}`
+          : `https://pacific-oasis-23064.herokuapp.com/products/filter/${cat}?page=${newPage}`
       );
 
       console.log("ini page: ", newPage);
@@ -93,7 +93,9 @@ function Product(props) {
       initialLoad={false}
       loadMore={() => getMore(category)}
       hasMore={page < totalPage}
-      loader={<SkeletonProduct />}
+      loader={[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+        <SkeletonProduct key={n} />
+      ))}
     >
       {products.length || !loading
         ? products.map((item) => (

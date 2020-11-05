@@ -3,6 +3,10 @@
 	margin : 10px 0;
 	border-radius: 4px;
 }
+.Skeleton.imagePro{
+	width: 100%;
+	height: 200px;
+}
 
 .Skeleton.navbar{
 	width: 40px;
