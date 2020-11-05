@@ -88,8 +88,10 @@ function Navbar(props) {
                 <ShoppingCartOutlinedIcon
                   className={styles.Cart}
                   style={{ fill: "#367874" }}
+				  fontSize="big"
                   onClick={() => onChange("sideDrawer", true)}
                 />
+			  <div className={styles.Notification} onClick={() => onChange("sideDrawer", true)}></div>
                 {!loading ? (
                   <div className={styles.Dropdown}>
                     <img src={userData.profile_image} alt="user"></img>

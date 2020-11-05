@@ -53,17 +53,27 @@
 .Cart{
 	position: absolute;
 	left: 1100px;
-    bottom: 31px;
+    bottom: 30px;
 	text-decoration: none;
 	color: black;
-	font-size: 16px;
+	font-size: 20px;
 	transition: all 0.4s ease 0s;
+	cursor: pointer;
+}
+
+.Notification{
+	border: 2px solid #FFFFFF;
+	position: absolute;
+	width: 14.2px;
+	height: 14.2px;
+	cursor: pointer;
+	border-radius: 50%;
+	background: #DE884A;
+	bottom: 42px;
+	left: 1110px;
 }
 
 .Cart:hover {
-	bottom: 40px;
-	font-size: 32px;
-    transform: translatey(10px);
 	transition: all 0.4s ease 0s;
 }
 
