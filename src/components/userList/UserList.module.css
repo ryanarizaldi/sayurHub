@@ -1,5 +1,10 @@
 .UserList {
     margin-top: 48px;
+    
+}
+
+.UserList div {
+    height: 640px;
 }
 
 .DeleteButton {
@@ -13,4 +18,16 @@
 
 .DeleteButton:hover svg {
     color: #D65445;
+}
+
+@media only screen and (max-width: 700px) {
+    .UserList {
+        width: 100%;
+        overflow-x: auto;
+        margin-top: 24px;
+    }
+
+    .UserList div {
+        height: 550px;
+    }
 }

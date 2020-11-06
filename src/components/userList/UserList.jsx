@@ -75,7 +75,11 @@ export default function UserList() {
     <div className={styles.UserList}>
       <div className={styles.TabbleWrapper}>
         <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
+          <Table
+            stickyHeader
+            className={classes.table}
+            aria-label="simple table"
+          >
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
