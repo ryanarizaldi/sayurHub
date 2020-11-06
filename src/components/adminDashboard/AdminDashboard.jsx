@@ -9,6 +9,10 @@ import CreateProductModal from "../createProductModal/CreateProductModal";
 import { NavLink, Route } from "react-router-dom";
 import ModalEdit from "./ModalEditUser";
 import * as actionTypes from "../../redux/action/Action";
+import MenuIcon from "@material-ui/icons/Menu";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
 function AdminDashboard(props) {
   const { userData, getAdmin } = props;
@@ -52,6 +56,16 @@ function AdminDashboard(props) {
     );
   }
 
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <div className={styles.Container}>
       <div className={styles.Row}>
@@ -89,6 +103,59 @@ function AdminDashboard(props) {
                 >
                   Create Product
                 </button>
+              </div>
+
+              <div className={styles.Hamburger}>
+                <Button
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                >
+                  <MenuIcon />
+                </Button>
+                <Menu
+                  id="simple-menu"
+                  anchorEl={anchorEl}
+                  keepMounted
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                  <MenuItem onClick={handleClose}>
+                    <NavLink
+                      to="/dashboard/admin/products"
+                      activeClassName={styles.Active}
+                    >
+                      Products
+                    </NavLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <NavLink
+                      to="/dashboard/admin/history"
+                      activeClassName={styles.Active}
+                    >
+                      Transaction History
+                    </NavLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <NavLink
+                      to="/dashboard/admin/notification"
+                      activeClassName={styles.Active}
+                    >
+                      Notification
+                    </NavLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <NavLink
+                      to="/dashboard/admin/users"
+                      activeClassName={styles.Active}
+                    >
+                      Users
+                    </NavLink>
+                  </MenuItem>
+                  <MenuItem onClick={() => onChange("createProduct", true)}>
+                    Create Product
+                  </MenuItem>
+                </Menu>
               </div>
 
               <Route path="/dashboard/admin/products">

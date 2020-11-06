@@ -141,6 +141,10 @@
 	margin: 0;
 }
 
+.Hamburger {
+    display: none;
+} 
+
 @media only screen and (max-width: 700px) {
     .Wrapper {
         margin: auto;
@@ -171,7 +175,7 @@
 	}
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 700px) {
     .Container {
         margin: auto;
     }
@@ -208,13 +212,8 @@
         width: 100%;
     }
 
-    .ColDasboard .DashboardCard .Navigation {
-        /* margin: 0an; */
-        /* background: #000; */
-        /* width: ; */
-        margin: auto;
-        display: flex;
-        flex-direction: row;
+    .DashboardCard .Navigation {
+        display: none;
     }
 
     .ColDasboard .DashboardCard .Navigation a{
@@ -226,10 +225,20 @@
 		display: none;
 
     }
-	
-	.UserCard .CreateButton{
-		display:block
-	}
+
+    .Hamburger {
+        /* position: relative; */
+        display: block;
+        margin-left: auto;
+        margin-right: -20px;
+        margin-bottom: -18px;
+    }
+
+    .Hamburger a {
+        text-decoration: none;
+    }
+
+    
 }
 
 
