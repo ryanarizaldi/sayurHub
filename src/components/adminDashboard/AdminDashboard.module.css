@@ -145,7 +145,7 @@
     display: none;
 } 
 
-@media only screen and (max-width: 700px) {
+/* @media only screen and (max-width: 700px) {
     .Wrapper {
         margin: auto;
     }
@@ -173,7 +173,7 @@
 	.UserCard .CreateButton{
 		display:block
 	}
-}
+} */
 
 @media only screen and (max-width: 700px) {
     .Container {
@@ -234,8 +234,12 @@
         margin-bottom: -18px;
     }
 
-    .Hamburger a {
-        text-decoration: none;
+    .Hamburger ul li a {
+        text-decoration: none!important;
+    }
+    .Coba a {
+        text-decoration: none!important;
+        color: black;
     }
 
     
