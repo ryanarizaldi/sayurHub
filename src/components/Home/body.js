@@ -2,13 +2,24 @@ import React, { useState, useEffect, useCallback } from "react";
 import styles from "./body.module.css";
 import axios from "axios";
 import Product from "./product";
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 
 function Body() {
   const [category, setCat] = useState("all"),
     [products, setProducts] = useState([]),
     [loading, setLoading] = useState(false),
     [page, setPage] = useState(1),
-    [totalPage, setTotal] = useState(0);
+    [totalPage, setTotal] = useState(0),
+    [showScroll, setShowScroll] = useState(false);
+
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 800) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 800) {
+      setShowScroll(false);
+    }
+  };
+  window.addEventListener("scroll", checkScrollTop);
 
   const getProducts = useCallback(async (cat) => {
     setLoading(true);
@@ -67,6 +78,9 @@ function Body() {
       console.log("ini error: ", error.response);
     }
   };
+  const scrollTop = () => {
+    window.scrollTo({ top: 750, behavior: "smooth" });
+  };
   return (
     <div className={styles.Container}>
       <div className={styles.Button}>
@@ -99,6 +113,14 @@ function Body() {
           Diet
         </button>
       </div>
+      {showScroll && (
+        <div className={styles.ScrollTop}>
+          <button onClick={scrollTop}>
+            <ArrowUpwardIcon fontSize={"large"} />
+            {/* Back to Top */}
+          </button>
+        </div>
+      )}
       <div className={styles.ContainerProduct}>
         <Product
           category={category}
