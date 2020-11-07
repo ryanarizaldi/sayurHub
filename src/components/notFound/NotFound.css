@@ -89,3 +89,42 @@
     margin-left: -1000px;
   }
 }
+
+
+@media only screen and (max-width: 700px){
+	
+	.x1 {
+ animation: movecloudsphone 20s linear infinite;
+}
+
+.x1_5 {
+ animation: movecloudsphone 20s linear infinite;
+}
+
+.x2 {
+ animation: movecloudsphone 20s linear infinite;
+}
+
+.x3 {
+   animation: movecloudsphone 20s linear infinite;
+}
+
+.x4 {
+  animation: movecloudsphone 20s linear infinite;
+}
+
+.x5 {
+  animation: movecloudsphone 20s linear infinite;
+}
+
+	
+	@keyframes movecloudsphone {
+  0% {
+    margin-left: 900px;
+  }
+  100% {
+    margin-left: -1000px;
+  }
+}
+	
+}

@@ -61,7 +61,7 @@
 	width: 52%;
 	letter-spacing: 1px;
 	line-height: 58px;
-	text-align: justify;
+	text-align: center;
 	color: #367874;
 	margin-bottom: 50px;
 }
@@ -85,4 +85,25 @@
 
 .WrapperAnimation{
 	overflow: hidden;
+}
+
+@media only screen and (max-width: 700px){
+	.Image{
+		display:none;
+	}
+	
+	.TitleDiv h1, .TitleDiv h2{
+		font-size: 40px;
+	}
+	
+	.TitleDiv p{
+		font-size: 20px;
+		width: 70%;
+		text-align: center;
+	}
+	
+	.TitleDiv button{
+		font-size: 18px;
+		padding: 20px 40px;
+	}
 }
