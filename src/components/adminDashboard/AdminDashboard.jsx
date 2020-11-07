@@ -114,6 +114,7 @@ function AdminDashboard(props) {
                   <MenuIcon />
                 </Button>
                 <Menu
+                  className={styles.Coba}
                   id="simple-menu"
                   anchorEl={anchorEl}
                   keepMounted

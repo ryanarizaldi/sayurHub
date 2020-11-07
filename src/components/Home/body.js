@@ -19,7 +19,6 @@ function Body() {
       setShowScroll(false);
     }
   };
-  window.addEventListener("scroll", checkScrollTop);
 
   const getProducts = useCallback(async (cat) => {
     setLoading(true);
@@ -48,6 +47,11 @@ function Body() {
   useEffect(() => {
     getProducts(category);
   }, [category]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", checkScrollTop);
+    return () => window.removeEventListener("scroll", checkScrollTop);
+  }, []);
 
   const getMore = async (cat) => {
     const newPage = page + 1;
