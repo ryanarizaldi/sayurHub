@@ -58,7 +58,7 @@
 	margin: 15px auto;
 	margin: 0 auto;
 	display: grid;
-	grid-row-gap: 15px;
+	grid-row-gap: 36px;
 	grid-column-gap: 70px;
 	grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
 }
@@ -180,15 +180,17 @@ box-shadow:  14px 14px 28px #dedede,
 	position:absolute;
 	right:20px;
 	bottom:20px;
-	padding:10px;
+	padding:20px;
 	cursor:pointer;
 	transition: 0.8s;
 	-moz-transition: 0.8s;
 	-webkit-transition: 0.8s;
 	-o-transition: 0.8s;
 	outline: none;
-	border: 1px solid #367874;
-	border-radius: 8px;
+	border: 0px solid #367874;
+	border-radius: 50%;
+	box-shadow:  14px 14px 28px #cfcfcf, 
+             -14px -14px 28px #ffffff;
 }
 
 .ScrollTop button:hover {
@@ -198,6 +200,8 @@ box-shadow:  14px 14px 28px #dedede,
 	-moz-transition: 0.8s;
 	-webkit-transition: 0.8s;
 	-o-transition: 0.8s;
+	box-shadow:  14px 14px 28px #cfcfcf, 
+             -14px -14px 28px #ffffff;
 }
 
 @media only screen and (max-width: 700px) {
@@ -241,11 +245,11 @@ box-shadow:  14px 14px 28px #dedede,
 	}
 	
 	.ScrollTop button {
-		width: 50px;
-		height: 40px;
+		/* width: 50px;
+		height: 40px; */
 		right:20px;
 		bottom:10px;
-		padding:0;
+		padding:10px;
 	}
 
 }
