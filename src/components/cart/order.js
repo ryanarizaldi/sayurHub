@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 
 import styles from './order.module.css';
+import axios from 'axios';
+import Swal from "sweetalert2";
 import cartImage from '../../assets/img/cart.png';
 
 function Order (props) {
 	
-	const { item } = props;
+	const { item, cart, getCart } = props;
 	
 	const total = item.price * item.quantity;
 	
@@ -28,6 +30,40 @@ function Order (props) {
 		setTotalPrice(item.price * quantity);
 	}, [quantity])
 	
+	const actualRemove = async (cartId, productId) => {
+    try {
+    	const remove = await axios({
+        	method: "delete",
+        	url: `https://pacific-oasis-23064.herokuapp.com/cart/delete/${cartId}/${productId}`,
+        	headers: {
+            	token: localStorage.getItem("token"),
+       	 	}
+      	 })
+      	 	console.log("remove response", remove);
+    	} catch (error) {
+			console.log(error);
+		}
+ 	}
+
+	
+	const removeProduct = (cartId, productId) => {
+    	Swal.fire({
+      		title: `Delete this cart?`,
+			text: "This action cannot be undone",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				actualRemove(cartId, productId);
+				getCart();
+				Swal.fire("Deleted!", `this product has been deleted.`, "success");
+			}
+		})
+	}
+	
 	return (
 		<div className={styles.Container}>
 			<img src={item.image} alt={item.name}></img>
@@ -39,7 +75,7 @@ function Order (props) {
 				<button onClick={() => addQuantity()}>+</button>
 			</div>
 			<h3>Rp.{totalPrice},-</h3>
-			<button className={styles.Delete}>DELETE</button>
+			<button onClick={() => removeProduct(cart._id, item.id)} className={styles.Delete}>DELETE</button>
 		</div>
 	)
 }
