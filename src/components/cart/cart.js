@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as actionTypesCart from "../../redux/action/ActionCart";
-
 import styles from "./cart.module.css";
 import Order from "./order";
+import Shipping from "./ModalFormShipping";
 import CartModal from "./cartModal";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 function Cart(props) {
   const [trigger, setTrigger] = useState(false);
+  const [shipping, setShip] = useState(false);
 
   const { cart, getCart, totalPrice } = props;
 
@@ -52,6 +53,7 @@ function Cart(props) {
 
   return (
     <div className={styles.Container}>
+      {shipping && <Shipping open={shipping} onClose={() => setShip(false)} />}
       <div className={styles.Title}>
         <p>Product</p>
         <p>Price</p>
@@ -78,7 +80,10 @@ function Cart(props) {
       <div className={styles.Checkout}>
         <h2>Sub Total:</h2>
         <p>Rp.{totalPrice}</p>
-        <button className={styles.BtnCheckout}>CHECKOUT</button>
+        <button className={styles.BtnCheckout} onClick={() => setShip(true)}>
+          {console.log(shipping)}
+          CHECKOUT
+        </button>
         <button onClick={() => emptyCart(cart._id)} className={styles.Empty}>
           EMPTY CART
         </button>
