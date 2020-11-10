@@ -6,12 +6,13 @@ import Register from "./pages/RegisterPage";
 import Homepage from "./pages/Homepage";
 import "./App.css";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/CheckoutPages";
 import User from "./pages/DashboardPage";
 import AdminDash from "./pages/AdminDashboard";
 import Detail from "./pages/ProductDetailPage";
 import Search from "./pages/SearchPage";
 import Navbar from "./components/navbar/Navbar";
-import NotFound from './pages/404pages';
+import NotFound from "./pages/404pages";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
           <Navbar />
           <Cart />
         </Route>
+        <Route path="/checkout">
+          <Navbar />
+          <Checkout />
+        </Route>
         <Route path="/product/:id?/review">
           <Navbar />
           <Detail />
@@ -50,7 +55,7 @@ function App() {
           <Navbar />
           <Search />
         </Route>
-		<Route component={NotFound} />
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );
