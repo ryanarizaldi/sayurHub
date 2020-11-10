@@ -120,10 +120,10 @@ function Navbar(props) {
 
 const mapStateToProps = (state) => {
   return {
-    token: state.token,
-    userData: state.userData,
-    tokenAdmin: state.tokenAdmin,
-    loading: state.loading,
+    token: state.index.token,
+    userData: state.index.userData,
+    tokenAdmin: state.index.tokenAdmin,
+    loading: state.index.loading,
   };
 };
 

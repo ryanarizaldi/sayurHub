@@ -98,7 +98,7 @@ function AdminLogin(props) {
 
 const mapStateToProps = (state) => {
   return {
-    isSuccess: state.isSuccess,
+    isSuccess: state.index.isSuccess,
   };
 };
 

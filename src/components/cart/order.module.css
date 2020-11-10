@@ -12,16 +12,19 @@
 
 .Container img{
 	margin: 8px 26px 8px 13px;
+	width: 160px;
+	height: 90px;
 }
 
 .Container h1{
 	font-style: normal;
 	font-weight: normal;
 	font-size: 16px;
+	width: 238px;
 	line-height: 24px;
 	letter-spacing: 0.44px;
 	color: #000000;
-	margin: 0 238px 0 0;
+	margin: 0 100px 0 0;
 }
 
 .Container p{

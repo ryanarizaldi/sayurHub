@@ -131,8 +131,8 @@ function Review(props) {
 
 const mapStateToProps = (state) => {
   return {
-    review: state.review,
-	loading: state.loading
+    review: state.index.review,
+	loading: state.index.loading
   };
 };
 

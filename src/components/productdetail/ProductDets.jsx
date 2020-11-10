@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { connect } from 'react-redux';
+import * as actionTypesCart from "../../redux/action/ActionCart";
+
 import { useParams } from "react-router-dom";
 import ReactStars from "react-stars";
 import axios from "axios";
@@ -9,7 +12,10 @@ import SkeletonDetail from "../skeletons/SkeletonDetail";
 import Nav from "./NavReviewDiscussion";
 
 
-export default function ProductDets() {
+function ProductDets(props) {
+	
+  const { quantity, addQuantity, reduceQuantity, addToCart } = props;
+	
   const [product, setProduct] = useState({});
   const [seller, setSellers] = useState({});
   const [rating, setRating] = useState(0);
@@ -47,6 +53,7 @@ export default function ProductDets() {
       console.log("errorgan", error);
     }
   };
+	
 	
 	
   useEffect(() => {
@@ -108,9 +115,9 @@ export default function ProductDets() {
             <div className={styles.QuantyAndStock}>
               <div className={styles.Quantity}>
                 <p>Quantity: </p>
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
+                <button onClick={() => reduceQuantity()}>-</button>
+                <span>{quantity}</span>
+                <button onClick={() => addQuantity()}>+</button>
               </div>
               <div className={styles.Stock}>
                 <p>Stock: {product.stock}</p>
@@ -125,7 +132,7 @@ export default function ProductDets() {
               </div>
             </div>
             <div className={styles.AddToCart}>
-              <button>Add to Cart</button>
+              <button onClick={() => addToCart(product._id)}>Add to Cart</button>
               <button onClick={() => onChange("addReview", true)}>
                 Add Review
               </button>
@@ -145,3 +152,20 @@ export default function ProductDets() {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+	return {
+		quantity: state.cart.quantity
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		addQuantity: () => dispatch(actionTypesCart.addQuantity()),
+		reduceQuantity: () => dispatch(actionTypesCart.reduceQuantity()),
+		addToCart: (id) => dispatch(actionTypesCart.addToCart(id))
+	}
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDets);

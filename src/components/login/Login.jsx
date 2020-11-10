@@ -98,8 +98,8 @@ function Login(props) {
 
 const mapStateToProps = (state) => {
   return {
-    isSuccess: state.isSuccess,
-    loading: state.loading,
+    isSuccess: state.index.isSuccess,
+    loading: state.index.loading,
   };
 };
 

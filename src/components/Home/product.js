@@ -51,12 +51,13 @@ function Product(props) {
                     ? priceForm(item.actualPrice)
                     : priceForm(item.price)}
                   ,-
-                </p>
-                <button>
+				</p>
+					<button>
                   <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
                   Add to Cart
-                </button>
-              </Link>
+               		 </button>
+
+			  </Link>
             </div>
           ))
         : [1, 2, 3, 4, 5, 6, 7, 8].map((n) => <SkeletonProduct key={n} />)}
@@ -64,5 +65,8 @@ function Product(props) {
     </InfiniteScroll>
   );
 }
+
+
+
 
 export default Product;
