@@ -1,0 +1,69 @@
+.ContainerModal{
+	width: 600px;
+	height: 300px;
+	background: #FFFFFF;
+	border-radius: 8px;
+	position: relative;
+	margin: 260px auto 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.ContainerModal h1{
+	position: absolute;
+	top: 0;
+	right: 10px;
+	cursor: pointer;
+}
+
+.ContainerModal h2{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 34px;
+	line-height: 41px;
+	text-align: center;
+	letter-spacing: 0.25px;
+	color: #000000;
+	margin: 88px 0 12px 0;
+}
+
+.ContainerModal p{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+	letter-spacing: 0.44px;
+	color: #313131;
+	margin-bottom: 60px;
+}
+
+.ContainerModal button{
+	border: 1px solid #367874;
+	background: white;
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding: 16px 117px;
+	color: #367874;
+	transition: all 0.4s ease 0s;
+}
+
+.ContainerModal button:hover{
+	background: #367874;	
+	color: white;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+@media only screen and (max-width: 700px){
+	.ContainerModal{
+		width: 90%;
+	}
+	
+	.ContainerModal h2{
+		font-size: 24px;
+	}
+}

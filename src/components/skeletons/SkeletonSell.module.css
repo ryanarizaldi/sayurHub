@@ -1,0 +1,19 @@
+/* SkeletonSell here */
+
+.WrapperSell{
+	width: 241px;
+	height: 340px;
+	border-radius: 5px;
+	background: #f2f2f2;
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+
+.SkeletonSell{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}

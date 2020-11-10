@@ -1,0 +1,123 @@
+.Container{
+	width: 1149px;
+	margin: 0 auto 16px auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	background: #FFFFFF;
+	border: 1px solid #C4C4C4;
+	border-radius: 8px;	
+}
+
+.Container img{
+	margin: 8px 56px 8px 43px;
+	width: 100px;
+	height: 90px;
+}
+
+.Container h1{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	width: 238px;
+	line-height: 24px;
+	letter-spacing: 0.44px;
+	color: #000000;
+	margin: 0 100px 0 0;
+}
+
+.Container p{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	margin: 0 67px 0 0;
+	letter-spacing: 0.25px;
+	color: #313131;
+}
+
+.Button{
+	margin-right: 67px;
+}
+
+.Button button{
+	background: #FFFFFF;
+	border: 1px solid #878787;
+	box-sizing: border-box;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.Button button:nth-child(1){
+	border-bottom-left-radius: 75%;
+	border-top-left-radius: 75%;
+	border-right: none;
+	padding: 0 11px 0 14px;
+}
+
+.Button button:nth-child(2){
+	padding: 0 27px;
+}
+.Button button:nth-child(3){
+	border-bottom-right-radius: 75%;
+	border-top-right-radius: 75%;
+	border-left: none;
+	padding: 0 14px 0 11px;
+}
+
+.Container h3{	
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.25px;
+	color: #DE884A;
+	margin-right: 76px;
+}
+
+.Delete{
+	border: 1px solid #D65445;
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding: 10px 20px;
+	color: #D65445;
+	background: white;
+	transition: all 0.4s ease 0s;
+}
+
+.Delete:hover {	
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+	color:  white;
+	background: #D65445;
+	border: 0px solid  #EEC99D;
+	
+}
+
+@media only screen and (max-width: 700px){
+	.Container {
+		width: 90%;
+		height: 300px;
+		flex-direction: column;
+	}
+	
+	.Container img{
+		margin: 10px auto;
+	}
+	.Container h1{
+		font-size: 14px;
+		margin: 10px auto;
+	}
+	.Container p{
+		display: none;
+	}
+	.Button{
+		margin: 10px auto;
+	}
+	.Container h3{
+		margin: 10px auto 20px auto;
+	}
+}

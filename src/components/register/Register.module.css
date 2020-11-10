@@ -1,0 +1,131 @@
+.Logo {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    padding-top: 67.37px;
+}
+
+.Logo img {
+    width: 163.21px;
+    height: 78.87px;
+}
+
+.Row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 34.48px;
+    padding-bottom: 79px;
+    /* background: white; */
+}
+
+.Image {
+    /* margin-left: 92px; */
+    margin-right: 168.36px;
+}
+.Image img {
+    width: 570.64px;
+    height: 570.64px;
+}
+
+.FormLogin {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    width: 469px;
+    /* height: 662.54px; */
+    border-radius: 8px
+}
+
+.FormLogin h4 {
+    /* background: white; */
+    font-size: 34px;
+    line-height: 41px;
+    letter-spacing: 0.25px;
+    font-weight: 400;
+    margin: 29.52px 170.5px;
+}
+
+.FormLogin form {
+    /* background: white; */
+    display: flex;
+    flex-direction: column;
+}
+
+.FormLogin label {
+    font-size: 16px;
+    line-height: 24px;
+    /* background: white; */
+    margin: 0 0 6px 35px;
+    letter-spacing: 0.44px;
+}
+
+.FormLogin input {
+    background: #FCFCFC;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 400px;
+    height: 50px;
+    margin: 0 35px 16px 35px;
+    padding: 10px;
+}
+
+.FormLogin input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgb(35, 202, 191);
+    padding: 20px;
+    border: 1px solid rgb(30, 184, 173);
+}
+
+.FormLogin button {
+    margin: 56.78px 36px 39.45px 38px;
+    width: 395px;
+    height: 44px;
+    background: #BBE4D8;
+    border-radius: 5px;
+    color: #367874;
+    border: none;
+    /* padding: 10px 0px 0px 20px; */
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+    
+}
+
+.FormLogin button:hover {
+    background: #57b89b;
+    color: #a9f1ed;
+
+
+}
+
+.FormLogin p {
+    /* background: white; */
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.44px;
+    color: #878787;
+    margin: 0 85.5px 32.83px 106.5px; 
+}
+
+.FormLogin a {
+    /* background: white; */
+    text-decoration: none;
+    font-weight: bold;
+    color: #367874;
+}
+
+.ErrorMsg {
+    color: #D65445;
+    margin: -12px 35px 16px 35px;
+    font-size: 14px;
+}
+
+.ErrorInput {
+    box-shadow: 0 0 5px rgb(236, 42, 42);
+}

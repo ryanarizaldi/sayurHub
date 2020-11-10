@@ -1,0 +1,309 @@
+.Container {
+    padding: 0 16px;
+    max-width: 100%;
+    margin: auto;
+
+}
+
+@media (min-width: 1440px) {
+    .Container {
+        max-width: 1277px;
+    }
+}
+.Wrapper {
+    background: white;
+    margin: auto;
+    padding: 38px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+}   
+
+.CardDetail { 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    /* background: white; */
+    width: 100%;
+}
+
+.CardDetail .ImageProd {
+    width: 37%;
+    padding: 0 12px;
+}
+
+.ImageProd img {
+    width: 100%;
+    height: 469px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.Content {
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 24px; */
+    width: 60%;
+    padding: 0 12px;
+}
+
+/* .Contenet button {
+    padding-top: 42px;
+    background: #000;
+} */
+
+.Content h3 {
+    /* background: white; */
+    font-size: 34px;
+    line-height: 41px;  
+    letter-spacing: 0.25px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.Rate div{
+    /* background: white; */
+    padding-bottom: 30px;
+}
+
+.Rate span {
+    /* background: white; */
+    margin-right: 12px;
+}
+
+.Price {
+    width: 100%;
+    height: 106px;
+    background: #EDEDED;
+    border-radius: 8px;
+    padding: 16px 30px;
+    margin-bottom: 25px;
+}
+
+.Price span {
+    background: #EDEDED;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    text-decoration-line: line-through;
+    color: #A2A2A2;
+}
+
+.Price h5 {
+    font-size: 34px;
+    line-height: 41px;
+    letter-spacing: 0.25px;
+    color: #DE884A;
+    background: #EDEDED;
+}
+
+.QuantyAndStock {
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Stock {
+    padding-right: 36px;
+}
+
+.Quantity {
+    display: flex;
+    flex-direction: row;
+    /* background: white; */
+}
+
+.Quantity p {
+    /* background: white; */
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.44px;
+    color: #000000;
+    margin-right: 21px;
+}
+
+.Quantity span {
+    background: #FFFFFF;
+    border: 1px solid #878787;
+    box-sizing: border-box;
+    padding: 0 28px;
+    font-size: 16px;
+}
+
+.Quantity>button {
+    padding: 0 14px;
+    border: 1px solid #878787;
+    outline: none;
+    cursor: pointer;
+}
+.Quantity>button:hover {
+    background: #918f8f;
+    color: white;
+}
+
+.Quantity p + button {
+   border-radius: 8px 0 0 8px;
+}
+
+.Quantity button:nth-child(4) {
+    border-radius: 0 8px 8px 0;
+}
+
+.Seller {
+    display: flex;
+    flex-direction: row;
+    /* background: white; */
+}
+
+.Seller img {
+    /* background: white; */
+    margin-right: 20px;
+    vertical-align: middle;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.SellerInfo {
+    display: flex;
+    flex-direction: column;
+    /* background: white; */
+    
+}
+
+.SellerInfo p {
+    /* background: white; */
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    color: #000000;
+    margin-bottom: 16px;
+}
+
+.SellerInfo>button {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: #DE884A;
+    border: 1px solid #DE884A;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 6px 11px;
+    cursor: pointer;
+    background: none;
+}
+
+.SellerInfo button:hover {
+    color: white;
+    background: #DE884A;
+}
+
+.AddToCart {
+    margin-top: 42px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.AddToCart button {
+    width: 42%;
+    height: 51px;
+    border: none;
+    background: #BBE4D8;
+    border-radius: 5px;
+    outline: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: #367874;
+    cursor: pointer;
+}
+
+/* .AddToCart button:nth-child(1) {
+    margin-right: 73.09px;
+} */
+
+.AddToCart button:hover {
+    background: #367874;
+    color: white;
+}
+
+@media only screen and (max-width: 450px) {
+    .Container{
+        margin: 0 auto 16px;
+        padding: 0 16px;
+    }
+    .Wrapper {
+        padding: 16px;
+    }
+    .CardDetail{
+        flex-direction: column;
+    }
+    .CardDetail .ImageProd {
+        width: 100%;
+        margin: auto;
+    }
+
+    .CardDetail .ImageProd img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .CardDetail .Content {
+        margin: 16px auto 0;
+        width: 100%;
+        align-items: center;
+    }
+
+    .CardDetail .Price {
+        padding: 16px;
+        height: 74px;
+    }
+
+    .CardDetail .Price span {
+        font-size: 16px;
+        line-height: 21px;
+        letter-spacing: -0.32px;
+    }
+
+    .CardDetail .Price h5 {
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 0.38px;
+    }
+    .QuantyAndStock {
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .Quantity {
+        width: 100%;
+        flex-direction: row;
+        margin-bottom: 8px;
+    }
+
+    .Quantity p {
+        margin-right: 110px;
+    }
+
+    .AddToCart button {
+        width: 45%;
+    }
+
+    
+}

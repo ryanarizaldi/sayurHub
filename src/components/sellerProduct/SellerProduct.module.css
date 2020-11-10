@@ -1,0 +1,128 @@
+.Products {
+	margin-top: 32px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.CardProduct {
+     display: flex;
+    flex-direction: column;
+    width: 22%;
+    /* height: 350px; */
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #EAEAEA;
+    margin-bottom: 40px;
+    border-radius: 6px;
+    padding: 0 0 10px 0;
+	transition: all 0.4s ease 0s;
+}
+
+.CardProduct:hover{
+	transition: all 0.4s ease 0s;
+	border-radius: 0px;
+	background: linear-gradient(145deg, #e6e6e6, #ffffff);
+	box-shadow:  14px 14px 28px #dedede, 
+             -14px -14px 28px #ffffff;
+}
+
+.CardProduct img {
+    margin: 0 auto 10px auto;
+	width: 100%;
+	border-radius: 6px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	height: 200px;
+	object-fit: cover;
+	border-bottom: 1px solid #EAEAEA;
+}
+
+.CardProduct p {
+    margin: 8px auto 0px auto;
+    font-size: 20px;
+    text-align: center;
+    line-height: 29px;
+    font-weight: 400;
+    color: #000000;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    line-height: 1.1em;
+	height: 87px;
+}
+
+
+.CardProduct span {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    color: #DE884A;
+    margin-bottom: 20px;
+}
+
+.CardButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 17px;
+}
+
+.CardButton button {
+    width: 100px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: #D65445;
+    outline: none;
+    border: none; 
+    border-radius: 5px;
+	transition: all 0.4s ease 0s;
+}
+
+.CardButton button:nth-child(1) {
+    background: #F9E0C2;
+    padding: 10px 32px;
+    margin-right: 13.27px;
+}
+
+.CardButton button:nth-child(2) {
+    background: white;
+    border: 1px solid #D65445;
+}
+
+.CardButton button:nth-child(1):hover{
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+	color:  white;
+	background: #D65445;
+	border: none;
+}
+
+.CardButton button:nth-child(2):hover{
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+	color:  white;
+	background: #D65445;
+	border: none;
+}
+
+@media only screen and (max-width: 700px) {
+    
+    .CardProduct {
+        margin: auto;
+        width: 120%;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+}

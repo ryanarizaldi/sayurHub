@@ -1,0 +1,247 @@
+.Background {
+    background: #F7F6ED;
+    
+}
+
+.Container {
+    background-color: #ffffff;
+    height: 88px;
+    width: 1251px;
+    position: relative;
+    margin: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.Logo img {
+    height: 38px;
+    width: 81px;
+    position: relative;
+    top: 24px;
+    left: 37px;
+}
+
+.Box {
+    background-color: #dfdfdf;
+    width: 474px;
+    height: 39px;
+    position: absolute;
+    left: 196px;
+    bottom: 22px;
+    border-radius: 8px;
+}
+ 
+.Box img {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 6px;
+    left: 17px;
+}
+
+.Searchbox input {
+    background-color: #dfdfdf;
+    height: 36px;
+    width: 410px;
+    position: absolute;
+    left: 254px;
+    bottom: 22px;
+    border: none;
+    outline: none;
+}
+
+.Cart{
+	position: absolute;
+	left: 1100px;
+    bottom: 30px;
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+	transition: all 0.4s ease 0s;
+	cursor: pointer;
+}
+
+.Notification{
+	border: 2px solid #FFFFFF;
+	position: absolute;
+	width: 14.2px;
+	height: 14.2px;
+	cursor: pointer;
+	border-radius: 50%;
+	background: #DE884A;
+	bottom: 42px;
+	left: 1110px;
+}
+
+.Cart:hover {
+	transition: all 0.4s ease 0s;
+}
+
+.Sell button{
+	border: 1px solid #367874;
+	box-sizing: border-box;
+	padding: 10px 20px;
+	border-radius: 5px;
+	position: absolute;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.75px;
+	text-transform: uppercase;
+	left: 950px;
+    bottom: 25px;
+	color: #367874;
+	transition: all 0.4s ease 0s;
+    cursor: pointer;
+    background: none;
+}
+
+.Sell button:hover{
+	background: #367874;	
+	color: white;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+
+.Signup button {
+    background-color: #367874;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    position: absolute;
+    padding: 10px 32px;
+    border-radius: 8px;
+    left: 950px;
+    bottom: 25px;
+    border: none;
+    outline: none;
+	transition: all 0.2s ease 0s;
+    cursor: pointer;
+}
+
+.Signup button:hover {
+	transition: all 0.2s ease 0s;
+    background-color: #265552;
+}
+    
+.Login {
+	transition: all 0.4s ease 0s;
+    color: #367874;
+    font-weight: 600;
+    font-size: 16px;
+    position: absolute;
+    left: 1130px;
+    bottom: 34px;
+    text-decoration: none;
+}
+
+
+
+.Login:hover {
+	transition: all 0.4s ease 0s;
+    color: #265552;
+    border: 1px solid #265552;
+    padding: 10px 20px;
+    left: 1108px;
+    border-radius: 8px;
+    bottom: 24px;
+
+
+}
+
+
+
+.Dropdown{
+	transition: all 0.4s ease 0s;
+    position: relative;
+    left: 1130px;
+    bottom: 0px;
+	z-index: 2;
+}
+
+.Dropdown img{
+	position: absolute;
+	left: 30px;
+	top: -19px;
+	width: 40px;
+	height: 40px;
+	border-radius: 75%;
+}
+
+.DropdownContent {
+    display: none;
+    position: absolute;
+	top: 15px;
+	left: 50px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 3;
+	transition: all 0.4s ease 0s;
+}
+
+.DropdownContent a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition: all 0.4s ease 0s;
+}
+
+.Dropdown:hover .DropdownContent {
+  display: block;
+  transition: all 0.4s ease 0s;
+}
+
+.DropdownContent a:hover {
+  background-color: #ddd;
+  transition: all 0.4s ease 0s;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .Background {
+        max-width: 100%;
+    }
+
+    .Container {
+        max-width: 90%;
+    }
+
+    .Box {
+        max-width: 50%;
+        left: 150px;
+    }
+
+    .Searchbox input {
+        max-width: 35%;
+        left: 210px;
+    }
+
+    .Hamburger {
+        display: block;
+        position: relative;
+        left: 85%;
+        bottom: 30px;
+        cursor: pointer;
+    }
+
+   .DivNav {
+       text-align: center;
+       display: none;
+   }
+
+   .Toggle {
+       display: block;
+   }
+   
+   .Toggle:checked + .DivNav {
+       display: block;
+   }
+}
