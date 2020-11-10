@@ -11,10 +11,13 @@ import AddReview from "../review/ModalAddReview";
 import SkeletonDetail from "../skeletons/SkeletonDetail";
 import Nav from "./NavReviewDiscussion";
 
-
 function ProductDets(props) {
 	
-  const { quantity, addQuantity, reduceQuantity, addToCart } = props;
+  const { quantity, addQuantity, reduceQuantity, addToCart, getCart } = props;
+	
+  const addCart = () => {
+	  addToCart(product._id);
+  }
 	
   const [product, setProduct] = useState({});
   const [seller, setSellers] = useState({});
@@ -132,7 +135,7 @@ function ProductDets(props) {
               </div>
             </div>
             <div className={styles.AddToCart}>
-              <button onClick={() => addToCart(product._id)}>Add to Cart</button>
+              <button onClick={() => addCart()}>Add to Cart</button>
               <button onClick={() => onChange("addReview", true)}>
                 Add Review
               </button>
@@ -155,7 +158,7 @@ function ProductDets(props) {
 
 const mapStateToProps = state => {
 	return {
-		quantity: state.cart.quantity
+		quantity: state.cart.quantity,
 	}
 }
 
@@ -163,7 +166,7 @@ const mapDispatchToProps = dispatch => {
 	return {
 		addQuantity: () => dispatch(actionTypesCart.addQuantity()),
 		reduceQuantity: () => dispatch(actionTypesCart.reduceQuantity()),
-		addToCart: (id) => dispatch(actionTypesCart.addToCart(id))
+		addToCart: (id) => dispatch(actionTypesCart.addToCart(id)),
 	}
 }
 

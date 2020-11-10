@@ -14,14 +14,12 @@ import { Scrollbars } from 'react-custom-scrollbars';
 
 function MiniCart(props) {
 	
-	const { open, onClose, getCart, cart, totalPrice } = props;
+	const { open, onClose, getCart, cart, totalPrice, trigger } = props;
 	
 	
 	useEffect(() => {
 		getCart();
-
-
-	}, [getCart])
+	}, [getCart, trigger])
 
 	
 	return(
@@ -61,7 +59,8 @@ function MiniCart(props) {
 const mapStateToProps = state => {
 	return {
 		cart: state.cart.cart,
-		totalPrice: state.cart.totalPrice
+		totalPrice: state.cart.totalPrice,
+		trigger: state.cart.trigger
 	}
 }
 

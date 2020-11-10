@@ -5,7 +5,8 @@ const initialState = {
 	loading: false,
 	totalPrice: 0,
 	totalPriceCart: 0,
-	quantity: 1
+	quantity: 1,
+	trigger: false
 };
 
 function rootReducer(state = initialState, action) {
@@ -14,6 +15,7 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 				loading: action.payload.loading,
+				trigger: true
 			}
 		case actionTypes.ADD_QUANTITY:
 			return {
