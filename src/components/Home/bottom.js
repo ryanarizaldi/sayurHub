@@ -8,7 +8,7 @@ function Bottom () {
 	return(
 		<div className={styles.Container}>
 			<div className={styles.Background}>
-				<h1>Want to sell your products?</h1>
+				<h1>Want to buy our products?</h1>
 				<Link to="/register">
 					<button>SIGN UP NOW</button>
 				</Link>
