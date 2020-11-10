@@ -30,11 +30,8 @@ function UserDashboard(props) {
     });
     console.log("modal is" + modal);
   };
-
   const { editProfile } = modal;
-
   let modale = "";
-
   if (editProfile) {
     modale = (
       <ModalEdit
@@ -96,8 +93,8 @@ function UserDashboard(props) {
 
 const mapStateToProps = (state) => {
   return {
-    userData: state.userData,
-    loading: state.loading,
+    userData: state.index.userData,
+    loading: state.index.loading,
   };
 };
 

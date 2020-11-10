@@ -55,10 +55,13 @@
 	flex-direction: column;
 	justify-content: center;
 	margin: 0 0 0 30px;
+	width: 70%;
 }
 
 .Cart img{
 	width: 100px;
+	border-radius: 50%;
+	height: 100px;
 }
 
 .Cart h1{

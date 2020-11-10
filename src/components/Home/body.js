@@ -15,7 +15,7 @@ function Body() {
   const checkScrollTop = () => {
     if (!showScroll && window.pageYOffset > 800) {
       setShowScroll(true);
-    } else if (showScroll && window.pageYOffset < 1000) {
+    } else if (showScroll && window.pageYOffset < 800) {
       setShowScroll(false);
     }
   };

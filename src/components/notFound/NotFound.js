@@ -29,7 +29,7 @@ function NotFound() {
 					<h2>404</h2>
 					<h1>Far Out</h1>
 					
-					<p>We're not sure how you got here... But you may be lost in nothingness.</p>
+					<p>We're not sure how you got here. But you may be lost in nothingness...</p>
 					<Link to="/">
 						<button>TAKE ME HOME</button>
 					</Link>

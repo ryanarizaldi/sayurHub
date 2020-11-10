@@ -52,7 +52,7 @@ function Product(props) {
                     : priceForm(item.price)}
                   ,-
                 </p>
-                <button onClick={() => console.log("haiii")}>
+                <button>
                   <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
                   Add to Cart
                 </button>

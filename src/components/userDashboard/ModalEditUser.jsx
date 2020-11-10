@@ -130,7 +130,7 @@ function ModalEditUser(props) {
 
 const mapStateToProps = state => {
 	return{
-		loading: state.loading
+		loading: state.index.loading
 	}
 }
 

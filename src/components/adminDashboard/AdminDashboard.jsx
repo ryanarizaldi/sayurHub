@@ -182,7 +182,7 @@ function AdminDashboard(props) {
 
 const mapStateToProps = (state) => {
   return {
-    userData: state.userData,
+    userData: state.index.userData,
   };
 };
 
