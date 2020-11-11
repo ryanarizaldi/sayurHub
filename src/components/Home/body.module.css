@@ -24,6 +24,7 @@
 	background: #EBEBEB;
 	color: #AEA9A5;
 	transition: all 0.4s ease 0s;
+	outline: none;
 }
 
 .Button button:hover{
@@ -47,23 +48,41 @@
 	transition: all 0.4s ease 0s;
 }
 
-.ContainerProduct{
-	width: 1271px;
-	margin: 0 auto;
-	display: grid;
-  	grid-template-columns: repeat(auto-fit, minmax(290.5px, 1fr));
+.ContainerProduct {
+	width: 1251px;
+	margin: 15px auto 0;
+	padding-bottom: 15px;
 }
 
+.ContainerProduct div{
+	margin: 15px auto;
+	margin: 0 auto;
+	display: grid;
+	grid-row-gap: 36px;
+	grid-column-gap: 70px;
+	grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
+}
+
+
 .Card{
-	width: 290.5px;
-	margin: 10px;
-	height:350px;
+	width: 100%;
+	margin: 15px 0;
+	padding: 0 0 20px 0;
 	background: white;
 	border-radius: 8px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	transition: all 0.4s ease 0s;
+}
+
+.Card:hover{
+	transition: all 0.4s ease 0s;
+	border-radius: 0px;
+background: linear-gradient(145deg, #e6e6e6, #ffffff);
+box-shadow:  14px 14px 28px #dedede, 
+             -14px -14px 28px #ffffff;
 }
 
 .ContainerProduct .Card:nth-child(4n){
@@ -72,7 +91,7 @@
 
 .Card a{
 	text-decoration: none;
-	width: 70%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -81,17 +100,21 @@
 
 .Card img {
 	margin: 0 auto 10px auto;
-	width: 80%;
-	border-radius: 75%;
-	height: 160.95px;
+	width: 100%;
+	border-radius: 6px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	height: 200px;
 	object-fit: cover;
+	border-bottom: 1px solid #EAEAEA;
 }
 
 .Card h1{
 	font-style: normal;
 	font-weight: normal;
-	font-size: 20px;
-	margin-bottom: 20px;
+	font-size: 18px;
+	height: 87px;
+	margin: 0 20px 20px 20px;
 	line-height: 29px;
 	text-align: center;
 	color: #000000;
@@ -100,7 +123,7 @@
 .Card p{
 	font-style: normal;
 	font-weight: 500;
-	font-size: 18px;
+	font-size: 20px;
 	text-align: center;
 	line-height: 118.3%;
 	color: #DE884A;
@@ -126,9 +149,8 @@
 	text-transform: uppercase;
 	color: #367874;
 	transition: all 0.4s ease 0s;
-	width: 80%;
 	text-align: center;
-	margin: auto;
+	justify-content: center;
 }
 
 .Card button:hover{
@@ -141,6 +163,46 @@
 	border: 1px solid #BBE4D8;
 }
 
+.ScrollTop {
+	width:100%;
+	margin:0 auto;
+	position:fixed;
+	bottom:100px;
+	right:100px;
+}
+
+.ScrollTop button {
+	background: #fff;
+	color: #367874;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position:absolute;
+	right:20px;
+	bottom:20px;
+	padding:20px;
+	cursor:pointer;
+	transition: 0.8s;
+	-moz-transition: 0.8s;
+	-webkit-transition: 0.8s;
+	-o-transition: 0.8s;
+	outline: none;
+	border: 0px solid #367874;
+	border-radius: 50%;
+	box-shadow:  14px 14px 28px #cfcfcf, 
+             -14px -14px 28px #ffffff;
+}
+
+.ScrollTop button:hover {
+	color: white;
+	background: #367874;
+	transition: 0.8s;
+	-moz-transition: 0.8s;
+	-webkit-transition: 0.8s;
+	-o-transition: 0.8s;
+	box-shadow:  14px 14px 28px #cfcfcf, 
+             -14px -14px 28px #ffffff;
+}
 
 @media only screen and (max-width: 700px) {
 	.Button{
@@ -155,8 +217,12 @@
 	.Button button{
 		margin: 24px 16px 0 0;
 	}
+
+	.ContainerProduct {
+		width: 100%;
+	}
 	
-	.ContainerProduct{
+	.ContainerProduct div{
 		width: 90%;
 		grid-template-columns: repeat(auto-fit, minmax(90%, 1fr));
 	}
@@ -169,4 +235,21 @@
 		margin: 24px auto;
 		width: 90%;
 	}
+
+	.ScrollTop {
+		/* display: none; */
+		margin:0 auto;
+		position:fixed;
+		bottom:50px;
+		right:10px;
+	}
+	
+	.ScrollTop button {
+		/* width: 50px;
+		height: 40px; */
+		right:20px;
+		bottom:10px;
+		padding:10px;
+	}
+
 }

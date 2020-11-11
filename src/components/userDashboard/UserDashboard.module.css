@@ -23,7 +23,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    padding-top: 24px;
+    /* padding-top: 24px; */
 }
 
 .ColUser {
@@ -54,15 +54,25 @@
 	border-radius: 75%;
 }
 
-.UserCard p {
+.UserCard p:nth-child(2) {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 24px;
+	text-transform: capitalize;
     line-height: 28px;
     letter-spacing: 0.15px;
     color: #000000;
 }
 
-.UserCard button:nth-child(4) {
+.UserCard p:nth-child(3){
+	margin-top: 20px;
+	font-size: 16px;
+	line-height: 28px;
+    letter-spacing: 0.15px;
+    color: #000000;
+	font-weight: 400;
+}
+
+.UserCard button {
     margin-top: 36px;
     margin-bottom: 10px;
     border: 1px solid #DE884A;

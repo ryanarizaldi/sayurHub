@@ -12,11 +12,10 @@
 }
 
 .Review {
-    border-top: 1px solid #C5C5C5;
-    background: #F7F6ED; 
+    /* border-top: 1px solid #C5C5C5; */
+    /* background: #F7F6ED;  */
     margin: auto;
-    /* margin: 0 102px 68px 103px; */
-    padding: 64px 38px;
+    padding: 64px 38px 64px 0;
     width: 100%;
     border-radius: 0 0 8px 8px;
     background: white;
@@ -35,12 +34,13 @@
 .UserReview {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-bottom: 32px;
     width: 100%;
 }
 
 .UserReview .UserPicture {
-    width: 5%;
+    /* width: 5%; */
     margin: auto;
 }
 

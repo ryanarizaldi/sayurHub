@@ -1,0 +1,30 @@
+/* SkeletonProduct here */
+
+.Wrapper{
+	width: 100%;
+	height: 417px;
+	border-radius: 5px;
+	background: #f2f2f2;
+	margin: 15px 0;
+	position: relative;
+	overflow: hidden;
+}
+
+
+.SkeletonProduct{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Wrapper .SkeletonProduct:nth-child(2){
+	margin-top: 50px;
+}
+
+
+@media only screen and (max-width: 700px){
+	.Wrapper{
+		width: 90%;
+		margin: 24px auto;
+	}
+} 

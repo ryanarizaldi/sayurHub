@@ -1,27 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./body.module.css";
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import axios from "axios";
 import noimg from "../../assets/img/noimg.png";
 import { Link } from "react-router-dom";
+import SkeletonProduct from "../skeletons/SkeletonProduct";
+import InfiniteScroll from "react-infinite-scroller";
 
-function Product() {
-  const [products, setProducts] = useState([]);
-
-  const getProducts = async () => {
-    try {
-      const prods = await axios.get(
-        `https://pacific-oasis-23064.herokuapp.com/products`
-      );
-      setProducts(prods.data.products);
-    } catch (error) {
-      console.log("ini error: ", error);
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
+function Product(props) {
+  const { category, loading, products, page, totalPage, getMore } = props;
 
   //https://codepen.io/malasngoding/pen/EedMvv
   const priceForm = (num) => {
@@ -41,27 +28,45 @@ function Product() {
   };
 
   return (
-    <>
-      {products.length
+    <InfiniteScroll
+      initialLoad={false}
+      loadMore={() => getMore(category)}
+      hasMore={page < totalPage}
+      loader={[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+        <SkeletonProduct key={n} />
+      ))}
+    >
+      {products.length || !loading
         ? products.map((item) => (
             <div className={styles.Card} key={item._id}>
-              <Link to={`/product/${item._id}`}>
+              <Link to={`/product/${item._id}/review`}>
                 <img
                   src={item.product_image ? item.product_image : noimg}
                   alt="product"
                 ></img>
                 <h1>{item.product_name}</h1>
-                <p>Rp. {priceForm(item.price)}</p>
-                <button>
-					<ShoppingCartOutlinedIcon ></ShoppingCartOutlinedIcon>
-					Add to Cart
-                </button>
-              </Link>
+                <p>
+                  Rp.{" "}
+                  {item.actualPrice
+                    ? priceForm(item.actualPrice)
+                    : priceForm(item.price)}
+                  ,-
+				</p>
+					<button>
+                  <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
+                  Add to Cart
+               		 </button>
+
+			  </Link>
             </div>
           ))
-        : "No products that can be displayed"}
-    </>
+        : [1, 2, 3, 4, 5, 6, 7, 8].map((n) => <SkeletonProduct key={n} />)}
+      {!products.length && "There isn't any product in this category"}
+    </InfiniteScroll>
   );
 }
+
+
+
 
 export default Product;

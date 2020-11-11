@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from "react";
+import { connect } from 'react-redux';
+import * as actionTypesCart from "../../redux/action/ActionCart";
+
 import { useParams } from "react-router-dom";
 import ReactStars from "react-stars";
 import axios from "axios";
 import styles from "./ProductDets.module.css";
-import seller from "../../assets/img/seller_photo.png";
 import noimg from "../../assets/img/noimg.png";
 import AddReview from "../review/ModalAddReview";
+import SkeletonDetail from "../skeletons/SkeletonDetail";
+import Nav from "./NavReviewDiscussion";
 
-export default function ProductDets() {
+function ProductDets(props) {
+	
+  const { quantity, addQuantity, reduceQuantity, addToCart, getCart } = props;
+	
+  const addCart = () => {
+	  addToCart(product._id);
+  }
+	
   const [product, setProduct] = useState({});
   const [seller, setSellers] = useState({});
   const [rating, setRating] = useState(0);
   const [modal, setModal] = useState({
     addReview: false,
-  });
+  }),
+		[loading, setLoading] = useState(false)
   const { id } = useParams();
 
   const getRating = async () => {
-    // console.log("fet rating ni");
     try {
       const rates = await axios.get(
         `https://pacific-oasis-23064.herokuapp.com/reviews/rating/${id}`
@@ -31,26 +42,29 @@ export default function ProductDets() {
     });
   };
 
-  useEffect(() => {
-    getProduct();
-    getRating();
-  }, []);
-
-  useEffect(() => {
-    getRating();
-  }, [rating]);
-
   const getProduct = async () => {
+	setLoading(true);
     try {
+	
       const callmebabe = await axios.get(
         `https://pacific-oasis-23064.herokuapp.com/products/${id}`
       );
       setProduct(callmebabe.data.products);
       setSellers(callmebabe.data.products.user);
+	  setLoading(false);
     } catch (error) {
       console.log("errorgan", error);
     }
   };
+	
+	
+	
+  useEffect(() => {
+    getProduct();
+    getRating();
+  }, []);
+
+ 
 
   //https://codepen.io/malasngoding/pen/EedMvv
   const priceForm = (num) => {
@@ -69,7 +83,8 @@ export default function ProductDets() {
     return rupiah;
   };
   return (
-    <div className={styles.Container}>
+	 <div className={styles.Container}>
+	  {!loading ? (
       <div className={styles.Wrapper}>
         <div className={styles.CardDetail}>
           <div className={styles.ImageProd}>
@@ -89,15 +104,23 @@ export default function ProductDets() {
               />
             </div>
             <div className={styles.Price}>
-              <span>Rp 90.000 ,-</span>
-              <h5>Rp {priceForm(product.price)},-</h5>
+              {product.discount !== 0 && (
+                <span>Rp {priceForm(product.price)} ,-</span>
+              )}
+              <h5>
+                Rp{" "}
+                {product.actualPrice
+                  ? priceForm(product.actualPrice)
+                  : priceForm(product.price)}
+                ,-
+              </h5>
             </div>
             <div className={styles.QuantyAndStock}>
               <div className={styles.Quantity}>
                 <p>Quantity: </p>
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
+                <button onClick={() => reduceQuantity()}>-</button>
+                <span>{quantity}</span>
+                <button onClick={() => addQuantity()}>+</button>
               </div>
               <div className={styles.Stock}>
                 <p>Stock: {product.stock}</p>
@@ -112,7 +135,7 @@ export default function ProductDets() {
               </div>
             </div>
             <div className={styles.AddToCart}>
-              <button>Add to Cart</button>
+              <button onClick={() => addCart()}>Add to Cart</button>
               <button onClick={() => onChange("addReview", true)}>
                 Add Review
               </button>
@@ -126,7 +149,26 @@ export default function ProductDets() {
             </div>
           </div>
         </div>
+        <Nav id={id} />
       </div>
+	 ) :  <SkeletonDetail />}
     </div>
   );
 }
+
+const mapStateToProps = state => {
+	return {
+		quantity: state.cart.quantity,
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		addQuantity: () => dispatch(actionTypesCart.addQuantity()),
+		reduceQuantity: () => dispatch(actionTypesCart.reduceQuantity()),
+		addToCart: (id) => dispatch(actionTypesCart.addToCart(id)),
+	}
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDets);

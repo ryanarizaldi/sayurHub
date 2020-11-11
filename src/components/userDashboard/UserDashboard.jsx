@@ -10,22 +10,22 @@ import CreateProductModal from '../createProductModal/CreateProductModal';
 import {NavLink, Route} from 'react-router-dom';
 import ModalEdit from './ModalEditUser';
 import * as actionTypes from '../../redux/action/Action';
+import SkeletonProfile from '../skeletons/SkeletonProfile';
 
 
 function UserDashboard(props) {
 
-	const { userData, getUser } = props;
+	const { userData, getUser, loading } = props;
 	
 	const [modal, setModal] = useState({
-			  createProduct: false,
 		      editProfile:false,
 		  }),
 		  [token] = useState(localStorage.getItem('token'));
 	
 	useEffect(() => {
-			getUser()
+			getUser();
 	}, [getUser, token])
-	
+
 	const onChange = ( name, value ) => {
     	setModal({ 
 			[name] : value
@@ -33,54 +33,39 @@ function UserDashboard(props) {
 		console.log("modal is" + modal);
   	}
 	
-	const {createProduct, editProfile} = modal;
+	const {editProfile} = modal;
 	
 	let modale = "";
 	
-	if(createProduct){
-		 modale = <CreateProductModal
-            open={createProduct}
-            onChange={onChange}
-            onClose={() => onChange("createProduct", false)}
-          />
-	 } else if(editProfile){
+	if(editProfile){
 		 modale = <ModalEdit
                   	open={editProfile}
 					userData={userData}
                   	onClose={() => onChange("editProfile", false)}
                 />
-	 }
+	}
+	
 	
 	
     return (
-       <div className={styles.Container}>
+    <div className={styles.Container}>
       <div className={styles.Row}>
         <div className={styles.Wrapper}>
           <div className={styles.ColUser}>
-            <div className={styles.UserCard}>
-              <img src={userData.profile_image} alt="user profile" />
-              <p>{userData.full_name}</p>
-              <ReactStars value={5} edit={false} size={20} />
-              <button onClick={() => onChange("editProfile", true)}>
-                Edit Profile
-              </button>
-              <button
-                className={styles.CreateButton}
-                onClick={() => onChange("createProduct", true)}
-              >
-                Create Product
-              </button>
-            </div>
+			{!loading ? (
+				<div className={styles.UserCard}>
+              		<img src={userData.profile_image} alt="user profile" />
+					<p>{userData.full_name}</p>
+					<p>{userData.description}</p>
+              		<button onClick={() => onChange("editProfile", true)}>
+                	Edit Profile
+              		</button>
+            	</div>
+			): <SkeletonProfile />}
           </div>
           <div className={styles.ColDasboard}>
             <div className={styles.DashboardCard}>
               <div className={styles.Navigation}>
-                <NavLink
-                  to="/dashboard/products"
-                  activeClassName={styles.Active}
-                >
-                  Products
-                </NavLink>
                 <NavLink
                   to="/dashboard/history"
                   activeClassName={styles.Active}
@@ -93,17 +78,7 @@ function UserDashboard(props) {
                 >
                   Notification
                 </NavLink>
-                <button
-                  className={styles.CreateButton}
-                  onClick={() => onChange("createProduct", true)}
-                >
-                  Create Product
-                </button>
               </div>
-
-              <Route path="/dashboard/products">
-                <Products />
-              </Route>
               <Route path="/dashboard/history">
                 <History />
               </Route>
@@ -121,7 +96,8 @@ function UserDashboard(props) {
 
 const mapStateToProps = state => {
 	return{
-		userData: state.userData
+		userData: state.index.userData,
+		loading: state.index.loading
 	}
 }
 

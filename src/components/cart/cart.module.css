@@ -1,8 +1,8 @@
 .Body{
 	background: #F7F6ED;
 	font-family: Inter;
-	height: 900px;
 	padding-top: 24px;
+	padding-bottom: 200px;
 }
 
 .Container{
@@ -10,8 +10,26 @@
 	background: white;
 	border: 1px solid white;
 	width: 1235px;
-	height: 750px;
 	margin: 0 auto;
+}
+
+.Empty {
+	float: right;
+	border-radius: 5px;
+	box-sizing: border-box;
+	padding: 16px 24px;
+	cursor: pointer;
+	border: 0px;
+	color: white;
+	background: #D65445;
+	transition: all 0.4s ease 0s;
+	margin: 0 0 0 15px;
+}
+
+.Empty:hover {
+	transition: all 0.4s ease 0s;
+	background: #c7210e;
+	color: #ddd;
 }
 
 .Title{
@@ -78,7 +96,7 @@
 	margin: 0 35px 0 0;
 }
 
-.Checkout button{
+.Checkout button:nth-child(3){
 	border-radius: 5px;
 	box-sizing: border-box;
 	padding: 16px 24px;;
@@ -89,7 +107,7 @@
 	transition: all 0.4s ease 0s;
 }
 
-.Checkout button:hover{
+.Checkout button:nth-child(3):hover{
 	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
