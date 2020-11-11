@@ -131,3 +131,23 @@
 .ErrorInput {
     box-shadow: 0 0 5px rgb(236, 42, 42);
 }
+
+@media only screen and (max-width: 700px) {
+    .FormLogin {
+        position: absolute;
+        width: 90%;
+    }
+
+    .FormLogin h4 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .FormLogin input {
+        width: 80%;
+    }
+
+    .FormLogin Button {
+        width: 80%;
+    }
+}
