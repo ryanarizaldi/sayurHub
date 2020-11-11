@@ -115,16 +115,13 @@
   font-weight: bold;
   color: #367874;
 }
-<<<<<<< HEAD
-=======
 
 .ErrorMsg {
-    color: #D65445;
-    margin: -12px 35px 16px 35px;
-    font-size: 14px;
+  color: #d65445;
+  margin: -12px 35px 16px 35px;
+  font-size: 14px;
 }
 
 .ErrorInput {
-    box-shadow: 0 0 5px rgb(236, 42, 42);
+  box-shadow: 0 0 5px rgb(236, 42, 42);
 }
->>>>>>> ebb77eb041fb1c89d48dc9f8e67cb109fbd1c129

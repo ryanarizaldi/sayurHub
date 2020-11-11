@@ -1,0 +1,19 @@
+.searchresult {
+  font-size: 20px;
+  position: absolute;
+  color: #367874;
+}
+
+.Boxsearchpage {
+  font-size: 200px;
+  /* position: absolute;
+  width: 290.53px;
+  height: 350px;
+  left: 102.61px;
+  top: 1017.16px;
+
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  box-sizing: border-box;
+  border-radius: 8px; */
+}

@@ -8,7 +8,8 @@ import Cart from "./pages/Cart";
 import User from "./pages/DashboardPage";
 import Detail from "./pages/ProductDetailPage";
 import Navbar from "./components/navbar/Navbar";
-
+import Footer from "./components/footer/footer";
+import Searchpage from "./components/searchpage/Searchpage";
 function App() {
   return (
     <Router>
@@ -33,6 +34,9 @@ function App() {
         <Route path="/dashboard">
           <User />
         </Route>
+        <Route path="/searchpage" >
+         <Searchpage/>
+          </Route>
       </Switch>
     </Router>
   );
