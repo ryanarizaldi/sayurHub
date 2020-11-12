@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Checkout.module.css";
+import Credit from "./ModalCreditForm";
 
 export default function Checkout() {
+  const [credit, setCredit] = useState(false);
   return (
     <div className={styles.Container}>
+      {credit && <Credit open={credit} onClose={() => setCredit(false)} />}
       <div className={styles.Title}>
         <h1>Billing</h1>
       </div>
@@ -58,7 +61,9 @@ export default function Checkout() {
           <p>Rp 52.600 ,-</p>
         </div>
         <div className={styles.Button}>
-          <button className={styles.Pay}>Pay Now</button>
+          <button className={styles.Pay} onClick={() => setCredit(true)}>
+            Pay Now
+          </button>
         </div>
         <div className={styles.SupportPay}>
           <p>* Currently we only use Paypal as a payment method</p>
