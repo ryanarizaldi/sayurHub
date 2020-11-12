@@ -66,6 +66,7 @@
 
 .Card{
 	width: 100%;
+	position: relative;
 	margin: 15px 0;
 	padding: 0 0 20px 0;
 	background: white;
@@ -80,13 +81,30 @@
 .Card:hover{
 	transition: all 0.4s ease 0s;
 	border-radius: 0px;
-background: linear-gradient(145deg, #e6e6e6, #ffffff);
-box-shadow:  14px 14px 28px #dedede, 
-             -14px -14px 28px #ffffff;
+box-shadow:  7px 7px 14px #d9d9d9, 
+             -7px -7px 14px #ffffff;
 }
 
 .ContainerProduct .Card:nth-child(4n){
 	margin-right: 0;
+}
+.Cag{
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	font-size: 16px;
+	padding: 4px 20px;
+	letter-spacing: 2px;
+	text-align: center;
+	cursor: pointer;
+	color: white;
+	background: #4BB543;
+	position: absolute;
+	left: 0;
+	top: 20px;
+	border-bottom-right-radius: 13px;
+	border-top-right-radius: 13px;
+	
 }
 
 .Card a{

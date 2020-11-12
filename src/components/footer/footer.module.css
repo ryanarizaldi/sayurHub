@@ -1,4 +1,24 @@
 .Container {
-    border: 1px black;
-    background: salmon;
+	background: #F7F6ED;
+}
+
+.Container div{
+	border-top: 1px solid #ccc;
+	width: 97s%;
+	margin: 0 auto;
+	padding: 50px 100px;
+}
+.Container p{
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.44px;
+	color: #367874;
+}
+@media only screen and (max-width: 700px){
+	.Container div{
+		padding: 50px 50px;
+	}
 }
