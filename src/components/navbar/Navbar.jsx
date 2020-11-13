@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
@@ -13,6 +13,7 @@ import MiniCart from "../miniCart/miniCart";
 
 function Navbar(props) {
   const {
+	cart,
     userData,
     logout,
     token,
@@ -25,8 +26,10 @@ function Navbar(props) {
   const [modal, setModal] = useState({
     sideDrawer: false,
   });
+	
+  const prevCount = usePrevious(cart);
 
-  const onChange = (name, value) => {
+  const onChange = (name, value, e) => {
     setModal({
       [name]: value,
     });
@@ -91,7 +94,8 @@ function Navbar(props) {
 				  fontSize="big"
                   onClick={() => onChange("sideDrawer", true)}
                 />
-			  <div className={styles.Notification} onClick={() => onChange("sideDrawer", true)}></div>
+				{ cart.items?.length > 0 ? <div className={styles.Notification} onClick={() => onChange("sideDrawer", true)}></div>
+				 : "" }
                 {!loading ? (
                   <div className={styles.Dropdown}>
                     <img src={userData.profile_image} alt="user"></img>
@@ -124,6 +128,7 @@ const mapStateToProps = (state) => {
     userData: state.index.userData,
     tokenAdmin: state.index.tokenAdmin,
     loading: state.index.loading,
+	cart: state.cart.cart
   };
 };
 
@@ -134,5 +139,13 @@ const mapDispatchToProps = (dispatch) => {
     logout: () => dispatch(actionTypes.logout()),
   };
 };
+
+function usePrevious(value) {
+	const ref = useRef();
+ 	useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
