@@ -13,7 +13,7 @@ import MiniCart from "../miniCart/miniCart";
 
 function Navbar(props) {
   const {
-	cart,
+    cart,
     userData,
     logout,
     token,
@@ -26,7 +26,7 @@ function Navbar(props) {
   const [modal, setModal] = useState({
     sideDrawer: false,
   });
-	
+
   const prevCount = usePrevious(cart);
 
   const onChange = (name, value, e) => {
@@ -54,11 +54,9 @@ function Navbar(props) {
           <img src={searchicon} alt="search"></img>
         </div>
         <div className={styles.Searchbox}>
-          <input
-            type="text"
-            placeholder="Search Porduct..."
-            name="search"
-          ></input>
+          <form>
+            <input type="text" placeholder="Search Porduct..." name="search" />
+          </form>
         </div>
         {!token && !tokenAdmin ? (
           <div className={styles.DivNav}>
@@ -91,11 +89,17 @@ function Navbar(props) {
                 <ShoppingCartOutlinedIcon
                   className={styles.Cart}
                   style={{ fill: "#367874" }}
-				  fontSize="big"
+                  fontSize="big"
                   onClick={() => onChange("sideDrawer", true)}
                 />
-				{ cart.items?.length > 0 ? <div className={styles.Notification} onClick={() => onChange("sideDrawer", true)}></div>
-				 : "" }
+                {cart.items?.length > 0 ? (
+                  <div
+                    className={styles.Notification}
+                    onClick={() => onChange("sideDrawer", true)}
+                  ></div>
+                ) : (
+                  ""
+                )}
                 {!loading ? (
                   <div className={styles.Dropdown}>
                     <img src={userData.profile_image} alt="user"></img>
@@ -128,7 +132,7 @@ const mapStateToProps = (state) => {
     userData: state.index.userData,
     tokenAdmin: state.index.tokenAdmin,
     loading: state.index.loading,
-	cart: state.cart.cart
+    cart: state.cart.cart,
   };
 };
 
@@ -141,8 +145,8 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 function usePrevious(value) {
-	const ref = useRef();
- 	useEffect(() => {
+  const ref = useRef();
+  useEffect(() => {
     ref.current = value;
   });
   return ref.current;

@@ -1,0 +1,194 @@
+.ContainerModal{
+	max-height: calc(100vh - 50px);
+	overflow-y: auto;
+    width: 600px;
+	/* height: 700px; */
+	background: #FFFFFF;
+	border-radius: 8px;
+	position: relative;
+	margin: 15vh auto 0 auto;
+	outline: none;
+	border: none;
+	overflow-y: auto;
+	padding-bottom: 24px;
+}
+
+.ContainerModal::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.ContainerModal {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.ContainerModal h2{
+	text-align: left;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 29px;
+	margin:0 0 38px 35px;
+	padding-top: 35px;
+}
+
+.ContainerModal h1{
+	position: absolute;
+	top: 10px;
+	cursor: pointer;
+	right: 20px;
+}
+
+.Amount {
+    width: 50%;
+    padding: 0 37px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.Form {
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+
+.Label{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.44px;
+	width: 522px;
+	text-align: left;
+}
+
+.ContainerModal input{
+	background: #FCFCFC;
+	border: 1px solid #C4C4C4;
+	box-sizing: border-box;
+	border-radius: 8px;
+	width: 522px;
+	padding: 10px 10px;
+	margin: 0 0 24px 0;
+	outline: none;
+}
+
+.ContainerModal select{
+	background: #FCFCFC;
+	border: 1px solid #C4C4C4;
+	box-sizing: border-box;
+	padding: 10px 10px;
+	border-radius: 8px;
+	width: 522px;
+	margin: 0 0 24px 0;
+	cursor: pointer;
+	outline: none;
+}
+
+.Logo {
+    margin-right: 32px;
+    display: flex;
+	flex-direction: column;
+    /* align-items: cente00r; */
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.Logo img{
+    /* width: 100px; */
+    height: 50px;
+}
+
+.Row {
+    width: 100%;
+    padding: 0 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+}
+
+.Row .Label {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.Row input {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.ButtonGroup {
+    width: 32%;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-right: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-content: ; */
+}
+
+.CancelBtn {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: #D65445;
+    background: white;
+    padding: 10px 20px;
+    border: 1px solid #D65445;
+    cursor: pointer;
+}
+.CancelBtn:hover {
+    background: #D65445;
+    color: white;
+}
+
+.SubmitBtn:hover {
+    background: #367874;
+    color: white;
+}
+
+.SubmitBtn {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: #367874;
+    background: white;
+    padding: 10px 20px;
+    border: 1px solid #367874;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+	
+	.ContainerModal h2{
+		margin:0 0 65px 5%;
+	}
+	
+	.ContainerModal{
+		width: 90%;
+	}
+	
+	.ContainerModal input{
+		width: 90%; 
+	}
+	
+	.ContainerModal select{
+		width: 90%;
+	}
+	.Label{
+		width: 90%;
+	}
+	
+	.ContainerModal button{
+		width: 90%;
+	}
+}
