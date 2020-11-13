@@ -10,6 +10,7 @@ import Skeleton from "../skeletons/Skeletons";
 import AdminIco from "../../assets/img/admin.jpg";
 import noimg from "../../assets/img/noimg.png";
 import MiniCart from "../miniCart/miniCart";
+import { useHistory } from "react-router-dom";
 
 function Navbar(props) {
   const {
@@ -24,10 +25,20 @@ function Navbar(props) {
   } = props;
 
   const [modal, setModal] = useState({
-    sideDrawer: false,
-  });
+      sideDrawer: false,
+    }),
+    [input, setInput] = useState("");
 
   const prevCount = usePrevious(cart);
+  const searchString = (e) => {
+    e.preventDefault();
+    setInput(e.target.value);
+  };
+  const history = useHistory();
+  const searchFunc = () => {
+    history.push(`/search/${input}`);
+    setInput("");
+  };
 
   const onChange = (name, value, e) => {
     setModal({
@@ -54,8 +65,14 @@ function Navbar(props) {
           <img src={searchicon} alt="search"></img>
         </div>
         <div className={styles.Searchbox}>
-          <form>
-            <input type="text" placeholder="Search Porduct..." name="search" />
+          <form onSubmit={searchFunc}>
+            <input
+              type="text"
+              placeholder="Search Porduct..."
+              name="search"
+              onChange={searchString}
+              value={input}
+            />
           </form>
         </div>
         {!token && !tokenAdmin ? (
