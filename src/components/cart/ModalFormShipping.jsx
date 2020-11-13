@@ -3,14 +3,17 @@ import { Modal } from "@material-ui/core";
 import styles from "./ModalFormShipping.module.css";
 import { Redirect } from "react-router";
 import CloseIcon from "@material-ui/icons/Close";
+import { useHistory } from "react-router-dom";
 
 // import { Redirect } from "react-router-dom";
 
-export default function ModalFormShipping(props) {
+function ModalFormShipping(props) {
   const { open, onClose } = props;
+  const history = useHistory();
 
-  const referme = () => {
-    return <Redirect to="/" />;
+  const referme = (e) => {
+    e.preventDefault();
+    history.push("/checkout");
   };
 
   return (
@@ -74,3 +77,4 @@ export default function ModalFormShipping(props) {
     </Modal>
   );
 }
+export default ModalFormShipping;
