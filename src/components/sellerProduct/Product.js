@@ -56,6 +56,7 @@ function Product(props) {
   return (
     <>
       <div key={list._id} className={styles.CardProduct}>
+		<div className={styles.Cag}>{list.category}</div>
         <img src={list.product_image} alt="seller product" />
         <p>{list.product_name}</p>
         <span>Rp.{priceForm(list.price)},-</span>

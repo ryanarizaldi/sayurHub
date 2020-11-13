@@ -44,6 +44,7 @@ function Product(props) {
                   src={item.product_image ? item.product_image : noimg}
                   alt="product"
                 ></img>
+			  	<div className={styles.Cag}>{item.category}</div>
                 <h1>{item.product_name}</h1>
                 <p>
                   Rp.{" "}
