@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Icon, Modal } from "@material-ui/core";
+import { Modal } from "@material-ui/core";
 import styles from "./ModalFormShipping.module.css";
-import { Redirect } from "react-router";
 import CloseIcon from "@material-ui/icons/Close";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
@@ -54,7 +53,7 @@ function ModalFormShipping(props) {
   const postTransaction = async (values) => {
     console.log("inivalues", values);
     try {
-      const { first_name, last_name, address, email, phone, city } = values;
+      const { first_name, last_name, address, email, phone } = values;
       const shipping = await Axios({
         method: "POST",
         url: `https://pacific-oasis-23064.herokuapp.com/transaction/checkout/${idCart}`,
@@ -71,10 +70,11 @@ function ModalFormShipping(props) {
           token: localStorage.getItem("token"),
         },
       });
-
-      Swal.fire("Success!", `Now pay!`, "success").then(() =>
-        history.push("/checkout")
-      );
+      shipping.data.success
+        ? Swal.fire("Success!", `Now pay!`, "success").then(() =>
+            history.push("/checkout")
+          )
+        : Swal.fire("Something went wrong!", `Try Again later!`, "error");
     } catch (error) {
       console.log("error Send data shipping", error);
     }

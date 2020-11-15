@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
@@ -8,29 +8,19 @@ import * as actionTypes from "../../redux/action/Action";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import Skeleton from "../skeletons/Skeletons";
 import AdminIco from "../../assets/img/admin.jpg";
-import noimg from "../../assets/img/noimg.png";
 import MiniCart from "../miniCart/miniCart";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function Navbar(props) {
-  const {
-    cart,
-    userData,
-    logout,
-    token,
-    tokenAdmin,
-    getUser,
-    getAdmin,
-    loading,
-  } = props;
+  const { cart, userData, logout, token, tokenAdmin, getUser, loading } = props;
 
   const [modal, setModal] = useState({
       sideDrawer: false,
     }),
     [input, setInput] = useState("");
 
-  const prevCount = usePrevious(cart);
+  // const prevCount = usePrevious(cart);
   const searchString = (e) => {
     e.preventDefault();
     setInput(e.target.value);
@@ -115,7 +105,7 @@ function Navbar(props) {
                 <ShoppingCartOutlinedIcon
                   className={styles.Cart}
                   style={{ fill: "#367874" }}
-                  fontSize="big"
+                  // fontSize="big"
                   onClick={() => onChange("sideDrawer", true)}
                 />
                 {cart.items?.length > 0 ? (
@@ -146,6 +136,7 @@ function Navbar(props) {
         <MiniCart
           open={sideDrawer}
           onClose={() => onChange("sideDrawer", false)}
+          onOpen={() => onChange("sideDrawer", true)}
         />
       </div>
     </div>
@@ -170,12 +161,12 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
+// function usePrevious(value) {
+//   const ref = useRef();
+//   useEffect(() => {
+//     ref.current = value;
+//   });
+//   return ref.current;
+// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

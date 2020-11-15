@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import styles from "./SellerProduct.module.css";
-import Swal from "sweetalert2";
 import EditProductModal from "../editProductModal/EditProductModal";
 import * as actionTypes from "../../redux/action/Action";
-import axios from "axios";
 
 function Product(props) {
   const { list, removeProduct, setTrigger } = props;
@@ -56,7 +54,7 @@ function Product(props) {
   return (
     <>
       <div key={list._id} className={styles.CardProduct}>
-		<div className={styles.Cag}>{list.category}</div>
+        <div className={styles.Cag}>{list.category}</div>
         <img src={list.product_image} alt="seller product" />
         <p>{list.product_name}</p>
         <span>Rp.{priceForm(list.price)},-</span>

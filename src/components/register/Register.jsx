@@ -11,8 +11,7 @@ import * as Yup from "yup";
 import { Redirect } from "react-router-dom";
 
 export default function Register() {
-  const [isSuccess, setSuccess] = useState(false),
-    [loading, setLoading] = useState(false);
+  const [isSuccess, setSuccess] = useState(false);
 
   const schema = Yup.object().shape({
     fullname: Yup.string().required("Name is required"),
@@ -41,7 +40,6 @@ export default function Register() {
   });
 
   const registering = async (values) => {
-    setLoading(true);
     console.log("hello");
     const { email, password, fullname } = values;
     const body = qs.stringify({
@@ -68,7 +66,6 @@ export default function Register() {
       });
 
       setSuccess(true);
-      setLoading(false);
     } catch (error) {
       Swal.fire({
         title: "Register Failed",

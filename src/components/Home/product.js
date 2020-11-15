@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import styles from "./body.module.css";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import axios from "axios";
@@ -44,7 +44,7 @@ function Product(props) {
                   src={item.product_image ? item.product_image : noimg}
                   alt="product"
                 ></img>
-			  	<div className={styles.Cag}>{item.category}</div>
+                <div className={styles.Cag}>{item.category}</div>
                 <h1>{item.product_name}</h1>
                 <p>
                   Rp.{" "}

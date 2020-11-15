@@ -29,7 +29,7 @@ const schemaEdit = Yup.object().shape({
 });
 
 function EditProductModal(props) {
-  const { open, onClose, productData, editProduct, trigger } = props;
+  const { open, onClose, productData, editProduct } = props;
 
   const [product_image, setProduct_image] = useState({
     file: {},

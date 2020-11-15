@@ -52,7 +52,9 @@ function ModalEditUser(props) {
       <div className={styles.EditUser}>
         <div className={styles.Header}>
           <h1>Edit User</h1>
-          <button onClick={onClose}>X</button>
+          <button onClick={onClose}>
+            <CloseIcon />
+          </button>
         </div>
         <form className={styles.Form} onSubmit={formik.handleSubmit}>
           <img src={profile_image.url} alt={userData.full_name} />

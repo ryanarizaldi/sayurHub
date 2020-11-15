@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as actionTypesCart from "../../redux/action/ActionCart";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import ListCart from "./ListCart";
 import styles from "./miniCart.module.css";
 import CloseIcon from "@material-ui/icons/Close";
-import { makeStyles } from "@material-ui/core/styles";
-import Robert from "../../assets/img/robert.png";
 import { Link } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars";
 
 function MiniCart(props) {
-  const { open, onClose, getCart, cart, totalPrice, trigger } = props;
+  const { open, onClose, getCart, cart, totalPrice, trigger, onOpen } = props;
 
   useEffect(() => {
     getCart();
@@ -21,6 +19,7 @@ function MiniCart(props) {
     <>
       <SwipeableDrawer
         open={open}
+        onOpen={onOpen}
         onClose={onClose}
         anchor="right"
         className={styles.Modal}

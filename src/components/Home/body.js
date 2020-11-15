@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./body.module.css";
 import axios from "axios";
 import Product from "./product";
@@ -20,7 +20,7 @@ function Body() {
     }
   };
 
-  const getProducts = useCallback(async (cat) => {
+  const getProducts = async (cat) => {
     setLoading(true);
     try {
       const prods = await axios.get(
@@ -42,7 +42,7 @@ function Body() {
     } catch (error) {
       console.log("ini error: ", error);
     }
-  });
+  };
 
   useEffect(() => {
     getProducts(category);
@@ -89,28 +89,28 @@ function Body() {
     <div className={styles.Container}>
       <div className={styles.Button}>
         <button
-          className={category === "all" && styles.Active}
+          className={category === "all" ? styles.Active : undefined}
           onClick={() => setCat("all")}
           id="button"
         >
           All
         </button>
         <button
-          className={category === "fruits" && styles.Active}
+          className={category === "fruits" ? styles.Active : undefined}
           onClick={() => setCat("fruits")}
           id="button"
         >
           Fruits
         </button>
         <button
-          className={category === "vegetables" && styles.Active}
+          className={category === "vegetables" ? styles.Active : undefined}
           onClick={() => setCat("vegetables")}
           id="button"
         >
           Vegetables
         </button>
         <button
-          className={category === "diets" && styles.Active}
+          className={category === "diets" ? styles.Active : undefined}
           onClick={() => setCat("diets")}
           id="button"
         >

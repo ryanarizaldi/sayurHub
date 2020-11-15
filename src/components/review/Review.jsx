@@ -11,7 +11,7 @@ import SkeletonReview from "../skeletons/SkeletonReview";
 import robert from "../../assets/img/robert.png";
 
 function Review(props) {
-  const { review, getReview, logout, token, loading } = props;
+  const { review, getReview, loading } = props;
 
   // const [reviews, setReview] = useState([]);
   const [logged, setLogged] = useState({});
