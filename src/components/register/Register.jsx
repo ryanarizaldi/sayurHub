@@ -12,7 +12,7 @@ import { Redirect } from "react-router-dom";
 
 export default function Register() {
   const [isSuccess, setSuccess] = useState(false),
-		[loading, setLoading] = useState(false);
+    [loading, setLoading] = useState(false);
 
   const schema = Yup.object().shape({
     fullname: Yup.string().required("Name is required"),
@@ -41,7 +41,7 @@ export default function Register() {
   });
 
   const registering = async (values) => {
-	setLoading(true);
+    setLoading(true);
     console.log("hello");
     const { email, password, fullname } = values;
     const body = qs.stringify({
@@ -68,7 +68,7 @@ export default function Register() {
       });
 
       setSuccess(true);
-	  setLoading(false);
+      setLoading(false);
     } catch (error) {
       Swal.fire({
         title: "Register Failed",
@@ -167,7 +167,9 @@ export default function Register() {
               <div className={styles.ErrorMsg}>{formik.errors.confirmpass}</div>
             ) : null}
 
-			{!loading ? <button type="submit">Sign In</button> : <button type="submit">...Submitting</button>}
+            <button type="submit">
+              {formik.isSubmitting ? "PLEASE WAIT..." : "SUBMIT"}
+            </button>
             <p>
               Already have an account? <Link to="/login">Sign In</Link>
             </p>

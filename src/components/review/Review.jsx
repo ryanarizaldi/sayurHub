@@ -71,44 +71,46 @@ function Review(props) {
 
   return (
     // <div className={styles.Container}>
-      <div className={styles.Review}>
-        {review.length || !loading
-          ? review.map((rev) => (
-              <div className={styles.UserReview} key={rev._id}>
-                <div className={styles.UserPicture}>
-                  <img src={rev.user.profile_image} alt="user profile" />
-                </div>
-              <div className={styles.Column}>
-                <div className={styles.NameRate}>
-                  <p>{rev.user.full_name}</p>
-                  <ReactStars value={rev.rating} edit={false} size={36} />
-                </div>
-                <div className={styles.Comment}>
-                  <p>{rev.review}</p>
-                  {rev.user._id === logged._id ? (
-                    <div className={styles.ButtonGroup}>
-                      <div className={styles.EditButton}>
-                        <button onClick={() => setModal(true)}>Edit</button>
-                        {modal && (
-                          <ModalEdit
-                            open={modal}
-                            onClose={() => setModal(false)}
-                            review={rev}
-                          />
-                        )}
-                      </div>
-                      <div className={styles.DeleteButton}>
-                        <button onClick={() => alertRemove(rev._id)}>
-                          Delete
-                        </button>
-                      </div>
+    <div className={styles.Review}>
+      {review.length || !loading ? (
+        review.map((rev) => (
+          <div className={styles.UserReview} key={rev._id}>
+            <div className={styles.UserPicture}>
+              <img src={rev.user.profile_image} alt="user profile" />
+            </div>
+            <div className={styles.Column}>
+              <div className={styles.NameRate}>
+                <p>{rev.user.full_name}</p>
+                <ReactStars value={rev.rating} edit={false} size={36} />
+              </div>
+              <div className={styles.Comment}>
+                <p>{rev.review}</p>
+                {rev.user._id === logged._id ? (
+                  <div className={styles.ButtonGroup}>
+                    <div className={styles.EditButton}>
+                      <button onClick={() => setModal(true)}>Edit</button>
+                      {modal && (
+                        <ModalEdit
+                          open={modal}
+                          onClose={() => setModal(false)}
+                          review={rev}
+                        />
+                      )}
                     </div>
-                  ) : null}
-                </div>
+                    <div className={styles.DeleteButton}>
+                      <button onClick={() => alertRemove(rev._id)}>
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
-           ))
-          : <SkeletonReview />}
+          </div>
+        ))
+      ) : (
+        <SkeletonReview />
+      )}
 
       <div className={styles.UserReview}>
         <div className={styles.UserPicture}>
@@ -120,19 +122,18 @@ function Review(props) {
             <ReactStars value={5} edit={false} size={36} />
           </div>
           <div className={styles.Comment}>
-            <p>ini review</p>
+            <p>Most Awesome Terong that i've ever had!</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
- </div>
-		  
   );
 }
 
 const mapStateToProps = (state) => {
   return {
     review: state.index.review,
-	loading: state.index.loading
+    loading: state.index.loading,
   };
 };
 
@@ -141,5 +142,5 @@ const mapDispatchToProps = (dispatch) => {
     getReview: (id) => dispatch(actionTypes.getReview(id)),
   };
 };
-		  
+
 export default connect(mapStateToProps, mapDispatchToProps)(Review);

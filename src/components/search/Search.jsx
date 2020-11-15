@@ -23,7 +23,7 @@ export default function Search() {
 
   useEffect(() => {
     searchProd();
-  }, []);
+  }, [keyword]);
 
   return (
     <div className={styles.Container}>

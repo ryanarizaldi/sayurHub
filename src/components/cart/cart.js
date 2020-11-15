@@ -53,7 +53,14 @@ function Cart(props) {
 
   return (
     <div className={styles.Container}>
-      {shipping && <Shipping open={shipping} onClose={() => setShip(false)} />}
+      {shipping && (
+        <Shipping
+          open={shipping}
+          onClose={() => setShip(false)}
+          totalPrice={totalPrice}
+          idCart={cart._id}
+        />
+      )}
       <div className={styles.Title}>
         <p>Product</p>
         <p>Price</p>
@@ -81,7 +88,6 @@ function Cart(props) {
         <h2>Sub Total:</h2>
         <p>Rp.{totalPrice}</p>
         <button className={styles.BtnCheckout} onClick={() => setShip(true)}>
-          {console.log(shipping)}
           CHECKOUT
         </button>
         <button onClick={() => emptyCart(cart._id)} className={styles.Empty}>

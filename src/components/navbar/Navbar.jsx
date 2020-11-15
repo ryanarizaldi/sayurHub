@@ -11,6 +11,7 @@ import AdminIco from "../../assets/img/admin.jpg";
 import noimg from "../../assets/img/noimg.png";
 import MiniCart from "../miniCart/miniCart";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Navbar(props) {
   const {
@@ -35,9 +36,17 @@ function Navbar(props) {
     setInput(e.target.value);
   };
   const history = useHistory();
-  const searchFunc = () => {
-    history.push(`/search/${input}`);
-    setInput("");
+  const searchFunc = (e) => {
+    e.preventDefault();
+    if (input) {
+      history.push(`/search/${input}`);
+      setInput("");
+    } else {
+      Swal.fire({
+        title: "Type something in searchbar!",
+        icon: "error",
+      });
+    }
   };
 
   const onChange = (name, value, e) => {

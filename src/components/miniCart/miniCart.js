@@ -46,9 +46,9 @@ function MiniCart(props) {
             <Link to="/cart">
               <button onClick={onClose}>View Cart</button>
             </Link>
-            <Link to="#">
+            {/* <Link to="#">
               <button>Checkout</button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </SwipeableDrawer>
