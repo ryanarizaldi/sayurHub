@@ -10,7 +10,7 @@ import qs from "qs";
 import Swal from "sweetalert2";
 
 function ModalFormShipping(props) {
-  const { open, onClose, totalPrice, idCart } = props;
+  const { open, onClose, idCart } = props;
   const history = useHistory();
   const [province, setProv] = useState([]),
     [city, setCity] = useState([]),
@@ -53,17 +53,18 @@ function ModalFormShipping(props) {
   const postTransaction = async (values) => {
     console.log("inivalues", values);
     try {
-      const { first_name, last_name, address, email, phone } = values;
+      const { first_name, last_name, address, email, phone, city } = values;
       const shipping = await Axios({
         method: "POST",
-        url: `https://pacific-oasis-23064.herokuapp.com/transaction/checkout/${idCart}`,
+        url: `https://pacific-oasis-23064.herokuapp.com/transaction/checkout`,
         data: qs.stringify({
+          cart: idCart,
           first_name: first_name,
           last_name: last_name,
           address: address,
           email: email,
           phone: phone,
-          totalPayment: totalPrice,
+          city: city,
         }),
         headers: {
           "content-Type": "application/x-www-form-urlencoded",
@@ -238,7 +239,7 @@ function ModalFormShipping(props) {
               Cancel
             </button>
             <button className={styles.SubmitBtn} type="submit">
-              Submit
+              {formik.isSubmitting ? "Submitting..." : "SUBMIT"}
             </button>
           </div>
         </form>

@@ -61,7 +61,24 @@
     font-size: 1.2em;
 }
 
+.ShippingOption select{
+    outline: none;
+    padding: 5px 35px;
+    font-size: 1em;
+    /* width: 55%;
+    height: 20px; */
+}
+
+.Shipping .ShippingOption label .Caps {
+    text-transform: uppercase;
+}
+
+.Shipping .ShippingOption label {
+    margin-right: 10px;
+}
+
 .Shipping .ShippingOption ul {
+    margin-top: 10px;
     list-style: none;
 }
 
