@@ -160,11 +160,12 @@ export const editDiscussion = (discussionId, values) => {
 export const deleteDiscussion = (discussionId) => {
 	return async dispatch => {
 		try {
+			const token = localStorage.getItem("token") ? localStorage.getItem("token") : localStorage.getItem("tokenAdmin")
     		const remove = await axios({
         		method: "delete",
         		url: `https://pacific-oasis-23064.herokuapp.com/discussion/delete/${discussionId}`,
         		headers: {
-            		token: localStorage.getItem("token"),
+            		token: token
        	 		}
       	 	})
 			dispatch({
