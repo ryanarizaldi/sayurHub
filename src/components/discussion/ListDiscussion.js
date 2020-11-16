@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
 import * as actionTypesDiscussion from "../../redux/action/ActionDiscussion";
 
-import robert from "../../assets/img/robert.png";
-import EditIcon from '@material-ui/icons/Edit';
 import ListReply from './ListReply';
 import styles from './ListDiscussion.module.css';
 import ModalEditDiscussion from './ModalEditDiscussion';
@@ -19,7 +17,6 @@ function ListDiscussion (props) {
 	const [modal, setModal] = useState({
 		      editDiscussion:false,
 		  }),
-		  [token] = useState(localStorage.getItem('token')),
 		  [tokenAdmin] = useState(localStorage.getItem('tokenAdmin')),
 		  [reply, setReply] = useState([]);
 	
@@ -35,7 +32,7 @@ function ListDiscussion (props) {
 			console.log(error)
 		})
 		
-	}, [trigger])
+	}, [trigger, list._id])
 	
 	const onChange = ( name, value ) => {
     	setModal({ 
@@ -72,7 +69,7 @@ function ListDiscussion (props) {
 					<h1>{list.user.full_name} • <span>{moment(list.createdAt).format("DD MMMM YYYY • HH:mm")}</span></h1>
 					<p>{list.write}</p>
 				</div>
-				{token && user._id === list.user._id || tokenAdmin ? 
+				{user._id === list.user._id || tokenAdmin ? 
 				<div>
 					<button onClick={() => onChange('editDiscussion', true)} className={styles.Edit}>EDIT</button>
 					<button onClick={() => removeDiscussion()} className={styles.Delete}>DELETE</button>

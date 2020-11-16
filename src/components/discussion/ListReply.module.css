@@ -80,7 +80,7 @@
 }
 
 .LinkEdit {
-	color: #4e4eff;
+	color: #4e4eff!important;
 	cursor: pointer;
 	text-decoration: none;
 	

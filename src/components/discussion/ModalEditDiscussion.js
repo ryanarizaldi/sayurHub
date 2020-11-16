@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
 import { Modal } from "@material-ui/core";
@@ -36,7 +36,7 @@ function ModalEditDiscussion(props) {
             <div className={styles.EditUser}>
             	<CloseIcon className={styles.CloseIcon} fontSize="large" onClick={onClose}/>
                 <form className={styles.Form} onSubmit={formik.handleSubmit}>
-                    <label htmlFor="write">Text goes here</label>
+                    <label htmlFor="write">Edit Question</label>
                     <input 
 						type="text" 
 						name="write"
@@ -53,7 +53,7 @@ function ModalEditDiscussion(props) {
 							  <div className={styles.ErrorMsg}>{formik.errors.write}</div>
 							) : null}
                     <div className={styles.ButtonGroup}>
-						{!loading ?  <button className={styles.Submit} type="submit">Save Changes</button>
+						{!loading ?  <button className={styles.Submit} type="submit">Edit Question</button>
 							:  <button className={styles.Submit} type="submit">...Please wait</button>	}    
                     </div>
                 </form>

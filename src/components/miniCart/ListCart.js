@@ -43,7 +43,7 @@ function ListCart(props) {
     });
   };
 
-  const { list } = props;
+  const { list, priceForm } = props;
 
   return (
     <div className={styles.Cart}>
@@ -53,7 +53,7 @@ function ListCart(props) {
       <div>
         <h1>{list.name}</h1>
         <p>
-          {list.quantity} x Rp.{list.price}
+          {list.quantity} x Rp.{priceForm(list.price)}
         </p>
       </div>
       <div>

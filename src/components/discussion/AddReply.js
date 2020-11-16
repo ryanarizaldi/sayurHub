@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import styles from './AddReply.module.css';
 import { connect } from 'react-redux';
 
@@ -6,7 +6,6 @@ import { useFormik } from "formik";
 import * as actionTypesDiscussion from '../../redux/action/ActionDiscussion';
 import * as Yup from "yup";
 import AdminIco from "../../assets/img/admin.jpg";
-import azanirr from '../../assets/img/azanirr.jpg';
 
 const schemaEdit = Yup.object().shape({
 		 reply: Yup.string()

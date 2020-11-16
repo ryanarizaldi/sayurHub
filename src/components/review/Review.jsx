@@ -8,36 +8,19 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import ModalEdit from "./ModalEditReview";
 import SkeletonReview from "../skeletons/SkeletonReview";
-import robert from "../../assets/img/robert.png";
 
 function Review(props) {
-  const { review, getReview, loading } = props;
+  const { review, getReview, loading, user } = props;
 
   // const [reviews, setReview] = useState([]);
-  const [logged, setLogged] = useState({});
   const [modal, setModal] = useState(false);
+	
   const { id } = useParams();
+ 
   useEffect(() => {
     getReview(id);
-    getCurrent();
   }, [id, getReview]);
-
-  const getCurrent = async () => {
-    try {
-      console.log("masuk getcurrent");
-      const current = await axios({
-        method: "get",
-        url: `https://pacific-oasis-23064.herokuapp.com/user/id/`,
-        headers: {
-          token: localStorage.getItem("token"),
-        },
-      });
-
-      setLogged(current.data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+	
 
   const alertRemove = (id) => {
     Swal.fire({
@@ -85,7 +68,7 @@ function Review(props) {
               </div>
               <div className={styles.Comment}>
                 <p>{rev.review}</p>
-                {rev.user._id === logged._id ? (
+                {rev.user._id === user._id ? (
                   <div className={styles.ButtonGroup}>
                     <div className={styles.EditButton}>
                       <button onClick={() => setModal(true)}>Edit</button>
@@ -118,6 +101,7 @@ function Review(props) {
 const mapStateToProps = (state) => {
   return {
     review: state.index.review,
+	user: state.index.userData,
     loading: state.index.loading,
   };
 };

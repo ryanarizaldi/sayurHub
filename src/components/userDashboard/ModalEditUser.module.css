@@ -43,6 +43,11 @@
     flex-direction: row;
 }
 
+.Header h1{
+	font-size: 24px;
+	font-weight: 400;
+}
+
 .Header>button {
     position: absolute;
     top: 30px;
@@ -67,6 +72,7 @@
 .Form img {
     margin: auto;
     width: 120px;
+	border-radius: 50%;
     height: 120px;
 }
 

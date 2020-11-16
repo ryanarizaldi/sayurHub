@@ -92,7 +92,7 @@ export default function Register() {
         <div className={styles.FormLogin}>
           <h4>Sign Up</h4>
           <form onSubmit={formik.handleSubmit} noValidate>
-            <label for="fullname">Fullname</label>
+            <label htmlFor="fullname">Fullname</label>
             <input
               className={
                 formik.touched.fullname && formik.errors.fullname
@@ -110,7 +110,7 @@ export default function Register() {
               <div className={styles.ErrorMsg}>{formik.errors.fullname}</div>
             ) : null}
 
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               className={
                 formik.touched.email && formik.errors.email
@@ -128,7 +128,7 @@ export default function Register() {
               <div className={styles.ErrorMsg}>{formik.errors.email}</div>
             ) : null}
 
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               className={
                 formik.touched.password && formik.errors.password
@@ -146,7 +146,7 @@ export default function Register() {
               <div className={styles.ErrorMsg}>{formik.errors.password}</div>
             ) : null}
 
-            <label for="confirmpass">Confirm Password</label>
+            <label htmlFor="confirmpass">Confirm Password</label>
             <input
               className={
                 formik.touched.confirmpass && formik.errors.confirmpass

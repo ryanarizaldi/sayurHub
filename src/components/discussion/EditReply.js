@@ -1,12 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import styles from './EditReply.module.css';
 import { connect } from 'react-redux';
 
 import { useFormik } from "formik";
 import * as actionTypesDiscussion from '../../redux/action/ActionDiscussion';
 import * as Yup from "yup";
-import azanirr from '../../assets/img/azanirr.jpg';
-
 const schemaEdit = Yup.object().shape({
 		 reply: Yup.string()
 			.min(5, "Reply must be 5 characters at minimum")
@@ -16,7 +14,7 @@ const schemaEdit = Yup.object().shape({
 
 function EditReply (props) {
 	
-	const { editReplyAdmin, editReplyUser, reply, user, editChange } = props;
+	const { editReplyAdmin, editReplyUser, reply, editChange } = props;
 	
 	const [token] = useState(localStorage.getItem('token')),
 		  [tokenAdmin] = useState(localStorage.getItem('tokenAdmin'));
