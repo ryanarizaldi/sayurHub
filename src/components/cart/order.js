@@ -3,7 +3,6 @@ import React, {useState, useEffect} from 'react';
 import styles from './order.module.css';
 import axios from 'axios';
 import Swal from "sweetalert2";
-import cartImage from '../../assets/img/cart.png';
 
 function Order (props) {
 	
@@ -28,7 +27,7 @@ function Order (props) {
 	
 	useEffect(() => {
 		setTotalPrice(item.price * quantity);
-	}, [quantity])
+	}, [quantity, item.price])
 	
 	const actualRemove = async (cartId, productId) => {
     try {

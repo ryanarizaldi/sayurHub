@@ -4,7 +4,6 @@ import * as actionTypesCart from "../../redux/action/ActionCart";
 
 import styles from './cart.module.css';
 import Order from './order';
-import CartModal from './cartModal';
 import axios from 'axios';
 import Swal from "sweetalert2";
 

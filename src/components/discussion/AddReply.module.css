@@ -1,0 +1,84 @@
+.FormReply {
+	display: flex;
+	flex-direction: row;
+	padding: 24px 24px 24px 100px;
+	background: rgb(245, 245, 245);
+}
+
+.Border{
+	border-top: 0;
+	border: 1px solid #ccc;
+	border-top: 0;
+}
+
+.Noborder{
+	border: none;
+}
+
+.FormReply img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.FormReply div:nth-child(1){
+	margin-right: 30px;
+}
+
+.FormReply div:nth-child(2){
+	width: 100%;
+}
+
+.FormReply div:nth-child(2) input{
+	background: #FCFCFC;
+	width: 95%;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 15px;
+    outline: none;
+    margin-top: 6px;
+}
+.ErrorMsg {
+    color: #D65445;
+    margin: 10px 0 0 0;
+    font-size: 14px;
+	width: 522px;
+}
+
+.ErrorInput {
+    box-shadow: 0 0 5px rgb(236, 42, 42);
+}
+
+
+.Submit {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin: 30px 0 0 0;
+}
+
+.Submit button:nth-child(1){
+	box-sizing: border-box;
+	padding: 16px 32px;
+	font-size: 18px;
+	letter-spacing: 1.5px;
+	border: 0;
+	background: white;
+	color: #666;
+	cursor: pointer;
+	border-radius: 4px;
+	margin-right: 20px;
+}
+
+.Submit button:nth-child(2){
+	box-sizing: border-box;
+	padding: 16px 32px;
+	font-size: 18px;
+	letter-spacing: 1.5px;
+	border: 0;
+	color: white;
+    background: #367874;
+	cursor: pointer;
+	border-radius: 4px;
+}

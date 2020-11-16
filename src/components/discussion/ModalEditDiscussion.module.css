@@ -1,0 +1,148 @@
+.ErrorMsg {
+    color: #D65445;
+    margin: 10px 0 0 0;
+    font-size: 14px;
+	width: 522px;
+}
+
+.CloseIcon {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	transition: all 0.4s ease 0;
+}
+
+.CloseIcon:hover{
+	transition: all 0.4s ease 0;
+	fill: salmon;
+}
+
+.ErrorInput {
+    box-shadow: 0 0 5px rgb(236, 42, 42);
+}
+
+.Modal{
+	max-height: calc(100vh - 50px);
+	overflow-y: auto;
+	position: relative;
+	background-color: none;
+}
+.Modal div:nth-child(1){
+	background: none;
+}
+
+.EditUser {
+    width: 596px;
+	background: #FFFFFF;
+	border-radius: 8px;
+	position: relative;
+	margin: 47px auto;
+	display: flex;
+	flex-direction: column;
+    align-items: flex-start;
+    border: none;
+    outline: none;
+    padding: 37px 37px 60px 37px;
+}
+.EditUser::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.EditUser {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.Header {
+    display: flex;
+    flex-direction: row;
+}
+
+.Header>button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: none;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.Header>button:hover {
+    font-weight: bold;
+    color: #D65445;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.Form label {
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.44px;
+}
+
+.Form input {
+    background: #FCFCFC;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 15px;
+    outline: none;
+    margin-top: 6px;
+}
+
+input:focus {
+    box-shadow: 0 0 5px rgb(35, 202, 191);
+    /* padding: 20px; */
+    border: 1px solid rgb(30, 184, 173);
+}
+
+.ButtonGroup {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-content: ; */
+}
+
+.Submit:hover {
+    background: #f4781e;
+	transition: all 0.4s ease 0s;
+}
+
+.Submit {
+	transition: all 0.4s ease 0s;
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: white;
+    background:#DE884A;
+    padding: 16px 20px;
+    border: 1px solid #367874;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+    .EditUser {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        margin-top: 30px;
+    }
+	.ErrorMsg{
+		width: 90%;
+	}
+	
+
+}

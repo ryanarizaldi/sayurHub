@@ -45,6 +45,11 @@ function App() {
           <Detail />
 		  <Footer />
         </Route>
+		<Route path="/product/:id?/discussion">
+          <Navbar />
+          <Detail />
+		  <Footer />
+        </Route>
         <Route path="/dashboard/admin">
           <Navbar />
           <AdminDash />

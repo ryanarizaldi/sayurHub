@@ -9,6 +9,16 @@
 	overflow: hidden;
 }
 
+.Wrapper{
+	width: 100%;
+	margin-top: 50px;
+	height: 200px;
+	border-radius: 5px;
+	background: #f2f2f2;
+	position: relative;
+	overflow: hidden;
+}
+
 .SkeletonDetail{
 	display:flex;
 	padding: 38px;

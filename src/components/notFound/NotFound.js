@@ -3,7 +3,6 @@ import styles from './NotFound.module.css';
 import logo from "../../assets/img/logo.svg";
 import shoping from "../../assets/img/shoping.svg";
 import {Link} from 'react-router-dom';
-import Cloud from "../../assets/img/Cloud.png";
 import './NotFound.css';
 
 function NotFound() {
