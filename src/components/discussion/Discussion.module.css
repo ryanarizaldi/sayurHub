@@ -1,5 +1,41 @@
 .Discussion {
     display: flex;
-    padding: 64px 38px;
-    width: 100%;    
+	border: 1px solid #ccc;
+    width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	padding: 16px 16px 16px 24px;
+	margin: 50px auto;
+}
+
+.Discussion div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.Discussion div p {
+	margin-left: 20px;
+}
+
+.Discussion button{
+	border-radius: 5px;
+	box-sizing: border-box;
+	padding: 16px 24px;;
+	border: 0px;
+	color:  white;
+	cursor: pointer;
+	background: #367874;
+	border: 1px solid  #367874;
+	line-height: 17px;
+	letter-spacing: 1.75px;
+	text-transform: uppercase;
+	transition: all 0.4s ease 0s;
+}
+
+.Discussion button:hover {
+	transition: all 0.2s ease 0s;
+    background: #265552;
 }

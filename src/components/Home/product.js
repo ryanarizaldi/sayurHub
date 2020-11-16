@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./body.module.css";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import axios from "axios";
+
 import noimg from "../../assets/img/noimg.png";
 import { Link } from "react-router-dom";
 import SkeletonProduct from "../skeletons/SkeletonProduct";

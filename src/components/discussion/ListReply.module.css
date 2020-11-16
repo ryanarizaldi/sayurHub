@@ -1,0 +1,87 @@
+.Border {
+	border: 1px solid #ccc;
+	border-top: none;
+    width: 100%;
+	position: relative;
+	background: rgb(245, 245, 245);
+}
+
+.Icon {
+	position: absolute;
+	top: 10%;
+	right: 1%;
+	cursor: pointer;
+	transition: all 0.4s ease 0;
+}
+
+.Icon:hover{
+	transition: all 0.4s ease 0;
+	fill: salmon;
+}
+
+.Admin {
+	box-sizing: border-box;
+	padding: 10px;
+	background: rgb(218, 245, 219);
+	color: rgb(66, 181, 73)!important;
+	border-radius: 10px;
+	margin-right: 5px;
+}
+
+.Wrapper {
+    display: flex;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	padding: 24px 24px 24px 72px;
+	margin: 0px auto 0px auto;
+}
+
+.Wrapper h1{
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 15px;
+}
+
+.Wrapper p{
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.78);
+}
+
+.Wrapper h1 span {
+	color: rgba(0, 0, 0, 0.38);
+	font-size: 16px;
+}
+
+.Wrapper div:nth-child(1){
+	display: flex;
+}
+
+.Reply{
+	margin-left: 30px;
+	flex-direction: column;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.Wrapper div:nth-child(3){
+	display:flex;
+	flex-direction: row;
+	text-align: center;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.Border img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.LinkEdit {
+	color: #4e4eff;
+	cursor: pointer;
+	text-decoration: none;
+	
+}

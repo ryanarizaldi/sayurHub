@@ -5,7 +5,6 @@ import PicTop from "../../assets/img/Homepic2.png";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import PicBottom from "../../assets/img/Homepic3.png";
 import Banana from "../../assets/img/banana.png";
-import ShoppingCart from "../../assets/img/shopping-cart.png";
 import SkeletonHomeHead from "../skeletons/SkeletonHomeHead";
 
 function Head() {

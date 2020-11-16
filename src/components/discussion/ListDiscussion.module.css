@@ -1,0 +1,86 @@
+.Discussion {
+    display: flex;
+	border: 1px solid #ccc;
+    width: 100%;
+	display: flex;
+	flex-direction: row;
+	padding: 24px;
+	margin: 50px auto 0 auto;
+}
+
+.Discussion h1{
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 15px;
+}
+
+.Discussion p{
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.78);
+}
+
+.Discussion h1 span {
+	color: rgba(0, 0, 0, 0.38);
+	font-size: 16px;
+}
+
+.Discussion div:nth-child(1){
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Discussion div:nth-child(2){
+	margin-left: 30px;
+	flex-direction: column;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+
+}
+
+.Discussion div:nth-child(3){
+	display:flex;
+	flex-direction: row;
+	text-align: center;
+	justify-content: flex-end;
+	align-items: center;
+}
+.Discussion img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.Edit {
+	box-sizing: border-box;
+	padding: 16px 32px;
+	background: #DE884A;
+	border: 0;
+	color:white;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-right: 20px;
+	transition: all 0.4s ease 0s;
+}
+
+.Edit:hover{
+	background: #ff6b08;
+	transition: all 0.4s ease 0s;
+}
+
+.Delete{
+	transition: all 0.4s ease 0s;
+	box-sizing: border-box;
+	padding: 16px 32px;
+	background: salmon;
+	border: 0;
+	color:white;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.Delete:hover{
+	transition: all 0.4s ease 0s;
+	background: #ff1003;
+}
