@@ -72,11 +72,12 @@ function ListDiscussion (props) {
 					<h1>{list.user.full_name} • <span>{moment(list.createdAt).format("DD MMMM YYYY • HH:mm")}</span></h1>
 					<p>{list.write}</p>
 				</div>
-				{!token || user._id !== list.user._id ? ""
-				: <div>
+				{token && user._id === list.user._id || tokenAdmin ? 
+				<div>
 					<button onClick={() => onChange('editDiscussion', true)} className={styles.Edit}>EDIT</button>
 					<button onClick={() => removeDiscussion()} className={styles.Delete}>DELETE</button>
-				</div> }		
+				</div>
+				: ""  }		
 			</div>
 			{reply?.length > 0 ?
 				reply.map((replied, i) => {

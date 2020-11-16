@@ -117,7 +117,7 @@ export const editDiscussion = (discussionId, values) => {
 			}
 		})
 		try {
-			const token = localStorage.getItem("token");
+			const token = localStorage.getItem("token") ? localStorage.getItem("token") : localStorage.getItem("tokenAdmin")
 			const { write } = values;
 			const data = qs.stringify({
 				write: write
