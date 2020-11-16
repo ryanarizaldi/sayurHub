@@ -158,7 +158,9 @@ export default function Checkout() {
           </button>
         </div>
         <div className={styles.SupportPay}>
-          <p>* Currently we only use Paypal as a payment method</p>
+          <p>
+            * Currently we only use Visa and Master Card as a payment method
+          </p>
         </div>
       </div>
     </div>

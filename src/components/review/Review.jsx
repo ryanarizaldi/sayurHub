@@ -111,21 +111,6 @@ function Review(props) {
       ) : (
         <SkeletonReview />
       )}
-
-      <div className={styles.UserReview}>
-        <div className={styles.UserPicture}>
-          <img src={robert} alt="user profile" />
-        </div>
-        <div className={styles.Column}>
-          <div className={styles.NameRate}>
-            <p>Robert</p>
-            <ReactStars value={5} edit={false} size={36} />
-          </div>
-          <div className={styles.Comment}>
-            <p>Most Awesome Terong that i've ever had!</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
