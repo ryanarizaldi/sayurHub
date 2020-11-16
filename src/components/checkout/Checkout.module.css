@@ -1,0 +1,134 @@
+.Container {
+    max-width: 100%;
+    padding: 16px 24px;
+    margin: auto;
+    background: #fff;
+    border-radius: 5px;
+}
+
+@media (min-width: 1440px) {
+    .Container {
+        max-width: 1251px;
+    }
+}
+
+.Title {
+    margin-bottom: 24px;
+}
+
+.Invoice {
+    border: 1px solid #C4C4C4;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.Thead {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #C4C4C4;
+    font-weight: bold;
+    font-size: 1.2em;
+    align-items: left;
+}
+
+.Products {
+    margin-top: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.RowProduct {
+    display: flex;
+    flex-direction: row;
+    /* align-items: right; */
+    justify-content: space-between;
+}
+
+.TotalWeight, .Subtotal, .Shipping, .TotalPay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.TotalWeight p:nth-child(1), .Subtotal p:nth-child(1), .Shipping p:nth-child(1), .TotalPay p:nth-child(1)  {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.ShippingOption select{
+    outline: none;
+    padding: 5px 35px;
+    font-size: 1em;
+    /* width: 55%;
+    height: 20px; */
+}
+
+.Shipping .ShippingOption label .Caps {
+    text-transform: uppercase;
+}
+
+.Shipping .ShippingOption label {
+    margin-right: 10px;
+}
+
+.Shipping .ShippingOption ul {
+    margin-top: 10px;
+    list-style: none;
+}
+
+.Shipping .ShippingOption ul li input {
+    margin-right: 10px;
+}
+
+.Button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.Pay {
+    margin: 32px 0 16px;
+    padding: 10px 20px;
+    background: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: #367874;
+    border: 1px solid #367874;
+    border-radius: 5px;
+    transition: ease 0.5s;
+}
+
+.Pay:hover {
+    color: white;
+    background: #367874;
+}
+
+.SupportPay {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+    font-size: 0.7em;
+}
+
+@media only screen and (max-width: 700px) {
+    .Container {
+        margin: auto;
+        width: 90%;
+        font-size: 80%;
+    }
+
+    .ShippingOption {
+        font-size: 80%;
+    }
+
+}   

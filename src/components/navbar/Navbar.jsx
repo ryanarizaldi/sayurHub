@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
@@ -8,26 +8,36 @@ import * as actionTypes from "../../redux/action/Action";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import Skeleton from "../skeletons/Skeletons";
 import AdminIco from "../../assets/img/admin.jpg";
-
 import MiniCart from "../miniCart/miniCart";
+import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Navbar(props) {
-  const {
-	cart,
-    userData,
-    logout,
-    token,
-    tokenAdmin,
-    getUser,
-    getAdmin,
-    loading,
-  } = props;
+  const { cart, userData, logout, token, tokenAdmin, getUser, loading } = props;
 
   const [modal, setModal] = useState({
-    sideDrawer: false,
-  });
-	
+      sideDrawer: false,
+    }),
+    [input, setInput] = useState("");
 
+  // const prevCount = usePrevious(cart);
+  const searchString = (e) => {
+    e.preventDefault();
+    setInput(e.target.value);
+  };
+  const history = useHistory();
+  const searchFunc = (e) => {
+    e.preventDefault();
+    if (input) {
+      history.push(`/search/${input}`);
+      setInput("");
+    } else {
+      Swal.fire({
+        title: "Type something in searchbar!",
+        icon: "error",
+      });
+    }
+  };
 
   const onChange = (name, value, e) => {
     setModal({
@@ -54,11 +64,15 @@ function Navbar(props) {
           <img src={searchicon} alt="search"></img>
         </div>
         <div className={styles.Searchbox}>
-          <input
-            type="text"
-            placeholder="Search Porduct..."
-            name="search"
-          ></input>
+          <form onSubmit={searchFunc}>
+            <input
+              type="text"
+              placeholder="Search Porduct..."
+              name="search"
+              onChange={searchString}
+              value={input}
+            />
+          </form>
         </div>
         {!token && !tokenAdmin ? (
           <div className={styles.DivNav}>
@@ -91,11 +105,17 @@ function Navbar(props) {
                 <ShoppingCartOutlinedIcon
                   className={styles.Cart}
                   style={{ fill: "#367874" }}
-				  fontSize="big"
+                  // fontSize="big"
                   onClick={() => onChange("sideDrawer", true)}
                 />
-				{ cart.items?.length > 0 ? <div className={styles.Notification} onClick={() => onChange("sideDrawer", true)}></div>
-				 : "" }
+                {cart.items?.length > 0 ? (
+                  <div
+                    className={styles.Notification}
+                    onClick={() => onChange("sideDrawer", true)}
+                  ></div>
+                ) : (
+                  ""
+                )}
                 {!loading ? (
                   <div className={styles.Dropdown}>
                     <img src={userData.profile_image} alt="user"></img>
@@ -116,6 +136,7 @@ function Navbar(props) {
         <MiniCart
           open={sideDrawer}
           onClose={() => onChange("sideDrawer", false)}
+          onOpen={() => onChange("sideDrawer", true)}
         />
       </div>
     </div>
@@ -128,7 +149,7 @@ const mapStateToProps = (state) => {
     userData: state.index.userData,
     tokenAdmin: state.index.tokenAdmin,
     loading: state.index.loading,
-	cart: state.cart.cart
+    cart: state.cart.cart,
   };
 };
 
@@ -140,12 +161,12 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-function usePrevious(value) {
-	const ref = useRef();
- 	useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
+// function usePrevious(value) {
+//   const ref = useRef();
+//   useEffect(() => {
+//     ref.current = value;
+//   });
+//   return ref.current;
+// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

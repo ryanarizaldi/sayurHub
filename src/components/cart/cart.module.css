@@ -105,6 +105,8 @@
 	background: white;
 	border: 1px solid  #367874;
 	transition: all 0.4s ease 0s;
+	outline: none;
+	cursor: pointer;
 }
 
 .Checkout button:nth-child(3):hover{
@@ -114,7 +116,6 @@
 	transition: all 0.4s ease 0s;
 	color: white;
 	background: #367874;
-	border: 0;
 }
 
 @media only screen and (max-width: 700px){

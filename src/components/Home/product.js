@@ -44,7 +44,7 @@ function Product(props) {
                   src={item.product_image ? item.product_image : noimg}
                   alt="product"
                 ></img>
-			  	<div className={styles.Cag}>{item.category}</div>
+                <div className={styles.Cag}>{item.category}</div>
                 <h1>{item.product_name}</h1>
                 <p>
                   Rp.{" "}
@@ -52,13 +52,12 @@ function Product(props) {
                     ? priceForm(item.actualPrice)
                     : priceForm(item.price)}
                   ,-
-				</p>
-					<button>
+                </p>
+                <button>
                   <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
                   Add to Cart
-               		 </button>
-
-			  </Link>
+                </button>
+              </Link>
             </div>
           ))
         : [1, 2, 3, 4, 5, 6, 7, 8].map((n) => <SkeletonProduct key={n} />)}
@@ -66,8 +65,5 @@ function Product(props) {
     </InfiniteScroll>
   );
 }
-
-
-
 
 export default Product;

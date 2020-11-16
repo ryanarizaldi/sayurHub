@@ -15,9 +15,7 @@ export default function UserHistory() {
           <p>Rp 5.000.000</p>
           <p>50 qty</p>
         </div>
-        <span>
-          <b>Karen</b> really wants this banana
-        </span>
+        <span>Awaiting your payment</span>
       </div>
       <div className={styles.ProductHistory}>
         <img src={banana} alt="productpic" />
@@ -26,9 +24,7 @@ export default function UserHistory() {
           <p>Rp 10.000</p>
           <p>1 qty</p>
         </div>
-        <span>
-          <b>Yonathan</b> wants to buy this product
-        </span>
+        <span>Payment Success</span>
       </div>
       {/* <div className={styles.ProductHistory}>
                 <img src={grape} alt="productpic"/>

@@ -43,6 +43,7 @@ export default function ModalEditReview(props) {
           token: localStorage.getItem("token"),
         },
       });
+      console.log(put.data);
       onClose();
       Swal.fire({
         position: "top-right",

@@ -10,7 +10,7 @@ import { Redirect } from "react-router-dom";
 import * as actionTypes from "../../redux/action/Action";
 
 function Login(props) {
-  const { loginUser, isSuccess, loading } = props;
+  const { loginUser, isSuccess } = props;
 
   const schema = Yup.object().shape({
     email: Yup.string()
