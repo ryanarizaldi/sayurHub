@@ -6,6 +6,7 @@ import styles from './SkeletonDetail.module.css';
 const SkeletonDetail = () => {
 	
 	return(
+		<>
 		<div className={styles.WrapperDetail}>
 			<div className={styles.SkeletonDetail}>
 				<div className={styles.Images}>
@@ -29,6 +30,9 @@ const SkeletonDetail = () => {
 			</div>
 			<Shimmer />
 		</div>
+		<div className={styles.Wrapper}>
+		</div>
+		</>
 	)
 }
 

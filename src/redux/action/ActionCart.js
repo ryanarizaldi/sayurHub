@@ -1,6 +1,5 @@
 import * as actionTypes from "../constant/actionTypes";
 import axios from "axios";
-import qs from "qs";
 import Swal from "sweetalert2";
 
 
@@ -96,8 +95,8 @@ export const getCart = () => {
 			})
 			let total = 0;
 			get.data.cart.items.map((item, i) => {
-				const multiplied = item.price * item.quantity;
-				total += multiplied
+				let multiplied = item.price * item.quantity;
+				return total += multiplied;
 		   	})
 			console.log(get.data.cart)
 			dispatch({

@@ -8,7 +8,7 @@ import * as actionTypes from "../../redux/action/Action";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import Skeleton from "../skeletons/Skeletons";
 import AdminIco from "../../assets/img/admin.jpg";
-import noimg from "../../assets/img/noimg.png";
+
 import MiniCart from "../miniCart/miniCart";
 
 function Navbar(props) {
@@ -27,7 +27,7 @@ function Navbar(props) {
     sideDrawer: false,
   });
 	
-  const prevCount = usePrevious(cart);
+
 
   const onChange = (name, value, e) => {
     setModal({
