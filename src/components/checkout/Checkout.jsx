@@ -26,10 +26,14 @@ export default function Checkout() {
       console.log("error get transaction", error);
     }
   };
+  const cek = Object.keys(bills).length;
+
+  const city = bills.city;
+  const weight = bills.cart?.totalWeight;
 
   useEffect(() => {
-    if (Object.keys(bills).length >= 1) {
-      getTransaction();
+    getTransaction();
+    if (cek >= 1) {
       const getShipCost = async () => {
         try {
           const shipping = await Axios({
@@ -37,8 +41,8 @@ export default function Checkout() {
             url: `https://pacific-oasis-23064.herokuapp.com/delivery/cost`,
             data: qs.stringify({
               origin: 152,
-              destination: bills.city,
-              weight: Math.ceil(bills.cart.totalWeight),
+              destination: city,
+              weight: Math.ceil(weight),
               courier: courier,
             }),
             headers: {
@@ -54,7 +58,7 @@ export default function Checkout() {
     } else {
       getTransaction();
     }
-  }, [Object.keys(bills).length > 1, bills, courier]);
+  }, [courier, cek, city, weight]);
 
   const validateCourier = () => {
     if (cost < 1) {
