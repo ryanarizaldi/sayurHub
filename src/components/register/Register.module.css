@@ -131,11 +131,36 @@
 }
 
 @media only screen and (max-width: 700px) {
+<<<<<<< Updated upstream
     .FormLogin {
         position: absolute;
         width: 90%;
     }
     
+=======
+
+    .Row {
+        margin-top: -50px;
+    }
+
+    .Logo {
+        padding-top: 0;
+    }
+
+    .Image img {
+        width: 350px;
+        height: 350px;
+        margin-bottom: 90%;
+        margin-left: 10%;
+    }
+
+    .FormLogin {
+        position: absolute;
+        width: 85%;
+        top: 20%;
+    }
+
+>>>>>>> Stashed changes
     .FormLogin h4 {
         margin: 0;
         margin-top: 20px;
@@ -149,4 +174,8 @@
     .FormLogin Button {
         width: 80%;
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
