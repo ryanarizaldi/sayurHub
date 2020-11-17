@@ -27,35 +27,34 @@ export default function Checkout() {
     }
   };
 
-  const getShipCost = async () => {
-    try {
-      const shipping = await Axios({
-        method: "Post",
-        url: `https://pacific-oasis-23064.herokuapp.com/delivery/cost`,
-        data: qs.stringify({
-          origin: 152,
-          destination: bills.city,
-          weight: Math.ceil(bills.cart.totalWeight),
-          courier: courier,
-        }),
-        headers: {
-          token: localStorage.getItem("token"),
-        },
-      });
-      setCourOpt(shipping.data.data.rajaongkir.results[0].costs);
-    } catch (error) {
-      console.log("error get shipping cost", error);
-    }
-  };
-
   useEffect(() => {
     if (Object.keys(bills).length >= 1) {
       getTransaction();
+      const getShipCost = async () => {
+        try {
+          const shipping = await Axios({
+            method: "Post",
+            url: `https://pacific-oasis-23064.herokuapp.com/delivery/cost`,
+            data: qs.stringify({
+              origin: 152,
+              destination: bills.city,
+              weight: Math.ceil(bills.cart.totalWeight),
+              courier: courier,
+            }),
+            headers: {
+              token: localStorage.getItem("token"),
+            },
+          });
+          setCourOpt(shipping.data.data.rajaongkir.results[0].costs);
+        } catch (error) {
+          console.log("error get shipping cost", error);
+        }
+      };
       getShipCost();
     } else {
       getTransaction();
     }
-  }, [Object.keys(bills).length, courier]);
+  }, [Object.keys(bills).length > 1, bills, courier]);
 
   const validateCourier = () => {
     if (cost < 1) {

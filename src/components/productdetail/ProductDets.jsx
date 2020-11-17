@@ -27,38 +27,39 @@ function ProductDets(props) {
     [loading, setLoading] = useState(false);
   const { id } = useParams();
 
-  const getRating = async () => {
-    try {
-      const rates = await axios.get(
-        `https://pacific-oasis-23064.herokuapp.com/reviews/rating/${id}`
-      );
-      setRating(rates.data.average_rating);
-    } catch (error) {}
-  };
   const onChange = (name, value) => {
     setModal({
       [name]: value,
     });
   };
 
-  const getProduct = async () => {
-    setLoading(true);
-    try {
-      const callmebabe = await axios.get(
-        `https://pacific-oasis-23064.herokuapp.com/products/${id}`
-      );
-      setProduct(callmebabe.data.products);
-      setSellers(callmebabe.data.products.user);
-      setLoading(false);
-    } catch (error) {
-      console.log("errorgan", error);
-    }
-  };
-
   useEffect(() => {
+    const getRating = async () => {
+      try {
+        const rates = await axios.get(
+          `https://pacific-oasis-23064.herokuapp.com/reviews/rating/${id}`
+        );
+        setRating(rates.data.average_rating);
+      } catch (error) {}
+    };
+
+    const getProduct = async () => {
+      setLoading(true);
+      try {
+        const callmebabe = await axios.get(
+          `https://pacific-oasis-23064.herokuapp.com/products/${id}`
+        );
+        setProduct(callmebabe.data.products);
+        setSellers(callmebabe.data.products.user);
+        setLoading(false);
+      } catch (error) {
+        console.log("errorgan", error);
+      }
+    };
+
     getProduct();
     getRating();
-  }, []);
+  }, [id]);
 
   //https://codepen.io/malasngoding/pen/EedMvv
   const priceForm = (num) => {
