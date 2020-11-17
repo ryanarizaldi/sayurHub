@@ -129,3 +129,41 @@
 .ErrorInput {
     box-shadow: 0 0 5px rgb(236, 42, 42);
 }
+
+@media only screen and (max-width: 700px) {
+
+    .Row {
+        margin-top: -50px;
+    }
+
+    .Logo {
+        padding-top: 0;
+    }
+
+    .Image img {
+        width: 350px;
+        height: 350px;
+        margin-bottom: 90%;
+        margin-left: 10%;
+    }
+
+    .FormLogin {
+        position: absolute;
+        width: 85%;
+        top: 20%;
+    }
+
+    .FormLogin h4 {
+        margin: 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .FormLogin input {
+        width: 80%;
+    }
+
+    .FormLogin Button {
+        width: 80%;
+    }
+}
