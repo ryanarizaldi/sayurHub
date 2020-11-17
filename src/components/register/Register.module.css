@@ -131,13 +131,6 @@
 }
 
 @media only screen and (max-width: 700px) {
-<<<<<<< Updated upstream
-    .FormLogin {
-        position: absolute;
-        width: 90%;
-    }
-    
-=======
 
     .Row {
         margin-top: -50px;
@@ -160,7 +153,6 @@
         top: 20%;
     }
 
->>>>>>> Stashed changes
     .FormLogin h4 {
         margin: 0;
         margin-top: 20px;
@@ -174,8 +166,4 @@
     .FormLogin Button {
         width: 80%;
     }
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
