@@ -9,7 +9,6 @@ import AdminIco from "../../assets/img/admin.jpg";
 import moment from 'moment';
 import CloseIcon from '@material-ui/icons/Close';
 import Swal from "sweetalert2";
-import axios from 'axios';
 
 function ListReply (props) {
 	
@@ -71,10 +70,14 @@ function ListReply (props) {
 					<h1>{reply.admin !== null ? "Sayurhub" : reply.user.full_name} • { reply.admin !== null  
 					  ? <span className={styles.Admin}>Admin</span> : "" }
 						<span>{moment(reply.createdAt).format("DD MMMM YYYY • HH:mm")}</span>
-						<span>{reply?.user?._id === user._id && token ? " | " : ""}{tokenAdmin ? " | " : ""}<a 
-								className={styles.LinkEdit} 
+						<span>{reply?.user?._id === user._id && token ? " | " : ""}{tokenAdmin ? " | " : ""}
+							<span
+								className={styles.LinkEdit}
+								href="#"
 								onClick={() => editChange()}
-								>{reply?.user?._id === user._id && token ? "edit" : "" }{tokenAdmin ? "edit" : "" }</a></span>
+								>{reply?.user?._id === user._id && token ? "edit" : "" }{tokenAdmin ? "edit" : "" }
+							</span>
+						</span>
 					</h1>
 					{!edit ? 	
 					 <p>{reply.reply}</p>

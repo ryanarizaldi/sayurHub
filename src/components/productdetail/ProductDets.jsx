@@ -143,7 +143,7 @@ function ProductDets(props) {
               </div>
             </div>
           </div>
-          <Nav id={id} />
+          <Nav />
         </div>
       ) : (
         <SkeletonDetail />

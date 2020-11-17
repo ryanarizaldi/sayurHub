@@ -49,7 +49,7 @@ function AdminLogin(props) {
         <div className={styles.FormLogin}>
           <h4>Sign In For Admin</h4>
           <form onSubmit={formik.handleSubmit} noValidate>
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               className={
                 formik.touched.email && formik.errors.email
@@ -66,7 +66,7 @@ function AdminLogin(props) {
             {formik.touched.email && formik.errors.email ? (
               <div className={styles.ErrorMsg}>{formik.errors.email}</div>
             ) : null}
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               className={
                 formik.touched.password && formik.errors.password

@@ -6,15 +6,17 @@ import * as actionTypes from "../../redux/action/Action";
 
 import Discussion from "../discussion/Discussion";
 import styles from "./NavReviewDiscussion.module.css";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Route, useParams } from "react-router-dom";
 
 function NavReviewDiscussion(props) {
-  const { id, review, discussion, getReview, getDiscussion } = props;
+  const { review, discussion, getReview, getDiscussion } = props;
+	
+  const { id } = useParams();
 	
   useEffect(() => {
 	  getReview(id);
 	  getDiscussion(id);
-  }, [])
+  }, [getDiscussion, getReview, id])
 
   return (
     <div className={styles.Wrapper}>

@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 function Order (props) {
 	
-	const { item, cart, getCart } = props;
+	const { item, cart, getCart, priceForm } = props;
 	
 	const total = item.price * item.quantity;
 	
@@ -67,13 +67,13 @@ function Order (props) {
 		<div className={styles.Container}>
 			<img src={item.image} alt={item.name}></img>
 			<h1>{item.name}</h1>
-			<p>Rp.{item.price},-</p>
+			<p>Rp.{priceForm(item.price)},-</p>
 			<div className={styles.Button}>
 				<button onClick={() => reduceQuantity()}>-</button>
 				<button>{quantity}</button>
 				<button onClick={() => addQuantity()}>+</button>
 			</div>
-			<h3>Rp.{totalPrice},-</h3>
+			<h3>Rp.{priceForm(totalPrice)},-</h3>
 			<button onClick={() => removeProduct(cart._id, item.id)} className={styles.Delete}>DELETE</button>
 		</div>
 	)

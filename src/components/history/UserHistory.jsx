@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import SkeletonHistory from "../skeletons/SkeletonHistory";
 import styles from "./UserHistory.module.css";
 import banana from "../../assets/img/banana.png";
-import grape from "../../assets/img/prod_grapes.png";
 import lemon from "../../assets/img/prod_lemon.png";
 import cabbage from "../../assets/img/prod_cabbage.png";
 

@@ -68,7 +68,7 @@ function ModalEditUser(props) {
             id="profile_image"
             onChange={(e) => changePic(e)}
           ></input>
-          <label jtmlFor="full_name">Full Name</label>
+          <label htmlFor="full_name">Full Name</label>
           <input
             type="text"
             value={formik.values.full_name}

@@ -15,7 +15,7 @@ function Discussion(props) {
 
   useEffect(() => {
     getDiscussion(id);
-  }, [getDiscussion, trigger]);
+  }, [getDiscussion, trigger, id]);
 
   const [modal, setModal] = useState({
       addDiscussion: false,
