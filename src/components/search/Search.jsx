@@ -9,21 +9,21 @@ export default function Search() {
   const [products, setProduct] = useState([]);
   const { keyword } = useParams();
 
-  const searchProd = async () => {
-    try {
-      const getMe = await Axios.post(
-        `https://pacific-oasis-23064.herokuapp.com/products/find/${keyword}`
-      );
-
-      setProduct(getMe.data.found);
-    } catch (error) {
-      console.log("error search", error);
-    }
-  };
-
   useEffect(() => {
+    const searchProd = async () => {
+      try {
+        const getMe = await Axios.post(
+          `https://pacific-oasis-23064.herokuapp.com/products/find/${keyword}`
+        );
+
+        setProduct(getMe.data.found);
+      } catch (error) {
+        console.log("error search", error);
+      }
+    };
+
     searchProd();
-  }, [keyword, searchProd]);
+  }, [keyword]);
 
   return (
     <div className={styles.Container}>

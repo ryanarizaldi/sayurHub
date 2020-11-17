@@ -17,33 +17,32 @@ function ModalFormShipping(props) {
     [input, setInput] = useState({ state: "6" });
 
   useEffect(() => {
+    const getOption = async () => {
+      try {
+        const optionProv = await Axios({
+          method: "get",
+          url: `https://pacific-oasis-23064.herokuapp.com/delivery/province`,
+          headers: {
+            token: localStorage.getItem("token"),
+          },
+        });
+        const optionCity = await Axios({
+          method: "get",
+          url: `https://pacific-oasis-23064.herokuapp.com/delivery/city`,
+          headers: {
+            token: localStorage.getItem("token"),
+          },
+        });
+
+        setProv(optionProv.data.data.rajaongkir.results);
+        setCity(optionCity.data.data.rajaongkir.results);
+      } catch (error) {
+        console.log("error get city and province", error.response);
+      }
+    };
+
     getOption();
-  }, []);
-
-  const getOption = async () => {
-    try {
-      const optionProv = await Axios({
-        method: "get",
-        url: `https://pacific-oasis-23064.herokuapp.com/delivery/province`,
-        headers: {
-          token: localStorage.getItem("token"),
-        },
-      });
-      const optionCity = await Axios({
-        method: "get",
-        url: `https://pacific-oasis-23064.herokuapp.com/delivery/city`,
-        headers: {
-          token: localStorage.getItem("token"),
-        },
-      });
-
-      setProv(optionProv.data.data.rajaongkir.results);
-      setCity(optionCity.data.data.rajaongkir.results);
-      console.log(province);
-    } catch (error) {
-      console.log("error get city and province", error);
-    }
-  };
+  }, [open]);
 
   const handleChange = (e) => {
     setInput({

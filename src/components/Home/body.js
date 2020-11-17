@@ -12,46 +12,44 @@ function Body() {
     [totalPage, setTotal] = useState(0),
     [showScroll, setShowScroll] = useState(false);
 
-  const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > 800) {
-      setShowScroll(true);
-    } else if (showScroll && window.pageYOffset < 800) {
-      setShowScroll(false);
-    }
-  };
-
-  const getProducts = async (cat) => {
-    setLoading(true);
-    try {
-      const prods = await axios.get(
-        cat === "all"
-          ? `https://pacific-oasis-23064.herokuapp.com/products`
-          : `https://pacific-oasis-23064.herokuapp.com/products/filter/${cat}`
-      );
-
-      category === "fruits"
-        ? setProducts(prods.data.fruits)
-        : category === "vegetables"
-        ? setProducts(prods.data.vegetable)
-        : category === "diets"
-        ? setProducts(prods.data.diets)
-        : setProducts(prods.data.posts);
-      setTotal(prods.data.totalPages);
-      setPage(1);
-      setLoading(false);
-    } catch (error) {
-      console.log("ini error: ", error);
-    }
-  };
-
   useEffect(() => {
+    const getProducts = async (cat) => {
+      setLoading(true);
+      try {
+        const prods = await axios.get(
+          cat === "all"
+            ? `https://pacific-oasis-23064.herokuapp.com/products`
+            : `https://pacific-oasis-23064.herokuapp.com/products/filter/${cat}`
+        );
+
+        category === "fruits"
+          ? setProducts(prods.data.fruits)
+          : category === "vegetables"
+          ? setProducts(prods.data.vegetable)
+          : category === "diets"
+          ? setProducts(prods.data.diets)
+          : setProducts(prods.data.posts);
+        setTotal(prods.data.totalPages);
+        setPage(1);
+        setLoading(false);
+      } catch (error) {
+        console.log("ini error: ", error);
+      }
+    };
     getProducts(category);
   }, [category]);
 
   useEffect(() => {
+    const checkScrollTop = () => {
+      if (!showScroll && window.pageYOffset > 800) {
+        setShowScroll(true);
+      } else if (showScroll && window.pageYOffset < 800) {
+        setShowScroll(false);
+      }
+    };
     window.addEventListener("scroll", checkScrollTop);
     return () => window.removeEventListener("scroll", checkScrollTop);
-  }, []);
+  }, [showScroll]);
 
   const getMore = async (cat) => {
     const newPage = page + 1;

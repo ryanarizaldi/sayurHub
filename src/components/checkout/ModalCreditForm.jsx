@@ -14,14 +14,7 @@ function ModalCreditForm(props) {
   let history = useHistory();
 
   const postInput = async (values) => {
-    const {
-      card_holder,
-      card_number,
-      exp_month,
-      exp_year,
-      cvc,
-      amount,
-    } = values;
+    const { card_number, exp_month, exp_year, cvc, amount } = values;
     try {
       const submit = await Axios({
         method: "POST",
