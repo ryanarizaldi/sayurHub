@@ -102,6 +102,7 @@ function Navbar(props) {
 				  {isShown && 
 			   		<div className={styles.DropdownContentHamburger}>
             		<NavLink to="/dashboard/history">Dashboard</NavLink>
+					<NavLink to="/cart">Cart</NavLink>
                		<NavLink to="/" onClick={logout}>Logout</NavLink>
           			</div>}
 		  		</div>
