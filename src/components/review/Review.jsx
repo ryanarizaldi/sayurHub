@@ -14,13 +14,12 @@ function Review(props) {
 
   // const [reviews, setReview] = useState([]);
   const [modal, setModal] = useState(false);
-	
+
   const { id } = useParams();
- 
+
   useEffect(() => {
     getReview(id);
   }, [id, getReview]);
-	
 
   const alertRemove = (id) => {
     Swal.fire({
@@ -101,7 +100,7 @@ function Review(props) {
 const mapStateToProps = (state) => {
   return {
     review: state.index.review,
-	user: state.index.userData,
+    user: state.index.userData,
     loading: state.index.loading,
   };
 };

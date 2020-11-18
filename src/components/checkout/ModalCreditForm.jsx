@@ -61,6 +61,22 @@ function ModalCreditForm(props) {
     },
   });
 
+  const priceForm = (num) => {
+    let str = String(num),
+      split = str.split(","),
+      sisa = split[0].length % 3,
+      rupiah = split[0].substr(0, sisa),
+      ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if (ribuan) {
+      let separator = sisa ? "." : "";
+      rupiah += separator + ribuan.join(".");
+    }
+    rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
+    return rupiah;
+  };
+
   return (
     <Modal open={open} onClose={onClose}>
       <div className={styles.ContainerModal}>
@@ -70,7 +86,7 @@ function ModalCreditForm(props) {
         </h1>
         <div className={styles.Amount}>
           <h4>Amount to Pay: </h4>
-          <p>Rp. {amount}, -</p>
+          <p>Rp. {priceForm(amount)}, -</p>
         </div>
         <form className={styles.Form} noValidate onSubmit={formik.handleSubmit}>
           <label className={styles.Label} htmlFor="card_holder">
@@ -156,7 +172,7 @@ function ModalCreditForm(props) {
               Cancel
             </button>
             <button className={styles.SubmitBtn} type="submit">
-              {formik.isSubmitting ? "Please wait..." : "Pay"}
+              {formik.isSubmitting ? "wait" : "Pay"}
             </button>
           </div>
         </form>

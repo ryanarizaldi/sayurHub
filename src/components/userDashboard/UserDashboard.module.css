@@ -181,18 +181,20 @@
 	}
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 700px) {
     .Container {
         margin: auto;
     }
     .Wrapper {
         margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
     }
 
     .Row {
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
         margin: auto;
     }
 
@@ -219,12 +221,10 @@
     }
 
     .ColDasboard .DashboardCard .Navigation {
-        /* margin: 0an; */
-        /* background: #000; */
-        /* width: ; */
-        margin: auto;
+        width: 90%;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
     }
 
     .ColDasboard .DashboardCard .Navigation a{

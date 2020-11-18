@@ -235,16 +235,21 @@
     cursor: pointer;
 }
 
-/* .AddToCart button:nth-child(1) {
-    margin-right: 73.09px;
-} */
+.AddToCart button:nth-child(2){
+    background: #47a19b;
+    color: white;
+}
 
 .AddToCart button:hover {
     background: #367874;
     color: white;
 }
 
-@media only screen and (max-width: 450px) {
+.AddToCart button:nth-child(2):hover{
+    background:#64dbd3;
+}
+
+@media only screen and (max-width: 700px) {
     .Container{
         margin: 0 auto 16px;
         padding: 0 16px;
@@ -266,7 +271,8 @@
     }
 
     .CardDetail .Content {
-        margin: 16px auto 0;
+        margin: 10px auto;
+        padding: 0 10px;
         width: 100%;
         align-items: center;
     }

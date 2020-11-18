@@ -108,6 +108,10 @@
     transition: ease 0.5s;
 }
 
+button {
+    outline: none;
+}
+
 .Pay:hover {
     color: white;
     background: #367874;
