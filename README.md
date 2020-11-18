@@ -1,70 +1,110 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ![logo](https://i.imgur.com/3fQVK9H.png)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## What is SayurHub?
 
-### `npm start`
+**SayurHub** is an e-commerce app to get fresh vegetables, fruits and healthy diet menus. It is an easy-to-use app. Customers can see all the products and choose any categories they want in the main page. The products come from our trusted local farmer that we chose carefully. We guarantee that our products are 100% fresh and original. Our goal is to make it easier to buy products and to improve the livelihood of our local farmer.
+So what is u waiting for ? check our web [SayurHub](https://staging-sayurhub.herokuapp.com/) and enjoy our product.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Our Goals
 
-### `npm test`
+1.  Make it easier to buy vegetables or fruits or diets menus
+2.  Improving farmers livelihood by boosting their economy with this
+    e-commerce
+3.  Saving time and energy to buy products
+4.  Improving supply chain by cutting out the middle-men
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+# Table of Contents
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Homepage](#Homepage)
+- [SignUp-SignIn](#SignUp-SignIn)
+- [SignIn For Admin](#SignInForAdmin)
+- [Product Details](#ProductDetails)
+- [Search Page](#SearchPage)
+- [Discussion](#Discussion)
+- [MiniCart](#MiniCart)
+- [CartPage](#CartPage)
+- [Shiping Form](#ShipingForm)
+- [Checkout Page](#CheckoutPage)
+- [Payment Form](#PaymentForm)
+- [Invoice](#Invoice)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Homepage
 
-### `npm run eject`
+![homepage](https://i.imgur.com/5cLDBWR.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# SignUp - SignIn
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![SignUp](https://i.imgur.com/QzTmPyo.png)
+![SignIn](https://i.imgur.com/9jeZSF3.png%22SignIn%22)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+# SignIn For Admin
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![SignInAdmin](https://i.imgur.com/ICc9lXh.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+# Product Details
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+![ProductDets](https://i.imgur.com/QJ5yP4y.png)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+# Search Page
 
-### Making a Progressive Web App
+![Search](https://i.imgur.com/fmHYxe4.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+---
 
-### Advanced Configuration
+# Discussion
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+![Discuss](https://i.imgur.com/1J25Tte.png)
 
-### Deployment
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+# MiniCart
 
-### `npm run build` fails to minify
+![minicart](https://i.imgur.com/aLF5B7F.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+---
 
-# Team Frontend
+# CartPage
+
+![cart](https://i.imgur.com/MwtvuT6.png)
+
+---
+
+# Shiping Form
+
+![shipping](https://i.imgur.com/6v9MCe9.png)
+
+---
+
+# Checkout Page
+
+![checkout](https://i.imgur.com/wWJ5aRc.png)
+
+---
+
+# Payment Form
+
+![pay](https://i.imgur.com/Bl5fPQ0.png)
+
+---
+
+# Invoice
+
+![invoice](https://i.imgur.com/sEDOvJz.png)
+
+---
