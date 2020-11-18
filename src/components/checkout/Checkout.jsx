@@ -147,7 +147,7 @@ export default function Checkout() {
         try {
           const shipping = await Axios({
             method: "Post",
-            url: `api/rajaongkir/cost`,
+            url: `/api/rajaongkir/cost`,
             // url: `https://pacific-oasis-23064.herokuapp.com/delivery/cost`,
             // url: `https://api.rajaongkir.com/starter/cost`,
             data: qs.stringify({
