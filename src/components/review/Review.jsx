@@ -63,7 +63,7 @@ function Review(props) {
             <div className={styles.Column}>
               <div className={styles.NameRate}>
                 <p>{rev.user.full_name}</p>
-                <ReactStars value={rev.rating} edit={false} size={36} />
+                <ReactStars value={rev.rating} edit={false} size={26} />
               </div>
               <div className={styles.Comment}>
                 <p>{rev.review}</p>

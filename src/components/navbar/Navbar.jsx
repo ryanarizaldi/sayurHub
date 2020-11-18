@@ -11,6 +11,7 @@ import AdminIco from "../../assets/img/admin.jpg";
 import MiniCart from "../miniCart/miniCart";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+import MenuIcon from '@material-ui/icons/Menu';
 
 function Navbar(props) {
   const { cart, userData, logout, token, tokenAdmin, getUser, loading } = props;
@@ -18,7 +19,13 @@ function Navbar(props) {
   const [modal, setModal] = useState({
       sideDrawer: false,
     }),
-    [input, setInput] = useState("");
+		[isShown, setIsShown] = useState(false),
+    	[input, setInput] = useState("");
+	
+  const showChange = () => {
+	  setIsShown(!isShown);
+  }
+	
 
   // const prevCount = usePrevious(cart);
   const searchString = (e) => {
@@ -38,7 +45,7 @@ function Navbar(props) {
       });
     }
   };
-
+	
   const onChange = (name, value, e) => {
     setModal({
       [name]: value,
@@ -74,15 +81,55 @@ function Navbar(props) {
             />
           </form>
         </div>
+		{tokenAdmin ? 
+				<div
+			  		onClick={() => showChange()}
+			  		className={styles.Hamburger}>
+		  			<MenuIcon  /> 
+				  {isShown && 
+			   		<div className={styles.DropdownContentHamburger}>
+            		<NavLink to="/dashboard/admin/products">Dashboard</NavLink>
+               		<NavLink to="/" onClick={logout}>Logout</NavLink>
+          			</div>}
+		  		</div>
+			  
+		: "" }
+		{token ? 
+				<div
+			  		onClick={() => showChange()}
+			  		className={styles.Hamburger}>
+		  			<MenuIcon  /> 
+				  {isShown && 
+			   		<div className={styles.DropdownContentHamburger}>
+            		<NavLink to="/dashboard/history">Dashboard</NavLink>
+               		<NavLink to="/" onClick={logout}>Logout</NavLink>
+          			</div>}
+		  		</div>
+			  
+		: "" }
         {!token && !tokenAdmin ? (
+		<>
           <div className={styles.DivNav}>
             <NavLink to="/register" className={styles.Signup}>
               <button>Sign Up</button>
             </NavLink>
             <NavLink to="/login" className={styles.Login}>
               Log In
-            </NavLink>
+			</NavLink>
           </div>
+		  <div
+			  onClick={() => showChange()}
+			  className={styles.Hamburger}>
+		  <MenuIcon  />
+			{isShown && 
+			<div className={styles.DropdownContentHamburger}>
+            	<NavLink to="/login">Login</NavLink>
+            	<NavLink to="/register">Sign Up</NavLink>
+          	</div>}
+		  </div>
+			 
+		</>
+		  
         ) : (
           <div className={styles.DivNav}>
             {tokenAdmin ? (

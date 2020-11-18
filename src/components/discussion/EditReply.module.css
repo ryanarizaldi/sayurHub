@@ -54,3 +54,20 @@
 	cursor: pointer;
 	border-radius: 4px;
 }
+
+@media only screen and (max-width: 700px){
+	.Form{
+		position:relative;
+		top: 20px;
+		right: 55px;
+	}
+	
+	.Submit button:nth-child(1), .Submit button:nth-child(2){
+		padding: 5px 10px;
+		font-size: 14px;
+		justify-content: flex-start;
+	}
+	.Submit {
+		margin: 20px 0;
+	}
+}

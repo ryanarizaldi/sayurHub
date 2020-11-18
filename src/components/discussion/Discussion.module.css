@@ -39,3 +39,9 @@
 	transition: all 0.2s ease 0s;
     background: #265552;
 }
+
+@media only screen and (max-width: 700px) {
+	.Discussion div p {
+		display:none;
+	}	
+}

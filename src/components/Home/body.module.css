@@ -80,8 +80,7 @@
 
 .Card:hover{
 	transition: all 0.4s ease 0s;
-	border-radius: 0px;
-box-shadow:  7px 7px 14px #d9d9d9, 
+	box-shadow:  7px 7px 14px #d9d9d9, 
              -7px -7px 14px #ffffff;
 }
 
@@ -93,6 +92,7 @@ box-shadow:  7px 7px 14px #d9d9d9,
 	display: flex;
 	justify-content: center;
 	font-size: 16px;
+	border: none;
 	padding: 4px 20px;
 	letter-spacing: 2px;
 	text-align: center;
@@ -154,7 +154,7 @@ box-shadow:  7px 7px 14px #d9d9d9,
 	margin: 0 8px 0 0;
 }
 
-.Card button{
+.Card a button:nth-child(5){
 	display: flex;
 	align-items: center;
 	cursor: pointer;
@@ -171,7 +171,7 @@ box-shadow:  7px 7px 14px #d9d9d9,
 	justify-content: center;
 }
 
-.Card button:hover{
+.Card a button:nth-child(5):hover{
 	transition: all 0.4s ease 0s;
 	background: #367874;
 	color: #BBE4D8;
@@ -233,6 +233,10 @@ box-shadow:  7px 7px 14px #d9d9d9,
 		margin-right:0;
 	}
 	
+	.Cag{
+		padding: 4px 30px;
+	}
+	
 	.Button button{
 		margin: 24px 16px 0 0;
 	}
@@ -261,6 +265,10 @@ box-shadow:  7px 7px 14px #d9d9d9,
 		position:fixed;
 		bottom:50px;
 		right:10px;
+	}
+	
+	.Card h1{
+		font-size: 18px;
 	}
 	
 	.ScrollTop button {

@@ -306,12 +306,17 @@
     }
 
     .Quantity p {
-        margin-right: 110px;
+        margin-right: 90px;
     }
 
     .AddToCart button {
         width: 45%;
     }
+	
+	.Content h3{
+		font-size: 18px;
+		text-align: center;
+	}
 
     
 }

@@ -83,4 +83,34 @@
 .Delete:hover{
 	transition: all 0.4s ease 0s;
 	background: #ff1003;
+	
+}
+
+
+@media only screen and (max-width: 700px) {
+	.Discussion div:nth-child(1){
+		align-items: flex-start;
+	}
+	
+	.Discussion div:nth-child(2) p {
+		width: 190%;
+		position: relative;
+		right: 100px;
+		text-align: justify;
+	}
+	
+	.Discussion div:nth-child(2){
+		justify-content: flex-start
+	}
+	.Discussion{
+		height: 350px;
+		position: relative;
+	}
+	
+	.Discussion div:nth-child(3){
+		position: absolute;
+		margin: 0 auto;
+		bottom: 30px;
+		right: 7%;
+	}
 }
