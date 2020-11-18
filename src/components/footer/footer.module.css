@@ -4,7 +4,7 @@
 
 .Container div{
 	border-top: 1px solid #ccc;
-	width: 97s%;
+	width: 97%;
 	margin: 0 auto;
 	padding: 50px 100px;
 }
@@ -12,6 +12,7 @@
 	font-family: Inter;
 	font-style: normal;
 	font-weight: normal;
+	text-align: center;
 	font-size: 16px;
 	line-height: 24px;
 	letter-spacing: 0.44px;

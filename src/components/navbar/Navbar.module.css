@@ -23,29 +23,32 @@
 
 .Box {
     background-color: #dfdfdf;
-    width: 474px;
-    height: 39px;
+ 	box-sizing: border-box;
+	padding: 9.1px 18px;
     position: absolute;
     left: 196px;
-    bottom: 22px;
-    border-radius: 8px;
+    bottom: 22.7px;
+    border-radius: 6px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
  
 .Box img {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 6px;
-    left: 17px;
+    width: 16px;
+    height: 16px;
 }
 
 .Searchbox input {
     background-color: #dfdfdf;
-    height: 36px;
+	box-sizing: border-box;
+	padding: 11px 18px;
+	border-radius: 6px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
     width: 410px;
     position: absolute;
-    left: 254px;
-    bottom: 22px;
+    left: 245px;
+    bottom: 22.7px;
     border: none;
     outline: none;
 }
@@ -184,6 +187,8 @@
 	transition: all 0.4s ease 0s;
 }
 
+
+
 .DropdownContent a {
   float: none;
   color: black;
@@ -204,8 +209,56 @@
   transition: all 0.4s ease 0s;
 }
 
-@media only screen and (max-width: 700px) {
+.Hamburger {
+	display: none;
+}
 
+
+
+
+
+@media only screen and (max-width: 700px) {
+	
+	.Hamburger{
+		display: block;
+		transition: all 0.4s ease 0s;
+    	position: relative;
+    	left: 85%;
+    	top: -2px;
+		z-index: 2;
+	}
+	
+	.Hamburger:hover .DropdownContentHamburger {
+  		display: block;
+  		transition: all 0.4s ease 0s;
+}
+	
+	.DropdownContentHamburger a {
+		  float: none;
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		  text-align: left;
+		  transition: all 0.4s ease 0s;
+	}
+	
+	.DropdownContentHamburger a:hover {
+		 background-color: #ddd;
+ 		 transition: all 0.4s ease 0s;
+}
+	.DropdownContentHamburger{
+		position: absolute;
+		top: 30px;
+		left: -100px;
+ 		background-color: #f9f9f9;
+    	min-width: 160px;
+    	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    	z-index: 3;
+		transition: all 0.4s ease 0s;
+	}
+
+	
     .Background {
         max-width: 100%;
     }
@@ -213,24 +266,26 @@
     .Container {
         max-width: 90%;
     }
+	
+	.Logo img{
+		left: 20px;
+		width: 60px;
+		top: 30px;
+		height: 30px;
+	}
 
     .Box {
-        max-width: 50%;
-        left: 150px;
+       display: none;
     }
 
     .Searchbox input {
-        max-width: 35%;
-        left: 210px;
+        max-width: 50%;
+        left: 100px;
+		border-top-left-radius: 6px;
+		border-bottom-left-radius: 6px;
+		bottom:25px;
     }
 
-    .Hamburger {
-        display: block;
-        position: relative;
-        left: 85%;
-        bottom: 30px;
-        cursor: pointer;
-    }
 
    .DivNav {
        text-align: center;

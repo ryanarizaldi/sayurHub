@@ -3,6 +3,7 @@
 	flex-direction: row;
 	padding: 24px 24px 24px 100px;
 	background: rgb(245, 245, 245);
+	position: relative;
 }
 
 .Border{
@@ -81,4 +82,25 @@
     background: #367874;
 	cursor: pointer;
 	border-radius: 4px;
+}
+
+@media only screen and (max-width: 700px) {
+	.FormReply {
+		padding: 24px;
+	}
+	.FormReply div:nth-child(1){
+		display:none;
+	}
+	
+	.FormReply div:nth-child(2) input{
+		width: 100%;
+	}
+	.Submit{
+	
+	}
+	
+	.Submit button:nth-child(1), .Submit button:nth-child(2) {
+		padding: 5px 10px;
+		font-size: 14px;
+	}
 }

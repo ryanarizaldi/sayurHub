@@ -67,6 +67,7 @@ function AddReply (props) {
 							onChange={formik.handleChange}
 							name="reply"
 							id="reply"
+							placeholder="Write your reply here"
 							type="text"></input>
 							{formik.touched.reply && formik.errors.reply ? (
 							  <div className={styles.ErrorMsg}>{formik.errors.reply}</div>
