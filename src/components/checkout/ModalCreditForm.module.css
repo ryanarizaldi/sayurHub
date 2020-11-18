@@ -2,7 +2,6 @@
 	max-height: calc(100vh - 50px);
 	overflow-y: auto;
     width: 600px;
-	/* height: 700px; */
 	background: #FFFFFF;
 	border-radius: 8px;
 	position: relative;
@@ -121,14 +120,18 @@
     margin-right: 10px;
 }
 
+button {
+	outline: none;
+}
+
 .ButtonGroup {
-    width: 32%;
+    width: 35%;
     margin-left: auto;
     margin-top: 20px;
     margin-right: 35px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+	justify-content: space-between;
     /* align-content: ; */
 }
 

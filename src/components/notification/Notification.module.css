@@ -27,12 +27,6 @@
     border-radius: 8px;
 }
 
-/* .Text {
-    justify-content: center;
-    align-items: baseline;
-    padding-top: 10px;
-} */
-
 .Text p:nth-child(1) {
     font-size: 16px;
     line-height: 24px;
@@ -82,29 +76,6 @@
 
     .ProductHistory {
         margin: auto;
-        width: 320px;
-        margin-bottom: 16px;
-    }
-
-    /* .ProductHistory .Text {
-        display: inline;
-        flex-direction: row;
-    } */
-
-    .ProductHistory span {
-        font-size: 80%;
-        justify-self: self-end;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .History {
-        margin: auto;
-        padding-top: 24px;
-    }
-
-    .ProductHistory {
-        margin: auto;
         width: 100%;
         margin-bottom: 16px;
         flex-direction: column;
@@ -119,7 +90,5 @@
         margin: 16px auto 0;
         text-align: center;
         padding: 0;
-
-
     }
  }

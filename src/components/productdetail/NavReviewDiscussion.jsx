@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Review from "../review/Review";
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 import * as actionTypesDiscussion from "../../redux/action/ActionDiscussion";
 import * as actionTypes from "../../redux/action/Action";
 
@@ -10,13 +10,14 @@ import { NavLink, Route, useParams } from "react-router-dom";
 
 function NavReviewDiscussion(props) {
   const { review, discussion, getReview, getDiscussion } = props;
-	
+
   const { id } = useParams();
-	
+
   useEffect(() => {
-	  getReview(id);
-	  getDiscussion(id);
-  }, [getDiscussion, getReview, id])
+    getReview(id);
+    getDiscussion(id);
+    window.scrollTo(0, 1000);
+  }, [getDiscussion, getReview, id]);
 
   return (
     <div className={styles.Wrapper}>
@@ -43,20 +44,22 @@ function NavReviewDiscussion(props) {
   );
 }
 
+const mapStateToProps = (state) => {
+  return {
+    discussion: state.discussion.discussion,
+    review: state.index.review,
+  };
+};
 
-const mapStateToProps = state => {
-	return {
-		discussion: state.discussion.discussion,
-		review: state.index.review
-	}
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getReview: (id) => dispatch(actionTypes.getReview(id)),
+    getDiscussion: (productId) =>
+      dispatch(actionTypesDiscussion.getDiscussion(productId)),
+  };
+};
 
-const mapDispatchToProps = dispatch => {
-	return {
-		getReview: (id) => dispatch(actionTypes.getReview(id)),
-		getDiscussion: (productId) => dispatch(actionTypesDiscussion.getDiscussion(productId))
-		
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavReviewDiscussion);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NavReviewDiscussion);

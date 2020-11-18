@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import * as actionTypesCart from "../../redux/action/ActionCart";
-
 import { useParams } from "react-router-dom";
 import ReactStars from "react-stars";
 import axios from "axios";
@@ -19,7 +18,7 @@ function ProductDets(props) {
   };
 
   const [product, setProduct] = useState({});
-  const [seller, setSellers] = useState({});
+  // const [seller, setSellers] = useState({});
   const [rating, setRating] = useState(0);
   const [modal, setModal] = useState({
       addReview: false,
@@ -50,7 +49,7 @@ function ProductDets(props) {
           `https://pacific-oasis-23064.herokuapp.com/products/${id}`
         );
         setProduct(callmebabe.data.products);
-        setSellers(callmebabe.data.products.user);
+        // setSellers(callmebabe.data.products.user);
         setLoading(false);
       } catch (error) {
         console.log("errorgan", error);
@@ -122,13 +121,13 @@ function ProductDets(props) {
                 </div>
               </div>
 
-              <div className={styles.Seller}>
+              {/* <div className={styles.Seller}>
                 <img src={seller ? seller.profile_image : noimg} alt="seller" />
                 <div className={styles.SellerInfo}>
                   <p>{seller ? seller.full_name : "seller not found"}</p>
                   {seller && <button>Seller Details</button>}
                 </div>
-              </div>
+              </div> */}
               <div className={styles.AddToCart}>
                 <button onClick={() => addCart()}>Add to Cart</button>
                 <button onClick={() => onChange("addReview", true)}>

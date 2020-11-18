@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal } from "@material-ui/core";
 import styles from "./ModalFormShipping.module.css";
 import CloseIcon from "@material-ui/icons/Close";
@@ -12,37 +12,250 @@ import Swal from "sweetalert2";
 function ModalFormShipping(props) {
   const { open, onClose, idCart } = props;
   const history = useHistory();
-  const [province, setProv] = useState([]),
-    [city, setCity] = useState([]),
+  const [province] = useState([
+      { province_id: "6", province: "DKI Jakarta" },
+      { province_id: "9", province: "Jawa Barat" },
+    ]),
+    [city] = useState([
+      {
+        city_id: "151",
+        province_id: "6",
+        province: "DKI Jakarta",
+        type: "Kota",
+        city_name: "Jakarta Barat",
+        postal_code: "11220",
+      },
+      {
+        city_id: "152",
+        province_id: "6",
+        province: "DKI Jakarta",
+        type: "Kota",
+        city_name: "Jakarta Pusat",
+        postal_code: "10540",
+      },
+      {
+        city_id: "153",
+        province_id: "6",
+        province: "DKI Jakarta",
+        type: "Kota",
+        city_name: "Jakarta Selatan",
+        postal_code: "12230",
+      },
+      {
+        city_id: "154",
+        province_id: "6",
+        province: "DKI Jakarta",
+        type: "Kota",
+        city_name: "Jakarta Timur",
+        postal_code: "13330",
+      },
+      {
+        city_id: "155",
+        province_id: "6",
+        province: "DKI Jakarta",
+        type: "Kota",
+        city_name: "Jakarta Utara",
+        postal_code: "14140",
+      },
+      {
+        city_id: "22",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Bandung",
+        postal_code: "40311",
+      },
+      {
+        city_id: "23",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kota",
+        city_name: "Bandung",
+        postal_code: "40111",
+      },
+      {
+        city_id: "24",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Bandung Barat",
+        postal_code: "40721",
+      },
+      {
+        city_id: "34",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kota",
+        city_name: "Banjar",
+        postal_code: "46311",
+      },
+      {
+        city_id: "54",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Bekasi",
+        postal_code: "17837",
+      },
+      {
+        city_id: "55",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kota",
+        city_name: "Bekasi",
+        postal_code: "17121",
+      },
+      {
+        city_id: "78",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Bogor",
+        postal_code: "16911",
+      },
+      {
+        city_id: "79",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kota",
+        city_name: "Bogor",
+        postal_code: "16119",
+      },
+      {
+        city_id: "103",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Ciamis",
+        postal_code: "46211",
+      },
+      {
+        city_id: "104",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Cianjur",
+        postal_code: "43217",
+      },
+      {
+        city_id: "107",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kota",
+        city_name: "Cimahi",
+        postal_code: "40512",
+      },
+      {
+        city_id: "108",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Cirebon",
+        postal_code: "45611",
+      },
+      {
+        city_id: "109",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kota",
+        city_name: "Cirebon",
+        postal_code: "45116",
+      },
+      {
+        city_id: "115",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kota",
+        city_name: "Depok",
+        postal_code: "16416",
+      },
+      {
+        city_id: "126",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Garut",
+        postal_code: "44126",
+      },
+      {
+        city_id: "149",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Indramayu",
+        postal_code: "45214",
+      },
+      {
+        city_id: "171",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Karawang",
+        postal_code: "41311",
+      },
+      {
+        city_id: "211",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Kuningan",
+        postal_code: "45511",
+      },
+      {
+        city_id: "252",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Majalengka",
+        postal_code: "45412",
+      },
+      {
+        city_id: "332",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Pangandaran",
+        postal_code: "46511",
+      },
+      {
+        city_id: "376",
+        province_id: "9",
+        province: "Jawa Barat",
+        type: "Kabupaten",
+        city_name: "Purwakarta",
+        postal_code: "41119",
+      },
+    ]),
     [input, setInput] = useState({ state: "6" });
 
-  useEffect(() => {
-    const getOption = async () => {
-      try {
-        const optionProv = await Axios({
-          method: "get",
-          url: `https://pacific-oasis-23064.herokuapp.com/delivery/province`,
-          headers: {
-            token: localStorage.getItem("token"),
-          },
-        });
-        const optionCity = await Axios({
-          method: "get",
-          url: `https://pacific-oasis-23064.herokuapp.com/delivery/city`,
-          headers: {
-            token: localStorage.getItem("token"),
-          },
-        });
+  // this function below is a previous func to get city and province from BE's API. But since theres some problem with the endpoint, we choose to make it static
+  // useEffect(() => {
+  //   const getOption = async () => {
+  //     try {
+  //       const optionProv = await Axios({
+  //         method: "get",
+  //         url: `https://pacific-oasis-23064.herokuapp.com/delivery/province`,
+  //         headers: {
+  //           token: localStorage.getItem("token"),
+  //         },
+  //       });
+  //       const optionCity = await Axios({
+  //         method: "get",
+  //         url: `https://pacific-oasis-23064.herokuapp.com/delivery/city`,
+  //         headers: {
+  //           token: localStorage.getItem("token"),
+  //         },
+  //       });
 
-        setProv(optionProv.data.data.rajaongkir.results);
-        setCity(optionCity.data.data.rajaongkir.results);
-      } catch (error) {
-        console.log("error get city and province", error.response);
-      }
-    };
+  //       setProv(optionProv.data.data.rajaongkir.results);
+  //       setCity(optionCity.data.data.rajaongkir.results);
+  //     } catch (error) {
+  //       console.log("error get city and province", error.response);
+  //     }
+  //   };
 
-    getOption();
-  }, [open]);
+  //   getOption();
+  // }, [open]);
 
   const handleChange = (e) => {
     setInput({
@@ -238,7 +451,7 @@ function ModalFormShipping(props) {
               Cancel
             </button>
             <button className={styles.SubmitBtn} type="submit">
-              {formik.isSubmitting ? "Submitting..." : "SUBMIT"}
+              {formik.isSubmitting ? "wait..." : "SUBMIT"}
             </button>
           </div>
         </form>
