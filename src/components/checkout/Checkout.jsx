@@ -147,7 +147,8 @@ export default function Checkout() {
         try {
           const shipping = await Axios({
             method: "Post",
-            url: `https://pacific-oasis-23064.herokuapp.com/delivery/cost`,
+            url: `api/rajaongkir/cost`,
+            // url: `https://pacific-oasis-23064.herokuapp.com/delivery/cost`,
             // url: `https://api.rajaongkir.com/starter/cost`,
             data: qs.stringify({
               origin: 152,
@@ -157,8 +158,8 @@ export default function Checkout() {
             }),
             headers: {
               "content-Type": "application/x-www-form-urlencoded",
-              token: localStorage.getItem("token"),
-              // key: `d1fcd86f931c3cbacfcebe2b9b8edbe2`,
+              // token: localStorage.getItem("token"),
+              key: `d1fcd86f931c3cbacfcebe2b9b8edbe2`,
             },
           });
           setCourOpt(shipping.data.data.rajaongkir.results[0].costs);
