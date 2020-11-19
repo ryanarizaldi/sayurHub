@@ -35,7 +35,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
 		loading: action.payload.loading,
-		trigger: true
+		trigger: !state.trigger
       };
     case actionTypes.USER_LOGOUT:
       return {
