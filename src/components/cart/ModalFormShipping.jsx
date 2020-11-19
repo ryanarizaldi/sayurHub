@@ -284,9 +284,11 @@ function ModalFormShipping(props) {
         },
       });
       shipping.data.success
-        ? Swal.fire("Success!", `Now pay!`, "success").then(() =>
-            history.push("/checkout")
-          )
+        ? Swal.fire(
+            "Success!",
+            `We recevied your address`,
+            "success"
+          ).then(() => history.push("/checkout"))
         : Swal.fire("Something went wrong!", `Try Again later!`, "error");
     } catch (error) {
       console.log("error Send data shipping", error);

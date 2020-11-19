@@ -145,23 +145,43 @@ export default function Checkout() {
     if (cek >= 1) {
       const getShipCost = async () => {
         try {
-          const shipping = await Axios({
-            method: "Post",
-            url: `/api/rajaongkir/cost`,
-            // url: `https://pacific-oasis-23064.herokuapp.com/delivery/cost`,
-            // url: `https://api.rajaongkir.com/starter/cost`,
-            data: qs.stringify({
-              origin: 152,
-              destination: city,
-              weight: Math.ceil(weight) * 1000,
-              courier: courier,
-            }),
-            headers: {
-              "content-Type": "application/x-www-form-urlencoded",
-              // token: localStorage.getItem("token"),
-              key: `d1fcd86f931c3cbacfcebe2b9b8edbe2`,
+          // const shipping = await Axios({
+          //   method: "POST",
+          //   url: `/api/rajaongkir/cost`,
+          //   // url: `https://pacific-oasis-23064.herokuapp.com/delivery/cost`,
+          //   // url: `https://api.rajaongkir.com/starter/cost`,
+          //   // data: qs.stringify({
+          //   //   origin: 152,
+          //   //   destination: city,
+          //   //   weight: Math.ceil(weight) * 1000,
+          //   //   courier: courier,
+          //   // }),
+          //   data: {
+          //     origin: 501,
+          //     destination: 114,
+          //     weight: 1700,
+          //     courier: "jne",
+          //   },
+          //   headers: {
+          //     "content-Type": "application/x-www-form-urlencoded",
+          //     // token: localStorage.getItem("token"),
+          //     key: `d1fcd86f931c3cbacfcebe2b9b8edbe2`,
+          //   },
+          // });
+          const shipping = await Axios.post(
+            "/api/rajaongkir/starter/cost",
+            {
+              origin: 501,
+              destination: 114,
+              weight: 1700,
+              courier: "jne",
             },
-          });
+            {
+              headers: {
+                key: "d1fcd86f931c3cbacfcebe2b9b8edbe2",
+              },
+            }
+          );
           setCourOpt(shipping.data.data.rajaongkir.results[0].costs);
         } catch (error) {
           console.log("error get shipping cost", error);
