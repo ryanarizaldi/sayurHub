@@ -9,7 +9,7 @@ import * as actionTypes from "../../redux/action/Action";
 import SkeletonProfile from "../skeletons/SkeletonProfile";
 
 function UserDashboard(props) {
-  const { userData, getUser, loading } = props;
+  const { userData, getUser, loading, trigger } = props;
 
   const [modal, setModal] = useState({
       editProfile: false,
@@ -18,7 +18,7 @@ function UserDashboard(props) {
 
   useEffect(() => {
     getUser();
-  }, [getUser, token]);
+  }, [getUser, token, trigger]);
 
   const onChange = (name, value) => {
     setModal({
@@ -91,6 +91,7 @@ const mapStateToProps = (state) => {
   return {
     userData: state.index.userData,
     loading: state.index.loading,
+	trigger: state.index.trigger
   };
 };
 
