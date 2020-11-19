@@ -34,8 +34,8 @@ function rootReducer(state = initialState, action) {
     case actionTypes.EDIT_USER:
       return {
         ...state,
-        userData: action.payload.data,
-		loading: action.payload.loading
+		loading: action.payload.loading,
+		trigger: true
       };
     case actionTypes.USER_LOGOUT:
       return {
