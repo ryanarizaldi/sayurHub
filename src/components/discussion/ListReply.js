@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 
 function ListReply (props) {
 	
-	const { discussionId, reply, replyLength, index, user, deleteReplyAdmin, deleteReplyUser } = props;
+	const { discussionId, reply, replyLength, index, user, deleteReplyAdmin, deleteReplyUser} = props;
 	
 	const [token] = useState(localStorage.getItem('token')),
 		  [tokenAdmin] = useState(localStorage.getItem('tokenAdmin')),

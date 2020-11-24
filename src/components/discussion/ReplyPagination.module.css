@@ -1,0 +1,26 @@
+.Wrapper{
+	border: 1px solid #ccc;
+	border-top: none;
+    width: 100%;
+	position: relative;
+	background: rgb(245, 245, 245);
+	cursor: pointer;
+}
+
+.Text{
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	align-items: center;
+	padding: 24px 24px 24px 150px;
+	margin: 0px auto 0px auto;
+}
+
+.Text p {
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	letter-spacing: 1.5px;
+}

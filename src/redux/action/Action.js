@@ -186,6 +186,7 @@ export const editUser = (values, id, state, onClose) => {
     try {
       const token = localStorage.getItem("token");
       const fd = new FormData();
+	  console.log(state);
       fd.append("full_name", full_name);
       fd.append("description", description);
       fd.append("email", email);
