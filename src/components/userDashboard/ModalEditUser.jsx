@@ -145,8 +145,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    editUser: (values, id, state, onClose) =>
-      dispatch(actionTypes.editUser(values, id, state, onClose)),
+    editUser: (values, id, state, onClose) => dispatch(actionTypes.editUser(values, id, state, onClose)),
   };
 };
 

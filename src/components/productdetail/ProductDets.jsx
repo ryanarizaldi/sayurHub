@@ -23,7 +23,9 @@ function ProductDets(props) {
   const [modal, setModal] = useState({
       addReview: false,
     }),
-    [loading, setLoading] = useState(false);
+   		[loading, setLoading] = useState(false),
+		[token] = useState(localStorage.getItem('token')),
+		[tokenAdmin] = useState(localStorage.getItem('tokenAdmin'));
   const { id } = useParams();
 
   const onChange = (name, value) => {
@@ -76,6 +78,12 @@ function ProductDets(props) {
     rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
     return rupiah;
   };
+	
+  const reduce = () => {
+	  if(quantity >= 2){
+		  reduceQuantity();
+	  }
+  }
   return (
     <div className={styles.Container}>
       {!loading ? (
@@ -109,10 +117,11 @@ function ProductDets(props) {
                   ,-
                 </h5>
               </div>
-              <div className={styles.QuantyAndStock}>
+			{token || tokenAdmin ? 
+			 <div className={styles.QuantyAndStock}>
                 <div className={styles.Quantity}>
                   <p>Quantity: </p>
-                  <button onClick={() => reduceQuantity()}>-</button>
+                  <button onClick={() => reduce()}>-</button>
                   <span>{quantity}</span>
                   <button onClick={() => addQuantity()}>+</button>
                 </div>
@@ -120,6 +129,8 @@ function ProductDets(props) {
                   <p>Stock: {product.stock}</p>
                 </div>
               </div>
+			: ""}
+             
 
               {/* <div className={styles.Seller}>
                 <img src={seller ? seller.profile_image : noimg} alt="seller" />
@@ -128,7 +139,8 @@ function ProductDets(props) {
                   {seller && <button>Seller Details</button>}
                 </div>
               </div> */}
-              <div className={styles.AddToCart}>
+			{token || tokenAdmin ? 
+				<div className={styles.AddToCart}>
                 <button onClick={() => addCart()}>Add to Cart</button>
                 <button onClick={() => onChange("addReview", true)}>
                   Add Review
@@ -141,6 +153,8 @@ function ProductDets(props) {
                   />
                 )}
               </div>
+			: ""}
+              
             </div>
           </div>
           <Nav />

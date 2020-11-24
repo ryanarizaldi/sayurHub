@@ -5,6 +5,7 @@ import * as actionTypesDiscussion from "../../redux/action/ActionDiscussion";
 import ListReply from './ListReply';
 import styles from './ListDiscussion.module.css';
 import ModalEditDiscussion from './ModalEditDiscussion';
+import ReplyPagination from './ReplyPagination';
 import AddReply from './AddReply';
 import Swal from "sweetalert2";
 import axios from 'axios';
@@ -14,25 +15,39 @@ function ListDiscussion (props) {
 	
 	const { list, deleteDiscussion, user, trigger} = props;
 
-	const [modal, setModal] = useState({
-		      editDiscussion:false,
-		  }),
+	const [modal, setModal] = useState({editDiscussion:false}),
 		  [tokenAdmin] = useState(localStorage.getItem('tokenAdmin')),
-		  [reply, setReply] = useState([]);
+		  [reply, setReply] = useState([]),
+		  [endPage, setEndPage] = useState(4),
+		  [allReply, setAllReply] = useState([]),
+		  [loading, setLoading] = useState(false);
 	
+		
+	const triggerPageHandler = () => {
+			setLoading(true);
+			setEndPage(endPage + 4);
+		}
 	
 	useEffect(() => {
 		
 		axios.get("https://pacific-oasis-23064.herokuapp.com/reply/" + list._id)
 			.then(response => {
-			setReply(response.data.data);
-			console.log(response.data.data)
+			let data = response.data.data.reverse();
+			setAllReply(response.data.data);
+			if(data.length > 4){
+			   let sliced = data.slice(0, endPage);
+			   let reversed = sliced.reverse()
+			   setReply(reversed);
+			   setLoading(false);
+			} else {
+				setReply(data);
+			}
 		})
 			.catch(error => {
 			console.log(error)
 		})
 		
-	}, [trigger, list._id])
+	}, [trigger, list._id, endPage])
 	
 	const onChange = ( name, value ) => {
     	setModal({ 
@@ -76,6 +91,11 @@ function ListDiscussion (props) {
 				</div>
 				: ""  }		
 			</div>
+			{allReply?.length > 4 && allReply?.length !== reply?.length ?
+				<ReplyPagination 
+					loading={loading}
+					triggerPageHandler={triggerPageHandler}/>
+			: "" }
 			{reply?.length > 0 ?
 				reply.map((replied, i) => {
 				return (
