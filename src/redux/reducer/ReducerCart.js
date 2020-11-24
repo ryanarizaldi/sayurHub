@@ -20,7 +20,7 @@ function rootReducer(state = initialState, action) {
 		case actionTypes.ADD_QUANTITY:
 			return {
 				...state,
-				quantity: state.quantity + action.payload.quantity,
+				quantity: state.quantity + 1,
 				totalPriceCart: state.quantity * action.payload.totalPrice
 				
 			}
