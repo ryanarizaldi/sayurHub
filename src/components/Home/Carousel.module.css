@@ -176,12 +176,14 @@
   margin-right: 1rem;
   display: inline-block;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .paginationBulletActive {
   width: 4.2rem;
   border-radius: 1rem;
   background: #a87b14;
+  cursor: default;
 }
 
 .Container4{

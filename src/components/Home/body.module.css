@@ -19,12 +19,13 @@
 	box-sizing: border-box;
 	padding: 10px 20px;
 	margin: 24px 16px 24.16px 0;
-	border: 0px solid black;
+	border: 0px solid #DE884A;
 	border-radius: 8px;
-	background: #EBEBEB;
-	color: #AEA9A5;
+	background: #fff;
+	color: #DE884A;
 	transition: all 0.4s ease 0s;
 	outline: none;
+	
 }
 
 .Button button:hover{

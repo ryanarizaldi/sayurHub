@@ -44,7 +44,7 @@ function Product(props) {
                   src={item.product_image ? item.product_image : noimg}
                   alt="product"
                 ></img>
-				  <button className={styles.Cag}>{item.category}</button>
+                <button className={styles.Cag}>{item.category}</button>
                 <h1>{item.product_name}</h1>
                 <p>
                   Rp.{" "}

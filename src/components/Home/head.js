@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./head.module.css";
-import HeadPic from "../../assets/img/Homepic1.png";
-import Carousel from './Carousel';
+import Carousel from "./Carousel";
 import PicTop from "../../assets/img/Homepic2.png";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import PicBottom from "../../assets/img/Homepic3.png";
